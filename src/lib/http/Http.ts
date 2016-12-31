@@ -1,34 +1,17 @@
-import * as LibUrl from "url";
-import * as LibHttp from "http";
-import * as LibHttps from "https";
+import * as LibRequest from "request";
 
 class HttpPromise {
 
     public download(url: string): Promise<Buffer> {
+        let size =  0;
         return new Promise((resolve, reject) => {
-            let lib = this.getHttpLibViaProtocol(url);
-            lib.get(url, (response) => {
-                const statusCode = response.statusCode;
-
-                if (statusCode !== 200) {
-                    return reject(new Error(`Request Failed.\nStatus Code: ${statusCode}.`));
+            LibRequest.get(url, { gzip: true }, (err, response, body) => {
+                if (err) {
+                    return reject(err);
                 }
-
-                let rawData = [];
-                response.on("data", (chunk) => rawData.push(chunk));
-                response.on("end", () => resolve(Buffer.concat(rawData)));
-                response.on("error", (err) => reject(err));
+                return resolve(body);
             });
         });
-    }
-
-    private getHttpLibViaProtocol(url: string): any {
-        let parsed = LibUrl.parse(url);
-        if (parsed.protocol === "http") {
-            return LibHttp;
-        } else {
-            return LibHttps;
-        }
     }
 
 }
