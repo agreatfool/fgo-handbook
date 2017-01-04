@@ -1,6 +1,7 @@
-interface SourceObject {
-    originHost: string;
-    masterUri: string;
+interface SourceConfig {
+    prototcol: string; // https
+    originHost: string; // kazemai.github.io
+    masterUri: string; // fgo-vz/common/js/master.js
 }
 
-export default SourceObject;
+export default SourceConfig;

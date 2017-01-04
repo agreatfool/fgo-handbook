@@ -6,11 +6,12 @@ let ROOT_DIR = LibPath.join(LibPath.dirname(__filename), "..", "..");
 
 import Utility from "../lib/utility/Utility";
 import Log from "../lib/log/Log";
-import SourceObject from "../model/config/source";
+import SourceConfig from "../model/config/Source";
 import HttpPromise from "../lib/http/Http";
+import Const from "../lib/const/Const";
 
-class Crawler {
-    private _sourceConf: SourceObject;
+export default class Crawler {
+    private _sourceConf: SourceConfig;
     private _sourceMasterUrl: string;
     private _masterFilePath: string;
     private _masterJsonPath: string;
@@ -24,10 +25,10 @@ class Crawler {
 
     constructor() {
         Log.log("[Crawler] Starting ...");
-        this._sourceConf = require(LibPath.join(ROOT_DIR, "config", "source.json"));
-        this._sourceMasterUrl = LibUrlJoin("https://", this._sourceConf.originHost, this._sourceConf.masterUri);
-        this._masterFilePath = LibPath.join(ROOT_DIR, "database", "origin", "master.js");
-        this._masterJsonPath = LibPath.join(ROOT_DIR, "database", "origin", "master.json");
+        this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
+        this._sourceMasterUrl = LibUrlJoin(`${this._sourceConf.prototcol}://`, this._sourceConf.originHost, this._sourceConf.masterUri);
+        this._masterFilePath = LibPath.join(Const.PATH_DATABASE, "origin", "master.js");
+        this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, "origin", "master.json");
 
         this._utility = new Utility();
         this._libHttp = new HttpPromise();
@@ -36,9 +37,18 @@ class Crawler {
         this._masterPatternEnd = "'));".length;
     }
 
-    public async run() {
-        let file: string = await this.downloadMasterFile();
-        let json: any = await this.parseMasterJson(file);
+    public async run(): Promise<any> {
+        let file: string;
+        let json: any;
+
+        try {
+            file = await this.downloadMasterFile();
+            json = await this.parseMasterJson(file)
+        } catch (err) {
+            return Promise.reject(err);
+        }
+
+        return Promise.resolve(json);
     }
 
     public async downloadMasterFile(): Promise<string> {
@@ -71,7 +81,7 @@ class Crawler {
             this._masterJson = JSON.parse(decompressed);
 
             await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(this._masterJson, null, "    "));
-            Promise.resolve(this._masterJson);
+            return Promise.resolve(this._masterJson);
         } catch (err) {
             return Promise.reject(err);
         }
@@ -82,5 +92,3 @@ class Crawler {
     }
 
 }
-
-export default Crawler;

@@ -3,6 +3,8 @@ import * as LibMd5File from "md5-file";
 
 import Log from "../log/Log";
 
+declare function unescape(s: string): string;
+
 class Utility {
 
     public convertFormatedHexToString(str: string): string {
@@ -117,6 +119,28 @@ class Utility {
 
     public decompressFromHexStr(str: string): string {
         return LZString.decompress(this.convertFormatedHexToString(str));
+    }
+
+    public toUnicode(str: string): string {
+        let result = "";
+        for (let i = 0; i < str.length; i++) {
+            result += "\\u" + ("000" + str[i].charCodeAt(0).toString(16)).substr(-4);
+        }
+        return result;
+    }
+
+    public fromUnicode(str: string): string {
+        return unescape(str.replace(/\\/g, "%"));
+    };
+
+    public convertSimpleMapToObject(input: Map<any, any>): Object {
+        let obj = Object.create(null);
+        for (let [k, v] of input) {
+            // We don’t escape the key '__proto__'
+            // which can cause problems on older engines
+            obj[k] = v;
+        }
+        return obj;
     }
 
 }
