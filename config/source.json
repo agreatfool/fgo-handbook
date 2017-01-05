@@ -1,5 +1,7 @@
 {
     "protocol": "https",
     "originHost": "kazemai.github.io",
-    "masterUri": "fgo-vz/common/js/master.js"
+    "baseUri": "fgo-vz/common",
+    "masterUri": "js/master.js",
+    "svtThumbnailUri": "images/Servant/#SVTID_status_servant_#NO.png"
 }

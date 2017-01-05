@@ -7,8 +7,8 @@ declare function unescape(s: string): string;
 
 class Utility {
 
-    public convertFormatedHexToString(str: string): string {
-        let byteArr = this.convertFormatedHexToBytes(str);
+    public static convertFormatedHexToString(str: string): string {
+        let byteArr = Utility._convertFormatedHexToBytes(str);
         if (byteArr === false) {
             return "";
         }
@@ -20,7 +20,7 @@ class Utility {
         return res;
     }
 
-    private convertFormatedHexToBytes(hexStr: string): false | Array<number> {
+    private static _convertFormatedHexToBytes(hexStr: string): false | Array<number> {
         let count: number = 0,
             hexArr: Array<string>,
             hexData: Array<number> = [],
@@ -47,23 +47,23 @@ class Utility {
         return hexData;
     }
 
-    public convertStringToFormatedHex(str: string): string {
+    public static convertStringToFormatedHex(str: string): string {
         let byteArr = [];
         for (let i = 0 ; i < str.length; i++) {
             let value = str.charCodeAt(i);
             byteArr.push(value & 255);
             byteArr.push((value>>8) & 255);
         }
-        return this.convertByteArrToFormatedHex(byteArr);
+        return Utility._convertByteArrToFormatedHex(byteArr);
     }
 
-    private convertByteArrToFormatedHex(byteArr: Array<number>): string {
+    private static _convertByteArrToFormatedHex(byteArr: Array<number>): string {
         var hexStr = "",
             i,
             len,
             tmpHex;
 
-        if (!this.isArray(byteArr)) {
+        if (!Utility.isArray(byteArr)) {
             return "";
         }
 
@@ -74,7 +74,7 @@ class Utility {
                 byteArr[i] = byteArr[i] + 256;
             }
             if (byteArr[i] === undefined) {
-                Log.log(`[Utility] convertToFormatedHex: Boom ${i}`);
+                Log.instance.log(`[Utility] convertToFormatedHex: Boom ${i}`);
                 byteArr[i] = 0;
             }
             tmpHex = byteArr[i].toString(16);
@@ -98,11 +98,11 @@ class Utility {
         return hexStr.trim();
     }
 
-    public isArray(input: any): Boolean {
+    public static isArray(input: any): Boolean {
         return typeof(input) === "object" && (input instanceof Array);
     }
 
-    public generateFileMd5(path: string): Promise<string> {
+    public static generateFileMd5(path: string): Promise<string> {
         return new Promise((resolve, reject) => {
             LibMd5File(path, (err, hash) => {
                 if (err) {
@@ -113,15 +113,15 @@ class Utility {
         });
     }
 
-    public compressToHexStr(str: string): string {
-        return this.convertStringToFormatedHex(LZString.compress(str));
+    public static compressToHexStr(str: string): string {
+        return Utility.convertStringToFormatedHex(LZString.compress(str));
     }
 
-    public decompressFromHexStr(str: string): string {
-        return LZString.decompress(this.convertFormatedHexToString(str));
+    public static decompressFromHexStr(str: string): string {
+        return LZString.decompress(Utility.convertFormatedHexToString(str));
     }
 
-    public toUnicode(str: string): string {
+    public static toUnicode(str: string): string {
         let result = "";
         for (let i = 0; i < str.length; i++) {
             result += "\\u" + ("000" + str[i].charCodeAt(0).toString(16)).substr(-4);
@@ -129,13 +129,16 @@ class Utility {
         return result;
     }
 
-    public fromUnicode(str: string): string {
+    public static fromUnicode(str: string): string {
         return unescape(str.replace(/\\/g, "%"));
     };
 
-    public convertSimpleMapToObject(input: Map<any, any>): Object {
+    public static convertSimpleMapToObject(input: Map<any, any>): Object {
         let obj = Object.create(null);
         for (let [k, v] of input) {
+            if (typeof v === "object") {
+                v = this.convertSimpleMapToObject(v);
+            }
             // We don’t escape the key '__proto__'
             // which can cause problems on older engines
             obj[k] = v;

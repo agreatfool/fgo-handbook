@@ -11,12 +11,12 @@ import HttpPromise from "../lib/http/Http";
 import Const from "../lib/const/Const";
 
 export default class Crawler {
+
     private _sourceConf: SourceConfig;
     private _sourceMasterUrl: string;
     private _masterFilePath: string;
     private _masterJsonPath: string;
 
-    private _utility: Utility;
     private _libHttp: HttpPromise;
 
     private _masterJson: any;
@@ -24,13 +24,17 @@ export default class Crawler {
     private _masterPatternEnd: number;
 
     constructor() {
-        Log.log("[Crawler] Starting ...");
+        Log.instance.info("[Crawler] Starting ...");
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
-        this._sourceMasterUrl = LibUrlJoin(`${this._sourceConf.prototcol}://`, this._sourceConf.originHost, this._sourceConf.masterUri);
+        this._sourceMasterUrl = LibUrlJoin(
+            `${this._sourceConf.prototcol}://`,
+            this._sourceConf.originHost,
+            this._sourceConf.baseUri,
+            this._sourceConf.masterUri
+        );
         this._masterFilePath = LibPath.join(Const.PATH_DATABASE, "origin", "master.js");
         this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, "origin", "master.json");
 
-        this._utility = new Utility();
         this._libHttp = new HttpPromise();
 
         this._masterPatternStart = "var mstTxt = LZString.decompress(convert_formated_hex_to_string('".length + 1;
@@ -52,15 +56,15 @@ export default class Crawler {
     }
 
     public async downloadMasterFile(): Promise<string> {
-        Log.log("[Crawler] Processing downloadMasterFile ...");
+        Log.instance.info("[Crawler] Processing downloadMasterFile ...");
         try {
-            Log.log(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
+            Log.instance.info(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
             let buffer: Buffer = await this._libHttp.download(this._sourceMasterUrl);
             if (buffer.length <= 0) {
                 return Promise.reject(new Error(`Empty response data from ${this._sourceMasterUrl}!`));
             }
             let file: string = buffer.toString();
-            Log.log(`[Crawler] Downloaded file size ${file.length} ...`);
+            Log.instance.info(`[Crawler] Downloaded file size ${file.length} ...`);
 
             await LibAsyncFile.writeFile(this._masterFilePath, file);
             return Promise.resolve(file);
@@ -70,14 +74,14 @@ export default class Crawler {
     }
 
     public async parseMasterJson(file: string): Promise<any> {
-        Log.log("[Crawler] Processing parseMasterJson ...");
+        Log.instance.info("[Crawler] Processing parseMasterJson ...");
         try {
             let splitFile: string[] = file.split("\n");
             let firstLine: string = splitFile[0];
 
             let result = firstLine.substring(this._masterPatternStart, firstLine.length - this._masterPatternEnd);
 
-            let decompressed = this._utility.decompressFromHexStr(result);
+            let decompressed = Utility.decompressFromHexStr(result);
             this._masterJson = JSON.parse(decompressed);
 
             await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(this._masterJson, null, "    "));
