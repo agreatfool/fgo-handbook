@@ -16,7 +16,7 @@ convertor.run();
 
 import Utility from "../lib/utility/Utility";
 console.log(Utility.toUnicode("地"));
-console.log(Utility.fromUnicode("\uff1f\u4eba\u5929\u5730\u661f\u7378"));
+console.log(Utility.fromUnicode("\u5f35"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";
