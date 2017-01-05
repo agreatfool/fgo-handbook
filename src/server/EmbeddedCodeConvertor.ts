@@ -15,12 +15,14 @@ export default class EmbeddedCodeConvertor {
     private _gender: Array<string>; // 性别
     private _policy: string; // 阵营：中立 混沌 秩序 ? ? 中立
     private _personality: string; // 个性：善 惡 ? 狂 中庸 ? 花嫁 夏
+    private _attri: string; // 属性：？人天地星獸
 
     // CONVERTED
     private _invididualityConverted: Map<number, string>; // {2000: "神性"}
     private _genderConverted: Map<number, string>; // {2: "女性"}
     private _policyConverted: Map<number, string>; // {0: "中立"}
     private _personalityConverted: Map<number, string>; // {0: "善"}
+    private _attriConverted: Map<number, string>; // {0: "地"}
 
     constructor() {
         this._combined = new Map<string, Map<number, string>>();
@@ -63,6 +65,10 @@ export default class EmbeddedCodeConvertor {
          * " \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1 \u590f".split(" ")[master.mstSvtLimit[m].personality]
          */
         this._personality = " \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1 \u590f";
+        /**
+         * "\uff1f\u4eba\u5929\u5730\u661f\u7378".split("")[master.mstSvt[k].attri]
+         */
+        this._attri = "\uff1f\u4eba\u5929\u5730\u661f\u7378";
 
         /**
          * CONVERTED
@@ -71,6 +77,7 @@ export default class EmbeddedCodeConvertor {
         this._genderConverted = new Map<number, string>();
         this._policyConverted = new Map<number, string>();
         this._personalityConverted = new Map<number, string>();
+        this._attriConverted = new Map<number, string>();
     }
 
     public async run(): Promise<any> {
@@ -79,11 +86,13 @@ export default class EmbeddedCodeConvertor {
             await this._convertGender();
             await this._convertPolicy();
             await this._convertPersonality();
+            await this._convertAttri();
 
             this._combined.set("invididuality", this._invididualityConverted);
             this._combined.set("gender", this._genderConverted);
             this._combined.set("policy", this._policyConverted);
             this._combined.set("personality", this._personalityConverted);
+            this._combined.set("attri", this._attriConverted);
 
             await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertSimpleMapToObject(this._combined), null, "    "));
 
@@ -155,6 +164,23 @@ export default class EmbeddedCodeConvertor {
                 id++;
             }
             return Promise.resolve(this._personalityConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertAttri(): Promise<any> {
+        try {
+            if (this._attri.length <= 0) {
+                return Promise.resolve(this._attriConverted);
+            }
+            let id = 0;
+            let split: Array<string> = this._attri.split("");
+            for (let index in split) {
+                this._attriConverted.set(id, Utility.fromUnicode(split[index]));
+                id++;
+            }
+            return Promise.resolve(this._attriConverted);
         } catch (err) {
             return Promise.reject(err);
         }

@@ -15,8 +15,8 @@ let convertor = new EmbeddedCodeConvertor();
 convertor.run();
 
 import Utility from "../lib/utility/Utility";
-// console.log(Utility.toUnicode("名稱"));
-// console.log(Utility.fromUnicode(" \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1 \u590f"));
+console.log(Utility.toUnicode("地"));
+console.log(Utility.fromUnicode("\uff1f\u4eba\u5929\u5730\u661f\u7378"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";

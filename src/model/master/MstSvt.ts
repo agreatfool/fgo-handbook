@@ -2,7 +2,7 @@ interface MstSvt { // 从者主信息
     relateQuestIds: Array<number>;
     individuality: Array<number>; // 特性
     classPassive: Array<number>;
-    cardIds: Array<number>;
+    cardIds: Array<number>; // 指令卡配卡
     script: Object; // {}
     id: number;
     baseSvtId: number;
@@ -16,7 +16,7 @@ interface MstSvt { // 从者主信息
     friendshipId: number;
     maxFriendshipRank: number;
     genderType: number; // 性别
-    attri: number;
+    attri: number; // 属性：？人天地星獸
     combineSkillId: number;
     combineLimitId: number;
     sellQp: number;

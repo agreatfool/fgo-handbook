@@ -3,6 +3,7 @@ interface EmbeddedCodeConverted {
     gender: Map<number, string>;
     policy: Map<number, string>;
     personality: Map<number, string>;
+    attri: Map<number, string>;
 }
 
 export default EmbeddedCodeConverted;
