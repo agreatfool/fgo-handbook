@@ -1,6 +1,8 @@
-export default class EmbeddedCodeConverted {
-    private _individuality: Map<number, string>;
-    private _gender: Map<number, string>;
-    private _policy: Map<number, string>;
-    private _personality: Map<number, string>;
+interface EmbeddedCodeConverted {
+    individuality: Map<number, string>;
+    gender: Map<number, string>;
+    policy: Map<number, string>;
+    personality: Map<number, string>;
 }
+
+export default EmbeddedCodeConverted;

@@ -87,7 +87,7 @@ export default class EmbeddedCodeConvertor {
 
             await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertSimpleMapToObject(this._combined), null, "    "));
 
-            return Promise.resolve(this._invididualityConverted);
+            return Promise.resolve(this._combined);
         } catch (err) {
             return Promise.reject(err);
         }
