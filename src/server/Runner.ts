@@ -27,11 +27,13 @@ async function testConfig() {
   let property = await Config.instance.loadConfig(Const.CONFIG_SOURCE, "baseUri") as String;
   let code = await Config.instance.loadWholeConfig(Const.CONFIG_EMBEDDED_CODE) as EmbeddedCodeConverted;
 
-  console.log(conf);
-  console.log(property);
-  console.log(code);
+  // console.log(conf);
+  // console.log(property);
+  // console.log(code);
 }
 testConfig();
+
+
 
 //main();
 

@@ -74,7 +74,7 @@ class Utility {
                 byteArr[i] = byteArr[i] + 256;
             }
             if (byteArr[i] === undefined) {
-                Log.instance.log(`[Utility] convertToFormatedHex: Boom ${i}`);
+                Log.instance.notice(`[Utility] convertToFormatedHex: Boom ${i}`);
                 byteArr[i] = 0;
             }
             tmpHex = byteArr[i].toString(16);

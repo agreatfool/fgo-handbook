@@ -1,5 +1,7 @@
-export default class MstClass{
-    private id: number;
-    private name: string;
-    private attackRate: number;
+interface MstClass{
+    id: number;
+    name: string;
+    attackRate: number;
 }
+
+export default MstClass;

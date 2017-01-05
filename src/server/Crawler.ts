@@ -6,7 +6,7 @@ let ROOT_DIR = LibPath.join(LibPath.dirname(__filename), "..", "..");
 
 import Utility from "../lib/utility/Utility";
 import Log from "../lib/log/Log";
-import SourceConfig from "../model/config/Source";
+import SourceConfig from "../model/config/SourceConfig";
 import HttpPromise from "../lib/http/Http";
 import Const from "../lib/const/Const";
 
