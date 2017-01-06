@@ -86,14 +86,36 @@ export interface MstSvtLimit { // 从者数值
     deity: number;
 }
 
-export interface MstSvtSkill {
+export interface MstSvtSkill { // 技能开放条件
+    /**
+     * master.mstSvtSkill[a].condLimitCount === -1 活动技能
+     * 0 == master.mstSvtSkill[a].condLimitCount && 0 == master.mstSvtSkill[a].condQuestId && 0 == master.mstSvtSkill[a].condLv 初期技能
+     * 0 != master.mstSvtSkill[a].condLimitCount 靈基再臨第 X 階段
+     * 0 != master.mstSvtSkill[a].condLv 等级限制
+     * 0 != master.mstSvtSkill[a].condQuestId 关卡限制，通过 XXX 关卡
+     */
     svtId: number;
     num: number;
     skillId: number;
-    condQuestId: number;
+    condQuestId: number; // 技能开放任务ID，一般为0
     condQuestPhase: number;
-    condLv: number;
-    condLimitCount: number;
+    condLv: number; // 等级限制
+    condLimitCount: number; // 灵基再领阶段限制
+}
+
+export interface MstSkillLv { // 技能相关
+    funcId: Array<any>; // []
+    svals: Array<any>; // []
+    script: Object; // {}
+    skillId: number;
+    lv: number;
+    chargeTurn: number; // 冷却回合数
+    skillDetailId: number;
+}
+
+export interface MstSkillDetail { // 技能解释文本
+    id: number;
+    detail: string; // 味方単体に無敵状態を付与(1ターン)＆NPを増やす[{0}]
 }
 
 export interface MstTreasureDeviceLv { // 主要用来计算NP效率

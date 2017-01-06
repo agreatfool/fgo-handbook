@@ -2,6 +2,7 @@ import * as LibPath from "path";
 
 import * as LibAsyncFile from "async-file";
 
+import Utility from "../utility/Utility";
 import Const from "../const/Const";
 
 export default class Config {
@@ -17,17 +18,15 @@ export default class Config {
 
     private _cache: Map<string, Object>; // json object
 
-    private _embeddedCodeName: string = "embedded_code";
-
     private constructor() {
         this._cache = new Map<string, Object>();
     }
 
-    public async loadConfig(configName: string, propertyName: string): Promise<any> {
+    public async loadConfig(configName: Array<string> | string, propertyName: string): Promise<any> {
         try {
             let json = await this.loadWholeConfig(configName) as Object;
             if (!json.hasOwnProperty(propertyName)) {
-                return Promise.reject(new Error(`Config "${configName}" has no property: ${propertyName}!`));
+                return Promise.reject(new Error(`[Config] loadConfig: Config "${configName}" has no property: ${propertyName}!`));
             }
             return Promise.resolve(json[propertyName]);
         } catch (err) {
@@ -35,21 +34,28 @@ export default class Config {
         }
     }
 
-    public async loadWholeConfig(configName: string): Promise<Object> {
+    public async loadWholeConfig(configName: Array<string> | string): Promise<Object> {
         try {
-            if (this._cache.has(configName)) {
-                return Promise.resolve(this._cache.get(configName));
+            let cacheKey: string = "";
+            if (Utility.isArray(configName)) {
+                cacheKey = (configName as Array<string>).join('|');
+            } else {
+                cacheKey = configName as string;
+            }
+
+            if (this._cache.has(cacheKey)) {
+                return Promise.resolve(this._cache.get(cacheKey));
             }
 
             let filePath = this._getConfigPath(configName);
-            if (!LibAsyncFile.exists(filePath)) {
-                return Promise.reject(new Error(`Config file not found: "${configName}!"`));
+            if (!await LibAsyncFile.exists(filePath)) {
+                return Promise.reject(new Error(`[Config] loadWholeConfig: Config file not found: "${filePath}!"`));
             }
 
             let file = await LibAsyncFile.readFile(filePath);
             let json = JSON.parse(file);
 
-            this._cache.set(configName, json);
+            this._cache.set(cacheKey, json);
 
             return Promise.resolve(json);
         } catch (err) {
@@ -57,14 +63,14 @@ export default class Config {
         }
     }
 
-    private _getConfigPath(configName: string): string {
-        let basePath = Const.PATH_CONFIG;
-
-        if (configName === this._embeddedCodeName) {
-            basePath = Const.PATH_DATABASE;
+    private _getConfigPath(configName: Array<string> | string): string {
+        if (typeof configName === "string") {
+            return LibPath.join(Const.PATH_BASE, `${configName}.json`);
+        } else {
+            let copy = Array.from(configName);
+            copy[copy.length - 1] += '.json';
+            return LibPath.join(Const.PATH_BASE, ...copy);
         }
-
-        return LibPath.join(basePath, `${configName}.json`);
     }
 
 }

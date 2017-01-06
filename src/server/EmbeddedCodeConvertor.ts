@@ -2,12 +2,15 @@ import * as LibPath from "path";
 
 import * as LibAsyncFile from "async-file";
 
+import Log from "../lib/log/Log";
+import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import Utility from "../lib/utility/Utility";
+import { TransSvtName, TransSkillDetail, TransTreasureDetail, EmbeddedCodeConverted } from "../model/master/EmbeddedCodeConverted";
 
 export default class EmbeddedCodeConvertor {
 
-    private _combined: Map<string, Map<number, string>>;
+    private _combined: EmbeddedCodeConverted;
     private _dbJsonPath: string;
 
     // EMBEDDED CODE
@@ -16,6 +19,16 @@ export default class EmbeddedCodeConvertor {
     private _policy: string; // 阵营：中立 混沌 秩序 ? ? 中立
     private _personality: string; // 个性：善 惡 ? 狂 中庸 ? 花嫁 夏
     private _attri: string; // 属性：？人天地星獸
+    /**
+     * 下述代码片段来自 https://kazemai.github.io/fgo-vz/common/js/transData.js
+     * var svtName
+     * var tdDetail
+     * var skDetail
+     * 部分内容过大，使用文件存储 database/embedded_trans.json
+     */
+    private _transSvtName: Array<Array<string>>;
+    private _transSkillDetail: Array<Array<string>>;
+    private _transTreasureDetail: Array<Array<string>>;
 
     // CONVERTED
     private _invididualityConverted: Map<number, string>; // {2000: "神性"}
@@ -23,9 +36,11 @@ export default class EmbeddedCodeConvertor {
     private _policyConverted: Map<number, string>; // {0: "中立"}
     private _personalityConverted: Map<number, string>; // {0: "善"}
     private _attriConverted: Map<number, string>; // {0: "地"}
+    private _transSvtNameConverted: Map<number, TransSvtName>;
+    private _transSkillDetailConverted: Map<number, TransSkillDetail>;
+    private _transTreasureDetailConverted: Map<number, TransTreasureDetail>;
 
     constructor() {
-        this._combined = new Map<string, Map<number, string>>();
         this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, "embedded_code.json");
 
         /**
@@ -78,6 +93,9 @@ export default class EmbeddedCodeConvertor {
         this._policyConverted = new Map<number, string>();
         this._personalityConverted = new Map<number, string>();
         this._attriConverted = new Map<number, string>();
+        this._transSvtNameConverted = new Map<number, TransSvtName>();
+        this._transSkillDetailConverted = new Map<number, TransSkillDetail>();
+        this._transTreasureDetailConverted = new Map<number, TransTreasureDetail>();
     }
 
     public async run(): Promise<any> {
@@ -87,14 +105,22 @@ export default class EmbeddedCodeConvertor {
             await this._convertPolicy();
             await this._convertPersonality();
             await this._convertAttri();
+            await this._convertTransSvtName();
+            await this._convertTransSkillDetail();
+            await this._convertTransTreasureDetail();
 
-            this._combined.set("invididuality", this._invididualityConverted);
-            this._combined.set("gender", this._genderConverted);
-            this._combined.set("policy", this._policyConverted);
-            this._combined.set("personality", this._personalityConverted);
-            this._combined.set("attri", this._attriConverted);
+            this._combined = {
+                "individuality": this._invididualityConverted,
+                "gender": this._genderConverted,
+                "policy": this._policyConverted,
+                "personality": this._personalityConverted,
+                "attri": this._attriConverted,
+                "transSvtName": this._transSvtNameConverted,
+                "transSkillDetail": this._transSkillDetailConverted,
+                "transTreasureDetail": this._transTreasureDetailConverted
+            };
 
-            await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertSimpleMapToObject(this._combined), null, "    "));
+            await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertToObject(this._combined), null, "    "));
 
             return Promise.resolve(this._combined);
         } catch (err) {
@@ -181,6 +207,89 @@ export default class EmbeddedCodeConvertor {
                 id++;
             }
             return Promise.resolve(this._attriConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertTransSvtName(): Promise<any> {
+        try {
+            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+
+            for (let nameInfo of embeddedTransData["name"]) {
+                let svtId: number = parseInt((nameInfo as Array<string>)[0]);
+                let name: string = (nameInfo as Array<string>)[1];
+                let battleName: string = (nameInfo as Array<string>)[2];
+
+                if (this._transSvtNameConverted.has(svtId)) {
+                    Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransSvtName: Duplicate svtId: ${svtId}!`);
+                }
+
+                this._transSvtNameConverted.set(svtId, {
+                    "svtId": svtId,
+                    "name": name,
+                    "battleName": battleName
+                });
+            }
+            return Promise.resolve(this._transSvtNameConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertTransSkillDetail(): Promise<any> {
+        try {
+            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+
+            for (let skillInfo of embeddedTransData["skill"]) {
+                let skillId: number = parseInt((skillInfo as Array<string>)[0]);
+                let detail: string = (skillInfo as Array<string>)[1];
+                let effect1: Array<string> = Utility.isVoid((skillInfo as Array<string>)[2]) ? [] : (skillInfo as Array<string>)[2].split("/");
+                let effect2: Array<string> = Utility.isVoid((skillInfo as Array<string>)[3]) ? [] : (skillInfo as Array<string>)[3].split("/");
+                let effect3: Array<string> = Utility.isVoid((skillInfo as Array<string>)[4]) ? [] : (skillInfo as Array<string>)[4].split("/");
+                if (this._transSkillDetailConverted.has(skillId)) {
+                    Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransSkillDetail: Duplicate skillId: ${skillId}!`);
+                }
+
+                this._transSkillDetailConverted.set(skillId, {
+                    "skillId": skillId,
+                    "detail": detail,
+                    "effect1": effect1,
+                    "effect2": effect2,
+                    "effect3": effect3
+                });
+            }
+            return Promise.resolve(this._transSkillDetailConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertTransTreasureDetail(): Promise<any> {
+        try {
+            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+
+            for (let treasureInfo of embeddedTransData["treasure"]) {
+                let treasureId: number = parseInt((treasureInfo as Array<string>)[0]);
+                let detail: string = (treasureInfo as Array<string>)[1];
+                let effect1: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[2]) ? [] : (treasureInfo as Array<string>)[2].split("/");
+                let effect2: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[3]) ? [] : (treasureInfo as Array<string>)[3].split("/");
+                let effect3: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[4]) ? [] : (treasureInfo as Array<string>)[4].split("/");
+                let effect4: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[5]) ? [] : (treasureInfo as Array<string>)[5].split("/");
+                if (this._transTreasureDetailConverted.has(treasureId)) {
+                    Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransTreasureDetail: Duplicate treasureId: ${treasureId}!`);
+                }
+
+                this._transTreasureDetailConverted.set(treasureId, {
+                    "treasureId": treasureId,
+                    "detail": detail,
+                    "effect1": effect1,
+                    "effect2": effect2,
+                    "effect3": effect3,
+                    "effect4": effect4
+                });
+            }
+            return Promise.resolve(this._transTreasureDetailConverted);
         } catch (err) {
             return Promise.reject(err);
         }

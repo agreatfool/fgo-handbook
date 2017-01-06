@@ -61,7 +61,7 @@ export default class Crawler {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
             let buffer: Buffer = await this._libHttp.download(this._sourceMasterUrl);
             if (buffer.length <= 0) {
-                return Promise.reject(new Error(`Empty response data from ${this._sourceMasterUrl}!`));
+                return Promise.reject(new Error(`[Crawler] downloadMasterFile: Empty response data from ${this._sourceMasterUrl}!`));
             }
             let file: string = buffer.toString();
             Log.instance.info(`[Crawler] Downloaded file size ${file.length} ...`);

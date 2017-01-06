@@ -15,8 +15,8 @@ let convertor = new EmbeddedCodeConvertor();
 convertor.run();
 
 import Utility from "../lib/utility/Utility";
-console.log(Utility.toUnicode("地"));
-console.log(Utility.fromUnicode("\u5f35"));
+// console.log(Utility.toUnicode("地"));
+// console.log(Utility.fromUnicode("\u901a\u904e\u95dc\u5361"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";
@@ -25,7 +25,7 @@ import EmbeddedCodeConverted from "../model/master/EmbeddedCodeConverted";
 async function testConfig() {
   let conf = await Config.instance.loadWholeConfig(Const.CONFIG_SOURCE) as SourceConfig;
   let property = await Config.instance.loadConfig(Const.CONFIG_SOURCE, "baseUri") as String;
-  let code = await Config.instance.loadWholeConfig(Const.CONFIG_EMBEDDED_CODE) as EmbeddedCodeConverted;
+  let code = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_CODE) as EmbeddedCodeConverted;
 
   // console.log(conf);
   // console.log(property);
