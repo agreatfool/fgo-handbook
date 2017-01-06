@@ -15,7 +15,7 @@ export interface MstSkill { // 技能表
 export interface MstSvt { // 从者主信息
     relateQuestIds: Array<number>;
     individuality: Array<number>; // 特性
-    classPassive: Array<number>;
+    classPassive: Array<number>; // 职阶被动技能
     cardIds: Array<number>; // 指令卡配卡
     script: Object; // {}
     id: number;
@@ -100,7 +100,7 @@ export interface MstSvtSkill { // 技能开放条件
     condQuestId: number; // 技能开放任务ID，一般为0
     condQuestPhase: number;
     condLv: number; // 等级限制
-    condLimitCount: number; // 灵基再领阶段限制
+    condLimitCount: number; // 灵基再临阶段限制
 }
 
 export interface MstSkillLv { // 技能相关
@@ -116,6 +116,35 @@ export interface MstSkillLv { // 技能相关
 export interface MstSkillDetail { // 技能解释文本
     id: number;
     detail: string; // 味方単体に無敵状態を付与(1ターン)＆NPを増やす[{0}]
+}
+
+export interface MstTreasureDevice { // 从者宝具
+    id: number;
+    name: string; // 無垢識・空の境界
+    ruby: string; // むくしき・からのきょうかい
+    rank: number; // EX
+    maxLv: number; // 5
+    typeText: string; // 対人宝具
+}
+
+export interface MstSvtTreasureDevice { // 从者宝具开放条件
+    /**
+     * 98 == master.mstSvtTreasureDevice[b].num NPC限定
+     * 0 == master.mstSvtTreasureDevice[b].condQuestId && 0 == master.mstSvtTreasureDevice[b].condLv && 0 == master.mstSvtTreasureDevice[b].condFriendshipRank 初期
+     * null != findName(master.mstQuest, master.mstSvtTreasureDevice[b].condQuestId) 任务获得 questRea(master.mstSvtTreasureDevice[b].condQuestId)
+     * condLv 等级限制 到Lv.XX 解放
+     * condFriendshipRank 羁绊等级 XX 解放
+     * 未开放
+     */
+    damage: Array<number>;
+    svtId: number;
+    num: number;
+    treasureDeviceId: number;
+    condQuestId: number; // 技能开放任务ID，一般为0
+    condQuestPhase: number;
+    condLv: number; // 等级限制
+    condFriendshipRank: number;
+    cardId: number; // 指令卡：Art、Burster、Quick
 }
 
 export interface MstTreasureDeviceLv { // 主要用来计算NP效率
