@@ -27,7 +27,7 @@ export interface MstSvt { // 从者主信息
     type: number;
     limitMax: number; // 灵基再临上限；从0开始，一般是4，解放4次
     rewardLv: number;
-    friendshipId: number;
+    friendshipId: number; // 羁绊等级升级数量 对应 MstFriendship
     maxFriendshipRank: number;
     genderType: number; // 性别
     attri: number; // 属性：？人天地星獸
@@ -170,4 +170,10 @@ export interface MstTreasureDeviceLv { // 主要用来计算NP效率
     tdPointB: number;
     tdPointEx: number;
     tdPointDef: number;
+}
+
+export interface MstFriendship { // 羁绊等级定义
+    id: number; // 对应 MstSvt.friendshipId
+    rank: number; // 羁绊等级
+    friendship: number; // 需求的羁绊数量
 }

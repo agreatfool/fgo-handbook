@@ -15,8 +15,8 @@ let convertor = new EmbeddedCodeConvertor();
 convertor.run();
 
 import Utility from "../lib/utility/Utility";
-// console.log(Utility.toUnicode("地"));
-console.log(Utility.fromUnicode("\u7d46\u7b49\u7d1a \u89e3\u653e \u672a\u958b\u653e"));
+console.log(Utility.toUnicode("筋力"));
+console.log(Utility.fromUnicode("\u7d46\u9ede\u6578<br>(\u7d2f\u7a4d)"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";
