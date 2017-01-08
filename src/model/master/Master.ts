@@ -177,3 +177,13 @@ export interface MstFriendship { // 羁绊等级定义
     rank: number; // 羁绊等级
     friendship: number; // 需求的羁绊数量
 }
+
+export interface MstSvtComment { // 从者信息文本
+    svtId: number;
+    id: number;
+    priority: number;
+    comment: string;
+    condType: number; // 开放条件：9 灵基再临阶段；1 完成任务
+    condValue: number;
+    condValue2: number;
+}

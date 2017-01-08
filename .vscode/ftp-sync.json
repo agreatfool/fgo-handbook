@@ -1,0 +1,19 @@
+{
+    "remotePath": "/home/ubuntu/work",
+    "host": "115.159.197.152",
+    "username": "ubuntu",
+    "password": "TCsalt@night.001",
+    "port": 22,
+    "secure": false,
+    "protocol": "sftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": true,
+    "privateKeyPath": "/Users/Jonathan/.ssh/id_rsa",
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ]
+}

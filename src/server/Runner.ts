@@ -16,7 +16,7 @@ convertor.run();
 
 import Utility from "../lib/utility/Utility";
 console.log(Utility.toUnicode("筋力"));
-console.log(Utility.fromUnicode("\u7d46\u9ede\u6578<br>(\u7d2f\u7a4d)"));
+console.log(Utility.fromUnicode("\u89d2\u8272\u8a73\u7d30"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";
