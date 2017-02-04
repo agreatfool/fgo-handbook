@@ -221,6 +221,8 @@ export interface MstSvtExp { // 从者经验需求
      *         master.mstSvtLimit[m].atkMax - master.mstSvtLimit[m].atkBase
      *     ) * master.mstSvtExp[l].curve / 1000
      * )
+     * 升级曲率幅度计算：
+     * (master.mstSvtExp[l].curve - master.mstSvtExp[l - 1].curve) / 10 + "%"
      */
     type: number; // 1 和 MstSvt.expType 一致
     lv: number; // 90 升级到这一级，而不是从这一级启升
