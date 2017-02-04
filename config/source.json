@@ -2,7 +2,10 @@
     "protocol": "https",
     "originHost": "kazemai.github.io",
     "baseUri": "fgo-vz/common",
-    "masterUri": "js/master.js",
-    "svtThumbnailUri": "images/Servant/#SVTID_status_servant_#NO.png",
-    "svtSkillUri": "images/SkillIcon/SkillIcon_#SKILLID.png"
+    "masterJsonUri": "js/master.js",
+    "imageSvtThumbnailUri": "images/Servant/#SVTID_status_servant_#NO.png",
+    "imageSvtSkillUri": "images/SkillIcon/SkillIcon_#SKILLID.png",
+    "imageItemIconUri": "images/icon/items/#ITEMID.png",
+    "imageSvtCmdUri": "images/Servant/#SVTID_card_servant_#NO.png",
+    "imageSvtCardUri": "images/CharaGraph/#SVTID#NO.png"
 }

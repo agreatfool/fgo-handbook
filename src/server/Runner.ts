@@ -16,7 +16,7 @@ convertor.run();
 
 import Utility from "../lib/utility/Utility";
 console.log(Utility.toUnicode("筋力"));
-console.log(Utility.fromUnicode("\u89d2\u8272\u8a73\u7d30"));
+console.log(Utility.fromUnicode("\u3000"));
 
 import Const from "../lib/const/Const";
 import Config from "../lib/config/Config";

@@ -30,7 +30,7 @@ export default class Crawler {
             `${this._sourceConf.prototcol}://`,
             this._sourceConf.originHost,
             this._sourceConf.baseUri,
-            this._sourceConf.masterUri
+            this._sourceConf.masterJsonUri
         );
         this._masterFilePath = LibPath.join(Const.PATH_DATABASE, "origin", "master.js");
         this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, "origin", "master.json");

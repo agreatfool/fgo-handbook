@@ -5,11 +5,11 @@ export interface MstClass { // 职阶信息
 }
 
 export interface MstSkill { // 技能表
-    id: number;
-    type: number;
-    name: string;
-    maxLv: number;
-    iconId: number;
+    id: number; // 1000
+    type: number; // 1
+    name: string; // 今は脆き雪花の壁
+    maxLv: number; // 10
+    iconId: number; // 400
 }
 
 export interface MstSvt { // 从者主信息
@@ -24,7 +24,7 @@ export interface MstSvt { // 从者主信息
     ruby: string;
     battleName: string;
     classId: number; // 职阶ID
-    type: number;
+    type: number; // 类型99貌似是特殊类型，类似活动从者，一般不用处理
     limitMax: number; // 灵基再临上限；从0开始，一般是4，解放4次
     rewardLv: number;
     friendshipId: number; // 羁绊等级升级数量 对应 MstFriendship
@@ -186,4 +186,44 @@ export interface MstSvtComment { // 从者信息文本
     condType: number; // 开放条件：9 灵基再临阶段；1 完成任务
     condValue: number;
     condValue2: number;
+}
+
+export interface MstCombineLimit { // 从者灵基再临需求
+    itemIds: Array<number>; // [7001]
+    itemNums: Array<number>; // [5]
+    id: number; // 从者ID，关联 MstSvt.id
+    svtLimit: number; // 0
+    qp: number; // 100000
+}
+
+export interface MstCombineSkill { // 从者技能升级需求
+    itemIds: Array<number>; // [6001]
+    itemNums: Array<number>; // [5]
+    id: number; // 从者ID，关联 MstSvt.id
+    skillLv: number; // 当前技能等级：1升2，这里就是1
+    qp: number; // 200000
+}
+
+export interface MstItem { // 道具表
+    id: number; // 1
+    name: string; // QP
+    detail: string; // 【強化資源】\n量子の欠片。\n多くの可能性を許容する霊子のゆらぎ。\n燃料として、さまざまな魔術に使われる。
+    imageId: number; // 5
+    type: number; // 1
+    dropPriority: number; // 9010
+}
+
+export interface MstSvtExp { // 从者经验需求
+    /**
+     * MstSvtLimit 从者数值表中只有从者的最高和基础攻击等数值，中间值需要用公式计算出来：
+     * Math.floor(
+     *     master.mstSvtLimit[m].atkBase + (
+     *         master.mstSvtLimit[m].atkMax - master.mstSvtLimit[m].atkBase
+     *     ) * master.mstSvtExp[l].curve / 1000
+     * )
+     */
+    type: number; // 1 和 MstSvt.expType 一致
+    lv: number; // 90 升级到这一级，而不是从这一级启升
+    exp: number; // 12567000
+    curve: number; // 1508 成长曲率
 }
