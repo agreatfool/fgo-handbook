@@ -2,8 +2,7 @@ import * as LibPath from "path";
 import LibUrlJoin = require("url-join");
 import * as LibAsyncFile from "async-file";
 
-let ROOT_DIR = LibPath.join(LibPath.dirname(__filename), "..", "..");
-
+import Config from "../lib/config/Config";
 import Utility from "../lib/utility/Utility";
 import Log from "../lib/log/Log";
 import SourceConfig from "../model/config/SourceConfig";
@@ -32,8 +31,6 @@ export default class Crawler {
             this._sourceConf.baseUri,
             this._sourceConf.masterJsonUri
         );
-        this._masterFilePath = LibPath.join(Const.PATH_DATABASE, "origin", "master.js");
-        this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, "origin", "master.json");
 
         this._libHttp = new HttpPromise();
 
@@ -46,6 +43,10 @@ export default class Crawler {
         let json: any;
 
         try {
+            let appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
+            this._masterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
+            this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.json");
+
             file = await this.downloadMasterFile();
             json = await this.parseMasterJson(file)
         } catch (err) {

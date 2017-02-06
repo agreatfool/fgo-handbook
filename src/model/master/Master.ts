@@ -95,7 +95,7 @@ export interface MstSvtSkill { // 技能开放条件
      * 0 != master.mstSvtSkill[a].condQuestId 关卡限制，通过 XXX 关卡
      */
     svtId: number;
-    num: number;
+    num: number; // 技能槽位ID
     skillId: number;
     condQuestId: number; // 技能开放任务ID，一般为0
     condQuestPhase: number;

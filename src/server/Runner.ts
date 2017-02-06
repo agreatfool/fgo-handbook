@@ -33,6 +33,12 @@ async function testConfig() {
 }
 testConfig();
 
+import ModelLoader from "../model/impl/MstLoader";
+async function testModel() {
+    let result = await ModelLoader.instance.loadModel('MstClass');
+    return Promise.resolve(result);
+}
+testModel();
 
 
 //main();

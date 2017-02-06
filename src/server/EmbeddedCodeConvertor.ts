@@ -6,7 +6,12 @@ import Log from "../lib/log/Log";
 import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import Utility from "../lib/utility/Utility";
-import { TransSvtName, TransSkillDetail, TransTreasureDetail, EmbeddedCodeConverted } from "../model/master/EmbeddedCodeConverted";
+import {
+    TransSvtName,
+    TransSkillDetail,
+    TransTreasureDetail,
+    EmbeddedCodeConverted
+} from "../model/master/EmbeddedCodeConverted";
 
 export default class EmbeddedCodeConvertor {
 
@@ -14,7 +19,7 @@ export default class EmbeddedCodeConvertor {
     private _dbJsonPath: string;
 
     // EMBEDDED CODE
-    private _invididuality: Array<Array<number | string>>; // 特性 [[2000, "\u795e\u6027"]]
+    private _individuality: Array<Array<number | string>>; // 特性 [[2000, "\u795e\u6027"]]
     private _gender: Array<string>; // 性别
     private _policy: string; // 阵营：中立 混沌 秩序 ? ? 中立
     private _personality: string; // 个性：善 惡 ? 狂 中庸 ? 花嫁 夏
@@ -25,13 +30,14 @@ export default class EmbeddedCodeConvertor {
      * var tdDetail
      * var skDetail
      * 部分内容过大，使用文件存储 database/embedded_trans.json
+     * FIXME 后续这块需要自动化
      */
     private _transSvtName: Array<Array<string>>;
     private _transSkillDetail: Array<Array<string>>;
     private _transTreasureDetail: Array<Array<string>>;
 
     // CONVERTED
-    private _invididualityConverted: Map<number, string>; // {2000: "神性"}
+    private _individualityConverted: Map<number, string>; // {2000: "神性"}
     private _genderConverted: Map<number, string>; // {2: "女性"}
     private _policyConverted: Map<number, string>; // {0: "中立"}
     private _personalityConverted: Map<number, string>; // {0: "善"}
@@ -50,7 +56,7 @@ export default class EmbeddedCodeConvertor {
          * function svtDataTable(e) {
          * 下面的定义 "q = ..."
          */
-        this._invididuality = [
+        this._individuality = [
             [2000, "\u795e\u6027"],
             [2001, "\u4eba\u578b"],
             [2002, "\u9f8d"],
@@ -86,7 +92,7 @@ export default class EmbeddedCodeConvertor {
         /**
          * CONVERTED
          */
-        this._invididualityConverted = new Map<number, string>();
+        this._individualityConverted = new Map<number, string>();
         this._genderConverted = new Map<number, string>();
         this._policyConverted = new Map<number, string>();
         this._personalityConverted = new Map<number, string>();
@@ -111,7 +117,7 @@ export default class EmbeddedCodeConvertor {
             await this._convertTransTreasureDetail();
 
             this._combined = {
-                "individuality": this._invididualityConverted,
+                "individuality": this._individualityConverted,
                 "gender": this._genderConverted,
                 "policy": this._policyConverted,
                 "personality": this._personalityConverted,
@@ -131,16 +137,16 @@ export default class EmbeddedCodeConvertor {
 
     private async _convertIndividuality(): Promise<any> {
         try {
-            if (this._invididuality.length <= 0) {
-                return Promise.resolve(this._invididualityConverted);
+            if (this._individuality.length <= 0) {
+                return Promise.resolve(this._individualityConverted);
             }
-            for (let index in this._invididuality) {
-                let id: number = this._invididuality[index][0] as number;
-                let name: string = Utility.fromUnicode(this._invididuality[index][1] as string);
+            for (let index in this._individuality) {
+                let id: number = this._individuality[index][0] as number;
+                let name: string = Utility.fromUnicode(this._individuality[index][1] as string);
 
-                this._invididualityConverted.set(id, name);
+                this._individualityConverted.set(id, name);
             }
-            return Promise.resolve(this._invididualityConverted);
+            return Promise.resolve(this._individualityConverted);
         } catch (err) {
             return Promise.reject(err);
         }
@@ -297,7 +303,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     get individuality()  {
-        return this._invididualityConverted;
+        return this._individualityConverted;
     }
 
 }

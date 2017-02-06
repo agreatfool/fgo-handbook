@@ -173,6 +173,14 @@ class Utility {
         return obj;
     }
 
+    public static ucFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    };
+
+    public static lcFirst(str) {
+        return str.charAt(0).toLowerCase() + str.slice(1);
+    };
+
 }
 
 export default Utility;

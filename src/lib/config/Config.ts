@@ -4,6 +4,7 @@ import * as LibAsyncFile from "async-file";
 
 import Utility from "../utility/Utility";
 import Const from "../const/Const";
+import Log from "../log/Log";
 
 export default class Config {
 
@@ -30,6 +31,7 @@ export default class Config {
             let appVer = await this.loadConfig(Const.CONF_APP, 'version');
             let dbKeywordIndex = -1;
             clonedName = clonedName as Array<string>;
+            //noinspection TypeScriptUnresolvedFunction
             clonedName.forEach((ele, index) => {
                 if (ele === Const.CONF_DB_KEY_WORD) {
                     dbKeywordIndex = index;
@@ -84,6 +86,7 @@ export default class Config {
 
             return Promise.resolve(json);
         } catch (err) {
+            Log.instance.error(`[Config] loadWholeConfig: configName: "${JSON.stringify(configName)}!"`);
             return Promise.reject(err);
         }
     }
