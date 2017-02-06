@@ -58,7 +58,7 @@ class Utility {
     }
 
     private static _convertByteArrToFormatedHex(byteArr: Array<number>): string {
-        var hexStr = "",
+        let hexStr = "",
             i,
             len,
             tmpHex;
@@ -105,7 +105,7 @@ class Utility {
             return Array.isArray(object);
         }
         else {
-            return !!(object instanceof Array);
+            return (object instanceof Array);
         }
     }
 

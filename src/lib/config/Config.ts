@@ -22,6 +22,31 @@ export default class Config {
         this._cache = new Map<string, Object>();
     }
 
+    public async loadDbConfigWithVersion(configName: Array<string> | string, propertyName?: string): Promise<any> {
+        let clonedName = null;
+
+        if (Utility.isArray(configName)) {
+            clonedName = configName.slice(0);
+            let appVer = await this.loadConfig(Const.CONF_APP, 'version');
+            let dbKeywordIndex = -1;
+            clonedName = clonedName as Array<string>;
+            clonedName.forEach((ele, index) => {
+                if (ele === Const.CONF_DB_KEY_WORD) {
+                    dbKeywordIndex = index;
+                }
+            });
+            if (dbKeywordIndex !== -1) { // found the keyword
+                clonedName.splice(dbKeywordIndex + 1, 0, appVer);
+            }
+        }
+
+        if (propertyName) {
+            return Utility.isArray(configName) ? this.loadConfig(clonedName, propertyName) : this.loadConfig(configName, propertyName);
+        } else {
+            return Utility.isArray(configName) ? this.loadWholeConfig(clonedName) : this.loadWholeConfig(configName);
+        }
+    }
+
     public async loadConfig(configName: Array<string> | string, propertyName: string): Promise<any> {
         try {
             let json = await this.loadWholeConfig(configName) as Object;

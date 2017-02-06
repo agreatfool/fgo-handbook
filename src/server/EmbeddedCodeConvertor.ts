@@ -41,8 +41,6 @@ export default class EmbeddedCodeConvertor {
     private _transTreasureDetailConverted: Map<number, TransTreasureDetail>;
 
     constructor() {
-        this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, "embedded_code.json");
-
         /**
          * EMBEDDED CODE
          */
@@ -100,6 +98,9 @@ export default class EmbeddedCodeConvertor {
 
     public async run(): Promise<any> {
         try {
+            let appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
+            this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_code.json");
+
             await this._convertIndividuality();
             await this._convertGender();
             await this._convertPolicy();
@@ -214,7 +215,7 @@ export default class EmbeddedCodeConvertor {
 
     private async _convertTransSvtName(): Promise<any> {
         try {
-            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
             for (let nameInfo of embeddedTransData["name"]) {
                 let svtId: number = parseInt((nameInfo as Array<string>)[0]);
@@ -239,7 +240,7 @@ export default class EmbeddedCodeConvertor {
 
     private async _convertTransSkillDetail(): Promise<any> {
         try {
-            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
             for (let skillInfo of embeddedTransData["skill"]) {
                 let skillId: number = parseInt((skillInfo as Array<string>)[0]);
@@ -267,7 +268,7 @@ export default class EmbeddedCodeConvertor {
 
     private async _convertTransTreasureDetail(): Promise<any> {
         try {
-            let embeddedTransData = await Config.instance.loadWholeConfig(Const.DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
             for (let treasureInfo of embeddedTransData["treasure"]) {
                 let treasureId: number = parseInt((treasureInfo as Array<string>)[0]);
