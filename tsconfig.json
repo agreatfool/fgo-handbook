@@ -9,7 +9,9 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/**/*"
+        "src/lib/**/*",
+        "src/model/**/*",
+        "src/server/**/*"
     ],
     "exclude": [
         "dist",
