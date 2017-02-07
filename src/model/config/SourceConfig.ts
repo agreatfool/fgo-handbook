@@ -1,5 +1,5 @@
 interface SourceConfig {
-    prototcol: string;              // https
+    protocol: string;              // https
     originHost: string;             // kazemai.github.io
     baseUri: string;                // fgo-vz/common
     masterJsonUri: string;          // js/master.js

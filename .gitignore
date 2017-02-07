@@ -1,6 +1,3 @@
-dist
-node_modules
-
 # OSX
 #
 .DS_Store
@@ -27,7 +24,6 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-.idea
 .gradle
 local.properties
 *.iml

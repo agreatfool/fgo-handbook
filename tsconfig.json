@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES6",
-        "module": "commonjs",
+        "target": "es2015",
+        "module": "es2015",
         "allowJs": true,
         "jsx": "react",
         "sourceMap": false,
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "build",
+        "moduleResolution": "node",
         //"noImplicitAny": true,
         "preserveConstEnums": true,
         "experimentalDecorators": true,

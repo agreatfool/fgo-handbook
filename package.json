@@ -12,7 +12,6 @@
     "@types/react": "^15.0.6",
     "@types/react-native": "^0.37.11",
     "@types/request": "0.0.39",
-    "@types/url-join": "^0.8.1",
     "async-file": "^2.0.2",
     "lz-string": "^1.4.4",
     "md5-file": "^3.1.1",
@@ -20,8 +19,7 @@
     "react": "~15.4.0",
     "react-native": "0.41.2",
     "reflect-metadata": "^0.1.9",
-    "request": "^2.79.0",
-    "url-join": "^1.1.0"
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

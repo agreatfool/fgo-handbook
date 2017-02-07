@@ -1,5 +1,4 @@
 import * as LibPath from "path";
-import LibUrlJoin = require("url-join");
 import * as LibAsyncFile from "async-file";
 
 import Config from "../lib/config/Config";
@@ -25,12 +24,7 @@ export default class Crawler {
     constructor() {
         Log.instance.info("[Crawler] Starting ...");
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
-        this._sourceMasterUrl = LibUrlJoin(
-            `${this._sourceConf.prototcol}://`,
-            this._sourceConf.originHost,
-            this._sourceConf.baseUri,
-            this._sourceConf.masterJsonUri
-        );
+        this._sourceMasterUrl = `${this._sourceConf.protocol}://${this._sourceConf.originHost}/${this._sourceConf.baseUri}/${this._sourceConf.masterJsonUri}`;
 
         this._libHttp = new HttpPromise();
 
@@ -61,6 +55,7 @@ export default class Crawler {
         try {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
             let buffer: Buffer = await this._libHttp.download(this._sourceMasterUrl);
+            //noinspection TypeScriptUnresolvedVariable
             if (buffer.length <= 0) {
                 return Promise.reject(new Error(`[Crawler] downloadMasterFile: Empty response data from ${this._sourceMasterUrl}!`));
             }
