@@ -71,7 +71,7 @@ export class MstCombineSkillContainer<MstCombineSkill> extends GroupContainer<Ms
     protected _idAttributeName = "skillLv";
 }
 
-export class MstTreasureDeviceContainer<MstItem> extends Container<MstItem> {
+export class MstItemContainer<MstItem> extends Container<MstItem> {
     protected _idAttributeName = "id";
 }
 

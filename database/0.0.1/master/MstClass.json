@@ -1,0 +1,127 @@
+[
+    {
+        "id": 1,
+        "name": "セイバー",
+        "attackRate": 1000
+    },
+    {
+        "id": 2,
+        "name": "アーチャー",
+        "attackRate": 950
+    },
+    {
+        "id": 3,
+        "name": "ランサー",
+        "attackRate": 1050
+    },
+    {
+        "id": 4,
+        "name": "ライダー",
+        "attackRate": 1000
+    },
+    {
+        "id": 5,
+        "name": "キャスター",
+        "attackRate": 900
+    },
+    {
+        "id": 6,
+        "name": "アサシン",
+        "attackRate": 900
+    },
+    {
+        "id": 7,
+        "name": "バーサーカー",
+        "attackRate": 1100
+    },
+    {
+        "id": 8,
+        "name": "シールダー",
+        "attackRate": 1000
+    },
+    {
+        "id": 9,
+        "name": "ルーラー",
+        "attackRate": 1100
+    },
+    {
+        "id": 10,
+        "name": "？",
+        "attackRate": 1000
+    },
+    {
+        "id": 11,
+        "name": "アヴェンジャー",
+        "attackRate": 1100
+    },
+    {
+        "id": 12,
+        "name": "？",
+        "attackRate": 1000
+    },
+    {
+        "id": 13,
+        "name": "？",
+        "attackRate": 1000
+    },
+    {
+        "id": 14,
+        "name": "？",
+        "attackRate": 950
+    },
+    {
+        "id": 15,
+        "name": "？",
+        "attackRate": 1050
+    },
+    {
+        "id": 16,
+        "name": "？",
+        "attackRate": 1000
+    },
+    {
+        "id": 17,
+        "name": "グランドキャスター",
+        "attackRate": 900
+    },
+    {
+        "id": 18,
+        "name": "？",
+        "attackRate": 900
+    },
+    {
+        "id": 19,
+        "name": "？",
+        "attackRate": 1100
+    },
+    {
+        "id": 97,
+        "name": "不明",
+        "attackRate": 1000
+    },
+    {
+        "id": 98,
+        "name": "NPC(不使用)",
+        "attackRate": 1000
+    },
+    {
+        "id": 99,
+        "name": "エネミー(不使用)",
+        "attackRate": 1000
+    },
+    {
+        "id": 100,
+        "name": "テスト(不使用)",
+        "attackRate": 1000
+    },
+    {
+        "id": 1000,
+        "name": "OTHER",
+        "attackRate": 1000
+    },
+    {
+        "id": 1001,
+        "name": "ALL",
+        "attackRate": 1000
+    }
+]

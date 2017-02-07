@@ -1,0 +1,3762 @@
+[
+    {
+        "id": 100,
+        "name": "",
+        "ruby": "",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 200,
+        "name": "オープンセサミ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 201,
+        "name": "オープンセサミ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 202,
+        "name": "オープンセサミ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 203,
+        "name": "オープンセサミ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 204,
+        "name": "業火",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 205,
+        "name": "業火",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 206,
+        "name": "業火",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 207,
+        "name": "業火",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 208,
+        "name": "屍斬り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 209,
+        "name": "屍突き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 210,
+        "name": "屍撃ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 211,
+        "name": "竜裂斬",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 212,
+        "name": "竜破断",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 213,
+        "name": "竜砕弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 214,
+        "name": "猛進撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 215,
+        "name": "猛突撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 216,
+        "name": "猛連射",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 217,
+        "name": "朽ちた剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 218,
+        "name": "朽ちた槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 219,
+        "name": "朽ちた弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 220,
+        "name": "全力攻撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 221,
+        "name": "全力突撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 222,
+        "name": "一刀両断",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 223,
+        "name": "腐った剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 224,
+        "name": "腐った槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 225,
+        "name": "腐った大剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 226,
+        "name": "早撃ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 227,
+        "name": "剣舞",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 228,
+        "name": "から竹割り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 229,
+        "name": "錆びた銃弾",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 230,
+        "name": "錆びた剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 231,
+        "name": "錆びた斧",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 232,
+        "name": "ショック",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 233,
+        "name": "バインド",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 234,
+        "name": "ポゼッション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 235,
+        "name": "鎧砕き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 236,
+        "name": "鎧砕き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 237,
+        "name": "鎧砕き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 244,
+        "name": "デモンズシール",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 245,
+        "name": "ハートノッカー",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 246,
+        "name": "ソウルシェイカー",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 247,
+        "name": "皮を裂くアン",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 248,
+        "name": "肉を断つドゥ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 249,
+        "name": "骨を断つトロワ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 250,
+        "name": "“砂を被る”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 251,
+        "name": "“岩を剥ぐ”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 252,
+        "name": "“大地に倣う”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 253,
+        "name": "“輝く波濤”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 254,
+        "name": "フレイムチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 255,
+        "name": "バイティングチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 256,
+        "name": "トラストチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 257,
+        "name": "スラッシュチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 258,
+        "name": "フラッシュチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 259,
+        "name": "竜炎",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 260,
+        "name": "竜炎",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 261,
+        "name": "大竜炎",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 262,
+        "name": "励起大竜炎",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 263,
+        "name": "ニーブルヘイム",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 264,
+        "name": "神秘弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 265,
+        "name": "神秘槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 266,
+        "name": "神秘剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 267,
+        "name": "神秘弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 268,
+        "name": "神秘槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 269,
+        "name": "神秘剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 270,
+        "name": "神秘弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 271,
+        "name": "神秘槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 272,
+        "name": "神秘剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 273,
+        "name": "チャームボルト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 274,
+        "name": "フィアーボルト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 275,
+        "name": "ミスティックボルト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 276,
+        "name": "必中の弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 277,
+        "name": "破壊の槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 278,
+        "name": "守護の剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 279,
+        "name": "必中の弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 280,
+        "name": "破壊の槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 281,
+        "name": "守護の剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 282,
+        "name": "必中の弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 283,
+        "name": "破壊の槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 284,
+        "name": "守護の剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 285,
+        "name": "パラライズブレス",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 286,
+        "name": "ペトロブレス",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 287,
+        "name": "シングルアクション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 288,
+        "name": "Ｒエフェクト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 289,
+        "name": "Ｆエフェクト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 290,
+        "name": "Ｗエフェクト",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 291,
+        "name": "Ｉテクスチャ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 292,
+        "name": "Ｓテクスチャ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 293,
+        "name": "大増殖",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 294,
+        "name": "超再生",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 295,
+        "name": "乱れ叩き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 296,
+        "name": "乱れ斬り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 297,
+        "name": "乱れ突き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 298,
+        "name": "叩き潰し",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 299,
+        "name": "切り刻み",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 300,
+        "name": "串刺し",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 301,
+        "name": "めった打ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 302,
+        "name": "めった打ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 303,
+        "name": "めった打ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 304,
+        "name": "焼却式",
+        "ruby": "しょうきゃくしき",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 305,
+        "name": "焼却式・フラウロス",
+        "ruby": "しょうきゃくしき・フラウロス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 306,
+        "name": "焼却式・フォルネウス",
+        "ruby": "しょうきゃくしき・フォルネウス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 307,
+        "name": "焼却式・バルバトス",
+        "ruby": "しょうきゃくしき・バルバトス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 308,
+        "name": "焼却式",
+        "ruby": "しょうきゃくしき",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 309,
+        "name": "焼却式・ハルファス",
+        "ruby": "しょうきゃくしき・ハルファス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 310,
+        "name": "焼却式・アモン・ラー",
+        "ruby": "しょうきゃくしき・アモン・ラー",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 311,
+        "name": "尾張砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 312,
+        "name": "めたる尾張砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 313,
+        "name": "ごーるでん尾張砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 314,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 315,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 316,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 317,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 318,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 319,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 320,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 321,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 322,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 323,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 324,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 325,
+        "name": "ハイテンション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 326,
+        "name": "聖夜の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 327,
+        "name": "聖夜の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 328,
+        "name": "聖夜の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 329,
+        "name": "フレンドリーハグ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 330,
+        "name": "フレンドリーハグ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 331,
+        "name": "スライドクラッシュ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 332,
+        "name": "スライドクラッシュ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 333,
+        "name": "スライドクラッシュ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 334,
+        "name": "焼却式・ベレト",
+        "ruby": "しょうきゃくしき・ベレト",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 335,
+        "name": "から竹割り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": "なし"
+    },
+    {
+        "id": 336,
+        "name": "のしかかり",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 337,
+        "name": "ぶちかまし",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 338,
+        "name": "乱射",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 339,
+        "name": "魂魄分け",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 340,
+        "name": "魂魄割け",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 341,
+        "name": "俯瞰風景",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 342,
+        "name": "無明",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 343,
+        "name": "五濁悪世",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 344,
+        "name": "ポリューション",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 345,
+        "name": "ディスペア",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 346,
+        "name": "目覚めよ、と呼ぶ声あり",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 348,
+        "name": "大蹂躙",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 349,
+        "name": "大鎮圧",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 350,
+        "name": "ホーンダイブ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 351,
+        "name": "ロイヤルホーンダイブ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 352,
+        "name": "熱視線",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 354,
+        "name": "白眼視",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 356,
+        "name": "形見えぬ爪",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 358,
+        "name": "影見えぬ爪",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 360,
+        "name": "ゼロ距離射撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 361,
+        "name": "ゼロ距離射撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 362,
+        "name": "ゼロ距離射撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 363,
+        "name": "急射撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 364,
+        "name": "急突撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 365,
+        "name": "急連撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 366,
+        "name": "儀式魔術",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 367,
+        "name": "焼却式・ハルファス",
+        "ruby": "しょうきゃくしき・ハルファス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 368,
+        "name": "天才の閃き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 369,
+        "name": "天才の閃き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 370,
+        "name": "天才の閃き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 371,
+        "name": "腐蝕液",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 372,
+        "name": "溶解液",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 373,
+        "name": "麻痺液",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 374,
+        "name": "魔術喰い",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 375,
+        "name": "魔力喰い",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 376,
+        "name": "渾身の一刺し",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 377,
+        "name": "刹那の一太刀",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 378,
+        "name": "大振りの一打",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 379,
+        "name": "エレガントスパーク",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 381,
+        "name": "錆び崩れる尖槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 382,
+        "name": "枯れ朽ちる尖弓",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 383,
+        "name": "外道合掌",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 384,
+        "name": "仰仰脅し",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 385,
+        "name": "殴打",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 386,
+        "name": "破天候",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 387,
+        "name": "地断打",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 388,
+        "name": "赤羅羅",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 389,
+        "name": "うったたき",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 390,
+        "name": "かちわり",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 391,
+        "name": "浄化の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 392,
+        "name": "蒼閃光",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 393,
+        "name": "碧閃光",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 394,
+        "name": "捨て身の乱撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 395,
+        "name": "捨て身の狂撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 396,
+        "name": "断罪の剣",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 397,
+        "name": "誅罰の矢",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 398,
+        "name": "制裁の槍",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 399,
+        "name": "波動砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 400,
+        "name": "複式波動砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 401,
+        "name": "男神のリドル",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 402,
+        "name": "女神のリドル",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 403,
+        "name": "“すごく　たのしい”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 404,
+        "name": "焼却式・アモン・ラー",
+        "ruby": "しょうきゃくしき・アモン・ラー",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 405,
+        "name": "忘失",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 406,
+        "name": "罪人よ、目を閉じよ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 407,
+        "name": "水鉄砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 408,
+        "name": "毒鉄砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 409,
+        "name": "氷結鉄砲",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 410,
+        "name": "猪突猛進",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 411,
+        "name": "狂瀾怒濤",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 412,
+        "name": "デッドエンドミサイル",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 413,
+        "name": "爆ぜ喰らう甘牙の幼獣",
+        "ruby": "アマガミ・コインヘン",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 414,
+        "name": "ブロークン・ビスケット",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 415,
+        "name": "レインボーチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 416,
+        "name": "マジカルビーム",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 417,
+        "name": "マジカルビーム",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 418,
+        "name": "マジカルビーム",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 419,
+        "name": "焼却式・ハーゲンティ",
+        "ruby": "しょうきゃくしき・ハーゲンティ",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 420,
+        "name": "Eテクスチャ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 421,
+        "name": "焼却式・グラシャラボラス",
+        "ruby": "しょうきゃくしき・グラシャラボラス",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 422,
+        "name": "雪華の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 423,
+        "name": "雪華の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 424,
+        "name": "雪華の輝き",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 425,
+        "name": "急突撃",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 426,
+        "name": "儀式魔術",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 427,
+        "name": "パンプキンソード",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 428,
+        "name": "パンプキンアロー",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 429,
+        "name": "パンプキンスピアー",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 432,
+        "name": "“巌を模る”",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 436,
+        "name": "グラトニーチャージ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 100101,
+        "name": "約束された勝利の剣",
+        "ruby": "エクスカリバー",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 100102,
+        "name": "約束された勝利の剣",
+        "ruby": "エクスカリバー",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 100201,
+        "name": "約束された勝利の剣",
+        "ruby": "エクスカリバー・モルガン",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 100301,
+        "name": "勝利すべき黄金の剣",
+        "ruby": "カリバーン",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 100501,
+        "name": "童女謳う華の帝政",
+        "ruby": "ラウス・セント・クラウディウス",
+        "rank": "B-",
+        "maxLv": 5,
+        "typeText": "対陣宝具"
+    },
+    {
+        "id": 100502,
+        "name": "童女謳う華の帝政",
+        "ruby": "ラウス・セント・クラウディウス",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対陣宝具"
+    },
+    {
+        "id": 100601,
+        "name": "星馳せる終幕の薔薇",
+        "ruby": "ファクス・カエレスティス",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 100701,
+        "name": "転輪する勝利の剣",
+        "ruby": "エクスカリバー・ガラティーン",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 100801,
+        "name": "幻想大剣・天魔失墜",
+        "ruby": "バルムンク",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 100901,
+        "name": "我が麗しき父への叛逆",
+        "ruby": "クラレント・ブラッドアーサー",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 100902,
+        "name": "我が麗しき父への叛逆",
+        "ruby": "クラレント・ブラッドアーサー",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 101001,
+        "name": "鮮血竜巻魔嬢",
+        "ruby": "バートリ・ブレイブ・エルジェーベト",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 101201,
+        "name": "剣を摂れ、銀色の腕",
+        "ruby": "スイッチオン・アガートラム",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 101301,
+        "name": "黄の死",
+        "ruby": "クロケア・モース",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 101401,
+        "name": "虹霓剣",
+        "ruby": "カラドボルグ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 101402,
+        "name": "虹霓剣",
+        "ruby": "カラドボルグ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 101801,
+        "name": "軍神の剣",
+        "ruby": "フォトン・レイ",
+        "rank": "A-",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 101802,
+        "name": "軍神の剣",
+        "ruby": "フォトン・レイ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 101901,
+        "name": "羅刹を穿つ不滅",
+        "ruby": "ブラフマーストラ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対魔宝具"
+    },
+    {
+        "id": 102001,
+        "name": "縛鎖全断・過重湖光",
+        "ruby": "アロンダイト・オーバーロード",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 102201,
+        "name": "神聖たる旗に集いて吼えよ",
+        "ruby": "セイント・ウォーオーダー",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 102601,
+        "name": "百合の花咲く豪華絢爛",
+        "ruby": "フルール・ド・リス",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 102701,
+        "name": "無明三段突き",
+        "ruby": "むみょうさんだんづき",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": "対人魔剣"
+    },
+    {
+        "id": 102801,
+        "name": "無垢識・空の境界",
+        "ruby": "むくしき・からのきょうかい",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 200101,
+        "name": "無限の剣製",
+        "ruby": "アンリミテッドブレイドワークス",
+        "rank": "E～A",
+        "maxLv": 5,
+        "typeText": "？？？？"
+    },
+    {
+        "id": 200102,
+        "name": "無限の剣製",
+        "ruby": "アンリミテッドブレイドワークス",
+        "rank": "E～A++",
+        "maxLv": 5,
+        "typeText": "？？？？"
+    },
+    {
+        "id": 200201,
+        "name": "天地乖離す開闢の星",
+        "ruby": "エヌマ・エリシュ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対界宝具"
+    },
+    {
+        "id": 200202,
+        "name": "天地乖離す開闢の星",
+        "ruby": "エヌマ・エリシュ",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対界宝具"
+    },
+    {
+        "id": 200301,
+        "name": "祈りの弓",
+        "ruby": "イー・バウ",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 200501,
+        "name": "訴状の矢文",
+        "ruby": "ポイボス・カタストロフェ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 200502,
+        "name": "訴状の矢文",
+        "ruby": "ポイボス・カタストロフェ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 200601,
+        "name": "五つの石",
+        "ruby": "ハメシュ・ アヴァニム",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 200801,
+        "name": "痛哭の幻奏",
+        "ruby": "フェイルノート",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 200901,
+        "name": "月女神の愛矢恋矢",
+        "ruby": "トライスター・アモーレ・ミオ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 200902,
+        "name": "月女神の愛矢恋矢",
+        "ruby": "トライスター・アモーレ・ミオ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201001,
+        "name": "壊音の霹靂",
+        "ruby": "サンダラー",
+        "rank": "C++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201101,
+        "name": "人類神話・雷電降臨",
+        "ruby": "システム・ケラウノス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 201102,
+        "name": "人類神話・雷電降臨",
+        "ruby": "システム・ケラウノス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 201201,
+        "name": "女神の視線",
+        "ruby": "アイ・オブ・ザ・エウリュアレ",
+        "rank": "B-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201202,
+        "name": "女神の視線",
+        "ruby": "アイ・オブ・ザ・エウリュアレ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201301,
+        "name": "流星一条",
+        "ruby": "ステラ",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 201302,
+        "name": "流星一条",
+        "ruby": "ステラ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 201401,
+        "name": "八幡祈願・大妖射貫",
+        "ruby": "なむはちまんだいぼさつ・このやにかごを",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201501,
+        "name": "破壊神の手翳",
+        "ruby": "パーシュパタ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201502,
+        "name": "破壊神の手翳",
+        "ruby": "パーシュパタ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201801,
+        "name": "王の財宝",
+        "ruby": "ゲート・オブ・バビロン",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 201802,
+        "name": "王の財宝",
+        "ruby": "ゲート・オブ・バビロン",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 202401,
+        "name": "三千世界",
+        "ruby": "さんだんうち",
+        "rank": "E～A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 202501,
+        "name": "比翼にして連理",
+        "ruby": "カリビアン・フリーバード・アクト２",
+        "rank": "C++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 202601,
+        "name": "陽光煌めく勝利の剣",
+        "ruby": "エクスカリバー・ヴィヴィアン",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 202701,
+        "name": "鶴翼三連",
+        "ruby": "かくよくさんれん",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300101,
+        "name": "刺し穿つ死棘の槍",
+        "ruby": "ゲイ・ボルク",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300201,
+        "name": "破魔の紅薔薇、必滅の黄薔薇",
+        "ruby": "ゲイ・ジャルグ＆ゲイ・ボウ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300202,
+        "name": "破魔の紅薔薇、必滅の黄薔薇",
+        "ruby": "ゲイ・ジャルグ＆ゲイ・ボウ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300301,
+        "name": "串刺城塞",
+        "ruby": "カズィクル・ベイ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 300401,
+        "name": "日輪よ、死に随え",
+        "ruby": "ヴァサヴィ・シャクティ",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対神宝具"
+    },
+    {
+        "id": 300501,
+        "name": "鮮血魔嬢",
+        "ruby": "バートリ・エルジェーベト",
+        "rank": "E-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300601,
+        "name": "五百羅漢補陀落渡海",
+        "ruby": "ごひゃくらかんふだらくとかい",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 300701,
+        "name": "穿ちの朱槍",
+        "ruby": "ゲイ・ボルク",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 300901,
+        "name": "炎門の守護者",
+        "ruby": "テルモピュライ・エノモタイア",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301001,
+        "name": "すべては我が槍に通ずる",
+        "ruby": "マグナ・ウォルイッセ・マグヌム",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301101,
+        "name": "無敗の紫靫草",
+        "ruby": "マク・ア・ルイン",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301102,
+        "name": "無敗の紫靫草",
+        "ruby": "マク・ア・ルイン",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301201,
+        "name": "死がふたりを分断つまで",
+        "ruby": "ブリュンヒルデ・ロマンシア",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 301301,
+        "name": "貫き穿つ死翔の槍",
+        "ruby": "ゲイ・ボルク・オルタナティブ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 301302,
+        "name": "貫き穿つ死翔の槍",
+        "ruby": "ゲイ・ボルク・オルタナティブ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 301601,
+        "name": "不毀の極槍",
+        "ruby": "ドゥリンダナ",
+        "rank": "A-",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301602,
+        "name": "不毀の極槍",
+        "ruby": "ドゥリンダナ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 301701,
+        "name": "神槍无二打",
+        "ruby": "しんそうにのうちいらず",
+        "rank": "-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 301901,
+        "name": "最果てにて輝ける槍",
+        "ruby": "ロンゴミニアド",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 301902,
+        "name": "最果てにて輝ける槍",
+        "ruby": "ロンゴミニアド",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 302001,
+        "name": "最果てにて輝ける槍",
+        "ruby": "ロンゴミニアド",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 302401,
+        "name": "常夏日光・日除傘寵愛一神",
+        "ruby": "とこなつにっこう・ひよけがさちょうあいいっしん",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 302501,
+        "name": "道成寺鐘百八式火竜薙",
+        "ruby": "どうじょうじかねひゃくはちしきかりゅうなぎ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 400101,
+        "name": "騎英の手綱",
+        "ruby": "ベルレフォーン",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400201,
+        "name": "王の軍勢",
+        "ruby": "アイオニオン・ヘタイロイ",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400301,
+        "name": "黄金鹿と嵐の夜",
+        "ruby": "ゴールデン・ワイルドハント",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400302,
+        "name": "黄金鹿と嵐の夜",
+        "ruby": "ゴールデン・ワイルドハント",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400401,
+        "name": "この世ならざる幻馬",
+        "ruby": "ヒポグリフ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400601,
+        "name": "力屠る祝福の剣",
+        "ruby": "アスカロン",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 400801,
+        "name": "アン女王の復讐",
+        "ruby": "クイーンアンズ・リベンジ",
+        "rank": "C++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 400901,
+        "name": "比翼にして連理",
+        "ruby": "カリビアン・フリーバード",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 400902,
+        "name": "比翼にして連理",
+        "ruby": "カリビアン・フリーバード",
+        "rank": "C++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 401101,
+        "name": "約束されざる守護の車輪",
+        "ruby": "チャリオット・オブ・ブディカ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 401201,
+        "name": "光輝の大複合神殿",
+        "ruby": "ラムセウム・テンティリス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 401301,
+        "name": "愛しき私の鉄戦車",
+        "ruby": "チャリオット・マイ・ラブ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 401401,
+        "name": "壇ノ浦・八艘跳",
+        "ruby": "だんのうら・はっそうとび",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人奥義"
+    },
+    {
+        "id": 401402,
+        "name": "壇ノ浦・八艘跳",
+        "ruby": "だんのうら・はっそうとび",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人奥義"
+    },
+    {
+        "id": 401501,
+        "name": "始まりの蹂躙制覇",
+        "ruby": "ブケファラス",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 401502,
+        "name": "始まりの蹂躙制覇",
+        "ruby": "ブケファラス",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 401701,
+        "name": "百合の王冠に栄光あれ",
+        "ruby": "ギロチン・ブレイカー",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 401901,
+        "name": "愛知らぬ哀しき竜よ",
+        "ruby": "タラスク",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 402201,
+        "name": "約束された勝利の剣",
+        "ruby": "エクスカリバー・モルガン",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 402301,
+        "name": "夜狼死九・黄金疾走",
+        "ruby": "ゴールデンドライブ・グッドナイト",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 402401,
+        "name": "逆巻く波濤を制する王様気分！",
+        "ruby": "プリドゥエン・チューブライディング",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対波宝具"
+    },
+    {
+        "id": 500101,
+        "name": "破戒すべき全ての符",
+        "ruby": "ルールブレイカー",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対魔術宝具"
+    },
+    {
+        "id": 500102,
+        "name": "破戒すべき全ての符",
+        "ruby": "ルールブレイカー",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対魔術宝具"
+    },
+    {
+        "id": 500201,
+        "name": "螺湮城教本",
+        "ruby": "プレラーティーズ・スペルブック",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 500301,
+        "name": "水天日光天照八野鎮石",
+        "ruby": "すいてんにっこう　あまてらすやのしずいし",
+        "rank": "D-",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 500302,
+        "name": "水天日光天照八野鎮石",
+        "ruby": "すいてんにっこう　あまてらすやのしずいし",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 500303,
+        "name": "かぼちゃ割り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 500304,
+        "name": "かぼちゃ刈り",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 500305,
+        "name": "かぼちゃ撃ち",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 500306,
+        "name": "サプライズ",
+        "ruby": "-",
+        "rank": "なし",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 500401,
+        "name": "誰かの為の物語",
+        "ruby": "ナーサリー・ライム",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500402,
+        "name": "誰かの為の物語",
+        "ruby": "ナーサリー・ライム",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500501,
+        "name": "貴方のための物語",
+        "ruby": "メルヒェン・マイネスレーベンス",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500502,
+        "name": "貴方のための物語",
+        "ruby": "メルヒェン・マイネスレーベンス",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500701,
+        "name": "開演の刻は来たれり、此処に万雷の喝采を",
+        "ruby": "ファースト・フォリオ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500901,
+        "name": "万能の人",
+        "ruby": "ウォモ・ウニヴェルサーレ",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具／対軍宝具"
+    },
+    {
+        "id": 501001,
+        "name": "元素使いの魔剣",
+        "ruby": "ソード・オブ・パラケルスス",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501002,
+        "name": "元素使いの魔剣",
+        "ruby": "ソード・オブ・パラケルスス",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501101,
+        "name": "絢爛なりし灰燼世界",
+        "ruby": "ディメンジョン・オブ・スチーム",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501102,
+        "name": "絢爛なりし灰燼世界",
+        "ruby": "ディメンジョン・オブ・スチーム",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501201,
+        "name": "冥鏡宝典",
+        "ruby": "アンプゥ・ネブ・タ・ジェセル",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501202,
+        "name": "冥鏡宝典",
+        "ruby": "アンプゥ・ネブ・タ・ジェセル",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501401,
+        "name": "微睡む爆弾",
+        "ruby": "チクタク・ボム",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501402,
+        "name": "微睡む爆弾",
+        "ruby": "チクタク・ボム",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501501,
+        "name": "死神のための葬送曲",
+        "ruby": "レクイエム・フォー・デス",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501601,
+        "name": "大地を創りし者",
+        "ruby": "ツァゴ・デジ・ナレヤ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501701,
+        "name": "修補すべき全ての疵",
+        "ruby": "ペインブレイカー",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対魔術宝具"
+    },
+    {
+        "id": 501702,
+        "name": "修補すべき全ての疵",
+        "ruby": "ペインブレイカー",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対魔術宝具"
+    },
+    {
+        "id": 501901,
+        "name": "石兵八陣",
+        "ruby": "かえらずのじん",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 501902,
+        "name": "石兵八陣",
+        "ruby": "かえらずのじん",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 502001,
+        "name": "白き聖杯よ、謳え",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 502101,
+        "name": "灼き尽くす炎の檻",
+        "ruby": "ウィッカーマン",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 502201,
+        "name": "五行山・釈迦如来掌",
+        "ruby": "ごぎょうさん・しゃかにょらいしょう",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍・対城宝具"
+    },
+    {
+        "id": 502301,
+        "name": "金星神・火炎天主",
+        "ruby": "サナト・クマラ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 502501,
+        "name": "Ｗ・Ｆ・Ｄ",
+        "ruby": "ワールド・フェイス・ドミネーション",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対民宝具"
+    },
+    {
+        "id": 502601,
+        "name": "鮮血特上魔嬢",
+        "ruby": "バートリ・ハロウィン・エルジェーベト",
+        "rank": "E-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 502701,
+        "name": "愛すべき輝きは永遠に",
+        "ruby": "クリスタル・ドレス",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具／対民宝具"
+    },
+    {
+        "id": 502801,
+        "name": "多元重奏飽和砲撃",
+        "ruby": "クウィンテットフォイア",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600101,
+        "name": "燕返し",
+        "ruby": "つばめがえし",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": "対人魔剣"
+    },
+    {
+        "id": 600201,
+        "name": "妄想心音",
+        "ruby": "ザバーニーヤ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600301,
+        "name": "妄想幻像",
+        "ruby": "ザバーニーヤ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600501,
+        "name": "解体聖母",
+        "ruby": "マリア・ザ・リッパー",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600502,
+        "name": "解体聖母",
+        "ruby": "マリア・ザ・リッパー",
+        "rank": "D+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600701,
+        "name": "密やかなる罪の遊戯",
+        "ruby": "デンジャラス・ゲーム",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600702,
+        "name": "密やかなる罪の遊戯",
+        "ruby": "デンジャラス・ゲーム",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600711,
+        "name": "密やかなる罪の遊戯",
+        "ruby": "デンジャラス・ゲーム",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600712,
+        "name": "密やかなる罪の遊戯",
+        "ruby": "デンジャラス・ゲーム",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 600801,
+        "name": "暁の時を終える蛇よ、此処に",
+        "ruby": "ウラエウス・アストラペ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 600901,
+        "name": "妄想毒身",
+        "ruby": "ザバーニーヤ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601001,
+        "name": "女神の微笑",
+        "ruby": "スマイル・オブ・ザ・ステンノ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601101,
+        "name": "不還匕首",
+        "ruby": "ただ、あやめるのみ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601201,
+        "name": "死は明日への希望なり",
+        "ruby": "ラモール・エスポワール",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601301,
+        "name": "地獄にこそ響け我が愛の唄",
+        "ruby": "クリスティーヌ・クリスティーヌ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 601302,
+        "name": "地獄にこそ響け我が愛の唄",
+        "ruby": "クリスティーヌ・クリスティーヌ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 601401,
+        "name": "陽の眼を持つ女",
+        "ruby": "マタ・ハリ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 601501,
+        "name": "時のある間に薔薇を摘め",
+        "ruby": "クロノス・ローズ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601701,
+        "name": "幻想の鉄処女",
+        "ruby": "ファントム・メイデン",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601801,
+        "name": "無銘勝利剣",
+        "ruby": "ひみつかりばー",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601802,
+        "name": "無銘勝利剣",
+        "ruby": "ひみつかりばー",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 601901,
+        "name": "不滅の混沌旅団",
+        "ruby": "イモータル・カオス・ブリゲイド",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 602101,
+        "name": "千紫万紅・神便鬼毒",
+        "ruby": "せんしばんこう・しんぺんきどく",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 602301,
+        "name": "唯識・直死の魔眼",
+        "ruby": "ゆいしき・ちょくしのまがん",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 602401,
+        "name": "蹴り穿つ死翔の槍",
+        "ruby": "ゲイ・ボルク・オルタナティブ",
+        "rank": "B+",
+        "maxLv": 5,
+        "typeText": "対人／対軍宝具"
+    },
+    {
+        "id": 700101,
+        "name": "射殺す百頭",
+        "ruby": "ナインライブズ",
+        "rank": "C～A+",
+        "maxLv": 5,
+        "typeText": "不明"
+    },
+    {
+        "id": 700201,
+        "name": "騎士は徒手にて死せず",
+        "ruby": "ナイト・オブ・オーナー",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700299,
+        "name": "騎士は徒手にて死せず",
+        "ruby": "ナイト・オブ・オーナー",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700301,
+        "name": "軍神五兵",
+        "ruby": "ゴッドフォース",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人、対軍、対城宝具"
+    },
+    {
+        "id": 700401,
+        "name": "磔刑の雷樹",
+        "ruby": "ブラステッド・ツリー",
+        "rank": "D～B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 700402,
+        "name": "磔刑の雷樹",
+        "ruby": "ブラステッド・ツリー",
+        "rank": "D～B+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 700501,
+        "name": "疵獣の咆吼",
+        "ruby": "クライング・ウォーモンガー",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700599,
+        "name": "愛は爆発する",
+        "ruby": "バレンタイン・トリーズナー",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700601,
+        "name": "黄金衝撃",
+        "ruby": "ゴールデンスパーク",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700701,
+        "name": "血塗れ王鬼",
+        "ruby": "カズィクル・ベイ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700702,
+        "name": "血塗れ王鬼",
+        "ruby": "カズィクル・ベイ",
+        "rank": "C+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700801,
+        "name": "源流闘争",
+        "ruby": "グレンデル・バスター",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700802,
+        "name": "源流闘争",
+        "ruby": "グレンデル・バスター",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 700901,
+        "name": "万古不易の迷宮",
+        "ruby": "ケイオス・ラビュリントス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "迷宮宝具"
+    },
+    {
+        "id": 700902,
+        "name": "万古不易の迷宮",
+        "ruby": "ケイオス・ラビュリントス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "迷宮宝具"
+    },
+    {
+        "id": 701001,
+        "name": "我が心を喰らえ、月の光",
+        "ruby": "フルクティクルス・ディアーナ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 701101,
+        "name": "不死の一万騎兵",
+        "ruby": "アタナトイ・テン・サウザンド",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 701102,
+        "name": "不死の一万騎兵",
+        "ruby": "アタナトイ・テン・サウザンド",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 701301,
+        "name": "転身火生三昧",
+        "ruby": "てんしんかしょうざんまい",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 701401,
+        "name": "我はすべて毒あるもの、害あるものを絶つ",
+        "ruby": "ナイチンゲール・プレッジ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 701501,
+        "name": "血塗れの戴冠式",
+        "ruby": "ブラッドバス・クラウン",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 701601,
+        "name": "燦々日光午睡宮酒池肉林",
+        "ruby": "さんさんにっこう　ひるやすみしゅちにくりん",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 701602,
+        "name": "燦々日光午睡宮酒池肉林",
+        "ruby": "さんさんにっこう　ひるやすみしゅちにくりん",
+        "rank": "D+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 702001,
+        "name": "噛み砕く死牙の獣",
+        "ruby": "クリード・コインヘン",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 702201,
+        "name": "羅生門大怨起",
+        "ruby": "らしょうもんだいえんぎ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 702301,
+        "name": "牛王招雷・天網恢々",
+        "ruby": "ごおうしょうらい・てんもうかいかい",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 800100,
+        "name": "？？？",
+        "ruby": "？？？",
+        "rank": "？",
+        "maxLv": 5,
+        "typeText": "不明"
+    },
+    {
+        "id": 800101,
+        "name": "仮想宝具 疑似展開／人理の礎",
+        "ruby": "ロード・カルデアス",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 800102,
+        "name": "仮想宝具 疑似展開／人理の礎",
+        "ruby": "ロード・カルデアス",
+        "rank": "D",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 800104,
+        "name": "いまは遙か理想の城",
+        "ruby": "ロード・キャメロット",
+        "rank": "B+++",
+        "maxLv": 5,
+        "typeText": "対悪宝具"
+    },
+    {
+        "id": 900101,
+        "name": "我が神はここにありて",
+        "ruby": "リュミノジテ・エテルネッル",
+        "rank": "A-",
+        "maxLv": 5,
+        "typeText": "結界宝具"
+    },
+    {
+        "id": 900201,
+        "name": "双腕・零次集束",
+        "ruby": "ツインアーム・ビッグクランチ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 900202,
+        "name": "双腕・零次集束",
+        "ruby": "ツインアーム・ビッグクランチ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 900301,
+        "name": "吼え立てよ、我が憤怒",
+        "ruby": "ラ・グロンドメント・デュ・ヘイン",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 900401,
+        "name": "荒れ狂う哀しき竜よ",
+        "ruby": "タラスク",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具／対竜宝具"
+    },
+    {
+        "id": 1100101,
+        "name": "偽り写し記す万象",
+        "ruby": "ヴェルグ・アヴェスター",
+        "rank": "C-",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 1100201,
+        "name": "虎よ、煌々と燃え盛れ",
+        "ruby": "アンフェル・シャトー・ディフ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 1100301,
+        "name": "吼え立てよ、我が憤怒",
+        "ruby": "ラ・グロンドメント・デュ・ヘイン",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 1700101,
+        "name": "誕生の時きたれり、其は全てを修めるもの",
+        "ruby": "アルス・アルマデル・サロモニス",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 9936701,
+        "name": "最果てにて輝ける槍",
+        "ruby": "ロンゴミニアド",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 9936702,
+        "name": "最果てにて輝ける槍",
+        "ruby": "ロンゴミニアド",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対城宝具"
+    },
+    {
+        "id": 9936871,
+        "name": "無限の幻想",
+        "ruby": "アンリミテッド・プリズマ・コーズ",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 9936881,
+        "name": "堕・鶴翼三連",
+        "ruby": "ブラックバード・シザーハンズ",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 9936961,
+        "name": "燕返し",
+        "ruby": "つばめがえし",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": "対人魔剣"
+    },
+    {
+        "id": 9940201,
+        "name": "無銘勝利剣",
+        "ruby": "ひみつかりばー",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対セイバー宝具"
+    },
+    {
+        "id": 9940371,
+        "name": "黒き聖杯よ、謳え",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 9940381,
+        "name": "てんしんアイリざんまい",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 9940391,
+        "name": "青き聖杯よ、凍れ",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 9940401,
+        "name": "あいり・ざ・りっぱー",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 9940411,
+        "name": "錆の聖杯よ、嘆け",
+        "ruby": "ソング・オブ・グレイル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "魔術宝具"
+    },
+    {
+        "id": 9940531,
+        "name": "羅生門大怨起",
+        "ruby": "らしょうもんだいえんぎ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 9940601,
+        "name": "牛王招力・怒髪天昇",
+        "ruby": "ごおうしょうりき・どはつてんしょう",
+        "rank": "B++",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 202001,
+        "name": "山脈震撼す明星の薪",
+        "ruby": "アンガルタ・キガルシュ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対山宝具"
+    },
+    {
+        "id": 302601,
+        "name": "優雅に歌え、かの聖誕を",
+        "ruby": "ラ・グラスフィーユ・ノエル",
+        "rank": "A+",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 300801,
+        "name": "人よ、神を繋ぎとめよう",
+        "ruby": "エヌマ・エリシュ",
+        "rank": "A++",
+        "maxLv": 5,
+        "typeText": "対粛正宝具"
+    },
+    {
+        "id": 302701,
+        "name": "女神の抱擁",
+        "ruby": "カレス・オブ・ザ・メドゥーサ",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 302801,
+        "name": "逃れ得ぬ死の鉤爪",
+        "ruby": "グレート・デス・クロー",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 401801,
+        "name": "炎、神をも焼き尽くせ",
+        "ruby": "シウ・コアトル",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人・対城宝具"
+    },
+    {
+        "id": 500801,
+        "name": "永久に閉ざされた理想郷",
+        "ruby": "ガーデン・オブ・アヴァロン",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 500898,
+        "name": "永久に閉ざされた理想郷",
+        "ruby": "ガーデン・オブ・アヴァロン",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 501801,
+        "name": "王の号砲",
+        "ruby": "メラム・ディンギル",
+        "rank": "B",
+        "maxLv": 5,
+        "typeText": "対軍～対城宝具"
+    },
+    {
+        "id": 602501,
+        "name": "死告天使",
+        "ruby": "アズライール",
+        "rank": "C",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 1100401,
+        "name": "強制封印・万魔神殿",
+        "ruby": "パンデモニウム・ケトゥス",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 441,
+        "name": "仔よ、創世の理に従え",
+        "ruby": "ナンム・ドゥルアンキ",
+        "rank": "-",
+        "maxLv": 5,
+        "typeText": "-"
+    },
+    {
+        "id": 439,
+        "name": "クル・キガル・イルカルラ",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": "－"
+    },
+    {
+        "id": 440,
+        "name": "強制封印・万魔神殿",
+        "ruby": "パンデモニウム・ケトゥス",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    },
+    {
+        "id": 441,
+        "name": "仔よ、創世の理に従え",
+        "ruby": "ナンム・ドゥルアンキ",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": "－"
+    },
+    {
+        "id": 442,
+        "name": "刳り貫き",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 443,
+        "name": "空走り",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 444,
+        "name": "空走り",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 445,
+        "name": "乱れ舞い",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 448,
+        "name": "灼熱突風",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 451,
+        "name": "空頭突き",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 454,
+        "name": "燃え尽きぬ爪",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 455,
+        "name": "呪毒竜炎",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 456,
+        "name": "粘着液",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 457,
+        "name": "サクリファイス",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 460,
+        "name": "焼却式 ナベリウス",
+        "ruby": "しょうきゃくしき ナベリウス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 461,
+        "name": "焼却式 フラウロス",
+        "ruby": "しょうきゃくしき フラウロス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 462,
+        "name": "焼却式 フォルネウス",
+        "ruby": "しょうきゃくしき フォルネウス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 463,
+        "name": "焼却式 バルバトス",
+        "ruby": "しょうきゃくしき バルバトス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 464,
+        "name": "焼却式 ハルファス",
+        "ruby": "しょうきゃくしき ハルファス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 465,
+        "name": "焼却式 アモン",
+        "ruby": "しょうきゃくしき アモン",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 466,
+        "name": "焼却式 サブナック",
+        "ruby": "しょうきゃくしき サブナック",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 467,
+        "name": "焼却式 アンドロマリウス",
+        "ruby": "しょうきゃくしき アンドロマリウス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 468,
+        "name": "焼却式 フラウロス",
+        "ruby": "しょうきゃくしき・フラウロス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 469,
+        "name": "主よ、生命の歓びを",
+        "ruby": "-",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 470,
+        "name": "焼却式 ベレト",
+        "ruby": "しょうきゃくしき ベレト",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 9935511,
+        "name": "誕生の時きたれり、其は全てを修めるもの",
+        "ruby": "アルス・アルマデル・サロモニス",
+        "rank": "－",
+        "maxLv": 5,
+        "typeText": ""
+    },
+    {
+        "id": 9935531,
+        "name": "訣別の時きたれり、其は、世界を手放すもの",
+        "ruby": "アルス・ノヴァ",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 101701,
+        "name": "六道五輪・倶利伽羅天象",
+        "ruby": "ろくどうごりん・くりからてんしょう",
+        "rank": "A",
+        "maxLv": 5,
+        "typeText": "対人宝具"
+    },
+    {
+        "id": 400202,
+        "name": "王の軍勢",
+        "ruby": "アイオニオン・ヘタイロイ",
+        "rank": "EX",
+        "maxLv": 5,
+        "typeText": "対軍宝具"
+    }
+]
