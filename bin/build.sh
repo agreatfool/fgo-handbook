@@ -1,3 +1,6 @@
 #!/bin/bash
 
-tsc -p jsconfig.json --watch
+BASEDIR=$(dirname "$0")
+cd ${BASEDIR}/../
+
+tsc -p tsconfig.json --watch

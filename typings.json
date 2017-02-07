@@ -1,0 +1,11 @@
+{
+  "name": "fgo-handbook",
+  "dependencies": {
+    "react-native": "registry:dt/react-native#0.37.0+20170123203653",
+    "request": "registry:dt/request#0.0.0+20161230173603",
+    "url-join": "registry:dt/url-join#0.8.3+20161008173327"
+  },
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20170111235404"
+  }
+}

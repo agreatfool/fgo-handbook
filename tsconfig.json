@@ -9,12 +9,15 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/lib/**/*",
-        "src/model/**/*",
-        "src/server/**/*"
+        "src/lib/**/*.ts",
+        "src/model/**/*.ts",
+        "src/server/**/*.ts"
     ],
     "exclude": [
         "dist",
         "node_modules"
+    ],
+    "files": [
+        "typings/index.d.ts"
     ]
 }
