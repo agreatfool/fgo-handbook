@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component, ViewStyle, TextStyle } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default class mobile extends Component {
+export default class App extends Component<any, any> {
   render() {
     return (
       <View style={styles.container}>
@@ -31,17 +26,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
+  } as ViewStyle,
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
+  } as TextStyle,
   instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  } as TextStyle,
 });
-
-AppRegistry.registerComponent('mobile', () => mobile);

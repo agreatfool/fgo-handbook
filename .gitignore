@@ -1,6 +1,5 @@
 dist
 node_modules
-src/mobile/yarn-error.log
 
 # OSX
 #
@@ -28,7 +27,6 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties

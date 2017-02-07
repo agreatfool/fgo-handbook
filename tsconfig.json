@@ -7,10 +7,15 @@
         "sourceMap": false,
         "rootDir": "src",
         "outDir": "dist",
+        //"noImplicitAny": true,
+        "preserveConstEnums": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
     ],
     "exclude": [
         "dist",
@@ -18,5 +23,6 @@
     ],
     "files": [
         "typings/index.d.ts"
-    ]
+    ],
+    "compileOnSave": false
 }
