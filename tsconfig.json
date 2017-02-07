@@ -2,6 +2,8 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "commonjs",
+        "allowJs": true,
+        "jsx": "react",
         "sourceMap": false,
         "rootDir": "src",
         "outDir": "dist",
@@ -9,9 +11,6 @@
         "emitDecoratorMetadata": true
     },
     "include": [
-        "src/lib/**/*.ts",
-        "src/model/**/*.ts",
-        "src/server/**/*.ts"
     ],
     "exclude": [
         "dist",

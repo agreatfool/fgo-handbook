@@ -2,7 +2,7 @@ import * as LibPath from "path";
 
 export default class Const {
 
-    public static readonly PATH_BASE: string = LibPath.join(LibPath.dirname(__filename), "..", "..", "..");
+    public static readonly PATH_BASE: string = LibPath.join(LibPath.dirname(__filename), "..", "..", "..", "..");
 
     public static readonly PATH_CONFIG: string = LibPath.join(Const.PATH_BASE, "config");
     public static readonly PATH_DATABASE: string = LibPath.join(Const.PATH_BASE, "database");

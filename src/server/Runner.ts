@@ -40,7 +40,7 @@ async function testModel() {
 }
 testModel();
 
-import MasterDumper from "../server/MasterDumper";
+import MasterDumper from "./MasterDumper";
 new MasterDumper().run();
 
 //main();
