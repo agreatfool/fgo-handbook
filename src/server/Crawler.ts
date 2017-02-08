@@ -54,7 +54,7 @@ export default class Crawler {
         Log.instance.info("[Crawler] Processing downloadMasterFile ...");
         try {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
-            let buffer: Buffer = await this._libHttp.download(this._sourceMasterUrl);
+            let buffer: Buffer = await this._libHttp.get(this._sourceMasterUrl);
             //noinspection TypeScriptUnresolvedVariable
             if (buffer.length <= 0) {
                 return Promise.reject(new Error(`[Crawler] downloadMasterFile: Empty response data from ${this._sourceMasterUrl}!`));

@@ -26,6 +26,7 @@ export default class ResourceDownloader {
     private _imageItemIconPath: string;
 
     constructor() {
+        this._libHttp = new HttpPromise();
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
     }
 
@@ -83,17 +84,17 @@ export default class ResourceDownloader {
     }
 
     private _genImageSvtFaceUri(svtId: number) {
-        return this._genBaseSourceUri() +
-            this._sourceConf.imageSvtFaceUri.replace("#SVTID", svtId + "");
+        return this._genBaseSourceUri() + "/" +
+            this._sourceConf.imageSvtFaceUri.replace("#SVTID", svtId + "0"); // 后面就是多了个0，我也不知道为啥；存储成文件的时候我仍旧按id来，不补0
     }
 
     private _genImageSvtSkillUri(skillId: number) {
-        return this._genBaseSourceUri() +
+        return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageSvtSkillUri.replace("#SKILLID", skillId + "");
     }
 
     private _genImageItemIconUri(itemId: number) {
-        return this._genBaseSourceUri() +
+        return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageItemIconUri.replace("#ITEMID", itemId + "");
     }
 

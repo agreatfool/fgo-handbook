@@ -127,7 +127,7 @@ export default class EmbeddedCodeConvertor {
                 "transTreasureDetail": this._transTreasureDetailConverted
             };
 
-            await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertToObject(this._combined), null, "    "));
+            await LibAsyncFile.writeFile(this._dbJsonPath, JSON.stringify(Utility.convertToObject(this._combined), null, 4));
 
             return Promise.resolve(this._combined);
         } catch (err) {
