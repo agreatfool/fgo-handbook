@@ -43,6 +43,9 @@ testModel();
 import MasterDumper from "./MasterDumper";
 new MasterDumper().run();
 
+import ResourceDownloader from "./ResourceDownloader";
+new ResourceDownloader().run();
+
 //main();
 
 process.on('unhandledRejection', (reason, p) => {

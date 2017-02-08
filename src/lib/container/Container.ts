@@ -10,7 +10,15 @@ export default class Container<T> extends BaseContainer<T> {
         this._data = new Map<number, T>();
     }
 
-    public add(id: number, element: T) {
+    public get(id: number) {
+        if (this.has(id)) {
+            return this._data.get(id);
+        } else {
+            return null;
+        }
+    }
+
+    public set(id: number, element: T) {
         return this._data.set(id, element);
     }
 
@@ -26,16 +34,19 @@ export default class Container<T> extends BaseContainer<T> {
         }
     }
 
-    public _parse(idAttributeName: string, rawData: any) {
-        rawData = rawData as Array<Object>;
+    public iterator() {
+        return this._data.entries();
+    }
+
+    public _parse(idAttributeName: string, rawData: Array<Object>) {
         rawData.forEach((element) => {
-            this.add(element[idAttributeName], element);
+            this.set(element[idAttributeName], element as T);
         });
 
         return this;
     }
 
-    public parse(rawData: any) {
+    public parse(rawData: Array<Object>) {
         return this._parse(this._idAttributeName, rawData);
     }
 

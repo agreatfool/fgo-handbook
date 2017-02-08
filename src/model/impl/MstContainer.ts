@@ -1,81 +1,86 @@
 import Container from "../../lib/container/Container";
 import GroupContainer from "../../lib/container/GroupContainer";
+import {
+    MstClass, MstSkill, MstSvt, MstSvtCard, MstSvtLimit, MstSvtSkill, MstSkillLv,
+    MstSkillDetail, MstTreasureDevice, MstSvtTreasureDevice, MstTreasureDeviceLv, MstFriendship, MstSvtComment,
+    MstCombineLimit, MstCombineSkill, MstItem, MstSvtExp
+} from "../master/Master";
 
-export class MstClassContainer<MstClass> extends Container<MstClass> {
+export class MstClassContainer extends Container<MstClass> {
     protected _idAttributeName = "id";
 }
 
-export class MstSkillContainer<MstSkill> extends Container<MstSkill> {
+export class MstSkillContainer extends Container<MstSkill> {
     protected _idAttributeName = "id";
 }
 
-export class MstSvtContainer<MstSvt> extends Container<MstSvt> {
+export class MstSvtContainer extends Container<MstSvt> {
     protected _idAttributeName = "id";
 }
 
-export class MstSvtCardContainer<MstSvtCard> extends GroupContainer<MstSvtCard> {
+export class MstSvtCardContainer extends GroupContainer<MstSvtCard> {
     protected _groupIdAttributeName = "svtId";
     protected _idAttributeName = "cardId";
 }
 
-export class MstSvtLimitContainer<MstSvtLimit> extends GroupContainer<MstSvtLimit> {
+export class MstSvtLimitContainer extends GroupContainer<MstSvtLimit> {
     protected _groupIdAttributeName = "svtId";
     protected _idAttributeName = "limitCount";
 }
 
-export class MstSvtSkillContainer<MstSvtSkill> extends GroupContainer<MstSvtSkill> {
+export class MstSvtSkillContainer extends GroupContainer<MstSvtSkill> {
     protected _groupIdAttributeName = "svtId";
     protected _idAttributeName = "num";
 }
 
-export class MstSkillLvContainer<MstSkillLv> extends GroupContainer<MstSkillLv> {
+export class MstSkillLvContainer extends GroupContainer<MstSkillLv> {
     protected _groupIdAttributeName = "skillId";
     protected _idAttributeName = "lv";
 }
 
-export class MstSkillDetailContainer<MstSkillDetail> extends Container<MstSkillDetail> {
+export class MstSkillDetailContainer extends Container<MstSkillDetail> {
     protected _idAttributeName = "id";
 }
 
-export class MstTreasureDeviceContainer<MstTreasureDevice> extends Container<MstTreasureDevice> {
+export class MstTreasureDeviceContainer extends Container<MstTreasureDevice> {
     protected _idAttributeName = "id";
 }
 
-export class MstSvtTreasureDeviceContainer<MstSvtTreasureDevice> extends GroupContainer<MstSvtTreasureDevice> {
+export class MstSvtTreasureDeviceContainer extends GroupContainer<MstSvtTreasureDevice> {
     protected _groupIdAttributeName = "svtId";
     protected _idAttributeName = "treasureDeviceId";
 }
 
-export class MstTreasureDeviceLvContainer<MstTreasureDeviceLv> extends GroupContainer<MstTreasureDeviceLv> {
+export class MstTreasureDeviceLvContainer extends GroupContainer<MstTreasureDeviceLv> {
     protected _groupIdAttributeName = "treaureDeviceId";
     protected _idAttributeName = "lv";
 }
 
-export class MstFriendshipContainer<MstFriendship> extends GroupContainer<MstFriendship> {
+export class MstFriendshipContainer extends GroupContainer<MstFriendship> {
     protected _groupIdAttributeName = "id";
     protected _idAttributeName = "rank";
 }
 
-export class MstSvtCommentContainer<MstSvtComment> extends GroupContainer<MstSvtComment> {
+export class MstSvtCommentContainer extends GroupContainer<MstSvtComment> {
     protected _groupIdAttributeName = "svtId";
     protected _idAttributeName = "id";
 }
 
-export class MstCombineLimitContainer<MstCombineLimit> extends GroupContainer<MstCombineLimit> {
+export class MstCombineLimitContainer extends GroupContainer<MstCombineLimit> {
     protected _groupIdAttributeName = "id";
     protected _idAttributeName = "svtLimit";
 }
 
-export class MstCombineSkillContainer<MstCombineSkill> extends GroupContainer<MstCombineSkill> {
+export class MstCombineSkillContainer extends GroupContainer<MstCombineSkill> {
     protected _groupIdAttributeName = "id";
     protected _idAttributeName = "skillLv";
 }
 
-export class MstItemContainer<MstItem> extends Container<MstItem> {
+export class MstItemContainer extends Container<MstItem> {
     protected _idAttributeName = "id";
 }
 
-export class MstSvtExpContainer<MstSvtExp> extends GroupContainer<MstSvtExp> {
+export class MstSvtExpContainer extends GroupContainer<MstSvtExp> {
     protected _groupIdAttributeName = "type";
     protected _idAttributeName = "lv";
 }

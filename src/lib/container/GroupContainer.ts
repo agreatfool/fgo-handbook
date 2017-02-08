@@ -11,30 +11,35 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         this._data = new Map<number, Map<number, T>>();
     }
 
-    public add(groupId: number, id: number, element: T) {
-        if (!this._data.has(groupId)) {
+    public get(groupId: number, id: number) {
+        if (this.hasGroup(groupId)) {
+            return this.getGroup(groupId).get(id);
+        } else {
+            return null;
+        }
+    }
+
+    public getGroup(groupId: number) {
+        if (this.hasGroup(groupId)) {
+            return this._data.get(groupId);
+        } else {
+            return null;
+        }
+    }
+
+    public set(groupId: number, id: number, element: T) {
+        if (!this.hasGroup(groupId)) {
             return false;
         } else {
-            let group = this._data.get(groupId);
+            let group = this.getGroup(groupId);
             group.set(id, element);
-            this._data.set(groupId, group);
+            this.setGroup(groupId, group);
             return true;
         }
     }
 
-    public addGroup(groupId: number, group: Map<number, T>) {
+    public setGroup(groupId: number, group: Map<number, T>) {
         this._data.set(groupId, group);
-    }
-
-    public hasGroup(groupId: number) {
-        return this._data.has(groupId);
-    }
-
-    public initGroup(groupId: number) {
-        if (this._data.has(groupId)) {
-            return;
-        }
-        this._data.set(groupId, new Map<number, T>());
     }
 
     public has(groupId: number, id: number) {
@@ -47,9 +52,20 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return result;
     }
 
+    public hasGroup(groupId: number) {
+        return this._data.has(groupId);
+    }
+
+    public initGroup(groupId: number) {
+        if (this.hasGroup(groupId)) {
+            return;
+        }
+        this.setGroup(groupId, new Map<number, T>());
+    }
+
     public findGroup(groupId: number) {
-        if (this._data.has(groupId)) {
-            return this._data.get(groupId);
+        if (this.hasGroup(groupId)) {
+            return this.getGroup(groupId);
         } else {
             return null;
         }
@@ -58,8 +74,8 @@ export default class GroupContainer<T> extends BaseContainer<T> {
     public find(groupId: number, id: number) {
         let result = null;
 
-        if (this._data.has(groupId)) {
-            let group = this._data.get(groupId);
+        if (this.hasGroup(groupId)) {
+            let group = this.getGroup(groupId);
             if (group.has(id)) {
                 result = group.get(id);
             }
@@ -68,19 +84,30 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return result;
     }
 
-    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: any) {
-        rawData = rawData as Array<Object>;
+    public iterator() {
+        return this._data.entries();
+    }
+
+    public groupIterator(groupId: number) {
+        if (this.hasGroup(groupId)) {
+            return this._data.get(groupId).entries();
+        } else {
+            return null;
+        }
+    }
+
+    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: Array<Object>) {
         rawData.forEach((element) => {
             let groupId = element[groupIdAttributeName];
             let id = element[idAttributeName];
             this.initGroup(groupId);
-            this.add(groupId, id, element);
+            this.set(groupId, id, element as T);
         });
 
         return this;
     }
 
-    public parse(rawData: any) {
+    public parse(rawData: Array<Object>) {
         return this._parse(this._groupIdAttributeName, this._idAttributeName, rawData);
     }
 

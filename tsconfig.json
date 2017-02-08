@@ -4,7 +4,7 @@
         "module": "es2015",
         "allowJs": true,
         "jsx": "react",
-        "sourceMap": false,
+        "sourceMap": true,
         "rootDir": "src",
         "outDir": "build",
         "moduleResolution": "node",

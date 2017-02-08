@@ -1,10 +1,11 @@
 import * as LibPath from "path";
 
-import * as AsyncFile from "async-file";
+import * as LibAsyncFile from "async-file";
 
 import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import Utility from "../lib/utility/Utility";
+import MstUtil from "../model/impl/MstUtil";
 
 export default class MasterDumper {
 
@@ -13,17 +14,13 @@ export default class MasterDumper {
 
     public async run(): Promise<any> {
         try {
-            let appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
-            this._dbMasterDirPath = LibPath.join(Const.PATH_DATABASE, appVer, "master");
+            let dbPath = await MstUtil.instance.getDbPathWithVer();
+            this._dbMasterDirPath = LibPath.join(dbPath, "master");
             this._masterJson = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_ORIGIN_MASTER);
 
-            let dirExists = await AsyncFile.exists(this._dbMasterDirPath);
-            if (!dirExists) {
-                await AsyncFile.createDirectory(this._dbMasterDirPath);
-            }
+            await MstUtil.instance.ensureDirs([this._dbMasterDirPath]);
 
-            //noinspection JSIgnoredPromiseFromCall
-            this._parseEntities();
+            await this._parseEntities();
 
             return Promise.resolve();
         } catch (e) {
@@ -32,7 +29,7 @@ export default class MasterDumper {
     }
 
     private async _parseEntities(): Promise<any> {
-        [
+        let names = [
             "MstClass",
             "MstSkill",
             "MstSvt",
@@ -50,10 +47,13 @@ export default class MasterDumper {
             "MstCombineSkill",
             "MstItem",
             "MstSvtExp"
-        ].forEach((name) => {
-            //noinspection JSIgnoredPromiseFromCall
-            this._parseEntity(name);
-        });
+        ];
+
+        for (let typeName of names) {
+            await this._parseEntity(typeName);
+        }
+
+        return Promise.resolve();
     }
 
     private async _parseEntity(name: string): Promise<any> {
@@ -61,7 +61,9 @@ export default class MasterDumper {
         let ucName = Utility.ucFirst(name);
 
         let rawData = this._masterJson[lcName];
-        await AsyncFile.writeFile(LibPath.join(this._dbMasterDirPath, ucName + ".json"), JSON.stringify(rawData, null, 4));
+        await LibAsyncFile.writeFile(LibPath.join(this._dbMasterDirPath, ucName + ".json"), JSON.stringify(rawData, null, 4));
+
+        return Promise.resolve();
     }
 
 }
