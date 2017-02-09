@@ -14,8 +14,8 @@ class Utility {
         }
 
         let res = "";
-        for (let i: number = 0 ; i < byteArr.length; i += 2) {
-            res += String.fromCharCode(byteArr[i] | (byteArr[i+1] << 8));
+        for (let i: number = 0; i < byteArr.length; i += 2) {
+            res += String.fromCharCode(byteArr[i] | (byteArr[i + 1] << 8));
         }
         return res;
     }
@@ -49,10 +49,10 @@ class Utility {
 
     public static convertStringToFormatedHex(str: string): string {
         let byteArr = [];
-        for (let i = 0 ; i < str.length; i++) {
+        for (let i = 0; i < str.length; i++) {
             let value = str.charCodeAt(i);
             byteArr.push(value & 255);
-            byteArr.push((value>>8) & 255);
+            byteArr.push((value >> 8) & 255);
         }
         return Utility._convertByteArrToFormatedHex(byteArr);
     }
@@ -85,12 +85,12 @@ class Utility {
             }
 
             /*
-            if ((i + 1) % 16 === 0) {
-                tmp_hex += "\n";
-            } else {
-                tmp_hex += " ";
-            }
-            */
+             if ((i + 1) % 16 === 0) {
+             tmp_hex += "\n";
+             } else {
+             tmp_hex += " ";
+             }
+             */
 
             hexStr += tmpHex;
         }

@@ -23,13 +23,13 @@ import Config from "../lib/config/Config";
 import SourceConfig from "../model/config/SourceConfig";
 import EmbeddedCodeConverted from "../model/master/EmbeddedCodeConverted";
 async function testConfig() {
-  let conf = await Config.instance.loadWholeConfig(Const.CONF_SOURCE) as SourceConfig;
-  let property = await Config.instance.loadConfig(Const.CONF_SOURCE, "baseUri") as String;
-  let code = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_CODE) as EmbeddedCodeConverted;
+    let conf = await Config.instance.loadWholeConfig(Const.CONF_SOURCE) as SourceConfig;
+    let property = await Config.instance.loadConfig(Const.CONF_SOURCE, "baseUri") as String;
+    let code = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_CODE) as EmbeddedCodeConverted;
 
-  // console.log(conf);
-  // console.log(property);
-  // console.log(code);
+    // console.log(conf);
+    // console.log(property);
+    // console.log(code);
 }
 testConfig();
 
@@ -49,7 +49,7 @@ new ResourceDownloader().run();
 //main();
 
 process.on('unhandledRejection', (reason, p) => {
-  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
-  // application specific logging, throwing an error, or other logic here
+    console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+    // application specific logging, throwing an error, or other logic here
 });
 

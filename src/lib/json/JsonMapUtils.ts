@@ -1,3 +1,5 @@
+/// <reference path="../../../node_modules/reflect-metadata/Reflect.d.ts" />
+
 import "reflect-metadata";
 
 const JSON_METADATA_KEY = "JsonProperty";
@@ -22,7 +24,7 @@ export function JsonProperty<T>(metadata?: IJsonMetaData<T> | string): any {
     }
 }
 
-export function getClazz(target: any, propertyKey: string): any{
+export function getClazz(target: any, propertyKey: string): any {
     return Reflect.getMetadata("design:type", target, propertyKey)
 }
 

@@ -302,7 +302,7 @@ export default class EmbeddedCodeConvertor {
         }
     }
 
-    get individuality()  {
+    get individuality() {
         return this._individualityConverted;
     }
 

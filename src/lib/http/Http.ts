@@ -1,6 +1,6 @@
 import * as LibFs from "fs";
-import { Stats } from "fs";
-import { IncomingMessage } from "http";
+import {Stats} from "fs";
+import {IncomingMessage} from "http";
 
 import * as LibAsyncFile from "async-file";
 import * as LibRequest from "request";
@@ -9,7 +9,7 @@ class HttpPromise {
 
     public get(url: string): Promise<Buffer> {
         return new Promise((resolve, reject) => {
-            LibRequest.get(url, { gzip: true }, (err, response, body) => {
+            LibRequest.get(url, {gzip: true}, (err, response, body) => {
                 if (err) {
                     return reject(err);
                 }
