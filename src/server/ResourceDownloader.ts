@@ -1,7 +1,5 @@
 import * as LibPath from "path";
 
-import * as LibAsyncFile from "async-file";
-
 import HttpPromise from "../lib/http/Http";
 import SourceConfig from "../model/config/SourceConfig";
 import Const from "../lib/const/Const";
@@ -9,8 +7,9 @@ import {
     MstSvtContainer, MstSkillContainer, MstItemContainer
 } from "../model/impl/MstContainer";
 import MstLoader from "../model/impl/MstLoader";
-import { MstSvt } from "../model/master/Master";
+import {MstSvt, MstSkill, MstItem} from "../model/master/Master";
 import MstUtil from "../model/impl/MstUtil";
+import Log from "../lib/log/Log";
 
 export default class ResourceDownloader {
 
@@ -57,48 +56,79 @@ export default class ResourceDownloader {
         return Promise.resolve();
     }
 
-    private async _downloadServantResources() {
-        for (let entity of this._mstSvt.iterator()) { // entity: [number, MstSvt]
-            let svt = entity[1] as MstSvt;
-            let svtId = svt.id;
+    private async _downloadServantResources(): Promise<any> {
+        let total = this._mstSvt.count();
+        Log.instance.info(`[ResourceDownloader] _downloadServantResources: total count: ${total}`);
+
+        let current = 0;
+        for (let [id, svt] of this._mstSvt.iterator()) {
+            let svtId = (svt as MstSvt).id;
             let url = this._genImageSvtFaceUri(svtId);
-            console.log(url);
+            let urlParts = url.split(".");
+            let ext = urlParts[urlParts.length - 1];
+            let filename = svt.id + "." + ext;
+            let filePath = LibPath.join(this._imageSvtFacePath, filename);
 
-            let urlParts = url.split("/");
-            let filename = urlParts[urlParts.length - 1];
-            console.log(filename);
-
-            let buff: Buffer = await this._libHttp.download(url);
-            await LibAsyncFile.writeFile(LibPath.join(this._imageSvtFacePath, filename), buff, "binary");
-
-            break;
+            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            current++;
+            Log.instance.info(`[ResourceDownloader] _downloadServantResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
         }
     }
 
-    private async _downloadSkillResources() {
+    private async _downloadSkillResources(): Promise<any> {
+        let total = this._mstSkill.count();
+        Log.instance.info(`[ResourceDownloader] _downloadSkillResources: total count: ${total}`);
 
+        let current = 0;
+        for (let [id, skill] of this._mstSkill.iterator()) {
+            let skillIconId = (skill as MstSkill).iconId;
+            let url = this._genImageSvtSkillUri(skillIconId);
+            let urlParts = url.split(".");
+            let ext = urlParts[urlParts.length - 1];
+            let filename = skill.iconId + "." + ext;
+            let filePath = LibPath.join(this._imageSvtSkillPath, filename);
+
+            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            current++;
+            Log.instance.info(`[ResourceDownloader] _downloadSkillResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
+        }
     }
 
-    private async _downloadItemResources() {
+    private async _downloadItemResources(): Promise<any> {
+        let total = this._mstItem.count();
+        Log.instance.info(`[ResourceDownloader] _downloadItemResources: total count: ${total}`);
 
+        let current = 0;
+        for (let [id, item] of this._mstItem.iterator()) {
+            let itemId = (item as MstItem).id;
+            let url = this._genImageItemIconUri(itemId);
+            let urlParts = url.split(".");
+            let ext = urlParts[urlParts.length - 1];
+            let filename = item.id + "." + ext;
+            let filePath = LibPath.join(this._imageItemIconPath, filename);
+
+            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            current++;
+            Log.instance.info(`[ResourceDownloader] _downloadItemResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
+        }
     }
 
-    private _genImageSvtFaceUri(svtId: number) {
+    private _genImageSvtFaceUri(svtId: number): string {
         return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageSvtFaceUri.replace("#SVTID", svtId + "0"); // 后面就是多了个0，我也不知道为啥；存储成文件的时候我仍旧按id来，不补0
     }
 
-    private _genImageSvtSkillUri(skillId: number) {
+    private _genImageSvtSkillUri(skillId: number): string {
         return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageSvtSkillUri.replace("#SKILLID", skillId + "");
     }
 
-    private _genImageItemIconUri(itemId: number) {
+    private _genImageItemIconUri(itemId: number): string {
         return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageItemIconUri.replace("#ITEMID", itemId + "");
     }
 
-    private _genBaseSourceUri() {
+    private _genBaseSourceUri(): string {
         return `${this._sourceConf.protocol}://${this._sourceConf.originHost}/${this._sourceConf.baseUri}`;
     }
 

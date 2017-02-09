@@ -11,7 +11,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         this._data = new Map<number, Map<number, T>>();
     }
 
-    public get(groupId: number, id: number) {
+    public get(groupId: number, id: number): T {
         if (this.hasGroup(groupId)) {
             return this.getGroup(groupId).get(id);
         } else {
@@ -19,7 +19,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         }
     }
 
-    public getGroup(groupId: number) {
+    public getGroup(groupId: number): Map<number, T> {
         if (this.hasGroup(groupId)) {
             return this._data.get(groupId);
         } else {
@@ -27,7 +27,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         }
     }
 
-    public set(groupId: number, id: number, element: T) {
+    public set(groupId: number, id: number, element: T): boolean {
         if (!this.hasGroup(groupId)) {
             return false;
         } else {
@@ -38,11 +38,12 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         }
     }
 
-    public setGroup(groupId: number, group: Map<number, T>) {
+    public setGroup(groupId: number, group: Map<number, T>): boolean {
         this._data.set(groupId, group);
+        return true;
     }
 
-    public has(groupId: number, id: number) {
+    public has(groupId: number, id: number): boolean {
         let result = false;
 
         if (this._data.has(groupId)) {
@@ -52,18 +53,18 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return result;
     }
 
-    public hasGroup(groupId: number) {
+    public hasGroup(groupId: number): boolean {
         return this._data.has(groupId);
     }
 
-    public initGroup(groupId: number) {
+    public initGroup(groupId: number): void {
         if (this.hasGroup(groupId)) {
             return;
         }
         this.setGroup(groupId, new Map<number, T>());
     }
 
-    public findGroup(groupId: number) {
+    public findGroup(groupId: number): Map<number, T> {
         if (this.hasGroup(groupId)) {
             return this.getGroup(groupId);
         } else {
@@ -71,7 +72,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         }
     }
 
-    public find(groupId: number, id: number) {
+    public find(groupId: number, id: number): T {
         let result = null;
 
         if (this.hasGroup(groupId)) {
@@ -84,11 +85,11 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return result;
     }
 
-    public iterator() {
+    public groupIterator(): IterableIterator<[number, Map<number, T>]> {
         return this._data.entries();
     }
 
-    public groupIterator(groupId: number) {
+    public iterator(groupId: number): IterableIterator<[number, T]> {
         if (this.hasGroup(groupId)) {
             return this._data.get(groupId).entries();
         } else {
@@ -96,7 +97,32 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         }
     }
 
-    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: Array<Object>) {
+    public groupCount(): number {
+        return this._data.size;
+    }
+
+    public count(groupId: number): number {
+        if (this.hasGroup(groupId)) {
+            return this.getGroup(groupId).size;
+        } else {
+            return -1;
+        }
+    }
+
+    public countAll(): number {
+        let total = 0;
+
+        if (!this.groupCount()) {
+            return total;
+        }
+        for (let [groupId, group] of this.groupIterator()) {
+            total += (group as Map<number, T>).size;
+        }
+
+        return total;
+    }
+
+    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: Array<Object>): GroupContainer<T> {
         rawData.forEach((element) => {
             let groupId = element[groupIdAttributeName];
             let id = element[idAttributeName];
@@ -107,7 +133,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return this;
     }
 
-    public parse(rawData: Array<Object>) {
+    public parse(rawData: Array<Object>): GroupContainer<T> {
         return this._parse(this._groupIdAttributeName, this._idAttributeName, rawData);
     }
 
