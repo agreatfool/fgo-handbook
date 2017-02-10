@@ -10,7 +10,7 @@ class PageOne extends Component<any, any> {
         return (
             <View style={{margin: 0}}>
                 <TextInputApp />
-                <Text onPress={Actions.pageTwo}>Next Page</Text>
+                <Text onPress={(Actions as any).pageTwo}>Next Page</Text>
             </View>
         );
     }
