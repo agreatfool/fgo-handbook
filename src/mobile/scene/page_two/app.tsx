@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Text, View} from "react-native";
-import {name} from "../../component/text_input/app";
+import {name} from "../../component/text_input/App";
 import {connect} from "react-redux";
 
 class PageTwo extends Component<any, any> {

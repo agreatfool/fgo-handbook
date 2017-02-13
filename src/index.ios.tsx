@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 
-import {name, Reducers} from "./mobile/component/text_input/app";
+import {name, Reducers} from "./mobile/component/text_input/App";
 import PageOne from "./mobile/scene/page_one/app";
 import PageTwo from "./mobile/scene/page_two/app";
 
