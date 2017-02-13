@@ -5,8 +5,8 @@ import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 
 import Reducers from "../app/Reducers";
-import PageOne from "../scene/page_one/App";
-import PageTwo from "../scene/page_two/App";
+import {App as PageOneApp} from "../scene/page_one/App";
+import {App as PageTwoApp} from "../scene/page_two/App";
 
 const store = createStore(
     combineReducers(Reducers),
@@ -19,8 +19,8 @@ export class App extends Component<any, any> {
             <Provider store={store}>
                 <Router>
                     <Scene key="root">
-                        <Scene key="pageOne" component={PageOne} title="PageOne" initial={true}/>
-                        <Scene key="pageTwo" component={PageTwo} title="PageTwo"/>
+                        <Scene key="pageOne" component={PageOneApp} title="PageOne" initial={true}/>
+                        <Scene key="pageTwo" component={PageTwoApp} title="PageTwo"/>
                     </Scene>
                 </Router>
             </Provider>

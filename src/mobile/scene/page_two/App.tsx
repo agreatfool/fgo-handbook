@@ -15,4 +15,4 @@ class PageTwo extends Component<any, any> {
     }
 }
 
-export default injectIntoComponent(StateName, {}, PageTwo);
+export const App = injectIntoComponent(PageTwo, StateName);

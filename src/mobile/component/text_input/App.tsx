@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Text, View, TextInput, Button} from "react-native";
 
 import injectIntoComponent from "../../../lib/react/Connect";
-import Actions from "./Action";
+import {Actions} from "./Action";
 import {StateName} from "./State";
 
 export class Application extends Component<any, any> {
@@ -31,4 +31,4 @@ export class Application extends Component<any, any> {
     };
 }
 
-export default injectIntoComponent(StateName, Actions, Application);
+export const App = injectIntoComponent(Application, StateName, Actions);

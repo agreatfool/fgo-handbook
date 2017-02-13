@@ -25,7 +25,7 @@ export let ACTClearText: ActionCreator<any> = function () {
     };
 };
 
-export default {
+export let Actions = {
     ACTUpdateText,
     ACTClearText
 };
