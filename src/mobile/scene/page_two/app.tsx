@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {Text, View} from "react-native";
+
 import {StateName} from "../../component/text_input/State";
-import {connect} from "react-redux";
+import injectIntoComponent from "../../../lib/react/Connect";
 
 class PageTwo extends Component<any, any> {
     render() {
@@ -14,10 +15,4 @@ class PageTwo extends Component<any, any> {
     }
 }
 
-//noinspection TypeScriptValidateTypes
-export default connect(
-    // bind state
-    (state) => ({
-        [StateName]: state[StateName]
-    })
-)(PageTwo);
+export default injectIntoComponent(StateName, {}, PageTwo);

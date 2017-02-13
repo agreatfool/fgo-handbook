@@ -1,10 +1,12 @@
-import {ReducerInterface, bindReducers} from "../../../lib/react/Reducer";
+import {ReducerInterface, bindComponentReducers} from "../../../lib/react/Reducer";
 
 import {State} from "./State";
 import {
     ACT_UPDATE_TEXT, ACT_CLEAR_TEXT,
     ActionUpdateText, ActionClearText
 } from "./Action";
+
+export {StateName} from "./State";
 
 export let RDCUpdateText = {
     action: ACT_UPDATE_TEXT,
@@ -22,7 +24,7 @@ export let RDCClearText = {
     }
 } as ReducerInterface<State>;
 
-export default bindReducers([
+export let Reducers = bindComponentReducers([
     RDCUpdateText,
     RDCClearText
 ]);

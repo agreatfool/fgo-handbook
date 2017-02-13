@@ -8,7 +8,7 @@ export interface ReducerInterface<S> {
 /**
  * @param reducers Array<ReducerInterface>, e.g [ RDCUpdateText ]
  */
-export function bindReducers(reducers: any) {
+export function bindComponentReducers(reducers: any) {
     return function (state, action) {
         let cloned = typeof state === 'undefined' ? {} : Object.assign({}, state);
 
