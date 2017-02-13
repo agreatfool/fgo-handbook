@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Text, View} from "react-native";
-import {name} from "../../component/text_input/App";
+import {StateName} from "../../component/text_input/State";
 import {connect} from "react-redux";
 
 class PageTwo extends Component<any, any> {
@@ -18,6 +18,6 @@ class PageTwo extends Component<any, any> {
 export default connect(
     // bind state
     (state) => ({
-        [name]: state[name]
+        [StateName]: state[StateName]
     })
 )(PageTwo);

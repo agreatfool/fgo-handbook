@@ -4,13 +4,14 @@ import thunk from "redux-thunk";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 
-import {name, Reducers} from "./mobile/component/text_input/App";
+import {StateName} from "./mobile/component/text_input/State";
+import Reducers from "./mobile/component/text_input/Reducer";
 import PageOne from "./mobile/scene/page_one/app";
 import PageTwo from "./mobile/scene/page_two/app";
 
 const store = createStore(
     combineReducers({
-        [name]: Reducers
+        [StateName]: Reducers
     }),
     applyMiddleware(thunk)
 );
