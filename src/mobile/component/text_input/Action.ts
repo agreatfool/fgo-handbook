@@ -12,14 +12,14 @@ export interface ActionClearText {
     type: string;
 }
 
-export let ACTUpdateText: ActionCreator<any> = function (text: string) {
+export let ACTUpdateText: ActionCreator<ActionUpdateText> = function (text: string) {
     return {
         type: ACT_UPDATE_TEXT,
         text: text
     };
 };
 
-export let ACTClearText: ActionCreator<any> = function () {
+export let ACTClearText: ActionCreator<ActionClearText> = function () {
     return {
         type: ACT_CLEAR_TEXT
     };
