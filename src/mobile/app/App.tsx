@@ -4,7 +4,6 @@ import thunk from "redux-thunk";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import {Text, StyleSheet} from "react-native";
-
 import Reducers from "../app/Reducers";
 import {App as Servant} from "../scene/servant/App";
 import {App as Material} from "../scene/material/App";
@@ -46,9 +45,12 @@ export class App extends Component<any, any> {
                 <Router navigationBarStyle={styles.navigation}>
                     <Scene key="root">
                         <Scene key="tabs" tabs={true} tabBarStyle={styles.tabBar}>
-                            <Scene key="servant" component={Servant} title="Servant" icon={TabButton} sceneStyle={styles.container}/>
-                            <Scene key="material" component={Material} title="Material" icon={TabButton} sceneStyle={styles.container}/>
-                            <Scene key="options" component={Options} title="Options" icon={TabButton} sceneStyle={styles.container}/>
+                            <Scene key="servant" component={Servant} title="Servant" icon={TabButton}
+                                   sceneStyle={styles.container}/>
+                            <Scene key="material" component={Material} title="Material" icon={TabButton}
+                                   sceneStyle={styles.container}/>
+                            <Scene key="options" component={Options} title="Options" icon={TabButton}
+                                   sceneStyle={styles.container}/>
                         </Scene>
                     </Scene>
                 </Router>
@@ -58,7 +60,7 @@ export class App extends Component<any, any> {
 }
 
 class TabButton extends Component<any, any> {
-    render(){
+    render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
             <Text style={this.props.selected ? styles.tabSelected : styles.tab}>{this.props.title}</Text>
