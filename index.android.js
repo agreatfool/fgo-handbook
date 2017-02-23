@@ -8,6 +8,6 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import App from "./build/index.ios";
+import App from "./build/index.android";
 
 AppRegistry.registerComponent('mobile', () => App);
