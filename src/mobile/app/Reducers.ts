@@ -1,5 +1,5 @@
-import * as TextInputReducer from "../component/text_input/Reducer";
+import * as BottomTAbsReducer from "../component/bottom_tabs/Reducer";
 
 export default {
-    [TextInputReducer.StateName]: TextInputReducer.Reducers
+    [BottomTAbsReducer.StateName]: BottomTAbsReducer.Reducers
 };
