@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {View, Text} from "react-native";
 import {Actions} from "react-native-router-flux";
 
-import injectIntoComponent from "../../../lib/react/Connect";
+import injectIntoComponent from "../../../../lib/react/Connect";
 
 class Options extends Component<any, any> {
     render() {

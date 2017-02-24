@@ -1,5 +1,7 @@
-import * as BottomTAbsReducer from "../component/bottom_tabs/Reducer";
+import * as SceneInitReducer from "../scene/init/Reducer";
+import * as CellReducer from "../component/cell/Reducer";
 
 export default {
-    [BottomTAbsReducer.StateName]: BottomTAbsReducer.Reducers
+    [SceneInitReducer.StateName]: SceneInitReducer.Reducers,
+    [CellReducer.StateName]: CellReducer.Reducers
 };
