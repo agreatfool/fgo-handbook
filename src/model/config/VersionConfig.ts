@@ -1,6 +1,6 @@
-interface AppConfig {
-    version: string; // 0.1.1
+interface VersionConfig {
+    version: string; // 0.0.1
     updated: string; // 2017-01-04
 }
 
-export default AppConfig;
+export default VersionConfig;

@@ -6,7 +6,7 @@ export interface ActionStopAnimating {
     type: string;
 }
 
-export let stopAnimating: ActionCreator<ActionStopAnimating> = function () {
+export const stopAnimating: ActionCreator<ActionStopAnimating> = function () {
     return {
         type: ACT_STOP_ANIMATING,
     };
@@ -19,14 +19,14 @@ export interface ActionUpdateLoading {
     loading: string; // loading content text
 }
 
-export let updateLoading: ActionCreator<ActionUpdateLoading> = function (loading: string) {
+export const updateLoading: ActionCreator<ActionUpdateLoading> = function (loading: string) {
     return {
         type: ACT_UPDATE_LOADING,
         loading: loading
     }
 };
 
-export let Actions = {
+export const Actions = {
     stopAnimating,
     updateLoading,
 };
