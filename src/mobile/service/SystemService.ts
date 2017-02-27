@@ -119,6 +119,8 @@ export class Service {
             updated: moment().format("YYYY-MM-DD")
         }, null, 4));
 
+        log("Upgrade process finished");
+
         return Promise.resolve();
     }
 
