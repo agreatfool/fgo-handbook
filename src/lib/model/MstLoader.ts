@@ -1,9 +1,9 @@
-import Config from "../../lib/config/Config";
-import Const from "../../lib/const/Const";
-import Utility from "../../lib/utility/Utility";
-import BaseContainer from "../../lib/container/base/BaseContainer";
+import Config from "../config/Config";
+import Const from "../const/Const";
+import Utility from "../utility/Utility";
+import BaseContainer from "../container/base/BaseContainer";
 
-import * as MstContainers from "./MstContainer";
+import * as MstContainers from "../../model/impl/MstContainer";
 
 export default class MstLoader {
 

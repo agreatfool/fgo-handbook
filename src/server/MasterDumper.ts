@@ -5,7 +5,7 @@ import * as LibAsyncFile from "async-file";
 import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import Utility from "../lib/utility/Utility";
-import MstUtil from "../model/impl/MstUtil";
+import MstUtil from "../lib/model/MstUtil";
 
 export default class MasterDumper {
 

@@ -2,8 +2,8 @@ import * as LibPath from "path";
 
 import * as LibAsyncFile from "async-file";
 
-import Config from "../../lib/config/Config";
-import Const from "../../lib/const/Const";
+import Config from "../config/Config";
+import Const from "../const/Const";
 
 export default class MstUtil {
 

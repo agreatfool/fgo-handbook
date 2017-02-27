@@ -6,9 +6,9 @@ import Const from "../lib/const/Const";
 import {
     MstSvtContainer, MstSkillContainer, MstItemContainer
 } from "../model/impl/MstContainer";
-import MstLoader from "../model/impl/MstLoader";
+import MstLoader from "../lib/model/MstLoader";
 import {MstSvt, MstSkill, MstItem} from "../model/master/Master";
-import MstUtil from "../model/impl/MstUtil";
+import MstUtil from "../lib/model/MstUtil";
 import Log from "../lib/log/Log";
 
 export default class ResourceDownloader {

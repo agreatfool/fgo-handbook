@@ -2,7 +2,7 @@ import * as LibPath from "path";
 
 import * as LibAsyncFile from "async-file";
 
-import MstUtil from "../model/impl/MstUtil";
+import MstUtil from "../lib/model/MstUtil";
 
 export default class ResourceListBuilder {
 
