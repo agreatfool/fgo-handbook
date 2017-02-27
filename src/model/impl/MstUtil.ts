@@ -23,7 +23,7 @@ export default class MstUtil {
 
     public async getDbPathWithVer(): Promise<string> {
         if (!this._appVer) {
-            this._appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
+            this._appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
         }
 
         return Promise.resolve(LibPath.join(Const.PATH_DATABASE, this._appVer));

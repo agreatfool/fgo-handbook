@@ -37,7 +37,7 @@ export default class Crawler {
         let json: any;
 
         try {
-            let appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
+            let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
             this._masterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
             this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.json");
 

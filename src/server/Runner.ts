@@ -44,7 +44,12 @@ import MasterDumper from "./MasterDumper";
 new MasterDumper().run();
 
 import ResourceDownloader from "./ResourceDownloader";
-new ResourceDownloader().run();
+//new ResourceDownloader().run();
+
+import ResourceListBuilder from "./ResourceListBuilder";
+new ResourceListBuilder().run().then((list) => {
+    console.log(list);
+});
 
 //main();
 

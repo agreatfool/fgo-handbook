@@ -9,7 +9,7 @@ export default class Const {
 
     public static readonly FONT_STAR: string = "\u2605"; // ★
 
-    public static readonly CONF_APP: Array<string> = ["config", "app"]; // 应用级别配置
+    public static readonly CONF_VERSION: Array<string> = ["config", "version"]; // 应用版本信息配置
     public static readonly CONF_SOURCE: Array<string> = ["config", "source"]; // 数据来源站点信息
 
     public static readonly CONF_DB_KEY_WORD: string = "database"; // 本地存储的数据库文件路径根目录

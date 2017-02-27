@@ -104,7 +104,7 @@ export default class EmbeddedCodeConvertor {
 
     public async run(): Promise<any> {
         try {
-            let appVer = await Config.instance.loadConfig(Const.CONF_APP, "version");
+            let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
             this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_code.json");
 
             await this._convertIndividuality();

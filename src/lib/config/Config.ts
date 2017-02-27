@@ -28,7 +28,7 @@ export default class Config {
 
         if (Utility.isArray(configName)) {
             clonedName = configName.slice(0);
-            let appVer = await this.loadConfig(Const.CONF_APP, 'version');
+            let appVer = await this.loadConfig(Const.CONF_VERSION, 'version');
             let dbKeywordIndex = -1;
             clonedName = clonedName as Array<string>;
             //noinspection TypeScriptUnresolvedFunction
