@@ -5,7 +5,7 @@ import injectIntoComponent from "../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as SystemService from "../../service/SystemService";
-import InjectedProps from "../../lib/InjectedProps";
+import InjectedProps from "../../../lib/react/InjectedProps";
 
 export * from "./State";
 export * from "./Action";
