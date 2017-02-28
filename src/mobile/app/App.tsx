@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
 });
 
 export class App extends Component<any, any> {
-    //FIXME 在不使用navigator的时候，如何创建多个页面并在其间跳转？
     render() {
         return (
             <Provider store={store}>
