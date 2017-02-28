@@ -5,6 +5,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
     protected _groupIdAttributeName: string;
     protected _idAttributeName: string;
     protected _data: Map<number, Map<number, T>>;
+    protected _raw: Array<T>;
 
     constructor() {
         super();
@@ -122,7 +123,11 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return total;
     }
 
-    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: Array<Object>): GroupContainer<T> {
+    public getRaw(): Array<T> {
+        return this._raw;
+    }
+
+    public _parse(groupIdAttributeName: string, idAttributeName: string, rawData: Array<any>): GroupContainer<T> {
         rawData.forEach((element) => {
             let groupId = element[groupIdAttributeName];
             let id = element[idAttributeName];
@@ -133,7 +138,8 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         return this;
     }
 
-    public parse(rawData: Array<Object>): GroupContainer<T> {
+    public parse(rawData: Array<any>): GroupContainer<T> {
+        this._raw = rawData;
         return this._parse(this._groupIdAttributeName, this._idAttributeName, rawData);
     }
 
