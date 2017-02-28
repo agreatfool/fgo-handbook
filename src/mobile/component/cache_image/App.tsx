@@ -14,9 +14,7 @@ export class CacheImage extends Component<any, any> {
         this._url = props.url;
 
         this.state = {
-            data: {
-                uri: ""
-            }
+            data: undefined
         }
     }
 
@@ -50,9 +48,7 @@ export class CacheImage extends Component<any, any> {
             console.log('download result: ', downloadRes);
             console.log('download ok?', downloadRes.ok);
             //noinspection TypeScriptUnresolvedVariable
-            if (downloadRes.ok) {
-                base64Str = await MstUtil.instance.readImageIntoBase64Str(localFilePath);
-            }
+            base64Str = await MstUtil.instance.readImageIntoBase64Str(localFilePath);
         }
         console.log('base64: ', base64Str.length);
 

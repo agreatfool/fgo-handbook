@@ -94,7 +94,7 @@ export default class MstUtil {
                 });
                 //noinspection TypeScriptUnresolvedFunction
                 ifstream.onEnd(() => {
-                    resolve(`data:image/png,base64${data}`)
+                    resolve(`data:image/png;base64,${data}`)
                 });
             });
         });
