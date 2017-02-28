@@ -43,8 +43,10 @@ class Initialization extends Component<Props, {}> {
     }
 
     componentDidMount() {
-        this._system.checkSysVer().then((res) => console.log(res));
-        (this.props as Props).actions.updateLoading("loading xxx ...");
+        this._system.init((this.props as Props).actions.updateLoading).then(() => {
+            //noinspection TypeScriptUnresolvedFunction
+            Actions.tabs();
+        });
     }
 
     componentWillUnmount() {
