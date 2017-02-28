@@ -26,7 +26,7 @@ export interface MstSvt { // 从者主信息
     classId: number; // 职阶ID
     type: number; // 类型99貌似是特殊类型，类似活动从者，一般不用处理
     limitMax: number; // 灵基再临上限；从0开始，一般是4，解放4次
-    rewardLv: number;
+    rewardLv: number; // 上限等级
     friendshipId: number; // 羁绊等级升级数量 对应 MstFriendship
     maxFriendshipRank: number;
     genderType: number; // 性别
