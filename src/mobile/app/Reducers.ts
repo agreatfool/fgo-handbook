@@ -1,7 +1,7 @@
 import * as SceneInitReducer from "../scene/init/Reducer";
-import * as CellReducer from "../component/cell/Reducer";
+import * as SceneServantListReducer from "../scene/servant/main/Reducer";
 
 export default {
     [SceneInitReducer.StateName]: SceneInitReducer.Reducers,
-    [CellReducer.StateName]: CellReducer.Reducers
+    [SceneServantListReducer.StateName]: SceneServantListReducer.Reducers,
 };
