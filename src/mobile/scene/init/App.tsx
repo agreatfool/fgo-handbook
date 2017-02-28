@@ -44,8 +44,8 @@ class Initialization extends Component<Props, {}> {
 
     componentDidMount() {
         this._system.init((this.props as Props).actions.updateLoading).then(() => {
-            //noinspection TypeScriptUnresolvedFunction
-            Actions.tabs();
+            //noinspection TypeScriptValidateJSTypes
+            (Actions as any).tabs();
         });
     }
 
