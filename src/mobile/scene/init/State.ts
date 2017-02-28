@@ -3,9 +3,9 @@ export interface State {
     loading: string;
 }
 
-export let defaultState = {
+export const defaultState = {
     animating: true,
     loading: ""
 } as State;
 
-export let StateName = "SceneInitialization";
+export const StateName = "SceneInitialization";

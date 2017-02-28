@@ -8,7 +8,7 @@ import {
 
 export {StateName} from "./State";
 
-export let stopAnimating = {
+export const stopAnimating = {
     action: ACT_STOP_ANIMATING,
     reducer: function (state: State, action: ActionStopAnimating) {
         state.animating = false;
@@ -16,7 +16,7 @@ export let stopAnimating = {
     }
 } as ReducerInterface<State>;
 
-export let updateLoading = {
+export const updateLoading = {
     action: ACT_UPDATE_LOADING,
     reducer: function (state: State, action: ActionUpdateLoading) {
         state.loading = action.loading;
@@ -24,7 +24,7 @@ export let updateLoading = {
     }
 } as ReducerInterface<State>;
 
-export let Reducers = bindComponentReducers([
+export const Reducers = bindComponentReducers([
     stopAnimating,
     updateLoading,
 ], defaultState);
