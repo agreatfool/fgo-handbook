@@ -8,6 +8,9 @@ import Reducers from "../app/Reducers";
 import {App as Initialization} from "../scene/init/App";
 import {App as Servant} from "../scene/servant/main/App";
 import {App as ServantDetail} from "../scene/servant/detail/App";
+import {App as ServantSkill} from "../scene/servant/skill/App";
+import {App as ServantStory} from "../scene/servant/story/App";
+import {App as ServantMaterial} from "../scene/servant/material/App";
 import {App as Material} from "../scene/material/main/App";
 import {App as Options} from "../scene/options/main/App";
 
@@ -54,7 +57,16 @@ export class App extends Component<any, any> {
                             <Scene key="options" component={Options} title="Options" icon={TabButton}
                                    hideNavBar={false} renderBackButton={() => undefined} sceneStyle={styles.container} />
                         </Scene>
-                        <Scene key="servant_detail" component={ServantDetail} title="ServantDetail" sceneStyle={styles.container} hideNavBar={false} />
+                        <Scene key="servant_info" tabs={true} tabBarStyle={styles.tabBar}>
+                            <Scene key="servant_detail" component={ServantDetail} title="Detail" icon={TabButton}
+                                   hideNavBar={false} sceneStyle={styles.container} />
+                            <Scene key="servant_skill" component={ServantSkill} title="Skill" icon={TabButton}
+                                   hideNavBar={false} sceneStyle={styles.container} />
+                            <Scene key="servant_story" component={ServantStory} title="Story" icon={TabButton}
+                                   hideNavBar={false} sceneStyle={styles.container} />
+                            <Scene key="servant_material" component={ServantMaterial} title="Material" icon={TabButton}
+                                   hideNavBar={false} sceneStyle={styles.container} />
+                        </Scene>
                         <Scene key="init" component={Initialization} title="Initialization" initial={true} hideNavBar={true}/>
                     </Scene>
                 </Router>

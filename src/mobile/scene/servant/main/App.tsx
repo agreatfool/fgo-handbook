@@ -106,7 +106,7 @@ export class ServantList extends Component<Props, any> {
                     let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(app._appVer, svtId);
                     //noinspection TypeScriptValidateJSTypes,TypeScriptUnresolvedFunction
                     return (
-                        <TouchableOpacity key={svtId} onPress={() => (Actions as any).servant_detail({svtId: svtId})}>
+                        <TouchableOpacity key={svtId} onPress={() => (Actions as any).servant_info({svtId: svtId})}>
                             <View style={[styles.cell, styles.cellBase]}>
                                 <CacheImage style={styles.image} url={svtImageUrl} />
                             </View>

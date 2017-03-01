@@ -4,7 +4,7 @@ import {Actions} from "react-native-router-flux";
 
 import injectIntoComponent from "../../../../lib/react/Connect";
 
-class ServantDetail extends Component<any, any> {
+class ServantStory extends Component<any, any> {
 
     componentWillMount() {
         //noinspection TypeScriptUnresolvedVariable
@@ -15,10 +15,10 @@ class ServantDetail extends Component<any, any> {
         //noinspection TypeScriptUnresolvedVariable
         return (
             <View style={{marginTop: 0}}>
-                <Text>{this.props.svtId} Base</Text>
+                <Text>{this.props.svtId} Story</Text>
             </View>
         );
     }
 }
 
-export const App = injectIntoComponent(ServantDetail);
+export const App = injectIntoComponent(ServantStory);

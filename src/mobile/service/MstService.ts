@@ -14,7 +14,7 @@ export class Service {
     public filterSvtRawData(rawData: Array<MstSvt>): Array<MstSvt> {
         return rawData.filter((element: MstSvt) => {
             return (this._validSvtClassIds.indexOf(element.classId) !== -1)
-                && (element.collectionNo > 0 || element.id === 800100); // 800100 盾娘
+                && (element.collectionNo > 0);
         });
     }
 
