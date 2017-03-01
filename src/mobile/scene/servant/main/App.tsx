@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, StyleSheet, FlexDirection, ImageResizeMode, ListView, Image, ListViewDataSource} from "react-native";
+import {View, StyleSheet, FlexDirection, ImageResizeMode, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
@@ -12,6 +12,7 @@ import MstUtil from "../../../lib/model/MstUtil";
 import {CacheImage} from "../../../component/cache_image/App";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
+import {Actions} from "react-native-router-flux";
 
 export * from "./State";
 export * from "./Action";
@@ -92,7 +93,7 @@ export class ServantList extends Component<Props, any> {
             for (let loop = 0; loop < placeholderCount; loop++) {
                 placeholder.push(
                     <View style={[styles.cellBase, styles.cellPlaceholder]} key={`placeholder${loop}`}>
-                        <Image style={styles.image}/>
+                        <Image style={styles.image} source={undefined}/>
                     </View>
                 );
             }
@@ -102,11 +103,14 @@ export class ServantList extends Component<Props, any> {
             <View style={styles.row}>
                 {rowData.map((element) => {
                     let svtId = (element as MstSvt).id;
+                    let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(app._appVer, svtId);
+                    //noinspection TypeScriptValidateJSTypes,TypeScriptUnresolvedFunction
                     return (
-                        <View style={[styles.cell, styles.cellBase]} key={svtId}>
-                            <CacheImage style={styles.image}
-                                        url={MstUtil.instance.getRemoteFaceUrl(app._appVer, svtId)}/>
-                        </View>
+                        <TouchableOpacity key={svtId} onPress={() => (Actions as any).servant_detail({svtId: svtId})}>
+                            <View style={[styles.cell, styles.cellBase]}>
+                                <CacheImage style={styles.image} url={svtImageUrl} />
+                            </View>
+                        </TouchableOpacity>
                     );
                 })}
                 {placeholder}

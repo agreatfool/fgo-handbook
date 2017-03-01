@@ -7,6 +7,7 @@ import {Text, StyleSheet} from "react-native";
 import Reducers from "../app/Reducers";
 import {App as Initialization} from "../scene/init/App";
 import {App as Servant} from "../scene/servant/main/App";
+import {App as ServantDetail} from "../scene/servant/detail/App";
 import {App as Material} from "../scene/material/main/App";
 import {App as Options} from "../scene/options/main/App";
 
@@ -45,15 +46,16 @@ export class App extends Component<any, any> {
             <Provider store={store}>
                 <Router navigationBarStyle={styles.navigation}>
                     <Scene key="root">
-                        <Scene key="init" component={Initialization} title="Initialization" initial={true} hideNavBar={true}/>
                         <Scene key="tabs" tabs={true} tabBarStyle={styles.tabBar}>
                             <Scene key="servant" component={Servant} title="Servant" icon={TabButton}
-                                   sceneStyle={styles.container}/>
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={styles.container} />
                             <Scene key="material" component={Material} title="Material" icon={TabButton}
-                                   sceneStyle={styles.container}/>
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={styles.container} />
                             <Scene key="options" component={Options} title="Options" icon={TabButton}
-                                   sceneStyle={styles.container}/>
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={styles.container} />
                         </Scene>
+                        <Scene key="servant_detail" component={ServantDetail} title="ServantDetail" sceneStyle={styles.container} hideNavBar={false} />
+                        <Scene key="init" component={Initialization} title="Initialization" initial={true} hideNavBar={true}/>
                     </Scene>
                 </Router>
             </Provider>
