@@ -27,30 +27,23 @@ export class CacheImage extends Component<any, any> {
         let fileName = split.pop();
         let type = split.pop();
         let localFilePath;
-        console.log('type: ', type);
-        console.log('file name: ', fileName);
 
         let imageBasePath = await MstUtil.instance.getLocalImagePath();
         localFilePath = `${imageBasePath}/${type}/${fileName}`;
-        console.log('image path: ', localFilePath);
 
         let exists = await RNFS.exists(localFilePath);
-        console.log('local file exists: ', exists);
 
         let base64Str = "";
         if (exists) {
             base64Str = await MstUtil.instance.readImageIntoBase64Str(localFilePath);
         } else {
             //noinspection TypeScriptValidateTypes
-            let downloadRes = await RNFetchBlob.config({
+            await RNFetchBlob.config({
                 path: localFilePath
             }).fetch("GET", this._url);
-            console.log('download result: ', downloadRes);
-            console.log('download ok?', downloadRes.ok);
             //noinspection TypeScriptUnresolvedVariable
             base64Str = await MstUtil.instance.readImageIntoBase64Str(localFilePath);
         }
-        console.log('base64: ', base64Str.length);
 
         this.setState({
             data: {

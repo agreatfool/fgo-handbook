@@ -69,6 +69,17 @@ export default class MstUtil {
         return Promise.resolve(`${await this.getDbPath()}/images`);
     }
 
+    public static isArray(object: any) {
+        if (object === Array) {
+            return true;
+        } else if (typeof Array.isArray === "function") {
+            return Array.isArray(object);
+        }
+        else {
+            return (object instanceof Array);
+        }
+    }
+
     public async readImageIntoBase64Str(path: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             let data = "";

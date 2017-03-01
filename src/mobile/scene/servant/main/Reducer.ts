@@ -28,8 +28,7 @@ export const updateDisplayData = {
 export const updateFilter = {
     action: ACT_UPDATE_FILTER,
     reducer: function (state: State, action: ActionUpdateFilter) {
-        let service = new MstService.Service();
-        state.displayData = service.filterSvtDisplayData(state.rawData, action.filter);
+        state.displayData = MstService.Service.filterSvtDisplayData(state.rawData, action.filter);
         return state;
     }
 } as ReducerInterface<State>;
