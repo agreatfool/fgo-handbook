@@ -75,11 +75,11 @@ export interface MstSvtLimit { // 从者数值
     atkBase: number; // 1级攻击
     atkMax: number; // 满级攻击
     criticalWeight: number; // 暴击权重
-    power: number;
-    defense: number;
-    agility: number;
-    magic: number;
-    luck: number;
+    power: number; // 筋力
+    defense: number; // 耐久
+    agility: number; // 敏捷
+    magic: number; // 魔力
+    luck: number; // 幸运
     treasureDevice: number;
     policy: number; // 阵营：中立 混沌 秩序 ? ? 中立
     personality: number; // 个性：善 惡 ? 狂 中庸 ? 花嫁 夏

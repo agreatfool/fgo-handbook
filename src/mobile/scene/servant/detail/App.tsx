@@ -11,6 +11,7 @@ class ServantDetail extends Component<any, any> {
         Actions.refresh({title: this.props.svtId});
     }
 
+    // FIXME 添加客制化数据添加功能
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (

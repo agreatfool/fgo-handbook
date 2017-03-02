@@ -118,6 +118,7 @@ export class ServantList extends Component<Props, any> {
         );
     }
 
+    // FIXME 添加过滤器功能，界面、Actions、Reducer都需要调整
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
