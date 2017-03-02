@@ -30,11 +30,10 @@ export interface SvtInfoBase {
     classification: string; // 人天地星獸
     attribute: string; // 混沌 恶
     attackRate: string; // 职阶补正: 杀 0.9
+    rarity: string; // ★★★★★
     maxLevel: number;
     hpMax: number;
     atkMax: number;
-    hp80: number;
-    atk80: number;
     hp90: number;
     atk90: number;
     hp100: number;
@@ -43,6 +42,7 @@ export interface SvtInfoBase {
     cardArt: string;
     cartBuster: string;
     cardQuick: string;
+    cardExtra: string;
     starRate: string; // 出星率
     deathRate: string; // 被即死率
     criticalWeight: number; // 集星权重
@@ -52,6 +52,11 @@ export interface SvtInfoBase {
     npExtra: string;
     npTreasure: string;
     npDefence: string;
+}
+
+export interface SvtHpAtkObj {
+    hp: string | number;
+    atk: string | number;
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -135,4 +140,14 @@ export interface SvtMaterialSkill {
     itemId2: number;
     count2: number;
     qp: number;
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* OTHERS
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export enum SvtCommandCardId {
+    Art = 1,
+    Buster = 2,
+    Quick = 3,
+    Extra = 4,
 }

@@ -144,7 +144,7 @@ export interface MstSvtTreasureDevice { // 从者宝具开放条件
     condQuestPhase: number;
     condLv: number; // 等级限制
     condFriendshipRank: number;
-    cardId: number; // 指令卡：Art、Burster、Quick
+    cardId: number; // 指令卡：Art、Burster、Quick、Extra
 }
 
 export interface MstTreasureDeviceLv { // 主要用来计算NP效率
