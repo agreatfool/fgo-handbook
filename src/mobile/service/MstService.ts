@@ -1,19 +1,15 @@
 import {MstSvt} from "../../model/master/Master";
 import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
+import {SvtInfo} from "../scene/servant/detail/State";
+import MstLoader from "../lib/model/MstLoader";
+import {MstSvtContainer} from "../../model/impl/MstContainer";
 
 export class Service {
 
-    private _validSvtClassIds = [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 11, // 剑弓枪骑术杀狂盾裁仇
-        17, // GrandCaster
-        20, // 提亚马特
-        22, // 魔神王盖提亚
-    ];
-
     public filterSvtRawData(rawData: Array<MstSvt>): Array<MstSvt> {
         return rawData.filter((element: MstSvt) => {
-            return (this._validSvtClassIds.indexOf(element.classId) !== -1)
+            return (Const.VALID_CLASS_IDS.indexOf(element.classId) !== -1)
                 && (element.collectionNo > 0);
         });
     }
@@ -37,6 +33,13 @@ export class Service {
         }
 
         return result;
+    }
+
+    public async buildSvtInfo(svtId: number): Promise<SvtInfo> {
+        let svtContainer = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
+        let mstSvt = svtContainer.find(svtId);
+
+        return undefined;
     }
 
 }

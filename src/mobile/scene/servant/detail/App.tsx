@@ -1,8 +1,17 @@
 import React, {Component} from "react";
-import {View, Text} from "react-native";
+import {View, Text, ScrollView, StyleSheet, FlexDirection} from "react-native";
 import {Actions} from "react-native-router-flux";
 
 import injectIntoComponent from "../../../../lib/react/Connect";
+
+const styles = StyleSheet.create({
+    flex_row: {
+        flexDirection: "row" as FlexDirection
+    },
+    row: {
+        marginBottom: 5,
+    }
+});
 
 class ServantDetail extends Component<any, any> {
 
@@ -15,8 +24,13 @@ class ServantDetail extends Component<any, any> {
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
-            <View style={{marginTop: 0}}>
-                <Text>{this.props.svtId} Base</Text>
+            <View style={{height: 612}}>
+                <ScrollView>
+                    {/*从者头像及姓名等*/}
+                    <View style={[styles.flex_row, styles.row]}>
+                        <Text>1111111</Text>
+                    </View>
+                </ScrollView>
             </View>
         );
     }
