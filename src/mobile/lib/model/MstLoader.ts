@@ -23,6 +23,7 @@ export default class MstLoader {
     }
 
     private _cache: Map<string, BaseContainer<any>>;
+    private _embeddedCode: EmbeddedCodeConverted;
 
     public async loadModel(name: string): Promise<BaseContainer<any>> {
         if (this._cache.has(name)) {
@@ -42,16 +43,16 @@ export default class MstLoader {
     }
 
     public async loadEmbeddedCode(): Promise<EmbeddedCodeConverted> {
-        let key = "EmbeddedCode";
-        if (this._cache.has(key)) {
-            return Promise.resolve(this._cache.get(key));
+        if (this._embeddedCode) {
+            return Promise.resolve(this._embeddedCode);
         }
 
         let data = await MstUtil.instance.loadJson(
             `${await MstUtil.instance.getDbPath()}/embedded_code.json`
-        );
+        ) as EmbeddedCodeConverted;
+        this._embeddedCode = data;
 
-        return Promise.resolve(data as EmbeddedCodeConverted);
+        return Promise.resolve(data);
     }
 
     public async loadEmbeddedIndividuality(id: number): Promise<string> {

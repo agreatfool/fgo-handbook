@@ -54,28 +54,29 @@ export class Service {
         infoBase.name = (await MstLoader.instance.loadEmbeddedSvtName(svtId)).name;
         infoBase.className = this._getSvtClassName(mstSvt.classId);
         infoBase.classification = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
-        infoBase.attribute = await this._getSvtPersonalityDisplay(svtId);
+        infoBase.policy = await this._getSvtPolicyDisplay(svtId);
         infoBase.attackRate = await this._getSvtClassAttackRateDisplay(mstSvt.classId);
         infoBase.rarity = await this._getSvtRarityDisplay(svtId);
         infoBase.maxLevel = mstSvt.rewardLv;
         let hpAtkMax = this._getSvtAtkHpDisplay(await this._getSvtMaxHpAtk(svtId));
-        infoBase.hpMax = hpAtkMax["hp"];
-        infoBase.atkMax = hpAtkMax["atk"];
+        infoBase.hpMax = hpAtkMax["hp"] as string;
+        infoBase.atkMax = hpAtkMax["atk"] as string;
         infoBase.hp90 = undefined;
         infoBase.atk90 = undefined;
         if (mstSvt.limitMax != 90) {
             let hpAtk90 = this._getSvtAtkHpDisplay(await this._getSvtHpAtkViaLv(svtId, 90));
-            infoBase.hp90 = hpAtk90["hp"];
-            infoBase.atk90 = hpAtk90["atk"];
+            infoBase.hp90 = hpAtk90["hp"] as string;
+            infoBase.atk90 = hpAtk90["atk"] as string;
         }
         let hpAtk100 = this._getSvtAtkHpDisplay(await this._getSvtHpAtkViaLv(svtId, 100));
-        infoBase.hp100 = hpAtk100["hp"];
-        infoBase.atk100 = hpAtk100["atk"];
+        infoBase.hp100 = hpAtk100["hp"] as string;
+        infoBase.atk100 = hpAtk100["atk"] as string;
         infoBase.gender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
         infoBase.cardArt = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Art);
         infoBase.cartBuster = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Buster);
         infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Quick);
         infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Extra);
+        infoBase.individuality = ""; // TODO
 
         return Promise.resolve(info);
     }
@@ -122,7 +123,7 @@ export class Service {
         return Promise.resolve(display);
     }
 
-    private async _getSvtPersonalityDisplay(svtId: number): Promise<string> {
+    private async _getSvtPolicyDisplay(svtId: number): Promise<string> {
         let mstSvtLimit = await this._getSvtMaxLimitInfo(svtId);
         let policyName = await MstLoader.instance.loadEmbeddedPolicy(mstSvtLimit.policy);
         let personalityName = await MstLoader.instance.loadEmbeddedPersonality(mstSvtLimit.personality);

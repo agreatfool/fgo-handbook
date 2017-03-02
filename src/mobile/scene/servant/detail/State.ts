@@ -5,7 +5,7 @@ export interface State {
 }
 
 export const defaultState = {
-    svtId: 100100, // 吾王
+    svtId: -1,
     svtInfo: {},
     title: "ServantDetail",
 } as State;
@@ -28,22 +28,23 @@ export interface SvtInfoBase {
     name: string;
     className: string; // 职阶名
     classification: string; // 人天地星獸
-    attribute: string; // 混沌 恶
+    policy: string; // 混沌 恶
     attackRate: string; // 职阶补正: 杀 0.9
     rarity: string; // ★★★★★
     maxLevel: number;
-    hpMax: number;
-    atkMax: number;
-    hp90: number;
-    atk90: number;
-    hp100: number;
-    atk100: number;
+    hpMax: string;
+    atkMax: string;
+    hp90: string;
+    atk90: string;
+    hp100: string;
+    atk100: string;
     gender: string;
     cardArt: string;
     cartBuster: string;
     cardQuick: string;
     cardExtra: string;
     starRate: string; // 出星率
+    individuality: string; // 騎乘,人型,龍,阿爾托莉亞臉
     deathRate: string; // 被即死率
     criticalWeight: number; // 集星权重
     npArt: string; // np获得，Art
