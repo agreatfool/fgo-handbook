@@ -6,6 +6,10 @@ import {
     EmbeddedCodeConverted, TransSvtName, TransSkillDetail,
     TransTreasureDetail
 } from "../../../model/master/EmbeddedCodeConverted";
+import {MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from "../../../model/master/Master";
+import {MstSvtLimitContainer} from "../../../model/impl/MstContainer";
+import {MstSvtTreasureDeviceContainer} from "../../../model/impl/MstContainer";
+import {MstTreasureDeviceLvContainer} from "../../../model/impl/MstContainer";
 
 export default class MstLoader {
 
@@ -25,6 +29,9 @@ export default class MstLoader {
     private _cache: Map<string, BaseContainer<any>>;
     private _embeddedCode: EmbeddedCodeConverted;
 
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* MAIN
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public async loadModel(name: string): Promise<BaseContainer<any>> {
         if (this._cache.has(name)) {
             return Promise.resolve(this._cache.get(name));
@@ -55,10 +62,36 @@ export default class MstLoader {
         return Promise.resolve(data);
     }
 
-    public async loadEmbeddedIndividuality(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).individuality.get(id));
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* MASTER
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    public async loadSvtMaxLimitInfo(svtId: number): Promise<MstSvtLimit> {
+        let container = await MstLoader.instance.loadModel("MstSvtLimit") as MstSvtLimitContainer;
+        let mstSvtLimit = container.get(svtId, 4); // 满破
+
+        return Promise.resolve(mstSvtLimit);
     }
 
+    public async loadSvtDefaultTreasureDeviceWithLv(svtId: number, level: number): Promise<MstTreasureDeviceLv> {
+        // ensure level secure
+        if (level < 0) {
+            level = 1;
+        } else if (level > 5) {
+            level = 5;
+        }
+
+        let svtTreasureDeviceCon = await this.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
+        let svtTreasureDeviceLvCon = await this.loadModel("MstTreasureDeviceLv") as MstTreasureDeviceLvContainer;
+
+        let devices = svtTreasureDeviceCon.getGroup(svtId);
+        let device = devices.values().next().value;
+
+        return Promise.resolve(svtTreasureDeviceLvCon.get(device.treasureDeviceId, level));
+    }
+
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* EMBEDDED CODE
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public async loadEmbeddedGender(id: number): Promise<string> {
         return Promise.resolve((await this.loadEmbeddedCode()).gender.get(id));
     }
@@ -77,10 +110,6 @@ export default class MstLoader {
 
     public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {
         return Promise.resolve((await this.loadEmbeddedCode()).transSvtName.get(id));
-    }
-
-    public async loadEmbeddedSkillDetail(id: number): Promise<TransSkillDetail> {
-        return Promise.resolve((await this.loadEmbeddedCode()).transSkillDetail.get(id));
     }
 
     public async loadEmbeddedTreasureDetail(id: number): Promise<TransTreasureDetail> {

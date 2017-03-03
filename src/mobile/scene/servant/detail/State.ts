@@ -65,15 +65,16 @@ export interface SvtHpAtkObj {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export interface SvtInfoSkill {
     skills: Array<SvtSkill>;
-    classSkills: Array<SvtClassSkill>;
-    treasure: SvtTreasure;
-    treasureUp?: SvtTreasure; // 宝具强化后效果
+    passiveSkills: Array<SvtPassiveSkill>;
+    treasures: Array<SvtTreasure>;
 }
 
 export interface SvtSkill {
+    skillId: number;
     name: string;
-    coolDown: number;
+    chargeTurn: number;
     condition: string; // 开放条件
+    iconId: number;
     skillEffects: Array<SvtSkillEffect>;
 }
 
@@ -82,7 +83,8 @@ export interface SvtSkillEffect {
     effects: Array<string>; // ["30%", "32%", ...]
 }
 
-export interface SvtClassSkill {
+export interface SvtPassiveSkill {
+    skillId: number;
     name: string;
     effects: Array<string>;
 }
