@@ -108,6 +108,14 @@ export default class MstLoader {
         return Promise.resolve((await this.loadEmbeddedCode()).attri.get(id));
     }
 
+    public async loadEmbeddedRankFont(id: number): Promise<string> {
+        return Promise.resolve((await this.loadEmbeddedCode()).rankFont.get(id));
+    }
+
+    public async loadEmbeddedRankSymbol(id: number): Promise<string> {
+        return Promise.resolve((await this.loadEmbeddedCode()).rankSymbol.get(id));
+    }
+
     public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {
         return Promise.resolve((await this.loadEmbeddedCode()).transSvtName.get(id));
     }

@@ -14,6 +14,9 @@ import {
 
 export class Service {
 
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT LIST
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public filterSvtRawData(rawData: Array<MstSvt>): Array<MstSvt> {
         return rawData.filter((element: MstSvt) => {
             return (Const.VALID_CLASS_IDS.indexOf(element.classId) !== -1)
@@ -42,18 +45,26 @@ export class Service {
         return result;
     }
 
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT INFO: MAIN
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public async buildSvtInfo(svtId: number): Promise<SvtInfo> {
-        let info = {
+        return Promise.resolve({
             svtId: svtId,
-            infoBase: undefined,
-            infoSkill: undefined,
-            infoStory: undefined,
-            infoMaterial: undefined,
-        } as SvtInfo;
+            infoBase: await this._getSvtInfoBase(svtId),
+            infoSkill: await this._getSvtInfoSkill(svtId),
+            infoStory: await this._getSvtInfoStory(svtId),
+            infoMaterial: await this._getSvtInfoMaterial(svtId),
+        } as SvtInfo);
+    }
 
-        // Basic
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT INFO: BASE
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    private async _getSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
         let infoBase = {} as SvtInfoBase;
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+
         infoBase.collectionNo = mstSvt.collectionNo;
         infoBase.name = (await MstLoader.instance.loadEmbeddedSvtName(svtId)).name;
         infoBase.className = this._getSvtClassName(mstSvt.classId);
@@ -91,26 +102,7 @@ export class Service {
         infoBase.npTreasure = `${treasureLv.tdPoint / 100}%`;
         infoBase.npDefence = `${treasureLv.tdPointDef / 100}%`;
 
-        // Skill
-        let infoSkill = {} as SvtInfoSkill;
-        infoSkill.skills = await this._getSvtSkillsDisplay(svtId);
-        infoSkill.passiveSkills = await this._getSvtPassiveSkillsDisplay(svtId);
-        infoSkill.treasures = await this._getSvtTreasuresDisplay(svtId);
-
-        // Story
-        let infoStory = {} as SvtInfoStory;
-
-
-        // Material
-        let infoMaterial = {} as SvtInfoMaterial;
-
-        // Update
-        info.infoBase = infoBase;
-        info.infoSkill = infoSkill;
-        info.infoStory = infoStory;
-        info.infoMaterial = infoMaterial;
-
-        return Promise.resolve(info);
+        return Promise.resolve(infoBase);
     }
 
     private _getSvtClassName(classId: number): string {
@@ -228,6 +220,19 @@ export class Service {
         return Promise.resolve(display);
     }
 
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT INFO: SKILL
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    private async _getSvtInfoSkill(svtId: number): Promise<SvtInfoSkill> {
+        let infoSkill = {} as SvtInfoSkill;
+
+        infoSkill.skills = await this._getSvtSkillsDisplay(svtId);
+        infoSkill.passiveSkills = await this._getSvtPassiveSkillsDisplay(svtId);
+        infoSkill.treasures = await this._getSvtTreasuresDisplay(svtId);
+
+        return Promise.resolve(infoSkill);
+    }
+
     private async _getSvtSkillsDisplay(svtId: number): Promise<Array<SvtSkill>> {
         let displays = [] as Array<SvtSkill>;
 
@@ -264,7 +269,7 @@ export class Service {
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtSkillEffect;
                 effectDisplay.description = effect.trim();
-                effectDisplay.effects = Array.from(embeddedDetail[`effect${index + 1}`]);
+                effectDisplay.effects = Array.from((embeddedDetail[`effect${index + 1}`] as Map<number, string>).values());
                 display.skillEffects.push(effectDisplay);
             });
 
@@ -346,7 +351,7 @@ export class Service {
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtTreasureEffect;
                 effectDisplay.description = effect.trim();
-                effectDisplay.effects = Array.from(detail[`effect${index + 1}`]);
+                effectDisplay.effects = Array.from((detail[`effect${index + 1}`] as Map<number, string>).values());
                 display.effects.push(effectDisplay);
             });
 
@@ -354,5 +359,44 @@ export class Service {
         });
 
         return Promise.resolve(displays);
+    }
+
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT INFO: STORY
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    private async _getSvtInfoStory(svtId: number): Promise<SvtInfoStory> {
+        let infoStory = {} as SvtInfoStory;
+        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        let maxSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+
+        infoStory.powerRank = await this._getRankDisplay(maxSvtLimit.power);
+        infoStory.defenseRank = await this._getRankDisplay(maxSvtLimit.defense);
+        infoStory.agilityRank = await this._getRankDisplay(maxSvtLimit.agility);
+        infoStory.magicRank = await this._getRankDisplay(maxSvtLimit.magic);
+        infoStory.luckRank = await this._getRankDisplay(maxSvtLimit.luck);
+        infoStory.treasureRank = await this._getRankDisplay(maxSvtLimit.treasureDevice);
+        infoStory.friendshipRequirements = [];
+        if (mstSvt.friendshipId != 1000) { // 需要过滤，理由不明
+
+        }
+
+        return Promise.resolve(infoStory);
+    }
+
+    private async _getRankDisplay(value: number): Promise<string> {
+        return Promise.resolve(
+            (await MstLoader.instance.loadEmbeddedRankFont(Math.floor(value / 10))).trim() +
+            (await MstLoader.instance.loadEmbeddedRankSymbol(value % 10)).trim() +
+            `(${value})`
+        );
+    }
+
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* SERVANT INFO: MATERIAL
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    private async _getSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
+        let infoMaterial = {} as SvtInfoMaterial;
+
+        return Promise.resolve(infoMaterial);
     }
 }

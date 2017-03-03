@@ -109,12 +109,12 @@ export interface SvtTreasureEffect {
 //-* STORY
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export interface SvtInfoStory {
-    powerLv: string; // 筋力: A
-    defenseLv: string; // 耐久
-    agilityLv: string; // 敏捷
-    magicLv: string; // 魔力
-    luckLv: string; // 幸运
-    treasureLv: string; // 宝具
+    powerRank: string; // 筋力: A
+    defenseRank: string; // 耐久
+    agilityRank: string; // 敏捷
+    magicRank: string; // 魔力
+    luckRank: string; // 幸运
+    treasureRank: string; // 宝具
     friendshipRequirements: Array<string>; // 羁绊需求
     detail: string; // 角色详细
     friendship1: string; // 绊1故事
