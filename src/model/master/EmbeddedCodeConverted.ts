@@ -4,6 +4,8 @@ export interface EmbeddedCodeConverted {
     policy: Map<number, string>;
     personality: Map<number, string>;
     attri: Map<number, string>;
+    rankFont: Map<number, string>;
+    rankSymbol: Map<number, string>;
     transSvtName: Map<number, TransSvtName>;
     transSkillDetail: Map<number, TransSkillDetail>;
     transTreasureDetail: Map<number, TransTreasureDetail>

@@ -18,12 +18,15 @@ export default class EmbeddedCodeConvertor {
     private _combined: EmbeddedCodeConverted;
     private _dbJsonPath: string;
 
+    // FIXME 需要重新确认该列表内的内容是否都可以自动更新，不希望后续的更新都需要手动介入
     // EMBEDDED CODE
     private _individuality: Array<Array<number | string>>; // 特性 [[2000, "\u795e\u6027"]]
     private _gender: Array<string>; // 性别
     private _policy: string; // 阵营：中立 混沌 秩序 ? ? 中立
     private _personality: string; // 个性：善 惡 ? 狂 中庸 ? 花嫁 夏
     private _attri: string; // 属性：？人天地星獸
+    private _rankFont: string; // 从者能力评级：筋力 "A"
+    private _rankSymbol: string; // 从者能力评级修饰符：筋力 A"+++"
     /**
      * 下述代码片段来自 https://kazemai.github.io/fgo-vz/common/js/transData.js
      * var svtName
@@ -42,6 +45,8 @@ export default class EmbeddedCodeConvertor {
     private _policyConverted: Map<number, string>; // {0: "中立"}
     private _personalityConverted: Map<number, string>; // {0: "善"}
     private _attriConverted: Map<number, string>; // {0: "地"}
+    private _rankFontConverted: Map<number, string>; // {0: "A", 1: "B", ...}
+    private _rankSymbolConverted: Map<number, string>; // {0: "+", 1: "++", ...}
     private _transSvtNameConverted: Map<number, TransSvtName>;
     private _transSkillDetailConverted: Map<number, TransSkillDetail>;
     private _transTreasureDetailConverted: Map<number, TransTreasureDetail>;
@@ -88,6 +93,14 @@ export default class EmbeddedCodeConvertor {
          * "\uff1f\u4eba\u5929\u5730\u661f\u7378".split("")[master.mstSvt[k].attri]
          */
         this._attri = "\uff1f\u4eba\u5929\u5730\u661f\u7378";
+        /**
+         * p = " A B C D E EX ? ? ".split("")
+         */
+        this._rankFont = " A B C D E EX ? ? ";
+        /**
+         * l = "  + ++ ? +++ ? ? \uff1f \uff0d".split(" ")
+         */
+        this._rankSymbol = "  + ++ ? +++ ? ? \uff1f \uff0d";
 
         /**
          * CONVERTED
@@ -97,6 +110,8 @@ export default class EmbeddedCodeConvertor {
         this._policyConverted = new Map<number, string>();
         this._personalityConverted = new Map<number, string>();
         this._attriConverted = new Map<number, string>();
+        this._rankFontConverted = new Map<number, string>();
+        this._rankSymbolConverted = new Map<number, string>();
         this._transSvtNameConverted = new Map<number, TransSvtName>();
         this._transSkillDetailConverted = new Map<number, TransSkillDetail>();
         this._transTreasureDetailConverted = new Map<number, TransTreasureDetail>();
@@ -112,6 +127,8 @@ export default class EmbeddedCodeConvertor {
             await this._convertPolicy();
             await this._convertPersonality();
             await this._convertAttri();
+            await this._convertRankFont();
+            await this._convertRankSymbol();
             await this._convertTransSvtName();
             await this._convertTransSkillDetail();
             await this._convertTransTreasureDetail();
@@ -122,6 +139,8 @@ export default class EmbeddedCodeConvertor {
                 "policy": this._policyConverted,
                 "personality": this._personalityConverted,
                 "attri": this._attriConverted,
+                "rankFont": this._rankFontConverted,
+                "rankSymbol": this._rankSymbolConverted,
                 "transSvtName": this._transSvtNameConverted,
                 "transSkillDetail": this._transSkillDetailConverted,
                 "transTreasureDetail": this._transTreasureDetailConverted
@@ -214,6 +233,40 @@ export default class EmbeddedCodeConvertor {
                 id++;
             }
             return Promise.resolve(this._attriConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertRankFont(): Promise<any> {
+        try {
+            if (this._rankFont.length <= 0) {
+                return Promise.resolve(this._rankFontConverted);
+            }
+            let id = 0;
+            let split: Array<string> = this._rankFont.split(" ");
+            for (let index in split) {
+                this._rankFontConverted.set(id, Utility.fromUnicode(split[index]));
+                id++;
+            }
+            return Promise.resolve(this._rankFontConverted);
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    }
+
+    private async _convertRankSymbol(): Promise<any> {
+        try {
+            if (this._rankSymbol.length <= 0) {
+                return Promise.resolve(this._rankSymbolConverted);
+            }
+            let id = 0;
+            let split: Array<string> = this._rankSymbol.split(" ");
+            for (let index in split) {
+                this._rankSymbolConverted.set(id, Utility.fromUnicode(split[index]));
+                id++;
+            }
+            return Promise.resolve(this._rankSymbolConverted);
         } catch (err) {
             return Promise.reject(err);
         }
