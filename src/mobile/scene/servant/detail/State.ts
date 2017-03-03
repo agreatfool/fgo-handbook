@@ -90,10 +90,12 @@ export interface SvtPassiveSkill {
 }
 
 export interface SvtTreasure {
+    treasureId: number;
     name: string;
-    level: string;
+    rank: string;
     type: string;
     condition: string; // 开放条件
+    cardId: number; // 宝具类型：Art、Buster、Quick
     hits: string;
     effects: Array<SvtTreasureEffect>
 }

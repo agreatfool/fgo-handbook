@@ -122,7 +122,7 @@ export interface MstTreasureDevice { // 从者宝具
     id: number;
     name: string; // 無垢識・空の境界
     ruby: string; // むくしき・からのきょうかい
-    rank: number; // EX
+    rank: string; // EX
     maxLv: number; // 5
     typeText: string; // 対人宝具
 }

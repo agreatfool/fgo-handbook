@@ -3,13 +3,13 @@ import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
     SvtInfo, SvtInfoBase, SvtHpAtkObj, SvtCommandCardId, SvtInfoSkill,
-    SvtSkill, SvtSkillEffect, SvtPassiveSkill, SvtTreasure
+    SvtSkill, SvtSkillEffect, SvtPassiveSkill, SvtTreasure, SvtTreasureEffect, SvtInfoStory, SvtInfoMaterial
 } from "../scene/servant/detail/State";
 import MstLoader from "../lib/model/MstLoader";
 import {
     MstSvtContainer, MstClassContainer, MstSvtLimitContainer,
     MstSvtExpContainer, MstSvtCardContainer, MstSkillLvContainer, MstSvtSkillContainer, MstSkillDetailContainer,
-    MstSkillContainer
+    MstSkillContainer, MstSvtTreasureDeviceContainer, MstTreasureDeviceContainer
 } from "../../model/impl/MstContainer";
 
 export class Service {
@@ -97,15 +97,18 @@ export class Service {
         infoSkill.passiveSkills = await this._getSvtPassiveSkillsDisplay(svtId);
         infoSkill.treasures = await this._getSvtTreasuresDisplay(svtId);
 
+        // Story
+        let infoStory = {} as SvtInfoStory;
+
+
+        // Material
+        let infoMaterial = {} as SvtInfoMaterial;
+
         // Update
         info.infoBase = infoBase;
-        // info = {
-        //     svtId: svtId,
-        //     infoBase: undefined,
-        //     infoSkill: undefined,
-        //     infoStory: undefined,
-        //     infoMaterial: undefined,
-        // } as SvtInfo;
+        info.infoSkill = infoSkill;
+        info.infoStory = infoStory;
+        info.infoMaterial = infoMaterial;
 
         return Promise.resolve(info);
     }
@@ -251,17 +254,17 @@ export class Service {
             } else if (0 != svtSkill.condLimitCount) {
                 display.condition = `灵基再临第${svtSkill.condLimitCount}阶段`;
             } else if (0 != svtSkill.condLv) {
-                display.condition = `Lv.${svtSkill.condLv}`;
+                display.condition = `Lv.${svtSkill.condLv}解放`;
             } else if (0 != svtSkill.condQuestId) {
-                display.condition = "任务";
+                display.condition = "任务获得";
             }
 
             display.skillEffects = [];
             let effects = embeddedDetail.detail.split("&");
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtSkillEffect;
-                effectDisplay.description = effect;
-                effectDisplay.effects = embeddedDetail[`effect${index + 1}`];
+                effectDisplay.description = effect.trim();
+                effectDisplay.effects = Array.from(embeddedDetail[`effect${index + 1}`]);
                 display.skillEffects.push(effectDisplay);
             });
 
@@ -292,15 +295,9 @@ export class Service {
             display.name = skill.name;
             display.effects = [] as Array<string>;
 
-            let delimiter = "";
-            if (embeddedDetail.detail.indexOf("&") != -1) {
-                delimiter = "&";
-            } else if (embeddedDetail.detail.indexOf("＋")) {
-                delimiter = "＋";
-            }
-            let effects = embeddedDetail.detail.split(delimiter);
+            let effects = embeddedDetail.detail.split(/[&＋]+/);
             effects.forEach((effect, index) => {
-                display.effects.push(`${effect}：${embeddedDetail[`effect${index + 1}`][0]}`);
+                display.effects.push(`${effect.trim()}：${embeddedDetail[`effect${index + 1}`][0]}`);
             });
 
             displays.push(display);
@@ -310,6 +307,52 @@ export class Service {
     }
 
     public async _getSvtTreasuresDisplay(svtId: number): Promise<Array<SvtTreasure>> {
+        let displays = [] as Array<SvtTreasure>;
 
+        let treasureDeviceCon = await MstLoader.instance.loadModel("MstTreasureDevice") as MstTreasureDeviceContainer;
+        let svtTreasureDeviceCon = await MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
+        let embeddedTreasureDetail = (await MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
+
+        let treasures = Array.from(svtTreasureDeviceCon.getGroup(svtId).values()).filter((svtTreasure) => {
+            return svtTreasure.treasureDeviceId != 100; // 不知道什么情况下会是100，不过需要过滤掉
+        });
+        treasures.forEach((svtTreasure) => {
+            let treasure = treasureDeviceCon.get(svtTreasure.treasureDeviceId);
+            let detail = embeddedTreasureDetail.get(svtTreasure.treasureDeviceId);
+            let display = {} as SvtTreasure;
+
+            display.treasureId = svtTreasure.treasureDeviceId;
+            display.name = treasure.name;
+            display.rank = treasure.rank;
+            display.type = treasure.typeText;
+            display.cardId = svtTreasure.cardId;
+            display.hits = svtTreasure.damage.length > 1 ? `${svtTreasure.damage.length}Hits` : "1Hit";
+
+            if (svtTreasure.num == 98) {
+                display.condition = "NPC限定";
+            } else if (0 == svtTreasure.condQuestId && 0 == svtTreasure.condLv && 0 == svtTreasure.condFriendshipRank) {
+                display.condition = "初期";
+            } else if (0 != svtTreasure.condQuestId) {
+                display.condition = "任务获得";
+            } else if (0 != svtTreasure.condLv) {
+                display.condition = `Lv.${svtTreasure.condLv}解放`;
+            } else if (0 != svtTreasure.condFriendshipRank) {
+                display.condition = `絆等級${svtTreasure.condFriendshipRank}解放`;
+            } else {
+                display.condition = "未開放";
+            }
+
+            let effects = detail.detail.split(/[&＋]+/);
+            effects.forEach((effect, index) => {
+                let effectDisplay = {} as SvtTreasureEffect;
+                effectDisplay.description = effect.trim();
+                effectDisplay.effects = Array.from(detail[`effect${index + 1}`]);
+                display.effects.push(effectDisplay);
+            });
+
+            displays.push(display);
+        });
+
+        return Promise.resolve(displays);
     }
 }

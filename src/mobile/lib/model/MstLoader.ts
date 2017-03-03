@@ -111,8 +111,4 @@ export default class MstLoader {
     public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {
         return Promise.resolve((await this.loadEmbeddedCode()).transSvtName.get(id));
     }
-
-    public async loadEmbeddedTreasureDetail(id: number): Promise<TransTreasureDetail> {
-        return Promise.resolve((await this.loadEmbeddedCode()).transTreasureDetail.get(id));
-    }
 }
