@@ -1,4 +1,4 @@
-import {MstSvt, MstSvtLimit, MstSvtSkill, MstSkillLv} from "../../model/master/Master";
+import {MstSvt, MstSvtLimit, MstSvtSkill, MstSkillLv, MstFriendship} from "../../model/master/Master";
 import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
@@ -9,7 +9,8 @@ import MstLoader from "../lib/model/MstLoader";
 import {
     MstSvtContainer, MstClassContainer, MstSvtLimitContainer,
     MstSvtExpContainer, MstSvtCardContainer, MstSkillLvContainer, MstSvtSkillContainer, MstSkillDetailContainer,
-    MstSkillContainer, MstSvtTreasureDeviceContainer, MstTreasureDeviceContainer
+    MstSkillContainer, MstSvtTreasureDeviceContainer, MstTreasureDeviceContainer, MstFriendshipContainer,
+    MstSvtCommentContainer
 } from "../../model/impl/MstContainer";
 
 export class Service {
@@ -368,6 +369,7 @@ export class Service {
         let infoStory = {} as SvtInfoStory;
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
         let maxSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        let svtComments = (await MstLoader.instance.loadModel("MstSvtComment") as MstSvtCommentContainer).getGroup(svtId);
 
         infoStory.powerRank = await this._getRankDisplay(maxSvtLimit.power);
         infoStory.defenseRank = await this._getRankDisplay(maxSvtLimit.defense);
@@ -377,8 +379,15 @@ export class Service {
         infoStory.treasureRank = await this._getRankDisplay(maxSvtLimit.treasureDevice);
         infoStory.friendshipRequirements = [];
         if (mstSvt.friendshipId != 1000) { // 需要过滤，理由不明
-
+            infoStory.friendshipRequirements = await this._getFriendshipRequirementDisplay(svtId);
         }
+        infoStory.detail = svtComments.get(1).comment;
+        infoStory.friendship1 = svtComments.get(2).comment;
+        infoStory.friendship2 = svtComments.get(3).comment;
+        infoStory.friendship3 = svtComments.get(4).comment;
+        infoStory.friendship4 = svtComments.get(5).comment;
+        infoStory.friendship5 = svtComments.get(6).comment;
+        infoStory.lastStory = svtComments.get(7).comment;
 
         return Promise.resolve(infoStory);
     }
@@ -389,6 +398,26 @@ export class Service {
             (await MstLoader.instance.loadEmbeddedRankSymbol(value % 10)).trim() +
             `(${value})`
         );
+    }
+
+    private async _getFriendshipRequirementDisplay(svtId: number): Promise<Array<string>> {
+        let displays = [] as Array<string>;
+
+        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        let mstFriendshipCon = await MstLoader.instance.loadModel("MstFriendship") as MstFriendshipContainer;
+        let friendships = Array.from((mstFriendshipCon.getGroup(mstSvt.friendshipId) as Map<number, MstFriendship>).values());
+
+        let total = 0;
+        friendships.forEach((friendship) => {
+            if (friendship.rank == 10) { // 有效的是 0 - 9
+                return;
+            }
+            let current = friendship.friendship;
+            total += friendship.friendship;
+            displays.push(`${current}(${total})`);
+        });
+
+        return Promise.resolve(displays);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
