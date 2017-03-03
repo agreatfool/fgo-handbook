@@ -1,15 +1,31 @@
-import {MstSvt, MstSvtLimit, MstSvtSkill, MstSkillLv, MstFriendship} from "../../model/master/Master";
+import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship} from "../../model/master/Master";
 import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
-    SvtInfo, SvtInfoBase, SvtHpAtkObj, SvtCommandCardId, SvtInfoSkill,
-    SvtSkill, SvtSkillEffect, SvtPassiveSkill, SvtTreasure, SvtTreasureEffect, SvtInfoStory, SvtInfoMaterial
+    SvtInfo,
+    SvtInfoBase,
+    SvtHpAtkObj,
+    SvtInfoSkill,
+    SvtSkill,
+    SvtSkillEffect,
+    SvtPassiveSkill,
+    SvtTreasure,
+    SvtTreasureEffect,
+    SvtInfoStory,
+    SvtInfoMaterial
 } from "../scene/servant/detail/State";
 import MstLoader from "../lib/model/MstLoader";
 import {
-    MstSvtContainer, MstClassContainer, MstSvtLimitContainer,
-    MstSvtExpContainer, MstSvtCardContainer, MstSkillLvContainer, MstSvtSkillContainer, MstSkillDetailContainer,
-    MstSkillContainer, MstSvtTreasureDeviceContainer, MstTreasureDeviceContainer, MstFriendshipContainer,
+    MstSvtContainer,
+    MstClassContainer,
+    MstSvtExpContainer,
+    MstSvtCardContainer,
+    MstSkillLvContainer,
+    MstSvtSkillContainer,
+    MstSkillContainer,
+    MstSvtTreasureDeviceContainer,
+    MstTreasureDeviceContainer,
+    MstFriendshipContainer,
     MstSvtCommentContainer
 } from "../../model/impl/MstContainer";
 
@@ -88,10 +104,10 @@ export class Service {
         infoBase.hp100 = hpAtk100["hp"] as string;
         infoBase.atk100 = hpAtk100["atk"] as string;
         infoBase.gender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
-        infoBase.cardArt = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Art);
-        infoBase.cartBuster = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Buster);
-        infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Quick);
-        infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, SvtCommandCardId.Extra);
+        infoBase.cardArt = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_ART);
+        infoBase.cartBuster = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER);
+        infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK);
+        infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA);
         infoBase.individuality = await this._getSvtIndividualityDisplay(svtId);
         infoBase.deathRate = `${mstSvt.deathRate / 10}%`;
         infoBase.criticalWeight = (await MstLoader.instance.loadSvtMaxLimitInfo(svtId)).criticalWeight;

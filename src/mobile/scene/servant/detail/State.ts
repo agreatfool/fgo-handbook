@@ -146,13 +146,3 @@ export interface SvtMaterialSkill {
     count2: number;
     qp: number;
 }
-
-//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-//-* OTHERS
-//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export enum SvtCommandCardId {
-    Art = 1,
-    Buster = 2,
-    Quick = 3,
-    Extra = 4,
-}

@@ -8,5 +8,9 @@ export default class Const {
         20, // 提亚马特
         22, // 魔神王盖提亚
     ];
+    public static readonly CMD_CARD_ID_ART      = 1;
+    public static readonly CMD_CARD_ID_BUSTER   = 2;
+    public static readonly CMD_CARD_ID_QUICK    = 3;
+    public static readonly CMD_CARD_ID_EXTRA    = 4;
 
 }
