@@ -1,14 +1,25 @@
 export interface EmbeddedCodeConverted {
-    individuality: Map<number, string>;
-    gender: Map<number, string>;
-    policy: Map<number, string>;
-    personality: Map<number, string>;
-    attri: Map<number, string>;
-    rankFont: Map<number, string>;
-    rankSymbol: Map<number, string>;
-    transSvtName: Map<number, TransSvtName>;
-    transSkillDetail: Map<number, TransSkillDetail>;
-    transTreasureDetail: Map<number, TransTreasureDetail>
+    // FIXME 类型转换问题
+    // 代码：
+    // let names = {1: "jonathan", 2: "david"} as Map<number, string>;
+    // console.log(names.get(1));
+    // 编译时会报错：Property 'clear' is missing in type '{ 1: string; 2: string; }'.
+    // 实际上就是在 JSON 结构内缺失 Map 需要的一些元素
+    // 而当前结构体所对应的 JSON 也是无法顺利转换成 Map 的
+    // 当前申明的结构因为结构定义和类型转换是在不同的代码中，编译器并不能第一时间找到问题，因此看起来编译是通过的
+    // 实际运行就会报错：names.get is not a function
+    // TypeScript 在使用 as 进行类型转换的时候，并不能直接把 Object 转成对应的 Map，切记
+    // 当前使用时只能使用 Object 将就
+    individuality: Object; // Map<number, string>;
+    gender: Object; // Map<number, string>;
+    policy: Object; // Map<number, string>;
+    personality: Object; // Map<number, string>;
+    attri: Object; // Map<number, string>;
+    rankFont: Object; // Map<number, string>;
+    rankSymbol: Object; // Map<number, string>;
+    transSvtName: Object; // Map<number, TransSvtName>;
+    transSkillDetail: Object; // Map<number, TransSkillDetail>;
+    transTreasureDetail: Object; // Map<number, TransTreasureDetail>
 }
 
 export interface TransSvtName {

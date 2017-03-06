@@ -34,6 +34,8 @@ export interface SvtInfoBase {
     maxLevel: number;
     hpMax: string;
     atkMax: string;
+    hp80: string;
+    atk80: string;
     hp90: string;
     atk90: string;
     hp100: string;
@@ -134,15 +136,16 @@ export interface SvtInfoMaterial {
 }
 
 export interface SvtMaterialLimit {
-    itemId: number;
-    count: number;
+    items: Array<SvtMaterial>;
     qp: number;
 }
 
 export interface SvtMaterialSkill {
-    itemId1: number;
-    count1: number;
-    itemId2: number;
-    count2: number;
+    items: Array<SvtMaterial>;
     qp: number;
+}
+
+export interface SvtMaterial {
+    itemId: number;
+    count: number;
 }

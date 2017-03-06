@@ -80,6 +80,16 @@ export default class MstUtil {
         }
     }
 
+    public static objValues(obj: Object): Array<any> {
+        let arr = [];
+
+        for (let key of Object.keys(obj)) {
+            arr.push(obj[key]);
+        }
+
+        return arr;
+    }
+
     public async readImageIntoBase64Str(path: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             let data = "";

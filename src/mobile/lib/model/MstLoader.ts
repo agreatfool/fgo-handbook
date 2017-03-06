@@ -93,30 +93,30 @@ export default class MstLoader {
     //-* EMBEDDED CODE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public async loadEmbeddedGender(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).gender.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).gender[id]);
     }
 
     public async loadEmbeddedPolicy(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).policy.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).policy[id]);
     }
 
     public async loadEmbeddedPersonality(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).personality.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).personality[id]);
     }
 
     public async loadEmbeddedAttribute(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).attri.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).attri[id]);
     }
 
     public async loadEmbeddedRankFont(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).rankFont.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).rankFont[id]);
     }
 
     public async loadEmbeddedRankSymbol(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).rankSymbol.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).rankSymbol[id]);
     }
 
     public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {
-        return Promise.resolve((await this.loadEmbeddedCode()).transSvtName.get(id));
+        return Promise.resolve((await this.loadEmbeddedCode()).transSvtName[id]);
     }
 }
