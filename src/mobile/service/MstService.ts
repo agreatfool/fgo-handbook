@@ -1,4 +1,4 @@
-import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship} from "../../model/master/Master";
+import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
 import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
@@ -91,85 +91,86 @@ export class Service {
         let infoBase = {} as SvtInfoBase;
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
         let mstSvtLimitMax = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        let mstDefaultTreasure = await MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
+        let mstClass = (await MstLoader.instance.loadModel("MstClass") as MstClassContainer).get(mstSvt.classId);
+        let mstSvtExpCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
+        let mstSvtCardCon = await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
+
+        let embeddedGender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
+        let embeddedAttri = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
+        let embeddedTransName = await MstLoader.instance.loadEmbeddedSvtName(svtId);
 
         infoBase.collectionNo = mstSvt.collectionNo;
-        infoBase.name = (await MstLoader.instance.loadEmbeddedSvtName(svtId)).name;
+        infoBase.name = embeddedTransName.name;
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
-        infoBase.classification = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
-        infoBase.policy = await this._getSvtPolicyDisplay(svtId);
-        infoBase.attackRate = await this._getSvtClassAttackRateDisplay(mstSvt.classId);
+        infoBase.classification = embeddedAttri;
+        infoBase.policy = await this._getSvtPolicyDisplay(svtId, mstSvtLimitMax);
+        infoBase.attackRate = mstClass.attackRate / 10;
         infoBase.rarityNum = mstSvtLimitMax.rarity;
-        infoBase.rarity = await this._getSvtRarityDisplay(svtId);
+        infoBase.rarity = await this._getSvtRarityDisplay(svtId, mstSvtLimitMax);
         infoBase.maxLevel = mstSvt.rewardLv;
-        infoBase.hpAtkMax = await this._getSvtMaxHpAtk(svtId);
-        infoBase.hpAtk80 = await this._getSvtHpAtkViaLv(svtId, 80);
-        infoBase.hpAtk90 = await this._getSvtHpAtkViaLv(svtId, 90);
-        infoBase.hpAtk100 = await this._getSvtHpAtkViaLv(svtId, 100);
-        infoBase.gender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
-        infoBase.cardArt = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_ART);
-        infoBase.cartBuster = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER);
-        infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK);
-        infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA);
+        infoBase.hpAtkMax = {
+            hp: mstSvtLimitMax.hpMax,
+            atk: mstSvtLimitMax.atkMax,
+        };
+        infoBase.hpAtk80 = await this._getSvtHpAtkViaLv(svtId, mstSvt.expType, 80, mstSvtLimitMax, mstSvtExpCon);
+        infoBase.hpAtk90 = await this._getSvtHpAtkViaLv(svtId, mstSvt.expType, 90, mstSvtLimitMax, mstSvtExpCon);
+        infoBase.hpAtk100 = await this._getSvtHpAtkViaLv(svtId, mstSvt.expType, 100, mstSvtLimitMax, mstSvtExpCon);
+        infoBase.gender = embeddedGender;
+        infoBase.cardArt = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_ART, mstSvt, mstSvtCardCon);
+        infoBase.cartBuster = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER, mstSvt, mstSvtCardCon);
+        infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK, mstSvt, mstSvtCardCon);
+        infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA, mstSvt, mstSvtCardCon);
         infoBase.starRate = mstSvt.starRate / 10;
         infoBase.individuality = await this._getSvtIndividualityDisplay(svtId);
         infoBase.deathRate = mstSvt.deathRate / 10;
         infoBase.criticalWeight = mstSvtLimitMax.criticalWeight;
-        let treasureLv = await MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
-        infoBase.npArt = treasureLv.tdPointA / 100;
-        infoBase.npBuster = treasureLv.tdPointB / 100;
-        infoBase.npQuick = treasureLv.tdPointQ / 100;
-        infoBase.npExtra = treasureLv.tdPointEx / 100;
-        infoBase.npTreasure = treasureLv.tdPoint / 100;
-        infoBase.npDefence = treasureLv.tdPointDef / 100;
+        infoBase.npArt = mstDefaultTreasure.tdPointA / 100;
+        infoBase.npBuster = mstDefaultTreasure.tdPointB / 100;
+        infoBase.npQuick = mstDefaultTreasure.tdPointQ / 100;
+        infoBase.npExtra = mstDefaultTreasure.tdPointEx / 100;
+        infoBase.npTreasure = mstDefaultTreasure.tdPoint / 100;
+        infoBase.npDefence = mstDefaultTreasure.tdPointDef / 100;
 
         return Promise.resolve(infoBase);
     }
 
-    private async _getSvtClassAttackRateDisplay(classId: number): Promise<number> {
-        let container = await MstLoader.instance.loadModel("MstClass") as MstClassContainer;
-        let classInfo = container.get(classId);
-
-        return Promise.resolve(classInfo.attackRate / 10);
-    }
-
-    private async _getSvtRarityDisplay(svtId: number): Promise<string> {
-        let mstSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+    private async _getSvtRarityDisplay(svtId: number, limit?: MstSvtLimit): Promise<string> {
+        if (!limit) {
+            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        }
 
         let display = "";
-        for (let loop = 0; loop < mstSvtLimit.rarity; loop++) {
+        for (let loop = 0; loop < limit.rarity; loop++) {
             display += "★";
         }
 
         return Promise.resolve(display);
     }
 
-    private async _getSvtPolicyDisplay(svtId: number): Promise<string> {
-        let mstSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
-        let policyName = await MstLoader.instance.loadEmbeddedPolicy(mstSvtLimit.policy);
-        let personalityName = await MstLoader.instance.loadEmbeddedPersonality(mstSvtLimit.personality);
+    private async _getSvtPolicyDisplay(svtId: number, limit?: MstSvtLimit): Promise<string> {
+        if (!limit) {
+            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        }
+        let policyName = await MstLoader.instance.loadEmbeddedPolicy(limit.policy);
+        let personalityName = await MstLoader.instance.loadEmbeddedPersonality(limit.personality);
 
         return Promise.resolve(`${policyName}・${personalityName}`);
     }
 
-    private async _getSvtMaxHpAtk(svtId: number): Promise<SvtInfoBaseHpAtk> {
-        let mstSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+    private async _getSvtHpAtkViaLv(svtId: number, expType: number, level: number, limit?: MstSvtLimit, expCon?: MstSvtExpContainer): Promise<SvtInfoBaseHpAtk> {
+        if (!limit) {
+            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        }
+        if (!expCon) {
+            expCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
+        }
+        let mstSvtExp = expCon.get(expType, level);
 
-        return Promise.resolve({
-            hp: mstSvtLimit.hpMax,
-            atk: mstSvtLimit.atkMax,
-        });
-    }
-
-    private async _getSvtHpAtkViaLv(svtId: number, level: number): Promise<SvtInfoBaseHpAtk> {
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let mstSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
-        let expContainer = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
-        let mstSvtExp = expContainer.get(mstSvt.expType, level);
-
-        let hpBase = mstSvtLimit.hpBase;
-        let hpMax = mstSvtLimit.hpMax;
-        let atkBase = mstSvtLimit.atkBase;
-        let atkMax = mstSvtLimit.atkMax;
+        let hpBase = limit.hpBase;
+        let hpMax = limit.hpMax;
+        let atkBase = limit.atkBase;
+        let atkMax = limit.atkMax;
 
         let hpVal = Math.floor(hpBase + (hpMax - hpBase) * mstSvtExp.curve / 1000);
         let atkVal = Math.floor(atkBase + (atkMax - atkBase) * mstSvtExp.curve / 1000);
@@ -180,12 +181,17 @@ export class Service {
         });
     }
 
-    private async _getSvtCmdCardDisplay(svtId: number, cardId: number): Promise<SvtInfoBaseCardInfo> {
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let mstSvtCard = (await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer).get(svtId, cardId);
+    private async _getSvtCmdCardDisplay(svtId: number, cardId: number, svt?: MstSvt, cardCon?: MstSvtCardContainer): Promise<SvtInfoBaseCardInfo> {
+        if (!svt) {
+            svt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        }
+        if (!cardCon) {
+            cardCon = await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
+        }
+        let mstSvtCard = cardCon.get(svtId, cardId);
 
         let cardCount = 0;
-        mstSvt.cardIds.forEach((element) => {
+        svt.cardIds.forEach((element) => {
             if (element as number === cardId) {
                 cardCount++;
             }
@@ -198,13 +204,15 @@ export class Service {
         } as SvtInfoBaseCardInfo);
     }
 
-    private async _getSvtIndividualityDisplay(svtId: number): Promise<Array<string>> {
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+    private async _getSvtIndividualityDisplay(svtId: number, svt?: MstSvt): Promise<Array<string>> {
+        if (!svt) {
+            svt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        }
         let individuality = (await MstLoader.instance.loadEmbeddedCode()).individuality;
         let individualityIds = Array.from(Object.keys(individuality));
 
         let display = [];
-        mstSvt.individuality.forEach((id) => {
+        svt.individuality.forEach((id) => {
             if (individualityIds.indexOf(id.toString())) {
                 display.push(individuality[id]);
             }
