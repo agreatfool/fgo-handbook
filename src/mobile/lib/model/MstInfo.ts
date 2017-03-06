@@ -1,15 +1,10 @@
-export interface SvtInfo {
-    svtId: number;
-    infoBase: SvtInfoBase;
-    infoSkill: SvtInfoSkill;
-    infoStory: SvtInfoStory;
-    infoMaterial: SvtInfoMaterial;
-}
+export interface SvtInfo {}
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* BASIC
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export interface SvtInfoBase {
+export interface SvtInfoBase extends SvtInfo {
+    svtId: number;
     collectionNo: number;
     name: string;
     className: string; // 职阶名
@@ -53,7 +48,8 @@ export interface SvtInfoBaseCardInfo {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* SKILL
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export interface SvtInfoSkill {
+export interface SvtInfoSkill extends SvtInfo {
+    svtId: number;
     skills: Array<SvtInfoSkillDetail>;
     passiveSkills: Array<SvtInfoPassiveSkill>;
     treasures: Array<SvtInfoTreasureDetail>;
@@ -98,7 +94,8 @@ export interface SvtInfoTreasureEffect {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* STORY
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export interface SvtInfoStory {
+export interface SvtInfoStory extends SvtInfo {
+    svtId: number;
     powerRank: SvtInfoRank; // (筋力:) A
     defenseRank: SvtInfoRank; // (耐久:) A
     agilityRank: SvtInfoRank; // (敏捷:) A
@@ -128,7 +125,8 @@ export interface SvtInfoFSReq {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* MATERIAL
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export interface SvtInfoMaterial {
+export interface SvtInfoMaterial extends SvtInfo {
+    svtId: number;
     limit: Array<SvtInfoMaterialLimit>; // 灵基再临需求
     skill: Array<SvtInfoMaterialSkill>; // 技能需求
 }

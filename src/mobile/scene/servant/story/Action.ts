@@ -1,1 +1,1 @@
-export * from "../detail/Action"
+export * from "../detail/Action";

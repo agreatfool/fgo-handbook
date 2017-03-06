@@ -1,5 +1,6 @@
 import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Reducer";
 import {Actions} from "react-native-router-flux";
+import {SvtInfoBase} from "../../../lib/model/MstInfo";
 
 import {State, defaultState} from "./State";
 import {
@@ -21,7 +22,7 @@ export const updatePageTitle = {
 export const updateSvtInfo = {
     action: ACT_UPDATE_SVT_INFO,
     reducer: function (state: State, action: ActionUpdateSvtInfo) {
-        state.svtInfo = action.info;
+        state.info = action.info as SvtInfoBase;
         return state;
     }
 } as ReducerInterface<State>;

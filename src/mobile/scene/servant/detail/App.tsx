@@ -31,13 +31,13 @@ class ServantDetail extends Component<any, any> {
         //noinspection TypeScriptUnresolvedVariable
         Actions.refresh({title: this.props.svtId});
         //noinspection TypeScriptUnresolvedVariable
-        this._service.buildSvtInfo(this.props.svtId).then((info) => {
+        this._service.buildSvtInfoBase(this.props.svtId).then((info) => {
             let updated = "";
             try {
                 updated = JSON.stringify(info, null, 4);
                 console.log(updated);
                 app.setState({
-                    info: info.infoBase.name
+                    info: info.name
                 });
             } catch (err) {
                 console.log(err);

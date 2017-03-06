@@ -1,15 +1,15 @@
-import {SvtInfo} from "../../../lib/model/MstInfo";
+import {SvtInfoBase} from "../../../lib/model/MstInfo";
 
 export interface State {
     svtId: number;
-    svtInfo: SvtInfo;
-    title: string; // 页面标题，和从者名字同步
+    info: SvtInfoBase;
+    title: string;
 }
 
 export const defaultState = {
     svtId: -1,
-    svtInfo: {},
-    title: "ServantDetail",
+    info: {},
+    title: "",
 } as State;
 
-export const StateName = "SceneServantInfo";
+export const StateName = "SceneServantInfoBase";

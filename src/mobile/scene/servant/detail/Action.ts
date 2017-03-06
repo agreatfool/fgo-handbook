@@ -1,5 +1,5 @@
 import {ActionCreator} from "redux";
-import {SvtInfo} from "./State";
+import {SvtInfo} from "../../../lib/model/MstInfo";
 
 export const ACT_UPDATE_PAGE_TITLE = "ACT_UPDATE_PAGE_TITLE";
 

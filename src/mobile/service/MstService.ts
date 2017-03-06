@@ -2,7 +2,6 @@ import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../..
 import {SvtListFilter} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
-    SvtInfo,
     SvtInfoBase,
     SvtInfoBaseHpAtk,
     SvtInfoSkill,
@@ -77,16 +76,6 @@ export class Service {
     // FIXME 剥离显示数值和显示文本，这部分的service应该做成纯粹的数据提供
     // FIXME State里的数据模型应该剥离出来，State里可以export，不过代码不应该放在那里；所有的State如果是用来显示的最好带上View的名字
     // FIXME 提高当前Service的复用度，很多函数尽量做的简单，提供纯粹的数据
-    public async buildSvtInfo(svtId: number): Promise<SvtInfo> {
-        return Promise.resolve({
-            svtId: svtId,
-            infoBase: await this._getSvtInfoBase(svtId),
-            infoSkill: await this._getSvtInfoSkill(svtId),
-            infoStory: await this._getSvtInfoStory(svtId),
-            infoMaterial: await this._getSvtInfoMaterial(svtId),
-        } as SvtInfo);
-    }
-
     public async buildSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
         return await this._getSvtInfoBase(svtId);
     }
@@ -119,6 +108,7 @@ export class Service {
         let embeddedAttri = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
         let embeddedTransName = await MstLoader.instance.loadEmbeddedSvtName(svtId);
 
+        infoBase.svtId = svtId;
         infoBase.collectionNo = mstSvt.collectionNo;
         infoBase.name = embeddedTransName.name;
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
@@ -234,6 +224,7 @@ export class Service {
         let svtTreasureDeviceCon = await MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
         let embeddedTreasureDetail = (await MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
 
+        infoSkill.svtId = svtId;
         infoSkill.skills = this._getSvtSkillsDisplay(svtId, skillCon, svtSkillCon, skillLvCon, embeddedSkillDetails);
         infoSkill.passiveSkills = this._getSvtPassiveSkillsDisplay(mstSvt, skillCon, embeddedSkillDetails);
         infoSkill.treasures = this._getSvtTreasuresDisplay(svtId, treasureDeviceCon, svtTreasureDeviceCon, embeddedTreasureDetail);
@@ -386,6 +377,7 @@ export class Service {
         let embeddedRankFont = embeddedCode.rankFont;
         let embeddedRandSymbol = embeddedCode.rankSymbol;
 
+        infoStory.svtId = svtId;
         infoStory.powerRank = this._getRankDisplay(maxSvtLimit.power, embeddedRankFont, embeddedRandSymbol);
         infoStory.defenseRank = this._getRankDisplay(maxSvtLimit.defense, embeddedRankFont, embeddedRandSymbol);
         infoStory.agilityRank = this._getRankDisplay(maxSvtLimit.agility, embeddedRankFont, embeddedRandSymbol);
@@ -440,6 +432,8 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     private async _getSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
         let infoMaterial = {} as SvtInfoMaterial;
+
+        infoMaterial.svtId = svtId;
         infoMaterial.limit = [] as Array<SvtInfoMaterialLimit>;
         infoMaterial.skill = [] as Array<SvtInfoMaterialSkill>;
 
