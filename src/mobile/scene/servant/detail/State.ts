@@ -68,45 +68,45 @@ export interface SvtInfoBaseCardInfo {
 //-* SKILL
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export interface SvtInfoSkill {
-    skills: Array<SvtSkill>;
-    passiveSkills: Array<SvtPassiveSkill>;
-    treasures: Array<SvtTreasure>;
+    skills: Array<SvtInfoSkillDetail>;
+    passiveSkills: Array<SvtInfoPassiveSkill>;
+    treasures: Array<SvtInfoTreasureDetail>;
 }
 
-export interface SvtSkill {
+export interface SvtInfoSkillDetail {
     skillId: number;
     name: string;
     chargeTurn: number;
     condition: string; // 开放条件
     iconId: number;
-    skillEffects: Array<SvtSkillEffect>;
+    skillEffects: Array<SvtInfoSkillEffect>;
 }
 
-export interface SvtSkillEffect {
+export interface SvtInfoPassiveSkill {
+    skillId: number;
+    name: string;
+    skillEffects: Array<SvtInfoSkillEffect>;
+}
+
+export interface SvtInfoSkillEffect {
     description: string;
     effects: Array<string>; // ["30%", "32%", ...]
 }
 
-export interface SvtPassiveSkill {
-    skillId: number;
-    name: string;
-    effects: Array<string>;
-}
-
-export interface SvtTreasure {
+export interface SvtInfoTreasureDetail {
     treasureId: number;
     name: string;
-    rank: string;
-    type: string;
+    rank: string; // EX
+    type: string; // 対軍宝具
     condition: string; // 开放条件
     cardId: number; // 宝具类型：Art、Buster、Quick
-    hits: string;
-    effects: Array<SvtTreasureEffect>
+    hits: number;
+    effects: Array<SvtInfoTreasureEffect>
 }
 
-export interface SvtTreasureEffect {
+export interface SvtInfoTreasureEffect {
     description: string;
-    effects: Array<string>;
+    effects: Array<string>; // ["30%", "32%", ...]
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

@@ -6,16 +6,17 @@ import {
     SvtInfoBase,
     SvtInfoBaseHpAtk,
     SvtInfoSkill,
-    SvtSkill,
-    SvtSkillEffect,
-    SvtPassiveSkill,
-    SvtTreasure,
-    SvtTreasureEffect,
+    SvtInfoSkillDetail,
+    SvtInfoSkillEffect,
+    SvtInfoPassiveSkill,
+    SvtInfoTreasureDetail,
+    SvtInfoTreasureEffect,
     SvtInfoStory,
     SvtInfoMaterial,
     SvtMaterialLimit,
     SvtMaterial,
-    SvtMaterialSkill, SvtInfoBaseCardInfo
+    SvtMaterialSkill,
+    SvtInfoBaseCardInfo
 } from "../scene/servant/detail/State";
 import MstLoader from "../lib/model/MstLoader";
 import {
@@ -84,6 +85,10 @@ export class Service {
         } as SvtInfo);
     }
 
+    public async buildSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
+        return await this._getSvtInfoBase(svtId);
+    }
+
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: BASE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -104,10 +109,10 @@ export class Service {
         infoBase.name = embeddedTransName.name;
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
         infoBase.classification = embeddedAttri;
-        infoBase.policy = await this._getSvtPolicyDisplay(svtId, mstSvtLimitMax);
+        infoBase.policy = await this._getSvtPolicyDisplay(mstSvtLimitMax);
         infoBase.attackRate = mstClass.attackRate / 10;
         infoBase.rarityNum = mstSvtLimitMax.rarity;
-        infoBase.rarity = await this._getSvtRarityDisplay(svtId, mstSvtLimitMax);
+        infoBase.rarity = await this._getSvtRarityDisplay(mstSvtLimitMax);
         infoBase.maxLevel = mstSvt.rewardLv;
         infoBase.hpAtkMax = {
             hp: mstSvtLimitMax.hpMax,
@@ -122,7 +127,7 @@ export class Service {
         infoBase.cardQuick = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK, mstSvt, mstSvtCardCon);
         infoBase.cardExtra = await this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA, mstSvt, mstSvtCardCon);
         infoBase.starRate = mstSvt.starRate / 10;
-        infoBase.individuality = await this._getSvtIndividualityDisplay(svtId);
+        infoBase.individuality = await this._getSvtIndividualityDisplay(mstSvt);
         infoBase.deathRate = mstSvt.deathRate / 10;
         infoBase.criticalWeight = mstSvtLimitMax.criticalWeight;
         infoBase.npArt = mstDefaultTreasure.tdPointA / 100;
@@ -135,11 +140,7 @@ export class Service {
         return Promise.resolve(infoBase);
     }
 
-    private async _getSvtRarityDisplay(svtId: number, limit?: MstSvtLimit): Promise<string> {
-        if (!limit) {
-            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
-        }
-
+    private async _getSvtRarityDisplay(limit: MstSvtLimit): Promise<string> {
         let display = "";
         for (let loop = 0; loop < limit.rarity; loop++) {
             display += "★";
@@ -148,23 +149,14 @@ export class Service {
         return Promise.resolve(display);
     }
 
-    private async _getSvtPolicyDisplay(svtId: number, limit?: MstSvtLimit): Promise<string> {
-        if (!limit) {
-            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
-        }
+    private async _getSvtPolicyDisplay(limit: MstSvtLimit): Promise<string> {
         let policyName = await MstLoader.instance.loadEmbeddedPolicy(limit.policy);
         let personalityName = await MstLoader.instance.loadEmbeddedPersonality(limit.personality);
 
         return Promise.resolve(`${policyName}・${personalityName}`);
     }
 
-    private async _getSvtHpAtkViaLv(svtId: number, expType: number, level: number, limit?: MstSvtLimit, expCon?: MstSvtExpContainer): Promise<SvtInfoBaseHpAtk> {
-        if (!limit) {
-            limit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
-        }
-        if (!expCon) {
-            expCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
-        }
+    private async _getSvtHpAtkViaLv(svtId: number, expType: number, level: number, limit: MstSvtLimit, expCon: MstSvtExpContainer): Promise<SvtInfoBaseHpAtk> {
         let mstSvtExp = expCon.get(expType, level);
 
         let hpBase = limit.hpBase;
@@ -181,13 +173,7 @@ export class Service {
         });
     }
 
-    private async _getSvtCmdCardDisplay(svtId: number, cardId: number, svt?: MstSvt, cardCon?: MstSvtCardContainer): Promise<SvtInfoBaseCardInfo> {
-        if (!svt) {
-            svt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        }
-        if (!cardCon) {
-            cardCon = await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
-        }
+    private async _getSvtCmdCardDisplay(svtId: number, cardId: number, svt: MstSvt, cardCon: MstSvtCardContainer): Promise<SvtInfoBaseCardInfo> {
         let mstSvtCard = cardCon.get(svtId, cardId);
 
         let cardCount = 0;
@@ -204,10 +190,7 @@ export class Service {
         } as SvtInfoBaseCardInfo);
     }
 
-    private async _getSvtIndividualityDisplay(svtId: number, svt?: MstSvt): Promise<Array<string>> {
-        if (!svt) {
-            svt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        }
+    private async _getSvtIndividualityDisplay(svt: MstSvt): Promise<Array<string>> {
         let individuality = (await MstLoader.instance.loadEmbeddedCode()).individuality;
         let individualityIds = Array.from(Object.keys(individuality));
 
@@ -227,27 +210,36 @@ export class Service {
     private async _getSvtInfoSkill(svtId: number): Promise<SvtInfoSkill> {
         let infoSkill = {} as SvtInfoSkill;
 
-        infoSkill.skills = await this._getSvtSkillsDisplay(svtId);
-        infoSkill.passiveSkills = await this._getSvtPassiveSkillsDisplay(svtId);
-        infoSkill.treasures = await this._getSvtTreasuresDisplay(svtId);
-
-        return Promise.resolve(infoSkill);
-    }
-
-    private async _getSvtSkillsDisplay(svtId: number): Promise<Array<SvtSkill>> {
-        let displays = [] as Array<SvtSkill>;
-
+        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
         let skillCon = await MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
         let svtSkillCon = await MstLoader.instance.loadModel("MstSvtSkill") as MstSvtSkillContainer;
         let skillLvCon = await MstLoader.instance.loadModel("MstSkillLv") as MstSkillLvContainer;
         let embeddedSkillDetails = (await MstLoader.instance.loadEmbeddedCode()).transSkillDetail;
+
+        let treasureDeviceCon = await MstLoader.instance.loadModel("MstTreasureDevice") as MstTreasureDeviceContainer;
+        let svtTreasureDeviceCon = await MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
+        let embeddedTreasureDetail = (await MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
+
+        infoSkill.skills = await this._getSvtSkillsDisplay(svtId, skillCon, svtSkillCon, skillLvCon, embeddedSkillDetails);
+        infoSkill.passiveSkills = await this._getSvtPassiveSkillsDisplay(mstSvt, skillCon, embeddedSkillDetails);
+        infoSkill.treasures = await this._getSvtTreasuresDisplay(svtId, treasureDeviceCon, svtTreasureDeviceCon, embeddedTreasureDetail);
+
+        return Promise.resolve(infoSkill);
+    }
+
+    private async _getSvtSkillsDisplay(svtId: number,
+                                       skillCon: MstSkillContainer,
+                                       svtSkillCon: MstSvtSkillContainer,
+                                       skillLvCon: MstSkillLvContainer,
+                                       embeddedSkillDetails: Object): Promise<Array<SvtInfoSkillDetail>> {
+        let displays = [] as Array<SvtInfoSkillDetail>;
 
         let svtSkills = Array.from(svtSkillCon.getGroup(svtId).values());
         svtSkills.forEach((svtSkill) => {
             let skill = skillCon.get(svtSkill.skillId);
             let embeddedDetail = embeddedSkillDetails[svtSkill.skillId];
 
-            let display = {} as SvtSkill;
+            let display = {} as SvtInfoSkillDetail;
             display.skillId = svtSkill.skillId;
             display.name = skill.name;
             display.chargeTurn = (skillLvCon.getGroup(svtSkill.skillId) as Map<number, MstSkillLv>).values().next().value.chargeTurn;
@@ -268,7 +260,7 @@ export class Service {
             display.skillEffects = [];
             let effects = embeddedDetail.detail.split("&");
             effects.forEach((effect, index) => {
-                let effectDisplay = {} as SvtSkillEffect;
+                let effectDisplay = {} as SvtInfoSkillEffect;
                 effectDisplay.description = effect.trim();
                 effectDisplay.effects = Array.from(MstUtil.objValues(embeddedDetail[`effect${index + 1}`] as Map<number, string>));
                 display.skillEffects.push(effectDisplay);
@@ -280,12 +272,10 @@ export class Service {
         return Promise.resolve(displays);
     }
 
-    public async _getSvtPassiveSkillsDisplay(svtId: number): Promise<Array<SvtPassiveSkill>> {
-        let displays = [] as Array<SvtPassiveSkill>;
-
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let skillCon = await MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
-        let embeddedSkillDetails = (await MstLoader.instance.loadEmbeddedCode()).transSkillDetail;
+    public async _getSvtPassiveSkillsDisplay(mstSvt: MstSvt,
+                                             skillCon: MstSkillContainer,
+                                             embeddedSkillDetails: Object): Promise<Array<SvtInfoPassiveSkill>> {
+        let displays = [] as Array<SvtInfoPassiveSkill>;
 
         let passiveSkillIds = mstSvt.classPassive;
         if (passiveSkillIds.length == 0) {
@@ -295,15 +285,20 @@ export class Service {
         passiveSkillIds.forEach((skillId) => {
             let skill = skillCon.get(skillId);
             let embeddedDetail = embeddedSkillDetails[skillId];
-            let display = {} as SvtPassiveSkill;
+            let display = {} as SvtInfoPassiveSkill;
 
             display.skillId = skillId;
             display.name = skill.name;
-            display.effects = [] as Array<string>;
+            display.skillEffects = [] as Array<SvtInfoSkillEffect>;
 
             let effects = embeddedDetail.detail.split(/[&＋]+/);
             effects.forEach((effect, index) => {
-                display.effects.push(`${effect.trim()}：${embeddedDetail[`effect${index + 1}`][0]}`);
+                display.skillEffects.push({
+                    description: effect.trim(),
+                    effects: [
+                        embeddedDetail[`effect${index + 1}`][0]
+                    ]
+                } as SvtInfoSkillEffect);
             });
 
             displays.push(display);
@@ -312,28 +307,27 @@ export class Service {
         return Promise.resolve(displays);
     }
 
-    public async _getSvtTreasuresDisplay(svtId: number): Promise<Array<SvtTreasure>> {
-        let displays = [] as Array<SvtTreasure>;
-
-        let treasureDeviceCon = await MstLoader.instance.loadModel("MstTreasureDevice") as MstTreasureDeviceContainer;
-        let svtTreasureDeviceCon = await MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
-        let embeddedTreasureDetail = (await MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
+    public async _getSvtTreasuresDisplay(svtId: number,
+                                         treasureDeviceCon: MstTreasureDeviceContainer,
+                                         svtTreasureDeviceCon: MstSvtTreasureDeviceContainer,
+                                         embeddedTreasureDetail: Object): Promise<Array<SvtInfoTreasureDetail>> {
+        let displays = [] as Array<SvtInfoTreasureDetail>;
 
         let treasures = Array.from(svtTreasureDeviceCon.getGroup(svtId).values()).filter((svtTreasure) => {
-            return svtTreasure.treasureDeviceId != 100; // 不知道什么情况下会是100，不过需要过滤掉
+            return svtTreasure.treasureDeviceId != 100; // 虽然不知道什么情况下会是100，不过需要过滤掉
         });
         treasures.forEach((svtTreasure) => {
             let treasure = treasureDeviceCon.get(svtTreasure.treasureDeviceId);
             let detail = embeddedTreasureDetail[svtTreasure.treasureDeviceId];
-            let display = {} as SvtTreasure;
+            let display = {} as SvtInfoTreasureDetail;
 
             display.treasureId = svtTreasure.treasureDeviceId;
             display.name = treasure.name;
             display.rank = treasure.rank;
             display.type = treasure.typeText;
             display.cardId = svtTreasure.cardId;
-            display.hits = svtTreasure.damage.length > 1 ? `${svtTreasure.damage.length}Hits` : "1Hit";
-            display.effects = [] as Array<SvtTreasureEffect>;
+            display.hits = svtTreasure.damage.length > 1 ? svtTreasure.damage.length : 1;
+            display.effects = [] as Array<SvtInfoTreasureEffect>;
 
             if (svtTreasure.num == 98) {
                 display.condition = "NPC限定";
@@ -351,7 +345,7 @@ export class Service {
 
             let effects = detail.detail.split(/[&＋]+/);
             effects.forEach((effect, index) => {
-                let effectDisplay = {} as SvtTreasureEffect;
+                let effectDisplay = {} as SvtInfoTreasureEffect;
                 effectDisplay.description = effect.trim();
                 effectDisplay.effects = Array.from(MstUtil.objValues(detail[`effect${index + 1}`] as Map<number, string>));
                 display.effects.push(effectDisplay);
