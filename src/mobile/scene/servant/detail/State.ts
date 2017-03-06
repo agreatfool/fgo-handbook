@@ -113,20 +113,30 @@ export interface SvtInfoTreasureEffect {
 //-* STORY
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export interface SvtInfoStory {
-    powerRank: string; // 筋力: A
-    defenseRank: string; // 耐久
-    agilityRank: string; // 敏捷
-    magicRank: string; // 魔力
-    luckRank: string; // 幸运
-    treasureRank: string; // 宝具
-    friendshipRequirements: Array<string>; // 羁绊需求
+    powerRank: SvtInfoRank; // (筋力:) A
+    defenseRank: SvtInfoRank; // (耐久:) A
+    agilityRank: SvtInfoRank; // (敏捷:) A
+    magicRank: SvtInfoRank; // (魔力:) A
+    luckRank: SvtInfoRank; // (幸运:) A
+    treasureRank: SvtInfoRank; // (宝具:) A
+    friendshipRequirements: Array<SvtInfoFSReq>; // 羁绊需求
     detail: string; // 角色详细
     friendship1: string; // 绊1故事
     friendship2: string; // 绊2故事
     friendship3: string; // 绊3故事
     friendship4: string; // 绊4故事
     friendship5: string; // 绊5故事
-    lastStory: string;
+    lastStory: string; // 最终故事
+}
+
+export interface SvtInfoRank {
+    display: string; // 显示：A+++
+    value: number; // 数值：30
+}
+
+export interface SvtInfoFSReq {
+    current: number; // 当前等级需求的絆
+    total: number; // 总共积累的需求
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
