@@ -1,15 +1,13 @@
-import * as RNFS from "react-native-fs";
 import BaseContainer from "../../../lib/container/base/BaseContainer";
 import * as MstContainers from "../../../model/impl/MstContainer";
-import MstUtil from "./MstUtil";
 import {
-    EmbeddedCodeConverted, TransSvtName, TransSkillDetail,
-    TransTreasureDetail
-} from "../../../model/master/EmbeddedCodeConverted";
+    MstSvtLimitContainer,
+    MstSvtTreasureDeviceContainer,
+    MstTreasureDeviceLvContainer
+} from "../../../model/impl/MstContainer";
+import MstUtil from "./MstUtil";
+import {EmbeddedCodeConverted, TransSvtName} from "../../../model/master/EmbeddedCodeConverted";
 import {MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from "../../../model/master/Master";
-import {MstSvtLimitContainer} from "../../../model/impl/MstContainer";
-import {MstSvtTreasureDeviceContainer} from "../../../model/impl/MstContainer";
-import {MstTreasureDeviceLvContainer} from "../../../model/impl/MstContainer";
 
 export default class MstLoader {
 
@@ -106,14 +104,6 @@ export default class MstLoader {
 
     public async loadEmbeddedAttribute(id: number): Promise<string> {
         return Promise.resolve((await this.loadEmbeddedCode()).attri[id]);
-    }
-
-    public async loadEmbeddedRankFont(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).rankFont[id]);
-    }
-
-    public async loadEmbeddedRankSymbol(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).rankSymbol[id]);
     }
 
     public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {

@@ -13,11 +13,13 @@ import {
     SvtInfoTreasureEffect,
     SvtInfoStory,
     SvtInfoMaterial,
-    SvtMaterialLimit,
-    SvtMaterial,
-    SvtMaterialSkill,
-    SvtInfoBaseCardInfo, SvtInfoRank, SvtInfoFSReq
-} from "../scene/servant/detail/State";
+    SvtInfoMaterialLimit,
+    SvtInfoMaterialDetail,
+    SvtInfoMaterialSkill,
+    SvtInfoBaseCardInfo,
+    SvtInfoRank,
+    SvtInfoFSReq
+} from "../lib/model/MstInfo";
 import MstLoader from "../lib/model/MstLoader";
 import {
     MstSvtContainer,
@@ -87,6 +89,18 @@ export class Service {
 
     public async buildSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
         return await this._getSvtInfoBase(svtId);
+    }
+
+    public async buildSvtInfoSkill(svtId: number): Promise<SvtInfoSkill> {
+        return await this._getSvtInfoSkill(svtId);
+    }
+
+    public async buildSvtInfoStory(svtId: number): Promise<SvtInfoStory> {
+        return await this._getSvtInfoStory(svtId);
+    }
+
+    public async buildSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
+        return await this._getSvtInfoMaterial(svtId);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -228,10 +242,10 @@ export class Service {
     }
 
     private _getSvtSkillsDisplay(svtId: number,
-                                       skillCon: MstSkillContainer,
-                                       svtSkillCon: MstSvtSkillContainer,
-                                       skillLvCon: MstSkillLvContainer,
-                                       embeddedSkillDetails: Object): Array<SvtInfoSkillDetail> {
+                                 skillCon: MstSkillContainer,
+                                 svtSkillCon: MstSvtSkillContainer,
+                                 skillLvCon: MstSkillLvContainer,
+                                 embeddedSkillDetails: Object): Array<SvtInfoSkillDetail> {
         let displays = [] as Array<SvtInfoSkillDetail>;
 
         let svtSkills = Array.from(svtSkillCon.getGroup(svtId).values());
@@ -258,7 +272,7 @@ export class Service {
             }
 
             display.skillEffects = [];
-            let effects = embeddedDetail.detail.split("&");
+            let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtInfoSkillEffect;
                 effectDisplay.description = effect.trim();
@@ -273,8 +287,8 @@ export class Service {
     }
 
     public _getSvtPassiveSkillsDisplay(mstSvt: MstSvt,
-                                             skillCon: MstSkillContainer,
-                                             embeddedSkillDetails: Object): Array<SvtInfoPassiveSkill> {
+                                       skillCon: MstSkillContainer,
+                                       embeddedSkillDetails: Object): Array<SvtInfoPassiveSkill> {
         let displays = [] as Array<SvtInfoPassiveSkill>;
 
         let passiveSkillIds = mstSvt.classPassive;
@@ -291,7 +305,7 @@ export class Service {
             display.name = skill.name;
             display.skillEffects = [] as Array<SvtInfoSkillEffect>;
 
-            let effects = embeddedDetail.detail.split(/[&＋]+/);
+            let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 display.skillEffects.push({
                     description: effect.trim(),
@@ -308,9 +322,9 @@ export class Service {
     }
 
     public _getSvtTreasuresDisplay(svtId: number,
-                                         treasureDeviceCon: MstTreasureDeviceContainer,
-                                         svtTreasureDeviceCon: MstSvtTreasureDeviceContainer,
-                                         embeddedTreasureDetail: Object): Array<SvtInfoTreasureDetail> {
+                                   treasureDeviceCon: MstTreasureDeviceContainer,
+                                   svtTreasureDeviceCon: MstSvtTreasureDeviceContainer,
+                                   embeddedTreasureDetail: Object): Array<SvtInfoTreasureDetail> {
         let displays = [] as Array<SvtInfoTreasureDetail>;
 
         let treasures = Array.from(svtTreasureDeviceCon.getGroup(svtId).values()).filter((svtTreasure) => {
@@ -343,7 +357,7 @@ export class Service {
                 display.condition = "未開放";
             }
 
-            let effects = detail.detail.split(/[&＋]+/);
+            let effects = detail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtInfoTreasureEffect;
                 effectDisplay.description = effect.trim();
@@ -401,7 +415,7 @@ export class Service {
     }
 
     private _getFriendshipRequirementDisplay(mstSvt: MstSvt,
-                                                   mstFriendshipCon: MstFriendshipContainer): Array<SvtInfoFSReq> {
+                                             mstFriendshipCon: MstFriendshipContainer): Array<SvtInfoFSReq> {
         let displays = [] as Array<SvtInfoFSReq>;
 
         let friendships = Array.from((mstFriendshipCon.getGroup(mstSvt.friendshipId) as Map<number, MstFriendship>).values());
@@ -426,20 +440,20 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     private async _getSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
         let infoMaterial = {} as SvtInfoMaterial;
-        infoMaterial.limit = [] as Array<SvtMaterialLimit>;
-        infoMaterial.skill = [] as Array<SvtMaterialSkill>;
+        infoMaterial.limit = [] as Array<SvtInfoMaterialLimit>;
+        infoMaterial.skill = [] as Array<SvtInfoMaterialSkill>;
 
         let svtCombineLimits = Array.from((await MstLoader.instance.loadModel("MstCombineLimit") as MstCombineLimitContainer).getGroup(svtId).values());
         let svtCombineSkills = Array.from((await MstLoader.instance.loadModel("MstCombineSkill") as MstCombineSkillContainer).getGroup(svtId).values());
 
         svtCombineLimits.forEach((limit) => {
-            let data = {} as SvtMaterialLimit;
-            data.items = [] as Array<SvtMaterial>;
+            let data = {} as SvtInfoMaterialLimit;
+            data.items = [] as Array<SvtInfoMaterialDetail>;
             limit.itemIds.forEach((itemId, index) => {
                 data.items.push({
                     itemId: itemId,
                     count: limit.itemNums[index]
-                } as SvtMaterial);
+                } as SvtInfoMaterialDetail);
             });
             data.qp = limit.qp;
             infoMaterial.limit.push(data);
@@ -447,13 +461,13 @@ export class Service {
 
 
         svtCombineSkills.forEach((limit) => {
-            let data = {} as SvtMaterialSkill;
-            data.items = [] as Array<SvtMaterial>;
+            let data = {} as SvtInfoMaterialSkill;
+            data.items = [] as Array<SvtInfoMaterialDetail>;
             limit.itemIds.forEach((itemId, index) => {
                 data.items.push({
                     itemId: itemId,
                     count: limit.itemNums[index]
-                } as SvtMaterial);
+                } as SvtInfoMaterialDetail);
             });
             data.qp = limit.qp;
             infoMaterial.skill.push(data);
