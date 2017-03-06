@@ -8,9 +8,22 @@ export default class Const {
         20, // 提亚马特
         22, // 魔神王盖提亚
     ];
+    public static readonly SERVANT_CLASS_NAMES = {
+        1: "Saber",
+        2: "Archer",
+        3: "Lancer",
+        4: "Rider",
+        5: "Caster",
+        6: "Assassin",
+        7: "Berserker",
+        8: "Shielder",
+        9: "Ruler",
+        11: "Avenger",
+    };
     public static readonly CMD_CARD_ID_ART      = 1;
     public static readonly CMD_CARD_ID_BUSTER   = 2;
     public static readonly CMD_CARD_ID_QUICK    = 3;
     public static readonly CMD_CARD_ID_EXTRA    = 4;
+    public static readonly MAX_VAL_WITH_UPGRADE = 990;
 
 }

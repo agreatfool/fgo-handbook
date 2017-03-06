@@ -29,37 +29,39 @@ export interface SvtInfoBase {
     className: string; // 职阶名
     classification: string; // 人天地星獸
     policy: string; // 混沌 恶
-    attackRate: string; // 职阶补正: 杀 0.9
+    attackRate: number; // 职阶补正: 杀 90(%)
+    rarityNum: number; // 1-5
     rarity: string; // ★★★★★
     maxLevel: number;
-    hpMax: string;
-    atkMax: string;
-    hp80: string;
-    atk80: string;
-    hp90: string;
-    atk90: string;
-    hp100: string;
-    atk100: string;
+    hpAtk80: SvtInfoBaseHpAtk; // 这些数据都不含强化；强化配置为常量 Const.MAX_VAL_WITH_UPGRADE
+    hpAtk90: SvtInfoBaseHpAtk;
+    hpAtk100: SvtInfoBaseHpAtk;
+    hpAtkMax: SvtInfoBaseHpAtk;
     gender: string;
-    cardArt: string;
-    cartBuster: string;
-    cardQuick: string;
-    cardExtra: string;
-    starRate: string; // 出星率
-    individuality: string; // 騎乘,人型,龍,阿爾托莉亞臉
-    deathRate: string; // 被即死率
+    cardArt: SvtInfoBaseCardInfo;
+    cartBuster: SvtInfoBaseCardInfo;
+    cardQuick: SvtInfoBaseCardInfo;
+    cardExtra: SvtInfoBaseCardInfo;
+    starRate: number; // 出星率(%)
+    individuality: Array<string>; // ["騎乘", "人型", "龍", "阿爾托莉亞臉", ...]
+    deathRate: number; // 被即死率(%)
     criticalWeight: number; // 集星权重
-    npArt: string; // np获得，Art
-    npBuster: string;
-    npQuick: string;
-    npExtra: string;
-    npTreasure: string;
-    npDefence: string;
+    npArt: number; // np获得，Art；0.98(%)
+    npBuster: number;
+    npQuick: number;
+    npExtra: number;
+    npTreasure: number;
+    npDefence: number;
 }
 
-export interface SvtHpAtkObj {
-    hp: string | number;
-    atk: string | number;
+export interface SvtInfoBaseHpAtk {
+    hp: number;
+    atk: number;
+}
+
+export interface SvtInfoBaseCardInfo {
+    count: number;
+    hits: number;
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
