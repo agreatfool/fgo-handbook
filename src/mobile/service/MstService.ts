@@ -98,7 +98,7 @@ export class Service {
     private async _getSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
         let infoBase = {} as SvtInfoBase;
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let mstSvtLimitMax = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        let mstSvtLimitMax = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
         let mstDefaultTreasure = await MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
         let mstClass = (await MstLoader.instance.loadModel("MstClass") as MstClassContainer).get(mstSvt.classId);
         let mstSvtExpCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
@@ -114,7 +114,7 @@ export class Service {
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
         infoBase.classification = embeddedAttri;
         infoBase.policy = await this._getSvtPolicyDisplay(mstSvtLimitMax);
-        infoBase.attackRate = mstClass.attackRate / 10;
+        infoBase.attackRate = (mstClass === null) ? 100 : mstClass.attackRate / 10; // 某些特殊职阶可能无数据，默认给100
         infoBase.rarityNum = mstSvtLimitMax.rarity;
         infoBase.rarity = this._getSvtRarityDisplay(mstSvtLimitMax);
         infoBase.maxLevel = mstSvt.rewardLv;
@@ -369,7 +369,7 @@ export class Service {
         let infoStory = {} as SvtInfoStory;
 
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let maxSvtLimit = await MstLoader.instance.loadSvtMaxLimitInfo(svtId);
+        let maxSvtLimit = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
         let svtComments = (await MstLoader.instance.loadModel("MstSvtComment") as MstSvtCommentContainer).getGroup(svtId);
         let mstFriendshipCon = await MstLoader.instance.loadModel("MstFriendship") as MstFriendshipContainer;
 

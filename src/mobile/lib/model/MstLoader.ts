@@ -63,9 +63,9 @@ export default class MstLoader {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* MASTER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public async loadSvtMaxLimitInfo(svtId: number): Promise<MstSvtLimit> {
+    public async loadSvtDefaultLimitInfo(svtId: number): Promise<MstSvtLimit> {
         let container = await MstLoader.instance.loadModel("MstSvtLimit") as MstSvtLimitContainer;
-        let mstSvtLimit = container.get(svtId, 4); // 满破
+        let mstSvtLimit = container.get(svtId, 0); // 首位
 
         return Promise.resolve(mstSvtLimit);
     }
