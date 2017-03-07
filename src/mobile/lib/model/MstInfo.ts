@@ -1,4 +1,9 @@
-export interface SvtInfo {}
+export interface SvtInfo {
+    baseInfo?: SvtInfoBase;
+    skillInfo?: SvtInfoSkill;
+    storyInfo?: SvtInfoStory;
+    materialInfo?: SvtInfoMaterial;
+}
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* BASIC
