@@ -7,9 +7,22 @@ export const Common = StyleSheet.create({
     flexRowReverse: {
         flexDirection: "row-reverse" as FlexDirection
     },
+    flexColumn: {
+        flexDirection: "column" as FlexDirection
+    },
+    flexDefault: {
+        flex: 1,
+    },
     row: {
         marginBottom: 5,
     },
+    textCenter: {
+        textAlign: "center",
+    },
+    centering: {
+        alignItems: "center" as FlexAlignType,
+        justifyContent: "center" as FlexAlignType,
+    }
 });
 
 export const NavTop = StyleSheet.create({
@@ -57,4 +70,14 @@ export const ToolBoxTop = StyleSheet.create({
         textAlign: "center",
         backgroundColor: "yellow",
     } as TextStyle
+});
+
+export const Landing = StyleSheet.create({
+    footer: {
+        position: "absolute" as any,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        padding: 8
+    }
 });

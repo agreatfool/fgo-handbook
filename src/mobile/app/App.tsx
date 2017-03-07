@@ -3,7 +3,7 @@ import {Router, Scene} from "react-native-router-flux";
 import thunk from "redux-thunk";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
-import {Text, StyleSheet} from "react-native";
+import {Text} from "react-native";
 import * as Styles from "../style/Styles";
 import Reducers from "../app/Reducers";
 import {App as Initialization} from "../scene/init/App";

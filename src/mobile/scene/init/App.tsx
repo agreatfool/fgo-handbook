@@ -1,32 +1,15 @@
 import React, {Component} from "react";
-import {View, Text, ActivityIndicator, StyleSheet} from "react-native";
+import {View, Text, ActivityIndicator} from "react-native";
 import {Actions} from "react-native-router-flux";
 import injectIntoComponent from "../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as SystemService from "../../service/SystemService";
 import InjectedProps from "../../../lib/react/InjectedProps";
+import * as Styles from "../../style/Styles";
 
 export * from "./State";
 export * from "./Action";
-
-const styles = StyleSheet.create({
-    centering: {
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 8,
-    },
-    textCenter: {
-        textAlign: "center" as any,
-    },
-    footer: {
-        position: "absolute" as any,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        padding: 8
-    }
-});
 
 interface Props extends InjectedProps {
     SceneInitialization: State.State;
@@ -54,26 +37,31 @@ class Initialization extends Component<Props, {}> {
     }
 
     render() {
+        let state: State = (this.props as Props).SceneInitialization;
         return (
-            <View style={{flex: 1, flexDirection: "column"}}>
-                <View style={{flex:1}}>
-                    <View style={styles.footer}>
-                        <Text style={styles.textCenter}>
-                            {(this.props as Props).SceneInitialization.loading}
+            <View style={[Styles.Common.flexColumn, Styles.Common.flexDefault]}>
+                <View style={Styles.Common.flexDefault}>
+                    <View style={Styles.Landing.footer}>
+                        <Text style={Styles.Common.textCenter}>
+                            {state.loading}
                         </Text>
                     </View>
                 </View>
-                <View style={{flex:1}}>
+                <View style={Styles.Common.flexDefault}>
                     <ActivityIndicator
-                        animating={(this.props as Props).SceneInitialization.animating}
-                        style={[styles.centering, {flex:1}]}
+                        animating={state.animating}
+                        style={[
+                            Styles.Common.flexDefault,
+                            Styles.Common.centering,
+                            {padding: 8}
+                        ]}
                         size="large"
                     />
                 </View>
-                <View style={{flex:1}}>
-                    <View style={styles.footer}>
-                        <Text style={styles.textCenter}>Copyright Jonathan</Text>
-                        <Text style={styles.textCenter}>Company Good</Text>
+                <View style={Styles.Common.flexDefault}>
+                    <View style={Styles.Landing.footer}>
+                        <Text style={Styles.Common.textCenter}>Copyright Jonathan</Text>
+                        <Text style={Styles.Common.textCenter}>Company Good</Text>
                     </View>
                 </View>
             </View>
