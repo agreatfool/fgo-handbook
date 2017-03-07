@@ -1,51 +1,18 @@
 import React, {Component} from "react";
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    ScrollView,
-    StyleSheet,
-    ViewStyle,
-    TextStyle,
-    FlexAlignType,
-    FlexDirection
-} from "react-native";
+import {View, Text, TouchableOpacity, ScrollView} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import InjectedProps from "../../../../lib/react/InjectedProps";
+import * as Styles from "../../../style/Styles";
+import {SvtInfoBase} from "../../../lib/model/MstInfo";
 
 export * from "./State";
 export * from "./Action";
 
-const styles = StyleSheet.create({
-    flexRow: {
-        flexDirection: "row" as FlexDirection
-    },
-    flexRowRight: {
-        flexDirection: "row-reverse" as FlexDirection
-    },
-    row: {
-        marginBottom: 5,
-    },
-    topButton: {
-        flex: 1,
-        marginRight: 5,
-        height: 20,
-        alignItems: "flex-end" as FlexAlignType,
-    } as ViewStyle,
-    topButtonText: {
-        width: 100,
-        height: 20,
-        lineHeight: 20,
-        fontSize: 12,
-        textAlign: "center",
-        backgroundColor: "yellow",
-    } as TextStyle
-});
-
 interface Props extends InjectedProps {
+    svtId: number;
     SceneServantInfo: State.State;
 }
 
@@ -66,12 +33,12 @@ class ServantDetail extends Component<Props, any> {
     }
 
     render() {
-        let info = (this.props as Props).SceneServantInfo.baseInfo;
+        let info: SvtInfoBase = (this.props as Props).SceneServantInfo.baseInfo;
         return (
             <View>
-                <View style={[styles.flexRow, {height: 20}]}>
-                    <TouchableOpacity style={styles.topButton}>
-                        <Text style={styles.topButtonText}>
+                <View style={[Styles.Common.flexRow, Styles.ToolBoxTop.container]}>
+                    <TouchableOpacity style={Styles.ToolBoxTop.button}>
+                        <Text style={Styles.ToolBoxTop.text}>
                             编辑模式
                         </Text>
                     </TouchableOpacity>
@@ -79,7 +46,7 @@ class ServantDetail extends Component<Props, any> {
                 <View style={{height: 582, padding: 5}}>
                     <ScrollView>
                         {/*从者头像及姓名等*/}
-                        <View style={[styles.flexRow, styles.row]}>
+                        <View style={[]}>
                             <Text>{info.name}</Text>
                         </View>
                     </ScrollView>
