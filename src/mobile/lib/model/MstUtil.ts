@@ -90,6 +90,10 @@ export default class MstUtil {
         return arr;
     }
 
+    public static isObjEmpty(obj: Object): boolean {
+        return Object.keys(obj).length === 0 && obj.constructor === Object;
+    }
+
     public async readImageIntoBase64Str(path: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             let data = "";

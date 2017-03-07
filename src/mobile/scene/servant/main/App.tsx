@@ -1,5 +1,15 @@
 import React, {Component} from "react";
-import {View, StyleSheet, FlexDirection, ImageResizeMode, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
+import {
+    View,
+    StyleSheet,
+    Text,
+    FlexDirection,
+    ImageResizeMode,
+    ListView,
+    Image,
+    TouchableOpacity,
+    ListViewDataSource
+} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
@@ -13,38 +23,10 @@ import {CacheImage} from "../../../component/cache_image/App";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
+import * as Styles from "../../../style/Styles";
 
 export * from "./State";
 export * from "./Action";
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row" as FlexDirection,
-        marginTop: 5,
-        marginBottom: 5
-    },
-    cellBase: {
-        flex: 1,
-        width: 70,
-        height: 70,
-        marginLeft: 5,
-        marginRight: 5,
-    },
-    cell: {
-        borderWidth: 1,
-        borderStyle: "solid" as any,
-        borderColor: "black",
-    },
-    cellPlaceholder: {
-        marginLeft: 6,
-        marginRight: 6,
-    },
-    image: {
-        flex: 1,
-        width: 70,
-        resizeMode: "contain" as ImageResizeMode
-    }
-});
 
 interface Props extends InjectedProps {
     SceneServantList: State.State;
@@ -92,23 +74,23 @@ export class ServantList extends Component<Props, any> {
         if (placeholderCount > 0) {
             for (let loop = 0; loop < placeholderCount; loop++) {
                 placeholder.push(
-                    <View style={[styles.cellBase, styles.cellPlaceholder]} key={`placeholder${loop}`}>
-                        <Image style={styles.image} source={undefined}/>
+                    <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]} key={`placeholder${loop}`}>
+                        <Image style={Styles.ServantList.image} source={undefined}/>
                     </View>
                 );
             }
         }
 
         return (
-            <View style={styles.row}>
+            <View style={Styles.ServantList.row}>
                 {rowData.map((element) => {
                     let svtId = (element as MstSvt).id;
                     let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(app._appVer, svtId);
                     //noinspection TypeScriptValidateJSTypes,TypeScriptUnresolvedFunction
                     return (
                         <TouchableOpacity key={svtId} onPress={() => (Actions as any).servant_info({svtId: svtId})}>
-                            <View style={[styles.cell, styles.cellBase]}>
-                                <CacheImage style={styles.image} url={svtImageUrl} />
+                            <View style={[Styles.ServantList.cell, Styles.ServantList.cellBase]}>
+                                <CacheImage style={Styles.ServantList.image} url={svtImageUrl}/>
                             </View>
                         </TouchableOpacity>
                     );
@@ -122,8 +104,16 @@ export class ServantList extends Component<Props, any> {
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
-            <View style={{height: 612}}>
+            <View style={Styles.Tab.pageContainer}>
+                <View style={Styles.ToolBoxTop.container}>
+                    <TouchableOpacity style={Styles.ToolBoxTop.button}>
+                        <Text style={Styles.ToolBoxTop.text}>
+                            过滤器
+                        </Text>
+                    </TouchableOpacity>
+                </View>
                 <ListView
+                    style={Styles.Tab.pageDisplayArea}
                     dataSource={this._dataSource.cloneWithRows((this.props as Props).SceneServantList.displayData)}
                     renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, this)}
                     showsVerticalScrollIndicator={false}

@@ -1,4 +1,4 @@
-import {StyleSheet, FlexDirection, FlexAlignType, ViewStyle, TextStyle} from "react-native";
+import {StyleSheet, FlexDirection, FlexAlignType, FlexJustifyType, ImageResizeMode, ViewStyle, TextStyle} from "react-native";
 
 export const Common = StyleSheet.create({
     flexRow: {
@@ -14,14 +14,14 @@ export const Common = StyleSheet.create({
         flex: 1,
     },
     row: {
-        marginBottom: 5,
+        marginBottom: 15,
     },
     textCenter: {
-        textAlign: "center",
+        textAlign: "center" as any,
     },
     centering: {
         alignItems: "center" as FlexAlignType,
-        justifyContent: "center" as FlexAlignType,
+        justifyContent: "center" as FlexJustifyType,
     }
 });
 
@@ -37,28 +37,33 @@ export const Tab = StyleSheet.create({
         borderStyle: "dotted" as any,
         borderColor: "#000000",
     },
-    pageContainer: {
-        marginTop: 64,
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 5,
-        paddingRight: 5,
-    },
     stateNormal: {
         color: "black",
     },
     stateSelected: {
         color: "red",
+    },
+    sceneContainer: {
+        marginTop: 64,
+        padding: 5,
+    },
+    pageContainer: {
+        height: 612
+    },
+    pageDisplayArea: {
+        height: 582,
+        padding: 5
     }
 });
 
 export const ToolBoxTop = StyleSheet.create({
     container: {
-        height: 20
+        flexDirection: "row-reverse" as FlexDirection,
+        height: 30
     },
     button: {
-        flex: 1,
-        marginRight: 5,
+        width: 100,
+        margin: 5,
         height: 20,
         alignItems: "flex-end" as FlexAlignType,
     } as ViewStyle,
@@ -79,5 +84,34 @@ export const Landing = StyleSheet.create({
         right: 0,
         bottom: 0,
         padding: 8
+    }
+});
+
+export const ServantList = StyleSheet.create({
+    row: {
+        flexDirection: "row" as FlexDirection,
+        marginTop: 5,
+        marginBottom: 5
+    },
+    cellBase: {
+        flex: 1,
+        width: 70,
+        height: 70,
+        marginLeft: 5,
+        marginRight: 5,
+    },
+    cell: {
+        borderWidth: 1,
+        borderStyle: "solid" as any,
+        borderColor: "black",
+    },
+    cellPlaceholder: {
+        marginLeft: 6,
+        marginRight: 6,
+    },
+    image: {
+        flex: 1,
+        width: 70,
+        resizeMode: "contain" as ImageResizeMode
     }
 });
