@@ -1,11 +1,10 @@
 import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Reducer";
 import {Actions} from "react-native-router-flux";
-import {SvtInfoBase} from "../../../lib/model/MstInfo";
 
 import {State, defaultState} from "./State";
 import {
-    ACT_UPDATE_PAGE_TITLE, ACT_UPDATE_SVT_INFO,
-    ActionUpdatePageTitle, ActionUpdateSvtInfo,
+    ACT_UPDATE_PAGE_TITLE, ACT_UPDATE_SVT_INFO, ACT_SWITCH_MODE,
+    ActionUpdatePageTitle, ActionUpdateSvtInfo, ActionSwitchMode,
 } from "./Action";
 
 export {StateName} from "./State";
@@ -22,7 +21,23 @@ export const updatePageTitle = {
 export const updateSvtInfo = {
     action: ACT_UPDATE_SVT_INFO,
     reducer: function (state: State, action: ActionUpdateSvtInfo) {
-        state.info = action.info as SvtInfoBase;
+        if (action.info.baseInfo) {
+            state.baseInfo = action.info.baseInfo;
+        } else if (action.info.materialInfo) {
+            state.materialInfo = action.info.materialInfo;
+        } else if (action.info.skillInfo) {
+            state.skillInfo = action.info.skillInfo;
+        } else if (action.info.storyInfo) {
+            state.storyInfo = action.info.storyInfo;
+        }
+        return state;
+    }
+} as ReducerInterface<State>;
+
+export const switchMode = {
+    action: ACT_SWITCH_MODE,
+    reducer: function (state: State, action: ActionSwitchMode) {
+        state.editMode = !state.editMode;
         return state;
     }
 } as ReducerInterface<State>;
@@ -30,4 +45,5 @@ export const updateSvtInfo = {
 export let Reducers = bindComponentReducers([
     updatePageTitle,
     updateSvtInfo,
+    switchMode,
 ], defaultState);

@@ -1,15 +1,23 @@
-import {SvtInfoBase} from "../../../lib/model/MstInfo";
+import {SvtInfoBase, SvtInfoMaterial, SvtInfoSkill, SvtInfoStory} from "../../../lib/model/MstInfo";
 
 export interface State {
     svtId: number;
-    info: SvtInfoBase;
+    baseInfo: SvtInfoBase;
+    materialInfo: SvtInfoMaterial;
+    skillInfo: SvtInfoSkill;
+    storyInfo: SvtInfoStory;
     title: string;
+    editMode: boolean;
 }
 
 export const defaultState = {
     svtId: -1,
-    info: {},
+    baseInfo: {},
+    materialInfo: {},
+    skillInfo: {},
+    storyInfo: {},
     title: "",
+    editMode: false,
 } as State;
 
-export const StateName = "SceneServantInfoBase";
+export const StateName = "SceneServantInfo";
