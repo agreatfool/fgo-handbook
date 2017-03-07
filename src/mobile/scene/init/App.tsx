@@ -37,7 +37,7 @@ class Initialization extends Component<Props, {}> {
     }
 
     render() {
-        let state: State = (this.props as Props).SceneInitialization;
+        let state: State.State = (this.props as Props).SceneInitialization;
         return (
             <View style={[Styles.Common.flexColumn, Styles.Common.flexDefault]}>
                 <View style={Styles.Common.flexDefault}>
