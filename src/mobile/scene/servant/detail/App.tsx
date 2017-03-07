@@ -107,7 +107,7 @@ class ServantDetail extends Component<Props, any> {
                     Styles.Common.flexDefault,
                     {minHeight: height}
                 ]}
-                  key={`column${index}`}>
+                key={`column${index}`}>
                 <View style={[Styles.Common.centering, {height: 20}, Styles.Tab.tabBar]}>
                     <Text style={Styles.Common.textCenter}>{column.title}</Text>
                 </View>
