@@ -25,7 +25,7 @@ export interface SvtInfoBase extends SvtInfo {
     hpAtkMax: SvtInfoBaseHpAtk;
     gender: string;
     cardArt: SvtInfoBaseCardInfo;
-    cartBuster: SvtInfoBaseCardInfo;
+    cardBuster: SvtInfoBaseCardInfo;
     cardQuick: SvtInfoBaseCardInfo;
     cardExtra: SvtInfoBaseCardInfo;
     starRate: number; // 出星率(%)

@@ -127,7 +127,7 @@ export class Service {
         infoBase.hpAtk100 = this._getSvtHpAtkViaLv(mstSvt.expType, 100, mstSvtLimitMax, mstSvtExpCon);
         infoBase.gender = embeddedGender;
         infoBase.cardArt = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_ART, mstSvt, mstSvtCardCon);
-        infoBase.cartBuster = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER, mstSvt, mstSvtCardCon);
+        infoBase.cardBuster = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER, mstSvt, mstSvtCardCon);
         infoBase.cardQuick = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK, mstSvt, mstSvtCardCon);
         infoBase.cardExtra = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA, mstSvt, mstSvtCardCon);
         infoBase.starRate = mstSvt.starRate / 10;
