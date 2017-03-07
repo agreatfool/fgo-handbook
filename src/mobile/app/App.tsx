@@ -28,21 +28,21 @@ export class App extends Component<any, any> {
                     <Scene key="root">
                         <Scene key="tabs" tabs={true} tabBarStyle={Styles.Tab.tabBar}>
                             <Scene key="servant" component={Servant} title="Servant" icon={TabButton}
-                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="material" component={Material} title="Material" icon={TabButton}
-                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="options" component={Options} title="Options" icon={TabButton}
-                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
                         </Scene>
                         <Scene key="servant_info" tabs={true} tabBarStyle={Styles.Tab.tabBar}>
                             <Scene key="servant_detail" component={ServantDetail} title="Detail" icon={TabButton}
-                                   hideNavBar={false} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="servant_skill" component={ServantSkill} title="Skill" icon={TabButton}
-                                   hideNavBar={false} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="servant_story" component={ServantStory} title="Story" icon={TabButton}
-                                   hideNavBar={false} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="servant_material" component={ServantMaterial} title="Material" icon={TabButton}
-                                   hideNavBar={false} sceneStyle={Styles.Tab.pageContainer} />
+                                   hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer} />
                         </Scene>
                         <Scene key="init" component={Initialization} title="Initialization" initial={true} hideNavBar={true}/>
                     </Scene>
