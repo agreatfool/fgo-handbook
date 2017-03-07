@@ -1,64 +1,92 @@
 import React, {Component} from "react";
-import {View, Text, ScrollView, StyleSheet, FlexDirection} from "react-native";
-import {Actions} from "react-native-router-flux";
-
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    ScrollView,
+    StyleSheet,
+    ViewStyle,
+    TextStyle,
+    FlexAlignType,
+    FlexDirection
+} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
-
 import * as MstService from "../../../service/MstService";
+import * as State from "./State";
+import * as Action from "./Action";
+import InjectedProps from "../../../../lib/react/InjectedProps";
+
+export * from "./State";
+export * from "./Action";
 
 const styles = StyleSheet.create({
-    flex_row: {
+    flexRow: {
         flexDirection: "row" as FlexDirection
+    },
+    flexRowRight: {
+        flexDirection: "row-reverse" as FlexDirection
     },
     row: {
         marginBottom: 5,
-    }
+    },
+    topButton: {
+        flex: 1,
+        marginRight: 5,
+        height: 20,
+        alignItems: "flex-end" as FlexAlignType,
+    } as ViewStyle,
+    topButtonText: {
+        width: 100,
+        height: 20,
+        lineHeight: 20,
+        fontSize: 12,
+        textAlign: "center",
+        backgroundColor: "yellow",
+    } as TextStyle
 });
 
-class ServantDetail extends Component<any, any> {
+interface Props extends InjectedProps {
+    SceneServantInfo: State.State;
+}
+
+class ServantDetail extends Component<Props, any> {
     private _service: MstService.Service;
 
     constructor(props, context) {
         super(props, context);
         this._service = new MstService.Service();
-        this.state = {
-            info: 123
-        }
     }
 
     componentWillMount() {
-        let app = this;
-        //noinspection TypeScriptUnresolvedVariable
-        Actions.refresh({title: this.props.svtId});
         //noinspection TypeScriptUnresolvedVariable
         this._service.buildSvtInfoBase(this.props.svtId).then((info) => {
-            let updated = "";
-            try {
-                updated = JSON.stringify(info, null, 4);
-                console.log(updated);
-                app.setState({
-                    info: info.name
-                });
-            } catch (err) {
-                console.log(err);
-            }
+            (this.props as Props).actions.updatePageTitle(info.name);
+            (this.props as Props).actions.updateSvtInfo({baseInfo: info});
         });
     }
 
-    // FIXME 添加客制化数据添加功能
     render() {
-        //noinspection TypeScriptUnresolvedVariable
+        let info = (this.props as Props).SceneServantInfo.baseInfo;
         return (
-            <View style={{height: 612}}>
-                <ScrollView>
-                    {/*从者头像及姓名等*/}
-                    <View style={[styles.flex_row, styles.row]}>
-                        <Text>{this.state.info}</Text>
-                    </View>
-                </ScrollView>
+            <View>
+                <View style={[styles.flexRow, {height: 20}]}>
+                    <TouchableOpacity style={styles.topButton}>
+                        <Text style={styles.topButtonText}>
+                            编辑模式
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{height: 582, padding: 5}}>
+                    <ScrollView>
+                        {/*从者头像及姓名等*/}
+                        <View style={[styles.flexRow, styles.row]}>
+                            <Text>{info.name}</Text>
+                        </View>
+                    </ScrollView>
+                </View>
             </View>
         );
     }
 }
 
-export const App = injectIntoComponent(ServantDetail);
+export const App = injectIntoComponent(ServantDetail, State.StateName, Action.Actions);
