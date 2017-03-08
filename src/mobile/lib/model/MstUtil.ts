@@ -141,4 +141,14 @@ export default class MstUtil {
         return Promise.resolve(JSON.parse(file));
     }
 
+    public static randomString(length = 12, chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
+        let result = "";
+
+        for (let i = length; i > 0; --i) {
+            result += chars[Math.round(Math.random() * (chars.length - 1))];
+        }
+
+        return result;
+    }
+
 }

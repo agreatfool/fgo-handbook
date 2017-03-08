@@ -1,15 +1,5 @@
 import React, {Component} from "react";
-import {
-    View,
-    StyleSheet,
-    Text,
-    FlexDirection,
-    ImageResizeMode,
-    ListView,
-    Image,
-    TouchableOpacity,
-    ListViewDataSource
-} from "react-native";
+import {View, Text, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
@@ -74,7 +64,8 @@ export class ServantList extends Component<Props, any> {
         if (placeholderCount > 0) {
             for (let loop = 0; loop < placeholderCount; loop++) {
                 placeholder.push(
-                    <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]} key={`placeholder${loop}`}>
+                    <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}
+                          key={`placeholder${loop}`}>
                         <Image style={Styles.ServantList.image} source={undefined}/>
                     </View>
                 );

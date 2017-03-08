@@ -1,14 +1,36 @@
 import React, {Component} from "react";
 import {View, Text} from "react-native";
-import {Actions} from "react-native-router-flux";
-
 import injectIntoComponent from "../../../../lib/react/Connect";
+import MstUtil from "../../../lib/model/MstUtil";
+import * as MstService from "../../../service/MstService";
+import * as State from "./State";
+import * as Action from "./Action";
+import * as Renderer from "./View";
+import * as Styles from "../../../style/Styles";
 
-class ServantMaterial extends Component<any, any> {
+export * from "./State";
+export * from "./Action";
+
+class ServantMaterial extends Component<State.Props, any> {
+    private _appVer: string;
+    private _service: MstService.Service;
+
+    constructor(props, context) {
+        super(props, context);
+        this._service = new MstService.Service();
+    }
 
     componentWillMount() {
-        //noinspection TypeScriptUnresolvedVariable
-        Actions.refresh({title: this.props.svtId});
+        let props = this.props as State.Props;
+        MstUtil.instance.getAppVer().then((appVer) => {
+            this._appVer = appVer;
+            return this._service.getServantName(props.svtId);
+        }).then((name) => {
+            props.actions.updatePageTitle(name);
+            return this._service.buildSvtInfoMaterial(props.svtId);
+        }).then((info) => {
+            props.actions.updateSvtInfo({materialInfo: info});
+        });
     }
 
     render() {
@@ -21,4 +43,4 @@ class ServantMaterial extends Component<any, any> {
     }
 }
 
-export const App = injectIntoComponent(ServantMaterial);
+export const App = injectIntoComponent(ServantMaterial, State.StateName, Action.Actions);

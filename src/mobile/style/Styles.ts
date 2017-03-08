@@ -22,6 +22,11 @@ export const Common = StyleSheet.create({
     centering: {
         alignItems: "center" as FlexAlignType,
         justifyContent: "center" as FlexJustifyType,
+    },
+    resImg: {
+        width: 70,
+        height: 70,
+        resizeMode: "contain" as ImageResizeMode
     }
 });
 

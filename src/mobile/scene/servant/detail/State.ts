@@ -1,4 +1,5 @@
 import {SvtInfoBase, SvtInfoMaterial, SvtInfoSkill, SvtInfoStory} from "../../../lib/model/MstInfo";
+import InjectedProps from "../../../../lib/react/InjectedProps";
 
 export interface State {
     svtId: number;
@@ -21,3 +22,8 @@ export const defaultState = {
 } as State;
 
 export const StateName = "SceneServantInfo";
+
+export interface Props extends InjectedProps {
+    svtId: number;
+    SceneServantInfo: State;
+}

@@ -1,14 +1,13 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity, ScrollView} from "react-native";
+import {View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import InjectedProps from "../../../../lib/react/InjectedProps";
+import * as Renderer from "./View";
 import * as Styles from "../../../style/Styles";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
-import {CacheImage} from "../../../component/cache_image/App";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -19,12 +18,7 @@ interface DataColumn {
     content: string | number;
 }
 
-interface Props extends InjectedProps {
-    svtId: number;
-    SceneServantInfo: State.State;
-}
-
-class ServantDetail extends Component<Props, any> {
+class ServantDetail extends Component<State.Props, any> {
     private _appVer: string;
     private _service: MstService.Service;
 
@@ -34,13 +28,13 @@ class ServantDetail extends Component<Props, any> {
     }
 
     componentWillMount() {
+        let props = this.props as State.Props;
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            //noinspection TypeScriptUnresolvedVariable
-            return this._service.buildSvtInfoBase(this.props.svtId);
+            return this._service.buildSvtInfoBase(props.svtId);
         }).then((info) => {
-            (this.props as Props).actions.updatePageTitle(info.name);
-            (this.props as Props).actions.updateSvtInfo({baseInfo: info});
+            props.actions.updatePageTitle(info.name);
+            props.actions.updateSvtInfo({baseInfo: info});
         });
     }
 
@@ -48,110 +42,48 @@ class ServantDetail extends Component<Props, any> {
         return {title: title, content: content};
     }
 
-    buildHpAtkView(value: number) {
+    genHpAtkStr(value: number) {
         return `${value}\n(${value + Const.MAX_VAL_WITH_UPGRADE})`
     }
 
-    buildCmdCardView(card: SvtInfoBaseCardInfo) {
+    genCmdCardStr(card: SvtInfoBaseCardInfo) {
         return (card.count == 0 ? "" : `${card.count}张`) + `${card.hits}Hits`;
     }
 
-    renderSvtImage(svtId) {
-        return <CacheImage
-            style={{width: 70, height: 70, resizeMode: "contain"}}
-            url={MstUtil.instance.getRemoteFaceUrl(this._appVer, svtId)}/>;
-    }
-
     renderFirstRow(columns: Array<DataColumn>) {
+        let props = this.props as State.Props;
         let cells = [];
-        columns.forEach((column: DataColumn, index) => {
-            cells.push(this.renderColumn(column, index, 70));
+        columns.forEach((column: DataColumn) => {
+            cells.push(Renderer.renderColumn(column, 70));
         });
-        //noinspection TypeScriptUnresolvedVariable
-        return (
-            <View style={[
-                    Styles.Common.flexRow,
-                    Styles.Common.flexDefault,
-                    Styles.Common.row,
-                    {height: 70}
-                ]}
-                  key="row00">
-                {this.renderSvtImage(this.props.svtId)}
-                {cells}
-            </View>
-        );
+        return Renderer.renderRow(cells, Renderer.renderResourceImg(this._appVer, "face", props.svtId));
     }
 
-    renderRow(columns: Array<DataColumn>, index: number) {
+    renderRow(columns: Array<DataColumn>) {
         let cells = [];
-        columns.forEach((column: DataColumn, index) => {
-            cells.push(this.renderColumn(column, index));
+        columns.forEach((column: DataColumn) => {
+            cells.push(Renderer.renderColumn(column));
         });
-        //noinspection TypeScriptUnresolvedVariable
-        return (
-            <View style={[
-                    Styles.Common.flexRow,
-                    Styles.Common.flexDefault,
-                    Styles.Common.row,
-                ]}
-                  key={`row${index}`}>
-                {cells}
-            </View>
-        );
-    }
-
-    renderColumn(column: DataColumn, index: number, height = 50) {
-        return (
-            <View style={[
-                    Styles.Common.flexColumn,
-                    Styles.Common.flexDefault,
-                    {minHeight: height}
-                ]}
-                key={`column${index}`}>
-                <View style={[Styles.Common.centering, {height: 20}, Styles.Tab.tabBar]}>
-                    <Text style={Styles.Common.textCenter}>{column.title}</Text>
-                </View>
-                <View style={[Styles.Common.centering, {minHeight: height - 20}, Styles.Tab.tabBar]}>
-                    <Text style={Styles.Common.textCenter}>{column.content}</Text>
-                </View>
-            </View>
-        );
+        return Renderer.renderRow(cells);
     }
 
     renderPage(data: Array<Array<DataColumn>>) {
         let firstData = data.shift();
-        let rows = [];
-        data.forEach((data: Array<DataColumn>, index) => {
-            rows.push(this.renderRow(data, index));
+        let rows = [this.renderFirstRow(firstData)];
+        data.forEach((data: Array<DataColumn>) => {
+            rows.push(this.renderRow(data));
         });
 
         return (
             <View style={Styles.Tab.pageContainer}>
-                <View style={Styles.ToolBoxTop.container}>
-                    <TouchableOpacity style={Styles.ToolBoxTop.button}>
-                        <Text style={Styles.ToolBoxTop.text}>
-                            编辑模式
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={Styles.Tab.pageDisplayArea}>
-                    <ScrollView style={Styles.Common.flexColumn}>
-                        {this.renderFirstRow(firstData)}
-                        {rows}
-                    </ScrollView>
-                </View>
+                {Renderer.renderToolBoxTop([{text: "编辑模式"}])}
+                {Renderer.renderPageAreaWithoutToolBox(rows)}
             </View>
         );
     }
 
-    render() {
-        let info: SvtInfoBase = (this.props as Props).SceneServantInfo.baseInfo;
-        if (MstUtil.isObjEmpty(info)) {
-            // 数据未准备好，不要渲染页面
-            return <View>{undefined}</View>
-        }
-
-        let rows = [
+    prepareRowData(info: SvtInfoBase) {
+        return [
             [
                 this.buildDataColumn("图鉴编号", info.collectionNo),
                 this.buildDataColumn("星级", info.rarity),
@@ -172,22 +104,22 @@ class ServantDetail extends Component<Props, any> {
                 this.buildDataColumn("职阶攻击补正", info.attackRate + "%"),
             ],
             [
-                this.buildDataColumn("最高血量", this.buildHpAtkView(info.hpAtkMax.hp)),
-                this.buildDataColumn("最高攻击", this.buildHpAtkView(info.hpAtkMax.atk)),
-                this.buildDataColumn("Lv.80 血量", this.buildHpAtkView(info.hpAtk80.hp)),
-                this.buildDataColumn("Lv.80 攻击", this.buildHpAtkView(info.hpAtk80.atk)),
+                this.buildDataColumn("最高血量", this.genHpAtkStr(info.hpAtkMax.hp)),
+                this.buildDataColumn("最高攻击", this.genHpAtkStr(info.hpAtkMax.atk)),
+                this.buildDataColumn("Lv.80 血量", this.genHpAtkStr(info.hpAtk80.hp)),
+                this.buildDataColumn("Lv.80 攻击", this.genHpAtkStr(info.hpAtk80.atk)),
             ],
             [
-                this.buildDataColumn("Lv.90 血量", this.buildHpAtkView(info.hpAtk90.hp)),
-                this.buildDataColumn("Lv.90 攻击", this.buildHpAtkView(info.hpAtk90.atk)),
-                this.buildDataColumn("Lv.100 血量", this.buildHpAtkView(info.hpAtk100.hp)),
-                this.buildDataColumn("Lv.100 攻击", this.buildHpAtkView(info.hpAtk100.atk)),
+                this.buildDataColumn("Lv.90 血量", this.genHpAtkStr(info.hpAtk90.hp)),
+                this.buildDataColumn("Lv.90 攻击", this.genHpAtkStr(info.hpAtk90.atk)),
+                this.buildDataColumn("Lv.100 血量", this.genHpAtkStr(info.hpAtk100.hp)),
+                this.buildDataColumn("Lv.100 攻击", this.genHpAtkStr(info.hpAtk100.atk)),
             ],
             [
-                this.buildDataColumn("蓝卡", this.buildCmdCardView(info.cardArt)),
-                this.buildDataColumn("红卡", this.buildCmdCardView(info.cardBuster)),
-                this.buildDataColumn("绿卡", this.buildCmdCardView(info.cardQuick)),
-                this.buildDataColumn("Extra", this.buildCmdCardView(info.cardExtra)),
+                this.buildDataColumn("蓝卡", this.genCmdCardStr(info.cardArt)),
+                this.buildDataColumn("红卡", this.genCmdCardStr(info.cardBuster)),
+                this.buildDataColumn("绿卡", this.genCmdCardStr(info.cardQuick)),
+                this.buildDataColumn("Extra", this.genCmdCardStr(info.cardExtra)),
             ],
             [
                 this.buildDataColumn("出星率", info.starRate + "%"),
@@ -202,8 +134,16 @@ class ServantDetail extends Component<Props, any> {
                 this.buildDataColumn("防御NP", info.npDefence + "%"),
             ],
         ];
+    }
 
-        return this.renderPage(rows);
+    render() {
+        let info: SvtInfoBase = (this.props as State.Props).SceneServantInfo.baseInfo;
+        if (MstUtil.isObjEmpty(info)) {
+            // 数据未准备好，不要渲染页面
+            return <View>{undefined}</View>
+        }
+
+        return this.renderPage(this.prepareRowData(info));
     }
 }
 
