@@ -4,25 +4,52 @@ import React, {Component} from "react";
 import {Image} from "react-native";
 import MstUtil from "../../lib/model/MstUtil";
 
+interface State {
+    data: ImageSource;
+}
+interface ImageSource {
+    uri: string;
+}
+
 export class CacheImage extends Component<any, any> {
 
+    private _isMounted: boolean;
     private _url: string;
 
     constructor(props, context) {
         super(props, context);
 
+        this._isMounted = false;
         this._url = props.url;
 
         this.state = {
             data: undefined
+        } as State;
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.loadImage().then((base64) => {
+            this.updateState({
+                data: {uri: base64}
+            });
+        }).catch((err) => {
+            console.error(err);
+        });
+    }
+
+    componentWillUnmount () {
+        this._isMounted = false;
+    }
+
+    updateState(state: any) {
+        if (!this._isMounted) {
+            return;
         }
+        this.setState(state);
     }
 
-    componentWillMount() {
-        this.loadImage().catch((err) => console.error(err));
-    }
-
-    async loadImage(): Promise<any> {
+    async loadImage(): Promise<string> {
         let split = this._url.split("/");
         let fileName = split.pop();
         let type = split.pop();
@@ -45,11 +72,7 @@ export class CacheImage extends Component<any, any> {
             base64Str = await MstUtil.instance.readImageIntoBase64Str(localFilePath);
         }
 
-        this.setState({
-            data: {
-                uri: base64Str
-            }
-        });
+        return Promise.resolve(base64Str);
     }
 
     render() {
