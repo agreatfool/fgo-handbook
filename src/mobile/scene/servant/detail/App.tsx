@@ -34,10 +34,6 @@ class ServantDetail extends Component<State.Props, any> {
         });
     }
 
-    buildDataColumn(title: string, content: string | number): ColumnData {
-        return {title: title, content: content};
-    }
-
     genHpAtkStr(value: number) {
         return `${value}\n(${value + Const.MAX_VAL_WITH_UPGRADE})`
     }
@@ -50,7 +46,7 @@ class ServantDetail extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let cells = [];
         columns.forEach((column: ColumnData) => {
-            cells.push(Renderer.renderColumn(column, {height: 70}));
+            cells.push(Renderer.renderColumn(column));
         });
         return Renderer.renderRow(cells, Renderer.renderResourceImg(this._appVer, "face", props.svtId));
     }
@@ -81,53 +77,53 @@ class ServantDetail extends Component<State.Props, any> {
     prepareRowData(info: SvtInfoBase) {
         return [
             [
-                this.buildDataColumn("图鉴编号", info.collectionNo),
-                this.buildDataColumn("星级", info.rarity),
-                this.buildDataColumn("名称", info.name),
+                Renderer.buildColumnStructSimple("图鉴编号", info.collectionNo),
+                Renderer.buildColumnStructSimple("星级", info.rarity),
+                Renderer.buildColumnStructSimple("名称", info.name),
             ],
             [
-                this.buildDataColumn("职阶", info.className),
-                this.buildDataColumn("分类", info.classification),
-                this.buildDataColumn("属性", info.policy),
-                this.buildDataColumn("性别", info.gender),
+                Renderer.buildColumnStructSimple("职阶", info.className),
+                Renderer.buildColumnStructSimple("分类", info.classification),
+                Renderer.buildColumnStructSimple("属性", info.policy),
+                Renderer.buildColumnStructSimple("性别", info.gender),
             ],
             [
-                this.buildDataColumn("特性", info.individuality.join(", ")),
+                Renderer.buildColumnStructSimple("特性", info.individuality.join(", ")),
             ],
             [
-                this.buildDataColumn("从者编号", info.svtId),
-                this.buildDataColumn("最高等级", info.maxLevel),
-                this.buildDataColumn("职阶攻击补正", info.attackRate + "%"),
+                Renderer.buildColumnStructSimple("从者编号", info.svtId),
+                Renderer.buildColumnStructSimple("最高等级", info.maxLevel),
+                Renderer.buildColumnStructSimple("职阶攻击补正", info.attackRate + "%"),
             ],
             [
-                this.buildDataColumn("最高血量", this.genHpAtkStr(info.hpAtkMax.hp)),
-                this.buildDataColumn("最高攻击", this.genHpAtkStr(info.hpAtkMax.atk)),
-                this.buildDataColumn("Lv.80 血量", this.genHpAtkStr(info.hpAtk80.hp)),
-                this.buildDataColumn("Lv.80 攻击", this.genHpAtkStr(info.hpAtk80.atk)),
+                Renderer.buildColumnStructSimple("最高血量", this.genHpAtkStr(info.hpAtkMax.hp)),
+                Renderer.buildColumnStructSimple("最高攻击", this.genHpAtkStr(info.hpAtkMax.atk)),
+                Renderer.buildColumnStructSimple("Lv.80 血量", this.genHpAtkStr(info.hpAtk80.hp)),
+                Renderer.buildColumnStructSimple("Lv.80 攻击", this.genHpAtkStr(info.hpAtk80.atk)),
             ],
             [
-                this.buildDataColumn("Lv.90 血量", this.genHpAtkStr(info.hpAtk90.hp)),
-                this.buildDataColumn("Lv.90 攻击", this.genHpAtkStr(info.hpAtk90.atk)),
-                this.buildDataColumn("Lv.100 血量", this.genHpAtkStr(info.hpAtk100.hp)),
-                this.buildDataColumn("Lv.100 攻击", this.genHpAtkStr(info.hpAtk100.atk)),
+                Renderer.buildColumnStructSimple("Lv.90 血量", this.genHpAtkStr(info.hpAtk90.hp)),
+                Renderer.buildColumnStructSimple("Lv.90 攻击", this.genHpAtkStr(info.hpAtk90.atk)),
+                Renderer.buildColumnStructSimple("Lv.100 血量", this.genHpAtkStr(info.hpAtk100.hp)),
+                Renderer.buildColumnStructSimple("Lv.100 攻击", this.genHpAtkStr(info.hpAtk100.atk)),
             ],
             [
-                this.buildDataColumn("蓝卡", this.genCmdCardStr(info.cardArt)),
-                this.buildDataColumn("红卡", this.genCmdCardStr(info.cardBuster)),
-                this.buildDataColumn("绿卡", this.genCmdCardStr(info.cardQuick)),
-                this.buildDataColumn("Extra", this.genCmdCardStr(info.cardExtra)),
+                Renderer.buildColumnStructSimple("蓝卡", this.genCmdCardStr(info.cardArt)),
+                Renderer.buildColumnStructSimple("红卡", this.genCmdCardStr(info.cardBuster)),
+                Renderer.buildColumnStructSimple("绿卡", this.genCmdCardStr(info.cardQuick)),
+                Renderer.buildColumnStructSimple("Extra", this.genCmdCardStr(info.cardExtra)),
             ],
             [
-                this.buildDataColumn("出星率", info.starRate + "%"),
-                this.buildDataColumn("被即死率", info.deathRate + "%"),
-                this.buildDataColumn("集星权重", info.criticalWeight),
+                Renderer.buildColumnStructSimple("出星率", info.starRate + "%"),
+                Renderer.buildColumnStructSimple("被即死率", info.deathRate + "%"),
+                Renderer.buildColumnStructSimple("集星权重", info.criticalWeight),
             ],
             [
-                this.buildDataColumn("蓝卡NP", info.npArt + "%"),
-                this.buildDataColumn("红卡NP", info.npBuster + "%"),
-                this.buildDataColumn("绿卡NP", info.npQuick + "%"),
-                this.buildDataColumn("EX NP", info.npExtra + "%"),
-                this.buildDataColumn("防御NP", info.npDefence + "%"),
+                Renderer.buildColumnStructSimple("蓝卡NP", info.npArt + "%"),
+                Renderer.buildColumnStructSimple("红卡NP", info.npBuster + "%"),
+                Renderer.buildColumnStructSimple("绿卡NP", info.npQuick + "%"),
+                Renderer.buildColumnStructSimple("EX NP", info.npExtra + "%"),
+                Renderer.buildColumnStructSimple("防御NP", info.npDefence + "%"),
             ],
         ];
     }
