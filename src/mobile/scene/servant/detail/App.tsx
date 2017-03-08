@@ -54,7 +54,7 @@ class ServantDetail extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let cells = [];
         columns.forEach((column: DataColumn) => {
-            cells.push(Renderer.renderColumn(column, 70));
+            cells.push(Renderer.renderColumn(column, {height: 70}));
         });
         return Renderer.renderRow(cells, Renderer.renderResourceImg(this._appVer, "face", props.svtId));
     }

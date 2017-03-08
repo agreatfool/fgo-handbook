@@ -82,27 +82,58 @@ export interface ColumnData {
     element?: JSXElement;
 }
 
-export const renderColumn = function (column: ColumnData, height = 50) {
+export interface ColumnOptions {
+    height?: number;
+    centering?: boolean;
+}
+
+export const renderColumn = function (column: ColumnData, options?: ColumnOptions) {
+    let titleHeight = 20;
+    let columnHeight = options && options.height ? options.height : 50;
+
+    let Content = function (props) {
+        let styles = [
+            {minHeight: columnHeight - titleHeight},
+            Styles.Common.verticalCentering,
+            Styles.Tab.tabBar
+        ];
+        if (options && options.centering) {
+            styles.push(Styles.Common.horizontalCentering);
+        }
+        return (
+            <View style={styles}>
+                {props.children}
+            </View>
+        );
+    };
+
     let columnDisplay = undefined;
     if (column.element) {
-         columnDisplay = column.element;
-    } else {
-        columnDisplay = <Text style={Styles.Common.textCenter}>{column.content}</Text>;
+        columnDisplay = <Content>{column.element}</Content>;
+    } else if (column.content) {
+        columnDisplay = (
+            <Content>
+                <Text style={Styles.Common.textCenter}>{column.content}</Text>
+            </Content>
+        );
+    }
+
+    // column只有title的情况，title的高度应该占满
+    if (!columnDisplay) {
+        titleHeight = columnHeight;
     }
 
     return (
         <View style={[
                     Styles.Common.flexColumn,
                     Styles.Common.flexDefault,
-                    {minHeight: height}
+                    {minHeight: columnHeight}
                 ]}
               key={MstUtil.randomString(6)}>
-            <View style={[Styles.Common.centering, {height: 20}, Styles.Tab.tabBar]}>
+            <View style={[Styles.Common.centering, {height: titleHeight}, Styles.Tab.tabBar]}>
                 <Text style={Styles.Common.textCenter}>{column.title}</Text>
             </View>
-            <View style={[Styles.Common.centering, {minHeight: height - 20}, Styles.Tab.tabBar]}>
-                {columnDisplay}
-            </View>
+            {columnDisplay}
         </View>
     );
 };
