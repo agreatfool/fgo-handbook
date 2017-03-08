@@ -9,14 +9,10 @@ import * as Styles from "../../../style/Styles";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
+import {ColumnData} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
-
-interface DataColumn {
-    title: string | number;
-    content: string | number;
-}
 
 class ServantDetail extends Component<State.Props, any> {
     private _appVer: string;
@@ -38,7 +34,7 @@ class ServantDetail extends Component<State.Props, any> {
         });
     }
 
-    buildDataColumn(title: string, content: string | number) {
+    buildDataColumn(title: string, content: string | number): ColumnData {
         return {title: title, content: content};
     }
 
@@ -50,27 +46,27 @@ class ServantDetail extends Component<State.Props, any> {
         return (card.count == 0 ? "" : `${card.count}张`) + `${card.hits}Hits`;
     }
 
-    renderFirstRow(columns: Array<DataColumn>) {
+    renderFirstRow(columns: Array<ColumnData>) {
         let props = this.props as State.Props;
         let cells = [];
-        columns.forEach((column: DataColumn) => {
+        columns.forEach((column: ColumnData) => {
             cells.push(Renderer.renderColumn(column, {height: 70}));
         });
         return Renderer.renderRow(cells, Renderer.renderResourceImg(this._appVer, "face", props.svtId));
     }
 
-    renderRow(columns: Array<DataColumn>) {
+    renderRow(columns: Array<ColumnData>) {
         let cells = [];
-        columns.forEach((column: DataColumn) => {
+        columns.forEach((column: ColumnData) => {
             cells.push(Renderer.renderColumn(column));
         });
         return Renderer.renderRow(cells);
     }
 
-    renderPage(data: Array<Array<DataColumn>>) {
+    renderPage(data: Array<Array<ColumnData>>) {
         let firstData = data.shift();
         let rows = [this.renderFirstRow(firstData)];
-        data.forEach((data: Array<DataColumn>) => {
+        data.forEach((data: Array<ColumnData>) => {
             rows.push(this.renderRow(data));
         });
 
