@@ -5,11 +5,10 @@ import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "./View";
-import * as Styles from "../../../style/Styles";
-import {SvtInfoBase, SvtInfoBaseCardInfo, SvtInfoRank} from "../../../lib/model/MstInfo";
+import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ResImage, ToolBoxWrapper, TabScene, TabPage, Table, TableColumnData} from "../main/View";
+import {ResImage, ToolBoxWrapper, TabScene, TabPage, Table} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -42,19 +41,15 @@ class ServantDetail extends Component<State.Props, any> {
         return (card.count == 0 ? "" : `${card.count}张`) + `${card.hits}Hits`;
     }
 
-    renderFirstRow(columns: Array<TableColumnData>) {
-        let props = this.props as State.Props;
-        let cells = [];
-        columns.forEach((column: TableColumnData) => {
-            // cells.push(Renderer.renderColumn(column));
-        });
-        // return Renderer.renderRow(cells, );
-    }
-
     prepareRowData(info: SvtInfoBase) {
         return [
             [
-                Renderer.buildColumnStructSimple(undefined, <ResImage appVer={this._appVer} type="face" id={(this.props as State.Props).svtId} />),
+                Renderer.buildColumnStructSimple(
+                    undefined,
+                    <ResImage appVer={this._appVer}
+                              type="face"
+                              id={(this.props as State.Props).svtId}/>
+                ),
                 Renderer.buildColumnStructSimple("图鉴编号", info.collectionNo),
                 Renderer.buildColumnStructSimple("星级", info.rarity),
                 Renderer.buildColumnStructSimple("名称", info.name),
@@ -127,7 +122,7 @@ class ServantDetail extends Component<State.Props, any> {
             <TabScene>
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
-                ]} />
+                ]}/>
                 <TabPage>
                     <Table data={data}/>
                 </TabPage>
