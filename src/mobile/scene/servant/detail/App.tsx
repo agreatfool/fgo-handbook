@@ -9,7 +9,7 @@ import * as Styles from "../../../style/Styles";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ColumnData} from "../main/View";
+import {ColumnData, ResImage, ToolBoxWrapper} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -48,7 +48,7 @@ class ServantDetail extends Component<State.Props, any> {
         columns.forEach((column: ColumnData) => {
             cells.push(Renderer.renderColumn(column));
         });
-        return Renderer.renderRow(cells, Renderer.renderResourceImg(this._appVer, "face", props.svtId));
+        return Renderer.renderRow(cells, <ResImage appVer={this._appVer} type="face" id={props.svtId} />);
     }
 
     renderRow(columns: Array<ColumnData>) {
@@ -68,7 +68,9 @@ class ServantDetail extends Component<State.Props, any> {
 
         return (
             <View style={Styles.Tab.pageContainer}>
-                {Renderer.renderToolBoxTop([{content: "编辑模式"}])}
+                <ToolBoxWrapper buttons={[
+                    {content: "编辑模式"}
+                ]} />
                 {Renderer.renderPageAreaWithoutToolBox(rows)}
             </View>
         );

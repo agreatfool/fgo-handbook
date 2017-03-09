@@ -1,81 +1,132 @@
-import React from "react";
+import React, {Component, ReactNode} from "react";
 import {View, TouchableOpacity, Text, ScrollView} from "react-native";
 import MstUtil from "../../../lib/model/MstUtil";
 import {CacheImage} from "../../../component/cache_image/App";
 import * as Styles from "../../../style/Styles";
 import JSXElement = JSX.JSXElement;
 
-export interface ToolBoxButton {
+interface Props {
+    children?: ReactNode;
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* TOOL BOX
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export interface ToolBoxButtonStruct {
     content: string | number | JSXElement;
     onPress?: () => void;
 }
 
-export const renderToolBoxTop = function (buttons: Array<ToolBoxButton>) {
-    const ToolBox = function (props) {
-        return (
-            <View style={Styles.ToolBoxTop.container}>
-                {props.children}
-            </View>
-        );
-    };
+export interface ToolBoxWrapperProps {
+    buttons: Array<ToolBoxButtonStruct>;
+}
 
-    const Button = function (props) {
-        let button = props.children as ToolBoxButton;
-        return (
-            <TouchableOpacity
-                style={Styles.ToolBoxTop.button}
-                onPress={button.onPress}>
-                <ButtonContent>{button.content}</ButtonContent>
-            </TouchableOpacity>
-        );
-    };
-
-    const ButtonContent = function (props) {
-        if (typeof props.children === "string" || typeof props.children === "number") {
-            return <Text style={Styles.ToolBoxTop.text}>{props.children}</Text>;
-        } else {
-            return props.children;
-        }
-    };
-
-    const render = function () {
+export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
+    render() {
+        let buttons = (this.props as ToolBoxWrapperProps).buttons;
         let buttonElements = [];
-        buttons.forEach((button: ToolBoxButton) => {
-            buttonElements.push(
-                <Button key={MstUtil.randomString(6)}>
-                    {button}
-                </Button>
-            );
+        buttons.forEach((button: ToolBoxButtonStruct) => {
+            if (typeof button.content === "string" || typeof button.content === "number") {
+                buttonElements.push(
+                    <ToolBoxButtonText
+                        key={MstUtil.randomString(6)}
+                        onPress={button.onPress}>
+                        {button.content}
+                    </ToolBoxButtonText>
+                );
+            } else {
+                buttonElements.push(
+                    <ToolBoxButton
+                        key={MstUtil.randomString(6)}
+                        onPress={button.onPress}>
+                        {button.content}
+                    </ToolBoxButton>
+                );
+            }
         });
+
         return (
             <ToolBox>
                 {buttonElements}
             </ToolBox>
         );
     };
+}
 
-    return render();
-};
-
-export const renderResourceImg = function (appVer: string, type: string, id: number): JSXElement {
-    let url = "";
-
-    switch (type) {
-        case "item":
-            url = MstUtil.instance.getRemoteItemUrl(appVer, id);
-            break;
-        case "skill":
-            url = MstUtil.instance.getRemoteSkillUrl(appVer, id);
-            break;
-        case "face":
-        default:
-            url = MstUtil.instance.getRemoteFaceUrl(appVer, id);
-            break;
+export class ToolBox extends Component<any, any> {
+    render() {
+        return (
+            <View style={Styles.ToolBoxTop.container}>
+                {(this.props as Props).children}
+            </View>
+        );
     }
+}
 
-    return <CacheImage style={Styles.Common.resImg} url={url}/>;
-};
+export interface ToolBoxButtonProps extends Props {
+    onPress?: () => void;
+}
 
+export class ToolBoxButtonText extends Component<ToolBoxButtonProps, any> {
+    render() {
+        let props = this.props as ToolBoxButtonProps;
+        return (
+            <TouchableOpacity
+                style={Styles.ToolBoxTop.button}
+                onPress={props.onPress}>
+                <Text style={Styles.ToolBoxTop.text}>{props.children}</Text>
+            </TouchableOpacity>
+        );
+    }
+}
+
+export class ToolBoxButton extends Component<any, any> {
+    render() {
+        let props = this.props as ToolBoxButtonProps;
+        return (
+            <TouchableOpacity
+                style={Styles.ToolBoxTop.button}
+                onPress={props.onPress}>
+                {props.children}
+            </TouchableOpacity>
+        );
+    }
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* IMAGE
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export interface ResImageProps extends Props {
+    appVer: string; // 0.0.1
+    type: string; // face、item、skill
+    id: number;
+}
+
+export class ResImage extends Component<ResImageProps, any> {
+    render() {
+        let props = this.props as ResImageProps;
+
+        let url = "";
+        switch (props.type) {
+            case "item":
+                url = MstUtil.instance.getRemoteItemUrl(props.appVer, props.id);
+                break;
+            case "skill":
+                url = MstUtil.instance.getRemoteSkillUrl(props.appVer, props.id);
+                break;
+            case "face":
+            default:
+                url = MstUtil.instance.getRemoteFaceUrl(props.appVer, props.id);
+                break;
+        }
+
+        return <CacheImage style={Styles.Common.resImg} url={url}/>;
+    }
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* TAB PAGE
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export const renderPageAreaWithoutToolBox = function (rows: Array<JSXElement>) {
     return (
         <View style={Styles.Tab.pageDisplayArea}>
@@ -86,6 +137,9 @@ export const renderPageAreaWithoutToolBox = function (rows: Array<JSXElement>) {
     );
 };
 
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* TABLE
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export const renderRow = function (columns: Array<JSXElement>, img?: JSXElement) {
     return (
         <View

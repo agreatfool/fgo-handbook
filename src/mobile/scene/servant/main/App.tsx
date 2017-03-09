@@ -58,6 +58,7 @@ export class ServantList extends Component<Props, any> {
         });
     }
 
+    // FIXME 需要按最新的View内的渲染方式进行重构，在做过滤器的时候重构即可
     renderRow(rowData, app) {
         let placeholder = [];
         let placeholderCount = Const.SERVANT_IN_ROW - rowData.length;
