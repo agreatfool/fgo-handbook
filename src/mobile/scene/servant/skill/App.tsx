@@ -8,7 +8,7 @@ import * as Action from "./Action";
 import * as Renderer from "./View";
 import * as Styles from "../../../style/Styles";
 import {SvtInfoSkill} from "../../../lib/model/MstInfo";
-import {ColumnData, ToolBoxWrapper, TabScene, TabPage} from "../main/View";
+import {ToolBoxWrapper, TabScene, TabPage, TableColumnData} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -35,17 +35,17 @@ class ServantSkill extends Component<State.Props, any> {
         });
     }
 
-    renderRow(columns: Array<ColumnData>) {
+    renderRow(columns: Array<TableColumnData>) {
         let cells = [];
-        columns.forEach((column: ColumnData) => {
-            cells.push(Renderer.renderColumn(column));
+        columns.forEach((column: TableColumnData) => {
+            // cells.push(Renderer.renderColumn(column));
         });
         return Renderer.renderRow(cells);
     }
 
-    renderPage(data: Array<Array<ColumnData>>) {
+    renderPage(data: Array<Array<TableColumnData>>) {
         let rows = [];
-        data.forEach((data: Array<ColumnData>) => {
+        data.forEach((data: Array<TableColumnData>) => {
             rows.push(this.renderRow(data));
         });
 

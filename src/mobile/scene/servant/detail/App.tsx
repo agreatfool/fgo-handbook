@@ -9,7 +9,7 @@ import * as Styles from "../../../style/Styles";
 import {SvtInfoBase, SvtInfoBaseCardInfo, SvtInfoRank} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ColumnData, ResImage, ToolBoxWrapper, TabScene, TabPage} from "../main/View";
+import {ResImage, ToolBoxWrapper, TabScene, TabPage, Table, TableColumnData} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -42,37 +42,23 @@ class ServantDetail extends Component<State.Props, any> {
         return (card.count == 0 ? "" : `${card.count}张`) + `${card.hits}Hits`;
     }
 
-    renderFirstRow(columns: Array<ColumnData>) {
+    renderFirstRow(columns: Array<TableColumnData>) {
         let props = this.props as State.Props;
         let cells = [];
-        columns.forEach((column: ColumnData) => {
-            cells.push(Renderer.renderColumn(column));
+        columns.forEach((column: TableColumnData) => {
+            // cells.push(Renderer.renderColumn(column));
         });
         return Renderer.renderRow(cells, <ResImage appVer={this._appVer} type="face" id={props.svtId} />);
     }
 
-    renderRow(columns: Array<ColumnData>) {
-        let cells = [];
-        columns.forEach((column: ColumnData) => {
-            cells.push(Renderer.renderColumn(column));
-        });
-        return Renderer.renderRow(cells);
-    }
-
-    renderPage(data: Array<Array<ColumnData>>) {
-        let firstData = data.shift();
-        let rows = [this.renderFirstRow(firstData)];
-        data.forEach((data: Array<ColumnData>) => {
-            rows.push(this.renderRow(data));
-        });
-
+    renderPage(data: Array<Array<TableColumnData>>) {
         return (
             <TabScene>
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]} />
                 <TabPage>
-                    {rows}
+                    <Table data={data}/>
                 </TabPage>
             </TabScene>
         );

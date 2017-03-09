@@ -12,24 +12,24 @@ interface Props {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TOOL BOX
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export interface ToolBoxButtonStruct {
+export interface ToolBoxButtonData {
     content: string | number | JSXElement;
     onPress?: () => void;
 }
 
 export interface ToolBoxWrapperProps extends Props {
-    buttons: Array<ToolBoxButtonStruct>;
+    buttons: Array<ToolBoxButtonData>;
 }
 
 export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
     render() {
         let buttons = (this.props as ToolBoxWrapperProps).buttons;
         let buttonElements = [];
-        buttons.forEach((button: ToolBoxButtonStruct) => {
+        buttons.forEach((button: ToolBoxButtonData) => {
             if (typeof button.content === "string" || typeof button.content === "number") {
                 buttonElements.push(
                     <ToolBoxButtonText
-                        key={MstUtil.randomString(6)}
+                        key={MstUtil.randomString(4)}
                         onPress={button.onPress}>
                         {button.content}
                     </ToolBoxButtonText>
@@ -37,7 +37,7 @@ export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
             } else {
                 buttonElements.push(
                     <ToolBoxButton
-                        key={MstUtil.randomString(6)}
+                        key={MstUtil.randomString(4)}
                         onPress={button.onPress}>
                         {button.content}
                     </ToolBoxButton>
@@ -80,7 +80,7 @@ export class ToolBoxButtonText extends Component<ToolBoxButtonProps, any> {
     }
 }
 
-export class ToolBoxButton extends Component<Props, any> {
+export class ToolBoxButton extends Component<ToolBoxButtonProps, any> {
     render() {
         let props = this.props as ToolBoxButtonProps;
         return (
@@ -152,6 +152,9 @@ export class TabPage extends Component<Props, any> {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TABLE
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export const TABLE_TITLE_HEIGHT_DEFAULT = 20;
+export const TABLE_CONTENT_HEIGHT_DEFAULT = 50;
+
 export const renderRow = function (columns: Array<JSXElement>, img?: JSXElement) {
     return (
         <View
@@ -168,25 +171,88 @@ export const renderRow = function (columns: Array<JSXElement>, img?: JSXElement)
     );
 };
 
-export interface ColumnData {
-    title?: string | number;
-    rows?: Array<Array<string | number | JSXElement>>;
+export interface TableColumnTitleProps extends Props {
+    height: number;
 }
 
-export interface ColumnOptions {
-    titleHeight?: number;
-    contentHeight?: number;
-    centering?: boolean;
-    /**
-     * 用来控制只有title的情况下整体Column的高度，
-     * rowsCount指同行的其他Column的Content行数，
-     * 知道了这个值就可以计算当前Column的高度了
-     */
-    rowsCount?: number;
+export class TableColumnTitle extends Component<TableColumnTitleProps, any> {
+    render() {
+        let props = this.props as TableColumnTitleProps;
+        if (props.children) {
+            return (
+                <View
+                    style={[
+                        Styles.Common.centering,
+                        Styles.Tab.tabBar,
+                        {height: props.height},
+                    ]}
+                >
+                    <Text style={Styles.Common.textCenter}>{props.children}</Text>
+                </View>
+            );
+        } else {
+            return null;
+        }
+    }
 }
 
-export const buildColumnStructSimple = function (title?: string | number, content?: string | number | JSXElement): ColumnData {
-    let result = {} as ColumnData;
+export interface TableColumnContentRowProps extends Props {
+    height: number;
+}
+
+export class TableColumnContentRow extends Component<TableColumnContentRowProps, any> {
+    render() {
+        let props = this.props as TableColumnContentRowProps;
+        return (
+            <View
+                style={[
+                    Styles.Common.flexRow,
+                    Styles.Common.centering,
+                    {height: props.height},
+                ]}
+            >
+                {props.children}
+            </View>
+        );
+    }
+}
+
+export interface TableColumnContentProps extends Props {
+    height: number;
+    centering: boolean;
+}
+
+export class TableColumnContent extends Component<TableColumnContentProps, any> {
+    render() {
+        let props = this.props as TableColumnContentProps;
+        let children = props.children;
+        let content = children;
+
+        if (typeof children === "string" || typeof children === "number") {
+            let styles = [];
+            if (props.centering) {
+                styles.push(Styles.Common.textCenter);
+            }
+            content = <Text style={styles}>{children}</Text>;
+        }
+
+        return (
+            <View
+                style={[
+                    Styles.Common.flexDefault,
+                    Styles.Common.verticalCentering,
+                    Styles.Tab.tabBar,
+                    {height: props.height},
+                ]}
+            >
+                {content}
+            </View>
+        );
+    }
+}
+
+export const buildColumnStructSimple = function (title?: string | number, content?: string | number | JSXElement): TableColumnData {
+    let result = {} as TableColumnData;
 
     if (title) {
         result.title = title;
@@ -198,8 +264,8 @@ export const buildColumnStructSimple = function (title?: string | number, conten
     return result;
 };
 
-export const buildColumnStructRow = function (title?: string | number, cells?: Array<string | number | JSXElement>): ColumnData {
-    let result = {} as ColumnData;
+export const buildColumnStructRow = function (title?: string | number, cells?: Array<string | number | JSXElement>): TableColumnData {
+    let result = {} as TableColumnData;
 
     if (title) {
         result.title = title;
@@ -211,8 +277,8 @@ export const buildColumnStructRow = function (title?: string | number, cells?: A
     return result;
 };
 
-export const buildColumnStruct = function (title?: string | number, rows?: Array<Array<string | number | JSXElement>>): ColumnData {
-    let result = {} as ColumnData;
+export const buildColumnStruct = function (title?: string | number, rows?: Array<Array<string | number | JSXElement>>): TableColumnData {
+    let result = {} as TableColumnData;
 
     if (title) {
         result.title = title;
@@ -224,127 +290,171 @@ export const buildColumnStruct = function (title?: string | number, rows?: Array
     return result;
 };
 
-export const renderColumn = function (column: ColumnData, options?: ColumnOptions) {
-    let titleHeight = options && options.titleHeight ? options.titleHeight : 20;
-    let contentHeight = options && options.contentHeight ? options.contentHeight : 50;
-    let centering = options && options.centering ? options.centering : true;
-    let columnHeight = 0;
+export interface TableColumnData {
+    title?: string | number;
+    rows?: Array<Array<string | number | JSXElement>>;
+}
 
-    // 根据输入信息，重新计算title的高度和整体column的高度
-    let rowsCount = 0;
-    if (column.rows) {
-        rowsCount = column.rows.length;
-    } else if (options && options.rowsCount) {
-        rowsCount = options.rowsCount;
-    }
-    columnHeight = titleHeight + contentHeight * rowsCount;
-    if (!column.rows) {
-        titleHeight = columnHeight;
-    }
+export interface TableRowProps extends TableBaseProps {
+    data: Array<TableColumnData>;
+}
 
-    const Column = function (props) {
-        return (
-            <View
-                style={[
-                    Styles.Common.flexColumn,
-                    Styles.Common.flexDefault,
-                    {minHeight: columnHeight},
-                ]}
-            >
-                {props.children}
-            </View>
-        );
-    };
+export class TableRow extends Component<TableRowProps, any> {
+    render() {
+        let props = this.props as TableRowProps;
+        let titleHeight = props.titleHeight ? props.titleHeight : TABLE_TITLE_HEIGHT_DEFAULT;
+        let contentHeight = props.contentHeight ? props.contentHeight : TABLE_CONTENT_HEIGHT_DEFAULT;
+        let centering = props.centering ? props.centering : true;
+        let columnRowsCount = props.columnRowsCount ? props.columnRowsCount : undefined;
+        let data = props.data;
 
-    const ColumnTitle = function (props) {
-        if (props.children) {
-            return (
-                <View
-                    style={[
-                        Styles.Common.centering,
-                        Styles.Tab.tabBar,
-                        {height: titleHeight},
-                    ]}
-                >
-                    <Text style={Styles.Common.textCenter}>{props.children}</Text>
-                </View>
+        let columns = [];
+        data.forEach((columnData: TableColumnData) => {
+            columns.push(
+                <TableColumn
+                    key={MstUtil.randomString(4)}
+                    data={columnData}
+                    titleHeight={titleHeight}
+                    contentHeight={contentHeight}
+                    centering={centering}
+                    columnRowsCount={columnRowsCount}
+                />
             );
-        } else {
-            return undefined;
-        }
-    };
+        });
 
-    const ColumnContentRow = function (props) {
         return (
             <View
+                key={MstUtil.randomString(4)}
                 style={[
-                    Styles.Common.flexRow,
-                    Styles.Common.centering,
-                    {height: contentHeight},
-                ]}
+                Styles.Common.flexRow,
+                Styles.Common.flexDefault,
+                Styles.Common.row,
+            ]}
             >
-                {props.children}
+                {columns}
             </View>
         );
-    };
+    }
+}
 
-    const ColumnContentWrapper = function (props) {
-        return (
-            <View
-                style={[
-                    Styles.Common.flexDefault,
-                    Styles.Common.verticalCentering,
-                    Styles.Tab.tabBar,
-                    {height: contentHeight},
-                ]}
-            >
-                {props.children}
-            </View>
-        );
-    };
+export interface TableColumnProps extends Props {
+    data: TableColumnData;
+    titleHeight: number;
+    contentHeight: number;
+    centering: boolean;
+    columnRowsCount?: number;
+}
 
-    const ColumnContent = function (props) {
-        let content = props.children;
+export class TableColumn extends Component<TableColumnProps, any> {
+    render() {
+        let props = this.props as TableColumnProps;
+        let titleHeight = props.titleHeight;
+        let contentHeight = props.contentHeight;
+        let centering = props.centering;
+        let data = props.data;
+        //noinspection JSUnusedAssignment
+        let columnHeight = titleHeight + contentHeight;
 
-        if (typeof content === "string" || typeof content === "number") {
-            let styles = [];
-            if (centering) {
-                styles.push(Styles.Common.textCenter);
-            }
-            return <Text style={styles}>{content}</Text>;
-        } else {
-            return content;
+        // 根据输入信息，重新计算title的高度和整体行高
+        let columnRowsCount = 0;
+        if (data.rows) {
+            columnRowsCount = data.rows.length;
+        } else if (props.columnRowsCount) {
+            columnRowsCount = props.columnRowsCount;
         }
-    };
+        columnHeight = titleHeight + contentHeight * columnRowsCount;
+        if (!data.rows) {
+            titleHeight = columnHeight;
+        }
 
-    const render = function () {
-        let title = <ColumnTitle>{column.title}</ColumnTitle>;
-        let rows = column.rows ? [] : undefined;
-        if (column.rows) {
-            column.rows.forEach((row: Array<string | number | JSXElement>) => {
+        let columnTitle = (
+            <TableColumnTitle height={titleHeight}>
+                {data.title}
+            </TableColumnTitle>
+        );
+
+        let columnRows = data.rows ? [] : undefined;
+        if (data.rows) {
+            data.rows.forEach((columnRowData: Array<string | number | JSXElement>) => {
                 let columnRowCells = [];
-                row.forEach((cell: string | number | JSXElement) => {
+                columnRowData.forEach((cell: string | number | JSXElement) => {
                     columnRowCells.push(
-                        <ColumnContentWrapper key={MstUtil.randomString(4)}>
-                            <ColumnContent>{cell}</ColumnContent>
-                        </ColumnContentWrapper>
+                        <TableColumnContent
+                            key={MstUtil.randomString(4)}
+                            height={contentHeight}
+                            centering={centering}
+                        >
+                            {cell}
+                        </TableColumnContent>
                     );
                 });
-                rows.push(
-                    <ColumnContentRow key={MstUtil.randomString(4)}>
+                columnRows.push(
+                    <TableColumnContentRow
+                        key={MstUtil.randomString(4)}
+                        height={contentHeight}
+                    >
                         {columnRowCells}
-                    </ColumnContentRow>
+                    </TableColumnContentRow>
                 );
             });
         }
 
         return (
-            <Column key={MstUtil.randomString(4)}>
-                {title}
-                {rows}
-            </Column>
+            <View
+                style={[
+                Styles.Common.flexColumn,
+                Styles.Common.flexDefault,
+                {minHeight: columnHeight},
+            ]}
+            >
+                {columnTitle}
+                {columnRows}
+            </View>
         );
-    };
+    }
+}
 
-    return render();
-};
+export interface TableProps extends TableBaseProps {
+    data: Array<Array<TableColumnData>>;
+}
+
+export interface TableBaseProps extends Props {
+    titleHeight?: number;
+    contentHeight?: number;
+    centering?: boolean;
+    /**
+     * 用来控制只有 title 的情况下的总行高，
+     * columnRowsCount 指同一行的其他 Column 的 Content 行数，
+     * 知道了这个值就可以计算当前的行高
+     */
+    columnRowsCount?: number;
+}
+
+export class Table extends Component<TableProps, any> {
+    render() {
+        let props = this.props as TableProps;
+        let baseProps = Object.assign({}, props);
+        delete baseProps.data;
+
+        let rows = [];
+        props.data.forEach((rowData: Array<TableColumnData>) => {
+            rows.push(
+                <TableRow
+                    key={MstUtil.randomString(4)}
+                    data={rowData}
+                    {...baseProps}
+                />
+            );
+        });
+
+        return (
+            <View style={[
+                    Styles.Common.flexColumn,
+                    Styles.Common.flexDefault
+                ]}
+            >
+                {rows}
+            </View>
+        );
+    }
+}
