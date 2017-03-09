@@ -161,22 +161,6 @@ export class TabPage extends Component<Props, any> {
 export const TABLE_TITLE_HEIGHT_DEFAULT = 20;
 export const TABLE_CONTENT_HEIGHT_DEFAULT = 50;
 
-export const renderRow = function (columns: Array<JSXElement>, img?: JSXElement) {
-    return (
-        <View
-            key={MstUtil.randomString(4)}
-            style={[
-                Styles.Common.flexRow,
-                Styles.Common.flexDefault,
-                Styles.Common.row,
-            ]}
-        >
-            {img}
-            {columns}
-        </View>
-    );
-};
-
 export interface TableColumnTitleProps extends Props {
     height: number;
 }
@@ -261,7 +245,7 @@ export class TableColumnContent extends Component<TableColumnContentProps, any> 
     }
 }
 
-export const buildColumnStructSimple = function (title?: string | number, content?: string | number | JSXElement): TableColumnData {
+export const buildColumnDataSimple = function (title?: string | number, content?: string | number | JSXElement): TableColumnData {
     let result = {} as TableColumnData;
 
     if (title) {
@@ -274,7 +258,7 @@ export const buildColumnStructSimple = function (title?: string | number, conten
     return result;
 };
 
-export const buildColumnStructRow = function (title?: string | number, cells?: Array<string | number | JSXElement>): TableColumnData {
+export const buildColumnDataRow = function (title?: string | number, cells?: Array<string | number | JSXElement>): TableColumnData {
     let result = {} as TableColumnData;
 
     if (title) {
@@ -287,7 +271,7 @@ export const buildColumnStructRow = function (title?: string | number, cells?: A
     return result;
 };
 
-export const buildColumnStruct = function (title?: string | number, rows?: Array<Array<string | number | JSXElement>>): TableColumnData {
+export const buildColumnData = function (title?: string | number, rows?: Array<Array<string | number | JSXElement>>): TableColumnData {
     let result = {} as TableColumnData;
 
     if (title) {
