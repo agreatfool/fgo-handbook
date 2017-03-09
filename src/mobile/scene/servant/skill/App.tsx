@@ -8,7 +8,7 @@ import * as Action from "./Action";
 import * as Renderer from "./View";
 import * as Styles from "../../../style/Styles";
 import {SvtInfoSkill} from "../../../lib/model/MstInfo";
-import {ColumnData, ToolBoxWrapper} from "../main/View";
+import {ColumnData, ToolBoxWrapper, TabScene, TabPage} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -50,12 +50,14 @@ class ServantSkill extends Component<State.Props, any> {
         });
 
         return (
-            <View style={Styles.Tab.pageContainer}>
+            <TabScene>
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]} />
-                {Renderer.renderPageAreaWithoutToolBox(rows)}
-            </View>
+                <TabPage>
+                    {rows}
+                </TabPage>
+            </TabScene>
         );
     }
 
@@ -67,7 +69,7 @@ class ServantSkill extends Component<State.Props, any> {
         let info: SvtInfoSkill = (this.props as State.Props).SceneServantInfo.skillInfo;
         if (MstUtil.isObjEmpty(info)) {
             // 数据未准备好，不要渲染页面
-            return <View>{undefined}</View>
+            return <View />;
         }
 
         return this.renderPage(this.prepareRowData(info));

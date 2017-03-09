@@ -9,7 +9,7 @@ import * as Styles from "../../../style/Styles";
 import {SvtInfoBase, SvtInfoBaseCardInfo, SvtInfoRank} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ColumnData, ResImage, ToolBoxWrapper} from "../main/View";
+import {ColumnData, ResImage, ToolBoxWrapper, TabScene, TabPage} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -67,12 +67,14 @@ class ServantDetail extends Component<State.Props, any> {
         });
 
         return (
-            <View style={Styles.Tab.pageContainer}>
+            <TabScene>
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]} />
-                {Renderer.renderPageAreaWithoutToolBox(rows)}
-            </View>
+                <TabPage>
+                    {rows}
+                </TabPage>
+            </TabScene>
         );
     }
 
@@ -142,7 +144,7 @@ class ServantDetail extends Component<State.Props, any> {
         let info: SvtInfoBase = (this.props as State.Props).SceneServantInfo.baseInfo;
         if (MstUtil.isObjEmpty(info)) {
             // 数据未准备好，不要渲染页面
-            return <View>{undefined}</View>
+            return <View />;
         }
 
         return this.renderPage(this.prepareRowData(info));

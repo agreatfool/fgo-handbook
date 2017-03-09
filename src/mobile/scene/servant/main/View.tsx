@@ -17,7 +17,7 @@ export interface ToolBoxButtonStruct {
     onPress?: () => void;
 }
 
-export interface ToolBoxWrapperProps {
+export interface ToolBoxWrapperProps extends Props {
     buttons: Array<ToolBoxButtonStruct>;
 }
 
@@ -53,7 +53,7 @@ export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
     };
 }
 
-export class ToolBox extends Component<any, any> {
+export class ToolBox extends Component<Props, any> {
     render() {
         return (
             <View style={Styles.ToolBoxTop.container}>
@@ -80,7 +80,7 @@ export class ToolBoxButtonText extends Component<ToolBoxButtonProps, any> {
     }
 }
 
-export class ToolBoxButton extends Component<any, any> {
+export class ToolBoxButton extends Component<Props, any> {
     render() {
         let props = this.props as ToolBoxButtonProps;
         return (
@@ -127,15 +127,27 @@ export class ResImage extends Component<ResImageProps, any> {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TAB PAGE
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-export const renderPageAreaWithoutToolBox = function (rows: Array<JSXElement>) {
-    return (
-        <View style={Styles.Tab.pageDisplayArea}>
-            <ScrollView style={Styles.Common.flexColumn}>
-                {rows}
-            </ScrollView>
-        </View>
-    );
-};
+export class TabScene extends Component<Props, any> {
+    render() {
+        return (
+            <View style={Styles.Tab.pageContainer}>
+                {(this.props as Props).children}
+            </View>
+        );
+    }
+}
+
+export class TabPage extends Component<Props, any> {
+    render() {
+        return (
+            <View style={Styles.Tab.pageDisplayArea}>
+                <ScrollView style={Styles.Common.flexColumn}>
+                    {(this.props as Props).children}
+                </ScrollView>
+            </View>
+        );
+    }
+}
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TABLE
