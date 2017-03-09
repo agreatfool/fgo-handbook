@@ -68,7 +68,7 @@ class ServantDetail extends Component<State.Props, any> {
 
         return (
             <View style={Styles.Tab.pageContainer}>
-                {Renderer.renderToolBoxTop([{text: "编辑模式"}])}
+                {Renderer.renderToolBoxTop([{content: "编辑模式"}])}
                 {Renderer.renderPageAreaWithoutToolBox(rows)}
             </View>
         );

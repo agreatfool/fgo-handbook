@@ -6,30 +6,55 @@ import * as Styles from "../../../style/Styles";
 import JSXElement = JSX.JSXElement;
 
 export interface ToolBoxButton {
-    text: string;
+    content: string | number | JSXElement;
     onPress?: () => void;
 }
 
 export const renderToolBoxTop = function (buttons: Array<ToolBoxButton>) {
-    let buttonElements = [];
-    buttons.forEach((button: ToolBoxButton) => {
-        buttonElements.push(
+    const ToolBox = function (props) {
+        return (
+            <View style={Styles.ToolBoxTop.container}>
+                {props.children}
+            </View>
+        );
+    };
+
+    const Button = function (props) {
+        let button = props.children as ToolBoxButton;
+        return (
             <TouchableOpacity
-                key={MstUtil.randomString(6)}
                 style={Styles.ToolBoxTop.button}
                 onPress={button.onPress}>
-                <Text style={Styles.ToolBoxTop.text}>
-                    {button.text}
-                </Text>
+                <ButtonContent>{button.content}</ButtonContent>
             </TouchableOpacity>
         );
-    });
+    };
 
-    return (
-        <View style={Styles.ToolBoxTop.container}>
-            {buttonElements}
-        </View>
-    );
+    const ButtonContent = function (props) {
+        if (typeof props.children === "string" || typeof props.children === "number") {
+            return <Text style={Styles.ToolBoxTop.text}>{props.children}</Text>;
+        } else {
+            return props.children;
+        }
+    };
+
+    const render = function () {
+        let buttonElements = [];
+        buttons.forEach((button: ToolBoxButton) => {
+            buttonElements.push(
+                <Button key={MstUtil.randomString(6)}>
+                    {button}
+                </Button>
+            );
+        });
+        return (
+            <ToolBox>
+                {buttonElements}
+            </ToolBox>
+        );
+    };
+
+    return render();
 };
 
 export const renderResourceImg = function (appVer: string, type: string, id: number): JSXElement {
