@@ -35,27 +35,14 @@ class ServantSkill extends Component<State.Props, any> {
         });
     }
 
-    renderRow(columns: Array<TableColumnData>) {
-        let cells = [];
-        columns.forEach((column: TableColumnData) => {
-            // cells.push(Renderer.renderColumn(column));
-        });
-        return Renderer.renderRow(cells);
-    }
-
     renderPage(data: Array<Array<TableColumnData>>) {
-        let rows = [];
-        data.forEach((data: Array<TableColumnData>) => {
-            rows.push(this.renderRow(data));
-        });
-
         return (
             <TabScene>
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]} />
                 <TabPage>
-                    {rows}
+                    {data}
                 </TabPage>
             </TabScene>
         );

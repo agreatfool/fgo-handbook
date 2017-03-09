@@ -120,7 +120,13 @@ export class ResImage extends Component<ResImageProps, any> {
                 break;
         }
 
-        return <CacheImage style={Styles.Common.resImg} url={url}/>;
+        return (
+            <CacheImage
+                key={MstUtil.randomString(4)}
+                style={Styles.Common.resImg}
+                url={url}
+            />
+        );
     }
 }
 
@@ -208,7 +214,7 @@ export class TableColumnContentRow extends Component<TableColumnContentRowProps,
                 style={[
                     Styles.Common.flexRow,
                     Styles.Common.centering,
-                    {height: props.height},
+                    {minHeight: props.height},
                 ]}
             >
                 {props.children}
@@ -228,23 +234,27 @@ export class TableColumnContent extends Component<TableColumnContentProps, any> 
         let children = props.children;
         let content = children;
 
+        let isContentElement = false;
         if (typeof children === "string" || typeof children === "number") {
             let styles = [];
             if (props.centering) {
                 styles.push(Styles.Common.textCenter);
             }
             content = <Text style={styles}>{children}</Text>;
+        } else {
+            isContentElement = true;
         }
 
+        let styles = [
+            Styles.Common.verticalCentering,
+            Styles.Tab.tabBar,
+            {minHeight: props.height},
+        ] as any;
+        if (!isContentElement) { // 如果内容是元素，则不需要 flex: 1，否则影响宽度计算
+            styles.push(Styles.Common.flexDefault);
+        }
         return (
-            <View
-                style={[
-                    Styles.Common.flexDefault,
-                    Styles.Common.verticalCentering,
-                    Styles.Tab.tabBar,
-                    {height: props.height},
-                ]}
-            >
+            <View style={styles}>
                 {content}
             </View>
         );
@@ -305,7 +315,7 @@ export class TableRow extends Component<TableRowProps, any> {
         let titleHeight = props.titleHeight ? props.titleHeight : TABLE_TITLE_HEIGHT_DEFAULT;
         let contentHeight = props.contentHeight ? props.contentHeight : TABLE_CONTENT_HEIGHT_DEFAULT;
         let centering = props.centering ? props.centering : true;
-        let columnRowsCount = props.columnRowsCount ? props.columnRowsCount : undefined;
+        let columnRowsCount = props.columnRowsCount ? props.columnRowsCount : 1;
         let data = props.data;
 
         let columns = [];
@@ -351,20 +361,23 @@ export class TableColumn extends Component<TableColumnProps, any> {
         let titleHeight = props.titleHeight;
         let contentHeight = props.contentHeight;
         let centering = props.centering;
+        let columnRowsCount = props.columnRowsCount;
         let data = props.data;
         //noinspection JSUnusedAssignment
         let columnHeight = titleHeight + contentHeight;
 
         // 根据输入信息，重新计算title的高度和整体行高
-        let columnRowsCount = 0;
-        if (data.rows) {
-            columnRowsCount = data.rows.length;
-        } else if (props.columnRowsCount) {
-            columnRowsCount = props.columnRowsCount;
-        }
-        columnHeight = titleHeight + contentHeight * columnRowsCount;
-        if (!data.rows) {
-            titleHeight = columnHeight;
+        if (data.title && !data.rows) {
+            //noinspection JSUnusedAssignment
+            columnHeight = titleHeight + contentHeight * columnRowsCount;
+        } else if (!data.title && data.rows) {
+            //noinspection JSUnusedAssignment
+            columnHeight = contentHeight * data.rows.length;
+        } else if (data.title && data.rows) {
+            //noinspection JSUnusedAssignment
+            columnHeight = titleHeight + contentHeight * data.rows.length;
+        } else {
+            return <View />;
         }
 
         let columnTitle = (
@@ -373,8 +386,22 @@ export class TableColumn extends Component<TableColumnProps, any> {
             </TableColumnTitle>
         );
 
-        let columnRows = data.rows ? [] : undefined;
-        if (data.rows) {
+        let columnRows = (data.rows ? [] : undefined) as any;
+        /**
+         * singleElementMode：
+         * 当前Column只内嵌一行，且内嵌只有一列，且内容物是一个JSXElement
+         * 这种情况直接把内容物套入Column即可，无需多嵌套内部的 TableColumnContentRow 和 TableColumnContent
+         * 且 flex: 1 也不需要，否则会影响宽度计算；见下面的 Column style
+         */
+        let singleElementMode = false;
+        if (data.rows && data.rows.length === 1 // Column内嵌一行
+            && data.rows[0].length === 1 // 嵌入行内嵌一列
+            && typeof data.rows[0][0] !== "string"
+            && typeof data.rows[0][0] !== "number"
+        ) {
+            singleElementMode = true;
+            columnRows = data.rows[0][0];
+        } else if (data.rows) {
             data.rows.forEach((columnRowData: Array<string | number | JSXElement>) => {
                 let columnRowCells = [];
                 columnRowData.forEach((cell: string | number | JSXElement) => {
@@ -399,14 +426,15 @@ export class TableColumn extends Component<TableColumnProps, any> {
             });
         }
 
+        let styles = [
+            Styles.Common.flexColumn,
+            {minHeight: columnHeight},
+        ] as any;
+        if (!singleElementMode) {
+            styles.push(Styles.Common.flexDefault);
+        }
         return (
-            <View
-                style={[
-                Styles.Common.flexColumn,
-                Styles.Common.flexDefault,
-                {minHeight: columnHeight},
-            ]}
-            >
+            <View style={styles}>
                 {columnTitle}
                 {columnRows}
             </View>

@@ -48,25 +48,13 @@ class ServantDetail extends Component<State.Props, any> {
         columns.forEach((column: TableColumnData) => {
             // cells.push(Renderer.renderColumn(column));
         });
-        return Renderer.renderRow(cells, <ResImage appVer={this._appVer} type="face" id={props.svtId} />);
-    }
-
-    renderPage(data: Array<Array<TableColumnData>>) {
-        return (
-            <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "编辑模式"}
-                ]} />
-                <TabPage>
-                    <Table data={data}/>
-                </TabPage>
-            </TabScene>
-        );
+        // return Renderer.renderRow(cells, );
     }
 
     prepareRowData(info: SvtInfoBase) {
         return [
             [
+                Renderer.buildColumnStructSimple(undefined, <ResImage appVer={this._appVer} type="face" id={(this.props as State.Props).svtId} />),
                 Renderer.buildColumnStructSimple("图鉴编号", info.collectionNo),
                 Renderer.buildColumnStructSimple("星级", info.rarity),
                 Renderer.buildColumnStructSimple("名称", info.name),
@@ -133,7 +121,18 @@ class ServantDetail extends Component<State.Props, any> {
             return <View />;
         }
 
-        return this.renderPage(this.prepareRowData(info));
+        let data = this.prepareRowData(info);
+
+        return (
+            <TabScene>
+                <ToolBoxWrapper buttons={[
+                    {content: "编辑模式"}
+                ]} />
+                <TabPage>
+                    <Table data={data}/>
+                </TabPage>
+            </TabScene>
+        );
     }
 }
 
