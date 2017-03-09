@@ -41,7 +41,7 @@ class ServantDetail extends Component<State.Props, any> {
         return (card.count == 0 ? "" : `${card.count}张`) + `${card.hits}Hits`;
     }
 
-    prepareRowData(info: SvtInfoBase) {
+    prepareData(info: SvtInfoBase) {
         return [
             [
                 Renderer.buildColumnDataSimple(
@@ -116,7 +116,7 @@ class ServantDetail extends Component<State.Props, any> {
             return <View />;
         }
 
-        let data = this.prepareRowData(info);
+        let data = this.prepareData(info);
 
         return (
             <TabScene>

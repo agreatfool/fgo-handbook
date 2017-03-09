@@ -272,13 +272,13 @@ export class Service {
             display.iconId = skill.iconId;
 
             if (svtSkill.condLimitCount == -1) {
-                display.condition = "活动";
-            } else if (0 == svtSkill.condLimitCount && svtSkill.condQuestId && 0 == svtSkill.condLv) {
-                display.condition = "初期";
+                display.condition = "活动开放";
+            } else if (0 == svtSkill.condLimitCount && 0 == svtSkill.condQuestId && 0 == svtSkill.condLv) {
+                display.condition = "初期开放";
             } else if (0 != svtSkill.condLimitCount) {
-                display.condition = `灵基再临第${svtSkill.condLimitCount}阶段`;
+                display.condition = `灵基再临第${svtSkill.condLimitCount}阶段开放`;
             } else if (0 != svtSkill.condLv) {
-                display.condition = `Lv.${svtSkill.condLv}解放`;
+                display.condition = `Lv.${svtSkill.condLv}开放`;
             } else if (0 != svtSkill.condQuestId) {
                 display.condition = "任务获得";
             }
@@ -287,7 +287,7 @@ export class Service {
             let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtInfoSkillEffect;
-                effectDisplay.description = effect.trim();
+                effectDisplay.description = effect.replace("<br>", "\n").trim();
                 effectDisplay.effects = Array.from(MstUtil.objValues(embeddedDetail[`effect${index + 1}`] as Map<number, string>));
                 display.skillEffects.push(effectDisplay);
             });
@@ -315,12 +315,13 @@ export class Service {
 
             display.skillId = skillId;
             display.name = skill.name;
+            display.iconId = skill.iconId;
             display.skillEffects = [] as Array<SvtInfoSkillEffect>;
 
             let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 display.skillEffects.push({
-                    description: effect.trim(),
+                    description: effect.replace("<br>", "\n").trim(),
                     effects: [
                         embeddedDetail[`effect${index + 1}`][0]
                     ]
@@ -358,7 +359,7 @@ export class Service {
             if (svtTreasure.num == 98) {
                 display.condition = "NPC限定";
             } else if (0 == svtTreasure.condQuestId && 0 == svtTreasure.condLv && 0 == svtTreasure.condFriendshipRank) {
-                display.condition = "初期";
+                display.condition = "初期获得";
             } else if (0 != svtTreasure.condQuestId) {
                 display.condition = "任务获得";
             } else if (0 != svtTreasure.condLv) {

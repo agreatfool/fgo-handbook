@@ -15,7 +15,7 @@ export default class Container<T> extends BaseContainer<T> {
         if (this.has(id)) {
             return this._data.get(id);
         } else {
-            return null;
+            return {} as T;
         }
     }
 
@@ -32,7 +32,7 @@ export default class Container<T> extends BaseContainer<T> {
         if (this._data.has(id)) {
             return this._data.get(id);
         } else {
-            return null;
+            return {} as T;
         }
     }
 

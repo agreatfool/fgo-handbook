@@ -83,6 +83,7 @@ export interface SvtInfoSkillDetail {
 export interface SvtInfoPassiveSkill {
     skillId: number;
     name: string;
+    iconId: number;
     skillEffects: Array<SvtInfoSkillEffect>;
 }
 

@@ -100,6 +100,7 @@ export interface ResImageProps extends Props {
     appVer: string; // 0.0.1
     type: string; // face、item、skill
     id: number;
+    size?: string; // small、big
 }
 
 export class ResImage extends Component<ResImageProps, any> {
@@ -120,10 +121,14 @@ export class ResImage extends Component<ResImageProps, any> {
                 break;
         }
 
+        let style = Styles.Common.resImgBig;
+        if (props.size && props.size === "small") {
+            style = Styles.Common.resImgSmall;
+        }
         return (
             <CacheImage
                 key={MstUtil.randomString(4)}
-                style={Styles.Common.resImg}
+                style={style}
                 url={url}
             />
         );
@@ -298,7 +303,7 @@ export class TableRow extends Component<TableRowProps, any> {
         let props = this.props as TableRowProps;
         let titleHeight = props.titleHeight ? props.titleHeight : TABLE_TITLE_HEIGHT_DEFAULT;
         let contentHeight = props.contentHeight ? props.contentHeight : TABLE_CONTENT_HEIGHT_DEFAULT;
-        let centering = props.centering ? props.centering : true;
+        let centering = typeof props.centering === "boolean" ? props.centering : true;
         let columnRowsCount = props.columnRowsCount ? props.columnRowsCount : 1;
         let data = props.data;
 

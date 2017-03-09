@@ -6,9 +6,8 @@ import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "./View";
-import * as Styles from "../../../style/Styles";
-import {SvtInfoSkill} from "../../../lib/model/MstInfo";
-import {ToolBoxWrapper, TabScene, TabPage, TableColumnData} from "../main/View";
+import {SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill} from "../../../lib/model/MstInfo";
+import {ToolBoxWrapper, TabScene, TabPage, ResImage, Table} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -35,21 +34,66 @@ class ServantSkill extends Component<State.Props, any> {
         });
     }
 
-    renderPage(data: Array<Array<TableColumnData>>) {
-        return (
-            <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "编辑模式"}
-                ]} />
-                <TabPage>
-                    {data}
-                </TabPage>
-            </TabScene>
-        );
+    genChargeTurnStr(chargeTurn: number) {
+        return `冷却${chargeTurn}回合`;
     }
 
-    prepareRowData(info: SvtInfoSkill) {
-        return [];
+    prepareSkillData(skill: SvtInfoSkillDetail) {
+        let column = Renderer.buildColumnData("保有技能", []);
+        column.rows.push([
+            <ResImage
+                appVer={this._appVer}
+                type="skill"
+                id={skill.iconId}
+                size="small"
+            />,
+            skill.name,
+            this.genChargeTurnStr(skill.chargeTurn),
+            skill.condition
+        ]);
+
+        skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+            column.rows.push([effect.description]);
+            if (effect.effects.length > 0) {
+                column.rows.push(effect.effects);
+            }
+        });
+
+        return [column];
+    }
+
+    preparePassiveSkillData(skills: Array<SvtInfoPassiveSkill>) {
+        let column = Renderer.buildColumnData("职阶技能", []);
+
+        skills.forEach((skill: SvtInfoPassiveSkill) => {
+            column.rows.push([
+                <ResImage
+                    appVer={this._appVer}
+                    type="skill"
+                    id={skill.iconId}
+                    size="small"
+                />,
+                skill.name
+            ]);
+            let effects = [];
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+                effects.push(effect.description + effect.effects.join(""));
+            });
+            column.rows.push([effects.join("\n")]);
+        });
+
+        return [column];
+    }
+
+    prepareData(info: SvtInfoSkill) {
+        let data = [];
+
+        info.skills.forEach((skill: SvtInfoSkillDetail) => {
+            data.push(this.prepareSkillData(skill));
+        });
+        data.push(this.preparePassiveSkillData(info.passiveSkills));
+
+        return data;
     }
 
     render() {
@@ -59,7 +103,19 @@ class ServantSkill extends Component<State.Props, any> {
             return <View />;
         }
 
-        return this.renderPage(this.prepareRowData(info));
+        let data = this.prepareData(info);
+        console.log(data);
+
+        return (
+            <TabScene>
+                <ToolBoxWrapper buttons={[
+                    {content: "编辑模式"}
+                ]}/>
+                <TabPage>
+                    <Table data={data} />
+                </TabPage>
+            </TabScene>
+        );
     }
 }
 

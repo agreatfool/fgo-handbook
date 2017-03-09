@@ -29,7 +29,12 @@ export const Common = StyleSheet.create({
     verticalCentering: {
         justifyContent: "center" as FlexJustifyType,
     },
-    resImg: {
+    resImgSmall: {
+        width: 50,
+        height: 50,
+        resizeMode: "contain" as ImageResizeMode
+    },
+    resImgBig: {
         width: 70,
         height: 70,
         resizeMode: "contain" as ImageResizeMode
