@@ -38,6 +38,12 @@ export interface SvtInfoBase extends SvtInfo {
     npExtra: number;
     npTreasure: number;
     npDefence: number;
+    powerRank: SvtInfoRank; // (筋力:) A
+    defenseRank: SvtInfoRank; // (耐久:) A
+    agilityRank: SvtInfoRank; // (敏捷:) A
+    magicRank: SvtInfoRank; // (魔力:) A
+    luckRank: SvtInfoRank; // (幸运:) A
+    treasureRank: SvtInfoRank; // (宝具:) A
 }
 
 export interface SvtInfoBaseHpAtk {
@@ -48,6 +54,11 @@ export interface SvtInfoBaseHpAtk {
 export interface SvtInfoBaseCardInfo {
     count: number;
     hits: number;
+}
+
+export interface SvtInfoRank {
+    display: string; // 显示：A+++
+    value: number; // 数值：30
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -101,12 +112,6 @@ export interface SvtInfoTreasureEffect {
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export interface SvtInfoStory extends SvtInfo {
     svtId: number;
-    powerRank: SvtInfoRank; // (筋力:) A
-    defenseRank: SvtInfoRank; // (耐久:) A
-    agilityRank: SvtInfoRank; // (敏捷:) A
-    magicRank: SvtInfoRank; // (魔力:) A
-    luckRank: SvtInfoRank; // (幸运:) A
-    treasureRank: SvtInfoRank; // (宝具:) A
     friendshipRequirements: Array<SvtInfoFSReq>; // 羁绊需求
     detail: string; // 角色详细
     friendship1: string; // 绊1故事
@@ -115,11 +120,6 @@ export interface SvtInfoStory extends SvtInfo {
     friendship4: string; // 绊4故事
     friendship5: string; // 绊5故事
     lastStory: string; // 最终故事
-}
-
-export interface SvtInfoRank {
-    display: string; // 显示：A+++
-    value: number; // 数值：30
 }
 
 export interface SvtInfoFSReq {

@@ -102,33 +102,36 @@ export class Service {
     private async _getSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
         let infoBase = {} as SvtInfoBase;
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let mstSvtLimitMax = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
+        let mstSvtLimitDefault = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
         let mstDefaultTreasure = await MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
         let mstClass = (await MstLoader.instance.loadModel("MstClass") as MstClassContainer).get(mstSvt.classId);
         let mstSvtExpCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
         let mstSvtCardCon = await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
 
+        let embeddedCode = await MstLoader.instance.loadEmbeddedCode();
         let embeddedGender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
         let embeddedAttri = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
         let embeddedTransName = await MstLoader.instance.loadEmbeddedSvtName(svtId);
+        let embeddedRankFont = embeddedCode.rankFont;
+        let embeddedRandSymbol = embeddedCode.rankSymbol;
 
         infoBase.svtId = svtId;
         infoBase.collectionNo = mstSvt.collectionNo;
         infoBase.name = embeddedTransName.name;
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
         infoBase.classification = embeddedAttri;
-        infoBase.policy = await this._getSvtPolicyDisplay(mstSvtLimitMax);
+        infoBase.policy = await this._getSvtPolicyDisplay(mstSvtLimitDefault);
         infoBase.attackRate = (mstClass === null) ? 100 : mstClass.attackRate / 10; // 某些特殊职阶可能无数据，默认给100
-        infoBase.rarityNum = mstSvtLimitMax.rarity;
-        infoBase.rarity = this._getSvtRarityDisplay(mstSvtLimitMax);
+        infoBase.rarityNum = mstSvtLimitDefault.rarity;
+        infoBase.rarity = this._getSvtRarityDisplay(mstSvtLimitDefault);
         infoBase.maxLevel = mstSvt.rewardLv;
         infoBase.hpAtkMax = {
-            hp: mstSvtLimitMax.hpMax,
-            atk: mstSvtLimitMax.atkMax,
+            hp: mstSvtLimitDefault.hpMax,
+            atk: mstSvtLimitDefault.atkMax,
         };
-        infoBase.hpAtk80 = this._getSvtHpAtkViaLv(mstSvt.expType, 80, mstSvtLimitMax, mstSvtExpCon);
-        infoBase.hpAtk90 = this._getSvtHpAtkViaLv(mstSvt.expType, 90, mstSvtLimitMax, mstSvtExpCon);
-        infoBase.hpAtk100 = this._getSvtHpAtkViaLv(mstSvt.expType, 100, mstSvtLimitMax, mstSvtExpCon);
+        infoBase.hpAtk80 = this._getSvtHpAtkViaLv(mstSvt.expType, 80, mstSvtLimitDefault, mstSvtExpCon);
+        infoBase.hpAtk90 = this._getSvtHpAtkViaLv(mstSvt.expType, 90, mstSvtLimitDefault, mstSvtExpCon);
+        infoBase.hpAtk100 = this._getSvtHpAtkViaLv(mstSvt.expType, 100, mstSvtLimitDefault, mstSvtExpCon);
         infoBase.gender = embeddedGender;
         infoBase.cardArt = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_ART, mstSvt, mstSvtCardCon);
         infoBase.cardBuster = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_BUSTER, mstSvt, mstSvtCardCon);
@@ -137,13 +140,19 @@ export class Service {
         infoBase.starRate = mstSvt.starRate / 10;
         infoBase.individuality = await this._getSvtIndividualityDisplay(mstSvt);
         infoBase.deathRate = mstSvt.deathRate / 10;
-        infoBase.criticalWeight = mstSvtLimitMax.criticalWeight;
+        infoBase.criticalWeight = mstSvtLimitDefault.criticalWeight;
         infoBase.npArt = mstDefaultTreasure.tdPointA / 100;
         infoBase.npBuster = mstDefaultTreasure.tdPointB / 100;
         infoBase.npQuick = mstDefaultTreasure.tdPointQ / 100;
         infoBase.npExtra = mstDefaultTreasure.tdPointEx / 100;
         infoBase.npTreasure = mstDefaultTreasure.tdPoint / 100;
         infoBase.npDefence = mstDefaultTreasure.tdPointDef / 100;
+        infoBase.powerRank = this._getRankDisplay(mstSvtLimitDefault.power, embeddedRankFont, embeddedRandSymbol);
+        infoBase.defenseRank = this._getRankDisplay(mstSvtLimitDefault.defense, embeddedRankFont, embeddedRandSymbol);
+        infoBase.agilityRank = this._getRankDisplay(mstSvtLimitDefault.agility, embeddedRankFont, embeddedRandSymbol);
+        infoBase.magicRank = this._getRankDisplay(mstSvtLimitDefault.magic, embeddedRankFont, embeddedRandSymbol);
+        infoBase.luckRank = this._getRankDisplay(mstSvtLimitDefault.luck, embeddedRankFont, embeddedRandSymbol);
+        infoBase.treasureRank = this._getRankDisplay(mstSvtLimitDefault.treasureDevice, embeddedRankFont, embeddedRandSymbol);
 
         return Promise.resolve(infoBase);
     }
@@ -210,6 +219,13 @@ export class Service {
         });
 
         return Promise.resolve(display);
+    }
+
+    private _getRankDisplay(value: number, rankFont: Object, rankSymbol: Object): SvtInfoRank {
+        return {
+            display: rankFont[Math.floor(value / 10)].trim() + rankSymbol[value % 10].trim(),
+            value: value
+        } as SvtInfoRank;
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -373,21 +389,10 @@ export class Service {
         let infoStory = {} as SvtInfoStory;
 
         let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let maxSvtLimit = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
         let svtComments = (await MstLoader.instance.loadModel("MstSvtComment") as MstSvtCommentContainer).getGroup(svtId);
         let mstFriendshipCon = await MstLoader.instance.loadModel("MstFriendship") as MstFriendshipContainer;
 
-        let embeddedCode = await MstLoader.instance.loadEmbeddedCode();
-        let embeddedRankFont = embeddedCode.rankFont;
-        let embeddedRandSymbol = embeddedCode.rankSymbol;
-
         infoStory.svtId = svtId;
-        infoStory.powerRank = this._getRankDisplay(maxSvtLimit.power, embeddedRankFont, embeddedRandSymbol);
-        infoStory.defenseRank = this._getRankDisplay(maxSvtLimit.defense, embeddedRankFont, embeddedRandSymbol);
-        infoStory.agilityRank = this._getRankDisplay(maxSvtLimit.agility, embeddedRankFont, embeddedRandSymbol);
-        infoStory.magicRank = this._getRankDisplay(maxSvtLimit.magic, embeddedRankFont, embeddedRandSymbol);
-        infoStory.luckRank = this._getRankDisplay(maxSvtLimit.luck, embeddedRankFont, embeddedRandSymbol);
-        infoStory.treasureRank = this._getRankDisplay(maxSvtLimit.treasureDevice, embeddedRankFont, embeddedRandSymbol);
         infoStory.friendshipRequirements = [];
         if (mstSvt.friendshipId != 1000) { // 需要过滤，理由不明
             infoStory.friendshipRequirements = this._getFriendshipRequirementDisplay(mstSvt, mstFriendshipCon);
@@ -401,13 +406,6 @@ export class Service {
         infoStory.lastStory = svtComments.get(7).comment;
 
         return Promise.resolve(infoStory);
-    }
-
-    private _getRankDisplay(value: number, rankFont: Object, rankSymbol: Object): SvtInfoRank {
-        return {
-            display: rankFont[Math.floor(value / 10)].trim() + rankSymbol[value % 10].trim(),
-            value: value
-        } as SvtInfoRank;
     }
 
     private _getFriendshipRequirementDisplay(mstSvt: MstSvt,

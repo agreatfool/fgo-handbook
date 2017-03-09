@@ -6,7 +6,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "./View";
 import * as Styles from "../../../style/Styles";
-import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
+import {SvtInfoBase, SvtInfoBaseCardInfo, SvtInfoRank} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
 import {ColumnData, ResImage, ToolBoxWrapper} from "../main/View";
@@ -96,6 +96,14 @@ class ServantDetail extends Component<State.Props, any> {
                 Renderer.buildColumnStructSimple("从者编号", info.svtId),
                 Renderer.buildColumnStructSimple("最高等级", info.maxLevel),
                 Renderer.buildColumnStructSimple("职阶攻击补正", info.attackRate + "%"),
+            ],
+            [
+                Renderer.buildColumnStructSimple("力量", info.powerRank.display),
+                Renderer.buildColumnStructSimple("防御", info.defenseRank.display),
+                Renderer.buildColumnStructSimple("敏捷", info.agilityRank.display),
+                Renderer.buildColumnStructSimple("魔力", info.magicRank.display),
+                Renderer.buildColumnStructSimple("幸运", info.luckRank.display),
+                Renderer.buildColumnStructSimple("宝具", info.treasureRank.display),
             ],
             [
                 Renderer.buildColumnStructSimple("最高血量", this.genHpAtkStr(info.hpAtkMax.hp)),
