@@ -36,6 +36,7 @@ import {
     MstCombineSkillContainer
 } from "../../model/impl/MstContainer";
 import MstUtil from "../lib/model/MstUtil";
+import {TransSvtName} from "../../model/master/EmbeddedCodeConverted";
 
 export class Service {
 
@@ -77,7 +78,7 @@ export class Service {
     // FIXME State里的数据模型应该剥离出来，State里可以export，不过代码不应该放在那里；所有的State如果是用来显示的最好带上View的名字
     // FIXME 提高当前Service的复用度，很多函数尽量做的简单，提供纯粹的数据
     public async getServantName(svtId: number): Promise<string> {
-        return Promise.resolve((await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId).name);
+        return Promise.resolve((await MstLoader.instance.loadEmbeddedSvtName(svtId) as TransSvtName).name);
     }
 
     public async buildSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
