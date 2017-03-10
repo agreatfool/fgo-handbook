@@ -265,9 +265,18 @@ export class Service {
             let skill = skillCon.get(svtSkill.skillId);
             let embeddedDetail = embeddedSkillDetails[svtSkill.skillId];
 
-            // FIXME 豹人的第一技能特效有4个，但effect列表只有3个，手动补齐一个；估计是数据源的问题，后续可能修复
-            if (svtSkill.skillId === 317550) {
-                embeddedDetail["effect4"] = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "15"];
+            // FIXME 某些技能特效有4个，但effect列表只有3个，需要手动补齐；估计是数据源的问题，后续可能修复
+            switch (svtSkill.skillId) {
+                case 317550:
+                    // 豹人第一技能
+                    embeddedDetail["effect4"] = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "15"];
+                    break;
+                case 13553:
+                    // 枪大公第一技能
+                    embeddedDetail["effect4"] = ["10%", "11%", "12%", "13%", "14%", "15%", "16%", "17%", "18%", "20%"];
+                    break;
+                default:
+                    break;
             }
 
             let display = {} as SvtInfoSkillDetail;
@@ -292,7 +301,7 @@ export class Service {
             let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtInfoSkillEffect;
-                effectDisplay.description = effect.replace("<br>", "\n").trim();
+                effectDisplay.description = MstUtil.filterHtmlTags(effect.replace("<br>", "\n").trim());
                 effectDisplay.effects = Array.from(MstUtil.objValues(embeddedDetail[`effect${index + 1}`] as Map<number, string>));
                 display.skillEffects.push(effectDisplay);
             });
@@ -326,7 +335,7 @@ export class Service {
             let effects = embeddedDetail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 display.skillEffects.push({
-                    description: effect.replace("<br>", "\n").trim(),
+                    description: MstUtil.filterHtmlTags(effect.replace("<br>", "\n").trim()),
                     effects: [
                         embeddedDetail[`effect${index + 1}`][0]
                     ]
@@ -378,7 +387,7 @@ export class Service {
             let effects = detail.detail.split(/[&＆＋]+/);
             effects.forEach((effect, index) => {
                 let effectDisplay = {} as SvtInfoTreasureEffect;
-                effectDisplay.description = effect.trim();
+                effectDisplay.description = MstUtil.filterHtmlTags(effect.replace("<br>", "\n").trim());
                 effectDisplay.effects = Array.from(MstUtil.objValues(detail[`effect${index + 1}`] as Map<number, string>));
                 display.effects.push(effectDisplay);
             });

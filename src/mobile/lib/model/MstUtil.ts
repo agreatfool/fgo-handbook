@@ -94,6 +94,10 @@ export default class MstUtil {
         return Object.keys(obj).length === 0 && obj.constructor === Object;
     }
 
+    public static filterHtmlTags(str: string): string {
+        return str.replace(/(<([^>]+)>)/ig, "");
+    }
+
     public async readImageIntoBase64Str(path: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             let data = "";
