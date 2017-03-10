@@ -420,13 +420,12 @@ export class Service {
         let displays = [] as Array<SvtInfoFSReq>;
 
         let friendships = Array.from((mstFriendshipCon.getGroup(mstSvt.friendshipId) as Map<number, MstFriendship>).values());
-        let total = 0;
-        friendships.forEach((friendship) => {
+        friendships.forEach((friendship, index) => {
             if (friendship.rank == 10) { // 有效的是 0 - 9
                 return;
             }
-            let current = friendship.friendship;
-            total += friendship.friendship;
+            let current = index === 0 ? friendship.friendship : friendship.friendship - friendships[index - 1].friendship;
+            let total = friendship.friendship;
             displays.push({
                 current: current,
                 total: total
