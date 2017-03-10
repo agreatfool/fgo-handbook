@@ -64,6 +64,7 @@ export class Service {
 
         // 写入本地文件，如果不存在的话
         if (!localVerExists) {
+            result.needUpgrade = true; // 本地文件不存在，意味着第一次启动，必须升级
             await RNFS.writeFile(localVerPath, JSON.stringify({
                 version: localVer,
                 updated: moment().format("YYYY-MM-DD")
