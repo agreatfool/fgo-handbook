@@ -6,7 +6,10 @@ import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "./View";
-import {SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill} from "../../../lib/model/MstInfo";
+import {
+    SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
+    SvtInfoTreasureDetail, SvtInfoTreasureEffect
+} from "../../../lib/model/MstInfo";
 import {ToolBoxWrapper, TabScene, TabPage, ResImage, Table} from "../main/View";
 
 export * from "./State";
@@ -36,6 +39,10 @@ class ServantSkill extends Component<State.Props, any> {
 
     genChargeTurnStr(chargeTurn: number) {
         return `冷却${chargeTurn}回合`;
+    }
+
+    genTreasureHitStr(hits: number) {
+        return `${hits} Hits`;
     }
 
     prepareSkillData(skill: SvtInfoSkillDetail) {
@@ -85,11 +92,35 @@ class ServantSkill extends Component<State.Props, any> {
         return [column];
     }
 
+    prepareTreasureData(treasure: SvtInfoTreasureDetail) {
+        let column = Renderer.buildColumnData("宝具", []);
+
+        column.rows.push([
+            treasure.name,
+            treasure.rank,
+            treasure.type,
+            treasure.condition,
+            this.genTreasureHitStr(treasure.hits),
+        ]);
+
+        treasure.effects.forEach((effect: SvtInfoTreasureEffect) => {
+            column.rows.push([effect.description]);
+            if (effect.effects.length > 0) {
+                column.rows.push(effect.effects);
+            }
+        });
+
+        return [column];
+    }
+
     prepareData(info: SvtInfoSkill) {
         let data = [];
 
         info.skills.forEach((skill: SvtInfoSkillDetail) => {
             data.push(this.prepareSkillData(skill));
+        });
+        info.treasures.forEach((treasure: SvtInfoTreasureDetail) => {
+            data.push(this.prepareTreasureData(treasure));
         });
         data.push(this.preparePassiveSkillData(info.passiveSkills));
 
@@ -104,7 +135,6 @@ class ServantSkill extends Component<State.Props, any> {
         }
 
         let data = this.prepareData(info);
-        console.log(data);
 
         return (
             <TabScene>

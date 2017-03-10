@@ -265,6 +265,11 @@ export class Service {
             let skill = skillCon.get(svtSkill.skillId);
             let embeddedDetail = embeddedSkillDetails[svtSkill.skillId];
 
+            // FIXME 豹人的第一技能特效有4个，但effect列表只有3个，手动补齐一个；估计是数据源的问题，后续可能修复
+            if (svtSkill.skillId === 317550) {
+                embeddedDetail["effect4"] = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "15"];
+            }
+
             let display = {} as SvtInfoSkillDetail;
             display.skillId = svtSkill.skillId;
             display.name = skill.name;
