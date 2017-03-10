@@ -127,10 +127,41 @@ export class ResImage extends Component<ResImageProps, any> {
         }
         return (
             <CacheImage
-                key={MstUtil.randomString(4)}
                 style={style}
                 url={url}
             />
+        );
+    }
+}
+
+export interface ResImageWithTextProps extends ResImageProps {
+    text: string;
+}
+
+export class ResImageWithText extends Component<ResImageWithTextProps, any> {
+    render() {
+        let props = this.props as ResImageWithTextProps;
+        props.size = "small"; // 固定小图标
+
+        return (
+            <View
+                style={[
+                    Styles.Common.flexDefault,
+                    Styles.Common.flexRow,
+                    Styles.Common.centering,
+                    {width: 80}
+                ]}
+            >
+                <ResImage {...props} />
+                <Text
+                    style={[
+                        Styles.Common.flexDefault,
+                        {width: 30}
+                    ]}
+                >
+                    {props.text}
+                </Text>
+            </View>
         );
     }
 }
