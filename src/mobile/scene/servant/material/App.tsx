@@ -81,11 +81,11 @@ class ServantMaterial extends Component<State.Props, any> {
                     />
                 );
             });
-            cells.push(<ViewPlaceHolder>{this.genQpStr(element.qp)}</ViewPlaceHolder>);
+            cells.push(<CellPlaceholder>{this.genQpStr(element.qp)}</CellPlaceholder>);
             if (cells.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - cells.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<ViewPlaceHolder />);
+                    cells.push(<CellPlaceholder />);
                 }
             }
             column.rows.push(cells);
@@ -96,9 +96,6 @@ class ServantMaterial extends Component<State.Props, any> {
 
     prepareData(info: SvtInfoMaterial) {
         let data = [];
-
-        // data.push(this.prepareLimitData(info.limit));
-        // data.push(this.prepareSkillData(info.skill));
 
         data.push(this.prepareRowData(info.limit, "灵基再临", this.genLimitStr));
         data.push(this.prepareRowData(info.skill, "技能强化", this.genSkillStr));
@@ -117,18 +114,21 @@ class ServantMaterial extends Component<State.Props, any> {
 
         return (
             <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "编辑模式"}
-                ]}/>
+                <ToolBoxWrapper
+                    pageName="ServantMaterial"
+                    buttons={[
+                        {content: "编辑模式"}
+                    ]}
+                />
                 <TabPageScroll>
-                    <Table data={data} />
+                    <Table pageName="ServantMaterial" data={data} />
                 </TabPageScroll>
             </TabScene>
         );
     }
 }
 
-class ViewPlaceHolder extends Component<any, any> {
+class CellPlaceholder extends Component<any, any> {
     render() {
         let props = this.props as any;
         let children = props.children ? props.children : " ";
@@ -138,7 +138,7 @@ class ViewPlaceHolder extends Component<any, any> {
                 style={[
                     Styles.Common.flexDefault,
                     Styles.Common.centering,
-                    {width: 80},
+                    Styles.Common.resImgBoxWithText,
                 ]}
             >
                 <Text style={[Styles.Common.textCenter]}>{children}</Text>

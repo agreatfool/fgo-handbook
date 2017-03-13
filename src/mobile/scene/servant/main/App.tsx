@@ -85,9 +85,12 @@ export class ServantList extends Component<State.Props, any> {
         //noinspection TypeScriptUnresolvedVariable
         return (
             <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "过滤器"}
-                ]}/>
+                <ToolBoxWrapper
+                    pageName="ServantList"
+                    buttons={[
+                        {content: "过滤器"}
+                    ]}
+                />
                 <ListView
                     style={Styles.Tab.pageDisplayArea}
                     dataSource={this._dataSource.cloneWithRows((this.props as State.Props).SceneServantList.displayData)}

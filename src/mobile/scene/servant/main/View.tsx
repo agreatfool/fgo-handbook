@@ -18,18 +18,20 @@ export interface ToolBoxButtonData {
 }
 
 export interface ToolBoxWrapperProps extends Props {
+    pageName: string;
     buttons: Array<ToolBoxButtonData>;
 }
 
 export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
     render() {
-        let buttons = (this.props as ToolBoxWrapperProps).buttons;
+        let props = this.props as ToolBoxWrapperProps;
+
         let buttonElements = [];
-        buttons.forEach((button: ToolBoxButtonData) => {
+        props.buttons.forEach((button: ToolBoxButtonData, index) => {
             if (typeof button.content === "string" || typeof button.content === "number") {
                 buttonElements.push(
                     <ToolBoxButtonText
-                        key={MstUtil.randomString(4)}
+                        key={`ToolBoxButtonText_${props.pageName}_${index}`}
                         onPress={button.onPress}>
                         {button.content}
                     </ToolBoxButtonText>
@@ -37,7 +39,7 @@ export class ToolBoxWrapper extends Component<ToolBoxWrapperProps, any> {
             } else {
                 buttonElements.push(
                     <ToolBoxButton
-                        key={MstUtil.randomString(4)}
+                        key={`ToolBoxButton_${props.pageName}_${index}`}
                         onPress={button.onPress}>
                         {button.content}
                     </ToolBoxButton>
@@ -339,10 +341,11 @@ export class TableRow extends Component<TableRowProps, any> {
         let data = props.data;
 
         let columns = [];
-        data.forEach((columnData: TableColumnData) => {
+        data.forEach((columnData: TableColumnData, index) => {
             columns.push(
                 <TableColumn
-                    key={MstUtil.randomString(4)}
+                    key={`TableColumn_${props.pageName}_${index}`}
+                    pageName={props.pageName}
                     data={columnData}
                     titleHeight={titleHeight}
                     contentHeight={contentHeight}
@@ -354,12 +357,11 @@ export class TableRow extends Component<TableRowProps, any> {
 
         return (
             <View
-                key={MstUtil.randomString(4)}
                 style={[
-                Styles.Common.flexRow,
-                Styles.Common.flexDefault,
-                Styles.Common.row,
-            ]}
+                    Styles.Common.flexRow,
+                    Styles.Common.flexDefault,
+                    Styles.Common.row,
+                ]}
             >
                 {columns}
             </View>
@@ -368,6 +370,7 @@ export class TableRow extends Component<TableRowProps, any> {
 }
 
 export interface TableColumnProps extends Props {
+    pageName: string;
     data: TableColumnData;
     titleHeight: number;
     contentHeight: number;
@@ -422,12 +425,12 @@ export class TableColumn extends Component<TableColumnProps, any> {
             singleElementMode = true;
             columnRows = data.rows[0][0];
         } else if (data.rows) {
-            data.rows.forEach((columnRowData: Array<string | number | JSXElement>) => {
+            data.rows.forEach((columnRowData: Array<string | number | JSXElement>, rowIndex) => {
                 let columnRowCells = [];
-                columnRowData.forEach((cell: string | number | JSXElement) => {
+                columnRowData.forEach((cell: string | number | JSXElement, cellIndex) => {
                     columnRowCells.push(
                         <TableColumnContent
-                            key={MstUtil.randomString(4)}
+                            key={`TableColumnContent_${props.pageName}_${cellIndex}`}
                             height={contentHeight}
                             centering={centering}
                         >
@@ -437,7 +440,7 @@ export class TableColumn extends Component<TableColumnProps, any> {
                 });
                 columnRows.push(
                     <TableColumnContentRow
-                        key={MstUtil.randomString(4)}
+                        key={`TableColumnContentRow_${props.pageName}_${rowIndex}`}
                         height={contentHeight}
                     >
                         {columnRowCells}
@@ -467,6 +470,7 @@ export interface TableProps extends TableBaseProps {
 }
 
 export interface TableBaseProps extends Props {
+    pageName: string;
     titleHeight?: number;
     contentHeight?: number;
     centering?: boolean;
@@ -485,10 +489,11 @@ export class Table extends Component<TableProps, any> {
         delete baseProps.data;
 
         let rows = [];
-        props.data.forEach((rowData: Array<TableColumnData>) => {
+        props.data.forEach((rowData: Array<TableColumnData>, index) => {
             rows.push(
                 <TableRow
-                    key={MstUtil.randomString(4)}
+                    key={`TableRow_${props.pageName}_${index}`}
+                    pageName={props.pageName}
                     data={rowData}
                     {...baseProps}
                 />

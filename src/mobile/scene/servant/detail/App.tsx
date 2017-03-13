@@ -120,11 +120,14 @@ class ServantDetail extends Component<State.Props, any> {
 
         return (
             <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "编辑模式"}
-                ]}/>
+                <ToolBoxWrapper
+                    pageName="ServantDetail"
+                    buttons={[
+                        {content: "编辑模式"}
+                    ]}
+                />
                 <TabPageScroll>
-                    <Table data={data}/>
+                    <Table pageName="ServantDetail" data={data}/>
                 </TabPageScroll>
             </TabScene>
         );

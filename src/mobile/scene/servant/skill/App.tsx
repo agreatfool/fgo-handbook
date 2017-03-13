@@ -138,11 +138,14 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <TabScene>
-                <ToolBoxWrapper buttons={[
-                    {content: "编辑模式"}
-                ]}/>
+                <ToolBoxWrapper
+                    pageName="ServantSkill"
+                    buttons={[
+                        {content: "编辑模式"}
+                    ]}
+                />
                 <TabPageScroll>
-                    <Table data={data} />
+                    <Table pageName="ServantSkill" data={data} />
                 </TabPageScroll>
             </TabScene>
         );
