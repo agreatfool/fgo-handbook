@@ -43,32 +43,32 @@ class ServantStory extends Component<State.Props, any> {
         let column = Renderer.buildColumnData("角色故事", []);
 
         column.rows.push([
-            <ViewFixedTitle>{"角色详细"}</ViewFixedTitle>,
-            <ViewFixedText>{info.detail}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"角色详细"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.detail}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"羁绊等级1"}</ViewFixedTitle>,
-            <ViewFixedText>{info.friendship1}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"羁绊等级1"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.friendship1}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"羁绊等级2"}</ViewFixedTitle>,
-            <ViewFixedText>{info.friendship2}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"羁绊等级2"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.friendship2}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"羁绊等级3"}</ViewFixedTitle>,
-            <ViewFixedText>{info.friendship3}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"羁绊等级3"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.friendship3}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"羁绊等级4"}</ViewFixedTitle>,
-            <ViewFixedText>{info.friendship4}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"羁绊等级4"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.friendship4}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"羁绊等级5"}</ViewFixedTitle>,
-            <ViewFixedText>{info.friendship5}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"羁绊等级5"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.friendship5}</StoryBoxRowFixedText>
         ]);
         column.rows.push([
-            <ViewFixedTitle>{"最终故事"}</ViewFixedTitle>,
-            <ViewFixedText>{info.lastStory}</ViewFixedText>
+            <StoryBowRowFixedTitle>{"最终故事"}</StoryBowRowFixedTitle>,
+            <StoryBoxRowFixedText>{info.lastStory}</StoryBoxRowFixedText>
         ]);
 
         return [column];
@@ -126,7 +126,7 @@ class ServantStory extends Component<State.Props, any> {
     }
 }
 
-class ViewFixedTitle extends Component<any, any> {
+class StoryBowRowFixedTitle extends Component<any, any> {
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
@@ -136,7 +136,12 @@ class ViewFixedTitle extends Component<any, any> {
                     Styles.Common.flexDefault,
                 ]}
             >
-                <Text style={[Styles.Common.textCenter, {width: 80}]}>
+                <Text
+                    style={[
+                        Styles.Common.textCenter,
+                        Styles.Common.resImgBoxWithText,
+                    ]}
+                >
                     {this.props.children}
                 </Text>
             </View>
@@ -144,13 +149,13 @@ class ViewFixedTitle extends Component<any, any> {
     }
 }
 
-class ViewFixedText extends Component<any, any> {
+class StoryBoxRowFixedText extends Component<any, any> {
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
             <Text style={[
                 Styles.Common.centering,
-                {width: 310, padding: 5}
+                Styles.ServantStory.fixedText,
             ]}>
                 {this.props.children}
             </Text>

@@ -38,6 +38,12 @@ export const Common = StyleSheet.create({
         width: 70,
         height: 70,
         resizeMode: "contain" as ImageResizeMode
+    },
+    resImgBoxWithText: {
+        width: 80,
+    },
+    resImgBoxInlineText: {
+        width: 30,
     }
 });
 
@@ -125,9 +131,11 @@ export const ServantList = StyleSheet.create({
         marginLeft: 6,
         marginRight: 6,
     },
-    image: {
-        flex: 1,
-        width: 70,
-        resizeMode: "contain" as ImageResizeMode
+});
+
+export const ServantStory = StyleSheet.create({
+    fixedText: {
+        padding: 5,
+        width: 310,
     }
 });

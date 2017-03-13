@@ -149,14 +149,14 @@ export class ResImageWithText extends Component<ResImageWithTextProps, any> {
                     Styles.Common.flexDefault,
                     Styles.Common.flexRow,
                     Styles.Common.centering,
-                    {width: 80}
+                    Styles.Common.resImgBoxWithText,
                 ]}
             >
                 <ResImage {...props} />
                 <Text
                     style={[
                         Styles.Common.flexDefault,
-                        {width: 30}
+                        Styles.Common.resImgBoxInlineText,
                     ]}
                 >
                     {props.text}

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
+import {View, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
@@ -8,13 +8,11 @@ import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/model/MstUtil";
-import {CacheImage} from "../../../component/cache_image/App";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../style/Styles";
-import InjectedProps from "../../../../lib/react/InjectedProps";
-import {TabScene, ToolBoxWrapper} from "./View";
+import {TabScene, ToolBoxWrapper, ResImage} from "./View";
 
 export * from "./State";
 export * from "./Action";
@@ -59,7 +57,7 @@ export class ServantList extends Component<State.Props, any> {
         if (placeholderCount > 0) {
             for (let loop = 0; loop < placeholderCount; loop++) {
                 placeholder.push(
-                    <ImagePlaceholder key={`ImagePlaceholder_${rowId}_${loop}`} />
+                    <ImagePlaceholder key={`ImagePlaceholder_${rowId}_${loop}`}/>
                 );
             }
         }
@@ -71,7 +69,7 @@ export class ServantList extends Component<State.Props, any> {
                 <ImageCell
                     key={`ImageCell_${svtId}`}
                     appVer={app._appVer}
-                    svtId={svtId} />
+                    svtId={svtId}/>
             );
         });
 
@@ -92,7 +90,7 @@ export class ServantList extends Component<State.Props, any> {
                 ]}/>
                 <ListView
                     style={Styles.Tab.pageDisplayArea}
-                    dataSource={this._dataSource.cloneWithRows((this.props as Props).SceneServantList.displayData)}
+                    dataSource={this._dataSource.cloneWithRows((this.props as State.Props).SceneServantList.displayData)}
                     renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, rowId, this)}
                     showsVerticalScrollIndicator={false}
                     enableEmptySections={true}
@@ -105,15 +103,14 @@ export class ServantList extends Component<State.Props, any> {
 class ImagePlaceholder extends Component<any, any> {
     render() {
         return (
-            <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}
-                  key={MstUtil.randomString(4)}>
-                <Image style={Styles.ServantList.image} source={undefined}/>
+            <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}>
+                <Image style={Styles.Common.resImgBig} source={undefined}/>
             </View>
         );
     }
 }
 
-interface ImageCellProps extends InjectedProps {
+interface ImageCellProps {
     appVer: string;
     svtId: number;
 }
@@ -121,13 +118,16 @@ interface ImageCellProps extends InjectedProps {
 class ImageCell extends Component<ImageCellProps, any> {
     render() {
         let props = this.props as ImageCellProps;
-        let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(props.appVer, props.svtId);
 
         //noinspection TypeScriptUnresolvedFunction
         return (
-            <TouchableOpacity onPress={() => (Actions as any).servant_info({svtId: props.svtId})}>
+            <TouchableOpacity
+                onPress={() => (Actions as any).servant_info({svtId: props.svtId})}>
                 <View style={[Styles.ServantList.cell, Styles.ServantList.cellBase]}>
-                    <CacheImage style={Styles.ServantList.image} url={svtImageUrl}/>
+                    <ResImage
+                        appVer={props.appVer}
+                        type="face"
+                        id={props.svtId}/>
                 </View>
             </TouchableOpacity>
         );
