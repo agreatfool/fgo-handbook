@@ -13,6 +13,8 @@ import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../style/Styles";
+import InjectedProps from "../../../../lib/react/InjectedProps";
+import {TabScene, ToolBoxWrapper} from "./View";
 
 export * from "./State";
 export * from "./Action";
@@ -51,59 +53,83 @@ export class ServantList extends Component<State.Props, any> {
     }
 
     // FIXME 需要按最新的View内的渲染方式进行重构，在做过滤器的时候重构即可
-    renderRow(rowData, app) {
+    renderRow(rowData, rowId, app) {
         let placeholder = [];
         let placeholderCount = Const.SERVANT_IN_ROW - rowData.length;
         if (placeholderCount > 0) {
             for (let loop = 0; loop < placeholderCount; loop++) {
                 placeholder.push(
-                    <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}
-                          key={`placeholder${loop}`}>
-                        <Image style={Styles.ServantList.image} source={undefined}/>
-                    </View>
+                    <ImagePlaceholder key={`ImagePlaceholder_${rowId}_${loop}`} />
                 );
             }
         }
 
+        let rowCells = [];
+        rowData.forEach((element) => {
+            let svtId = (element as MstSvt).id;
+            rowCells.push(
+                <ImageCell
+                    key={`ImageCell_${svtId}`}
+                    appVer={app._appVer}
+                    svtId={svtId} />
+            );
+        });
+
         return (
             <View style={Styles.ServantList.row}>
-                {rowData.map((element) => {
-                    let svtId = (element as MstSvt).id;
-                    let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(app._appVer, svtId);
-                    //noinspection TypeScriptValidateJSTypes,TypeScriptUnresolvedFunction
-                    return (
-                        <TouchableOpacity key={svtId} onPress={() => (Actions as any).servant_info({svtId: svtId})}>
-                            <View style={[Styles.ServantList.cell, Styles.ServantList.cellBase]}>
-                                <CacheImage style={Styles.ServantList.image} url={svtImageUrl}/>
-                            </View>
-                        </TouchableOpacity>
-                    );
-                })}
+                {rowCells}
                 {placeholder}
             </View>
         );
     }
 
-    // FIXME 添加过滤器功能，界面、Actions、Reducer都需要调整
     render() {
         //noinspection TypeScriptUnresolvedVariable
         return (
-            <View style={Styles.Tab.pageContainer}>
-                <View style={Styles.ToolBoxTop.container}>
-                    <TouchableOpacity style={Styles.ToolBoxTop.button}>
-                        <Text style={Styles.ToolBoxTop.text}>
-                            过滤器
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+            <TabScene>
+                <ToolBoxWrapper buttons={[
+                    {content: "过滤器"}
+                ]}/>
                 <ListView
                     style={Styles.Tab.pageDisplayArea}
                     dataSource={this._dataSource.cloneWithRows((this.props as Props).SceneServantList.displayData)}
-                    renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, this)}
+                    renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, rowId, this)}
                     showsVerticalScrollIndicator={false}
                     enableEmptySections={true}
                 />
+            </TabScene>
+        );
+    }
+}
+
+class ImagePlaceholder extends Component<any, any> {
+    render() {
+        return (
+            <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}
+                  key={MstUtil.randomString(4)}>
+                <Image style={Styles.ServantList.image} source={undefined}/>
             </View>
+        );
+    }
+}
+
+interface ImageCellProps extends InjectedProps {
+    appVer: string;
+    svtId: number;
+}
+
+class ImageCell extends Component<ImageCellProps, any> {
+    render() {
+        let props = this.props as ImageCellProps;
+        let svtImageUrl = MstUtil.instance.getRemoteFaceUrl(props.appVer, props.svtId);
+
+        //noinspection TypeScriptUnresolvedFunction
+        return (
+            <TouchableOpacity onPress={() => (Actions as any).servant_info({svtId: props.svtId})}>
+                <View style={[Styles.ServantList.cell, Styles.ServantList.cellBase]}>
+                    <CacheImage style={Styles.ServantList.image} url={svtImageUrl}/>
+                </View>
+            </TouchableOpacity>
         );
     }
 }

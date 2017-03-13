@@ -8,7 +8,7 @@ import * as Renderer from "./View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ResImage, ToolBoxWrapper, TabScene, TabPage, Table} from "../main/View";
+import {ResImage, ToolBoxWrapper, TabScene, TabPageScroll, Table} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -123,9 +123,9 @@ class ServantDetail extends Component<State.Props, any> {
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]}/>
-                <TabPage>
+                <TabPageScroll>
                     <Table data={data}/>
-                </TabPage>
+                </TabPageScroll>
             </TabScene>
         );
     }

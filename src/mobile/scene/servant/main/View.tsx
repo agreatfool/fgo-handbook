@@ -179,7 +179,7 @@ export class TabScene extends Component<Props, any> {
     }
 }
 
-export class TabPage extends Component<Props, any> {
+export class TabPageScroll extends Component<Props, any> {
     render() {
         return (
             <View style={Styles.Tab.pageDisplayArea}>

@@ -11,7 +11,7 @@ import {
     SvtInfoMaterial, SvtInfoMaterialLimit, SvtInfoMaterialSkill,
     SvtInfoMaterialDetail
 } from "../../../lib/model/MstInfo";
-import {TabScene, ToolBoxWrapper, TabPage, Table, ResImageWithText} from "../main/View";
+import {TabScene, ToolBoxWrapper, TabPageScroll, Table, ResImageWithText} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -120,9 +120,9 @@ class ServantMaterial extends Component<State.Props, any> {
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]}/>
-                <TabPage>
+                <TabPageScroll>
                     <Table data={data} />
-                </TabPage>
+                </TabPageScroll>
             </TabScene>
         );
     }

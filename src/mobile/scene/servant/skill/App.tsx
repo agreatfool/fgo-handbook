@@ -10,7 +10,7 @@ import {
     SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
     SvtInfoTreasureDetail, SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
-import {ToolBoxWrapper, TabScene, TabPage, ResImage, Table} from "../main/View";
+import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -141,9 +141,9 @@ class ServantSkill extends Component<State.Props, any> {
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]}/>
-                <TabPage>
+                <TabPageScroll>
                     <Table data={data} />
-                </TabPage>
+                </TabPageScroll>
             </TabScene>
         );
     }

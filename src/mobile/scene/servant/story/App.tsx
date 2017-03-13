@@ -8,7 +8,7 @@ import * as Action from "./Action";
 import * as Renderer from "./View";
 import * as Styles from "../../../style/Styles";
 import {SvtInfoStory, SvtInfoFSReq} from "../../../lib/model/MstInfo";
-import {TabScene, ToolBoxWrapper, TabPage, Table} from "../main/View";
+import {TabScene, ToolBoxWrapper, TabPageScroll, Table} from "../main/View";
 
 export * from "./State";
 export * from "./Action";
@@ -118,9 +118,9 @@ class ServantStory extends Component<State.Props, any> {
                 <ToolBoxWrapper buttons={[
                     {content: "编辑模式"}
                 ]}/>
-                <TabPage>
+                <TabPageScroll>
                     <Table data={data}/>
-                </TabPage>
+                </TabPageScroll>
             </TabScene>
         );
     }
