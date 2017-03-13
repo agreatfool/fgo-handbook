@@ -5,7 +5,6 @@ import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import {MstSvtContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
-import InjectedProps from "../../../../lib/react/InjectedProps";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/model/MstUtil";
@@ -18,11 +17,7 @@ import * as Styles from "../../../style/Styles";
 export * from "./State";
 export * from "./Action";
 
-interface Props extends InjectedProps {
-    SceneServantList: State.State;
-}
-
-export class ServantList extends Component<Props, any> {
+export class ServantList extends Component<State.Props, any> {
     private _appVer: string;
     private _service: MstService.Service;
     private _dataSource: ListViewDataSource;
@@ -39,22 +34,19 @@ export class ServantList extends Component<Props, any> {
     }
 
     componentDidMount() {
+        let props = this.props as State.Props;
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
             return MstLoader.instance.loadModel("MstSvt");
         }).then((container: BaseContainer<MstSvt>) => {
             this._svtContainer = container as MstSvtContainer;
+            let rawData = this._service.sortSvtDataWithNoDesc(
+                this._service.filterSvtRawData(this._svtContainer.getRaw())
+            );
+            let dividedData = this._service.divideRawSvtIntoRows(rawData);
 
-            (this.props as Props).actions.updateRawData(
-                this._service.sortSvtDataWithNoDesc(
-                    this._service.filterSvtRawData(this._svtContainer.getRaw())
-                )
-            );
-            (this.props as Props).actions.updateDisplayData(
-                this._service.divideRawSvtIntoRows(
-                    (this.props as Props).SceneServantList.rawData
-                )
-            );
+            props.actions.updateRawData(rawData);
+            props.actions.updateDisplayData(dividedData);
         });
     }
 

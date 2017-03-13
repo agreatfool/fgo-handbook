@@ -1,4 +1,5 @@
 import {MstSvt} from "../../../../model/master/Master";
+import InjectedProps from "../../../../lib/react/InjectedProps";
 
 export interface State {
     filter: SvtListFilter; // 过滤器
@@ -19,3 +20,7 @@ export const defaultState = {
 } as State;
 
 export const StateName = "SceneServantList";
+
+export interface Props extends InjectedProps {
+    SceneServantList: State;
+}

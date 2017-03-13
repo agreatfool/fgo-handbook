@@ -20,7 +20,7 @@ export const ACT_UPDATE_DISPLAY_DATA = "ACT_UPDATE_DISPLAY_DATA";
 
 export interface ActionUpdateDisplayData {
     type: string;
-    displayData: Array<any>;
+    displayData: Array<Array<MstSvt>>;
 }
 
 export const updateDisplayData: ActionCreator<ActionUpdateDisplayData> = function (displayData: Array<any>) {
