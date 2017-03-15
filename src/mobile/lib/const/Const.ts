@@ -20,6 +20,13 @@ export default class Const {
         9: "Ruler",
         11: "Avenger",
     };
+    public static readonly SERVANT_RARITY_MAPPING = {
+        60: 1, // Lv60 一星
+        65: 2,
+        70: 3,
+        80: 4,
+        90: 5,
+    };
     public static readonly CMD_CARD_ID_ART      = 1;
     public static readonly CMD_CARD_ID_BUSTER   = 2;
     public static readonly CMD_CARD_ID_QUICK    = 3;

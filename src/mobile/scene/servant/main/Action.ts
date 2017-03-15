@@ -1,6 +1,6 @@
 import {ActionCreator} from "redux";
 import {MstSvt} from "../../../../model/master/Master";
-import {SvtListFilter} from "./State";
+import {SvtListFilter, SvtListOrder} from "./State";
 
 export const ACT_UPDATE_RAW_DATA = "ACT_UPDATE_RAW_DATA";
 
@@ -44,8 +44,23 @@ export const updateFilter: ActionCreator<ActionUpdateFilter> = function (filter:
     }
 };
 
+export const ACT_UPDATE_ORDER = "ACT_UPDATE_ORDER";
+
+export interface ActionUpdateOrder {
+    type: string;
+    order: SvtListOrder;
+}
+
+export const updateOrder: ActionCreator<ActionUpdateOrder> = function (order: SvtListOrder) {
+    return {
+        type: ACT_UPDATE_ORDER,
+        order: order,
+    };
+};
+
 export const Actions = {
     updateRawData,
     updateDisplayData,
-    updateFilter
+    updateFilter,
+    updateOrder,
 };

@@ -13,6 +13,8 @@ import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../style/Styles";
 import {TabScene, ToolBoxWrapper, ResImage} from "./View";
+import {SvtOrderDirections} from "./State";
+import {SvtListOrder} from "./State";
 
 export * from "./State";
 export * from "./Action";
@@ -35,22 +37,54 @@ export class ServantList extends Component<State.Props, any> {
 
     componentDidMount() {
         let props = this.props as State.Props;
+        let state = props.SceneServantList;
+
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
             return MstLoader.instance.loadModel("MstSvt");
         }).then((container: BaseContainer<MstSvt>) => {
             this._svtContainer = container as MstSvtContainer;
-            let rawData = this._service.sortSvtDataWithNoDesc(
-                this._service.filterSvtRawData(this._svtContainer.getRaw())
-            );
-            let dividedData = this._service.divideRawSvtIntoRows(rawData);
+            let rawData = this._service.filterSvtRawData(this._svtContainer.getRaw());
+            let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
             props.actions.updateRawData(rawData);
-            props.actions.updateDisplayData(dividedData);
+            props.actions.updateDisplayData(displayData);
         });
     }
 
-    // FIXME 需要按最新的View内的渲染方式进行重构，在做过滤器的时候重构即可
+    genDirectionStr(direction: number) {
+        return direction === State.SvtOrderDirections.DESC ? "降序" : "升序";
+    }
+
+    genButtonsData(app: ServantList) {
+        let props = app.props as State.Props;
+        let state = props.SceneServantList;
+        return [
+            {
+                content: app.genDirectionStr(state.order.direction),
+                onPress: () => app.onOrderDirection(app)
+            },
+            {content: "排序"},
+            {content: "过滤器"}
+        ];
+    }
+
+    onOrderDirection(app: ServantList) {
+        let props = app.props as State.Props;
+        let state = props.SceneServantList;
+        let actions = props.actions;
+
+        let direction = SvtOrderDirections.DESC;
+        if (state.order.direction === SvtOrderDirections.DESC) {
+            direction = SvtOrderDirections.ASC;
+        }
+
+        actions.updateOrder({
+            order: state.order.order,
+            direction: direction,
+        } as SvtListOrder);
+    }
+
     renderRow(rowData, rowId, app) {
         let placeholder = [];
         let placeholderCount = Const.SERVANT_IN_ROW - rowData.length;
@@ -87,9 +121,7 @@ export class ServantList extends Component<State.Props, any> {
             <TabScene>
                 <ToolBoxWrapper
                     pageName="ServantList"
-                    buttons={[
-                        {content: "过滤器"}
-                    ]}
+                    buttons={this.genButtonsData(this)}
                 />
                 <ListView
                     style={Styles.Tab.pageDisplayArea}

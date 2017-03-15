@@ -1,5 +1,5 @@
 import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
-import {SvtListFilter} from "../scene/servant/main/State";
+import {SvtListFilter, SvtListOrder, SvtOrderDirections, SvtOrderChoices} from "../scene/servant/main/State";
 import Const from "../lib/const/Const";
 import {
     SvtInfoBase,
@@ -50,22 +50,47 @@ export class Service {
         });
     }
 
-    public static filterSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter): Array<Array<MstSvt>> {
-        // FIXME not done yet
-        return [];
+    public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<Array<MstSvt>> {
+        return Service._divideSvtDataIntoRows(
+            Service._sortSvtData(
+                Service._filterSvtData(rawData, filter),
+                order
+            )
+        );
     }
 
-    public sortSvtDataWithNoDesc(rawData: Array<MstSvt>): Array<MstSvt> {
-        return rawData.sort((elemA: MstSvt, elemB: MstSvt) => {
-            return elemB.collectionNo - elemA.collectionNo;
+    private static _filterSvtData(data: Array<MstSvt>, filter: SvtListFilter): Array<MstSvt> {
+        return data.filter((element: MstSvt) => {
+            let classCondition = filter.classId ? (filter.classId.indexOf(element.classId) !== -1) : true;
+            let genderCondition = filter.genderType ? (filter.genderType.indexOf(element.genderType) !== -1) : true;
+            let rarityCondition = filter.rarity ? (filter.rarity.indexOf(Const.SERVANT_RARITY_MAPPING[element.rewardLv]) !== -1) : true;
+
+            return classCondition && genderCondition && rarityCondition;
         });
     }
 
-    public divideRawSvtIntoRows(rawData: Array<MstSvt>, svtInRow = Const.SERVANT_IN_ROW): Array<Array<MstSvt>> {
+    private static _sortSvtData(data: Array<MstSvt>, order: SvtListOrder): Array<MstSvt> {
+        let orderFieldName = SvtOrderChoices[order.order];
+
+        let func: any;
+        if (order.direction === SvtOrderDirections.DESC) {
+            func = (elemA: MstSvt, elemB: MstSvt) => {
+                return elemB[orderFieldName] - elemA[orderFieldName];
+            };
+        } else {
+            func = (elemA: MstSvt, elemB: MstSvt) => {
+                return elemA[orderFieldName] - elemB[orderFieldName];
+            };
+        }
+
+        return data.sort(func);
+    }
+
+    private static _divideSvtDataIntoRows(data: Array<MstSvt>, svtInRow = Const.SERVANT_IN_ROW): Array<Array<MstSvt>> {
         let result: Array<Array<MstSvt>> = [];
 
-        for (let index = 0, loop = rawData.length; index < loop; index += svtInRow) {
-            result.push(rawData.slice(index, index + svtInRow));
+        for (let index = 0, loop = data.length; index < loop; index += svtInRow) {
+            result.push(data.slice(index, index + svtInRow));
         }
 
         return result;
