@@ -64,7 +64,6 @@ export class ServantList extends Component<State.Props, any> {
                 content: app.genDirectionStr(state.order.direction),
                 onPress: () => app.onOrderDirection(app)
             },
-            {content: "排序"},
             {content: "过滤器"}
         ];
     }

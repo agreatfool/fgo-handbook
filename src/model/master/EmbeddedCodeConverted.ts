@@ -10,16 +10,16 @@ export interface EmbeddedCodeConverted {
     // 实际运行就会报错：names.get is not a function
     // TypeScript 在使用 as 进行类型转换的时候，并不能直接把 Object 转成对应的 Map，切记
     // 当前使用时只能使用 Object 将就
-    individuality: Object; // Map<number, string>;
-    gender: Object; // Map<number, string>;
-    policy: Object; // Map<number, string>;
-    personality: Object; // Map<number, string>;
-    attri: Object; // Map<number, string>;
-    rankFont: Object; // Map<number, string>;
-    rankSymbol: Object; // Map<number, string>;
-    transSvtName: Object; // Map<number, TransSvtName>;
-    transSkillDetail: Object; // Map<number, TransSkillDetail>;
-    transTreasureDetail: Object; // Map<number, TransTreasureDetail>
+    individuality: {[key: number]: string}; // Map<number, string>;
+    gender: {[key: number]: string}; // Map<number, string>;
+    policy: {[key: number]: string}; // Map<number, string>;
+    personality: {[key: number]: string}; // Map<number, string>;
+    attri: {[key: number]: string}; // Map<number, string>;
+    rankFont: {[key: number]: string}; // Map<number, string>;
+    rankSymbol: {[key: number]: string}; // Map<number, string>;
+    transSvtName: {[key: number]: TransSvtName}; // Map<number, TransSvtName>;
+    transSkillDetail: {[key: number]: TransSkillDetail}; // Map<number, TransSkillDetail>;
+    transTreasureDetail: {[key: number]: TransTreasureDetail}; // Map<number, TransTreasureDetail>
 }
 
 export interface TransSvtName {

@@ -40,16 +40,16 @@ export default class EmbeddedCodeConvertor {
     private _transTreasureDetail: Array<Array<string>>;
 
     // CONVERTED
-    private _individualityConverted: Map<number, string>; // {2000: "神性"}
-    private _genderConverted: Map<number, string>; // {2: "女性"}
-    private _policyConverted: Map<number, string>; // {0: "中立"}
-    private _personalityConverted: Map<number, string>; // {0: "善"}
-    private _attriConverted: Map<number, string>; // {0: "地"}
-    private _rankFontConverted: Map<number, string>; // {0: "A", 1: "B", ...}
-    private _rankSymbolConverted: Map<number, string>; // {0: "+", 1: "++", ...}
-    private _transSvtNameConverted: Map<number, TransSvtName>;
-    private _transSkillDetailConverted: Map<number, TransSkillDetail>;
-    private _transTreasureDetailConverted: Map<number, TransTreasureDetail>;
+    private _individualityConverted: {[key: number]: string}; // {2000: "神性"}
+    private _genderConverted: {[key: number]: string}; // {2: "女性"}
+    private _policyConverted: {[key: number]: string}; // {0: "中立"}
+    private _personalityConverted: {[key: number]: string}; // {0: "善"}
+    private _attriConverted: {[key: number]: string}; // {0: "地"}
+    private _rankFontConverted: {[key: number]: string}; // {0: "A", 1: "B", ...}
+    private _rankSymbolConverted: {[key: number]: string}; // {0: "+", 1: "++", ...}
+    private _transSvtNameConverted: {[key: number]: TransSvtName};
+    private _transSkillDetailConverted: {[key: number]: TransSkillDetail};
+    private _transTreasureDetailConverted: {[key: number]: TransTreasureDetail};
 
     constructor() {
         /**
@@ -105,16 +105,16 @@ export default class EmbeddedCodeConvertor {
         /**
          * CONVERTED
          */
-        this._individualityConverted = new Map<number, string>();
-        this._genderConverted = new Map<number, string>();
-        this._policyConverted = new Map<number, string>();
-        this._personalityConverted = new Map<number, string>();
-        this._attriConverted = new Map<number, string>();
-        this._rankFontConverted = new Map<number, string>();
-        this._rankSymbolConverted = new Map<number, string>();
-        this._transSvtNameConverted = new Map<number, TransSvtName>();
-        this._transSkillDetailConverted = new Map<number, TransSkillDetail>();
-        this._transTreasureDetailConverted = new Map<number, TransTreasureDetail>();
+        this._individualityConverted = {};
+        this._genderConverted = {};
+        this._policyConverted = {};
+        this._personalityConverted = {};
+        this._attriConverted = {};
+        this._rankFontConverted = {};
+        this._rankSymbolConverted = {};
+        this._transSvtNameConverted = {};
+        this._transSkillDetailConverted = {};
+        this._transTreasureDetailConverted = {};
     }
 
     public async run(): Promise<any> {
@@ -161,9 +161,7 @@ export default class EmbeddedCodeConvertor {
             }
             for (let index in this._individuality) {
                 let id: number = this._individuality[index][0] as number;
-                let name: string = Utility.fromUnicode(this._individuality[index][1] as string);
-
-                this._individualityConverted.set(id, name);
+                this._individualityConverted[id] = Utility.fromUnicode(this._individuality[index][1] as string);
             }
             return Promise.resolve(this._individualityConverted);
         } catch (err) {
@@ -178,7 +176,7 @@ export default class EmbeddedCodeConvertor {
             }
             let id = 0;
             for (let index in this._gender) {
-                this._genderConverted.set(id, Utility.fromUnicode(this._gender[index]));
+                this._genderConverted[id] = Utility.fromUnicode(this._gender[index]);
                 id++;
             }
             return Promise.resolve(this._genderConverted);
@@ -195,7 +193,7 @@ export default class EmbeddedCodeConvertor {
             let id = 0;
             let split: Array<string> = this._policy.split(" ");
             for (let index in split) {
-                this._policyConverted.set(id, Utility.fromUnicode(split[index]));
+                this._policyConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
             }
             return Promise.resolve(this._policyConverted);
@@ -212,7 +210,7 @@ export default class EmbeddedCodeConvertor {
             let id = 0;
             let split: Array<string> = this._personality.split(" ");
             for (let index in split) {
-                this._personalityConverted.set(id, Utility.fromUnicode(split[index]));
+                this._personalityConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
             }
             return Promise.resolve(this._personalityConverted);
@@ -229,7 +227,7 @@ export default class EmbeddedCodeConvertor {
             let id = 0;
             let split: Array<string> = this._attri.split("");
             for (let index in split) {
-                this._attriConverted.set(id, Utility.fromUnicode(split[index]));
+                this._attriConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
             }
             return Promise.resolve(this._attriConverted);
@@ -246,7 +244,7 @@ export default class EmbeddedCodeConvertor {
             let id = 0;
             let split: Array<string> = this._rankFont.split(" ");
             for (let index in split) {
-                this._rankFontConverted.set(id, Utility.fromUnicode(split[index]));
+                this._rankFontConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
             }
             return Promise.resolve(this._rankFontConverted);
@@ -263,7 +261,7 @@ export default class EmbeddedCodeConvertor {
             let id = 0;
             let split: Array<string> = this._rankSymbol.split(" ");
             for (let index in split) {
-                this._rankSymbolConverted.set(id, Utility.fromUnicode(split[index]));
+                this._rankSymbolConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
             }
             return Promise.resolve(this._rankSymbolConverted);
@@ -281,15 +279,15 @@ export default class EmbeddedCodeConvertor {
                 let name: string = (nameInfo as Array<string>)[1];
                 let battleName: string = (nameInfo as Array<string>)[2];
 
-                if (this._transSvtNameConverted.has(svtId)) {
+                if (this._transSvtNameConverted.hasOwnProperty(svtId)) {
                     Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransSvtName: Duplicate svtId: ${svtId}!`);
                 }
 
-                this._transSvtNameConverted.set(svtId, {
+                this._transSvtNameConverted[svtId] = {
                     "svtId": svtId,
                     "name": name,
                     "battleName": battleName
-                });
+                };
             }
             return Promise.resolve(this._transSvtNameConverted);
         } catch (err) {
@@ -307,17 +305,17 @@ export default class EmbeddedCodeConvertor {
                 let effect1: Array<string> = Utility.isVoid((skillInfo as Array<string>)[2]) ? [] : (skillInfo as Array<string>)[2].split("/");
                 let effect2: Array<string> = Utility.isVoid((skillInfo as Array<string>)[3]) ? [] : (skillInfo as Array<string>)[3].split("/");
                 let effect3: Array<string> = Utility.isVoid((skillInfo as Array<string>)[4]) ? [] : (skillInfo as Array<string>)[4].split("/");
-                if (this._transSkillDetailConverted.has(skillId)) {
+                if (this._transSkillDetailConverted.hasOwnProperty(skillId)) {
                     Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransSkillDetail: Duplicate skillId: ${skillId}!`);
                 }
 
-                this._transSkillDetailConverted.set(skillId, {
+                this._transSkillDetailConverted[skillId] = {
                     "skillId": skillId,
                     "detail": detail,
                     "effect1": effect1,
                     "effect2": effect2,
                     "effect3": effect3
-                });
+                };
             }
             return Promise.resolve(this._transSkillDetailConverted);
         } catch (err) {
@@ -336,18 +334,18 @@ export default class EmbeddedCodeConvertor {
                 let effect2: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[3]) ? [] : (treasureInfo as Array<string>)[3].split("/");
                 let effect3: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[4]) ? [] : (treasureInfo as Array<string>)[4].split("/");
                 let effect4: Array<string> = Utility.isVoid((treasureInfo as Array<string>)[5]) ? [] : (treasureInfo as Array<string>)[5].split("/");
-                if (this._transTreasureDetailConverted.has(treasureId)) {
+                if (this._transTreasureDetailConverted.hasOwnProperty(treasureId)) {
                     Log.instance.warn(`[EmbeddedCodeConvertor] _convertTransTreasureDetail: Duplicate treasureId: ${treasureId}!`);
                 }
 
-                this._transTreasureDetailConverted.set(treasureId, {
+                this._transTreasureDetailConverted[treasureId] = {
                     "treasureId": treasureId,
                     "detail": detail,
                     "effect1": effect1,
                     "effect2": effect2,
                     "effect3": effect3,
                     "effect4": effect4
-                });
+                };
             }
             return Promise.resolve(this._transTreasureDetailConverted);
         } catch (err) {
