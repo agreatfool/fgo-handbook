@@ -59,12 +59,17 @@ export class ServantList extends Component<State.Props, any> {
     genButtonsData(app: ServantList) {
         let props = app.props as State.Props;
         let state = props.SceneServantList;
+
+        //noinspection TypeScriptUnresolvedFunction
         return [
             {
                 content: app.genDirectionStr(state.order.direction),
                 onPress: () => app.onOrderDirection(app)
             },
-            {content: "过滤器"}
+            {
+                content: "过滤器",
+                onPress: () => (Actions as any).servant_filter()
+            }
         ];
     }
 

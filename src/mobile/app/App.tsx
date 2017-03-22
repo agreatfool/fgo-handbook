@@ -12,6 +12,7 @@ import {App as ServantDetail} from "../scene/servant/detail/App";
 import {App as ServantSkill} from "../scene/servant/skill/App";
 import {App as ServantStory} from "../scene/servant/story/App";
 import {App as ServantMaterial} from "../scene/servant/material/App";
+import {App as ServantFilter} from "../scene/servant/filter/App";
 import {App as Material} from "../scene/material/main/App";
 import {App as Options} from "../scene/options/main/App";
 
@@ -45,6 +46,7 @@ export class App extends Component<any, any> {
                                    hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer} />
                         </Scene>
                         <Scene key="init" component={Initialization} title="Initialization" initial={true} hideNavBar={true}/>
+                        <Scene key="servant_filter" component={ServantFilter} title="ServantFilter" hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer}/>
                     </Scene>
                 </Router>
             </Provider>
