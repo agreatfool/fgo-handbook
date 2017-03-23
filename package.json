@@ -22,6 +22,7 @@
     "punycode": "^2.0.1",
     "react": "~15.4.0",
     "react-native": "0.41.2",
+    "react-native-checkbox": "^1.1.0",
     "react-native-fetch-blob": "^0.10.2",
     "react-native-fs": "^2.1.0-rc.1",
     "react-native-router-flux": "^3.37.0",
