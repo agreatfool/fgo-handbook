@@ -8,7 +8,7 @@ import {Props, TabScene, TabPageScroll} from "../main/View";
 import CheckBox from "react-native-checkbox";
 import MstUtil from "../../../lib/model/MstUtil";
 import {SvtListFilter} from "../main/State";
-import * as Styles from "../../../style/Styles"
+import * as Styles from "../../../style/Styles";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -28,39 +28,41 @@ export class ServantFilter extends Component<State.Props, any> {
         let state = props.SceneServantList;
     }
 
-    isRarityChecked(rarityId: number): boolean {
+    isChecked(id: number, propName: string): boolean {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
 
-        let search = rarityId + "";
+        let search = id + "";
 
-        return state.filter.rarity.indexOf(search) !== -1;
+        return (state.filter[propName] as Array<string>).indexOf(search) !== -1;
     }
 
-    checkRarity(rarityId: number): void {
+    checkItem(id: number, propName: string): void {
         let props = this.props as State.Props;
         let filter = Object.assign({}, props.SceneServantList.filter) as SvtListFilter;
-        let search = rarityId + "";
+        let prop = filter[propName] as Array<string>;
+        let search = id + "";
 
-        if (filter.rarity.indexOf(search) !== -1) {
-            filter.rarity = MstUtil.removeValueFromArr(filter.rarity, search);
+        if (prop.indexOf(search) !== -1) {
+            prop = MstUtil.removeValueFromArr(prop, search);
         } else {
-            filter.rarity.push(search);
+            prop.push(search);
         }
 
+        filter[propName] = prop;
         props.actions.updateFilter(filter);
     }
 
-    getRarityButtonText(): string {
+    getButtonText(propName: string, dataSet: {[key: number]: string}): string {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
-        let stateLength = state.filter.rarity.length;
-        let rarityLength = Object.keys(Const.SERVANT_RARITY_NAMES).length;
+        let stateLength = (state.filter[propName] as Array<string>).length;
+        let filterLength = Object.keys(dataSet).length;
 
         let text = "";
         if (stateLength === 0) {
             text = "全选";
-        } else if (stateLength === rarityLength) {
+        } else if (stateLength === filterLength) {
             text = "反选";
         } else {
             text = "反选";
@@ -69,41 +71,41 @@ export class ServantFilter extends Component<State.Props, any> {
         return text;
     }
 
-    touchRarityButton(): void {
+    touchButton(propName: string, dataSet: {[key: number]: string}): void {
         let props = this.props as State.Props;
         let filter = Object.assign({}, props.SceneServantList.filter) as SvtListFilter;
-        let rarity = filter.rarity as Array<string>;
-        let rarityIds = Object.keys(Const.SERVANT_RARITY_NAMES);
+        let filterSet = filter[propName] as Array<string>;
+        let dataIds = Object.keys(dataSet);
 
-        if (rarity.length === 0) {
-            rarity = rarityIds;
-        } else if (rarity.length === rarityIds.length) {
-            rarity = [];
+        if (filterSet.length === 0) {
+            filterSet = dataIds;
+        } else if (filterSet.length === dataIds.length) {
+            filterSet = [];
         } else {
-            rarityIds.forEach((rarityId) => {
-                if (rarity.indexOf(rarityId) !== -1) {
-                    rarity = MstUtil.removeValueFromArr(rarity, rarityId);
+            dataIds.forEach((id) => {
+                if (filterSet.indexOf(id) !== -1) {
+                    filterSet = MstUtil.removeValueFromArr(filterSet, id);
                 } else {
-                    rarity.push(rarityId);
+                    filterSet.push(id);
                 }
             });
         }
 
-        filter.rarity = rarity;
+        filter[propName] = filterSet;
         props.actions.updateFilter(filter);
     }
 
-    renderRarityChecks() {
-        return Object.keys(Const.SERVANT_RARITY_NAMES).map((index) => {
-            let rarityId = parseInt(index);
-            let rarityName = Const.SERVANT_RARITY_NAMES[index];
+    renderChecks(propName: string, dataSet: {[key: number]: string}) {
+        return Object.keys(dataSet).map((index) => {
+            let id = parseInt(index);
+            let name = dataSet[index];
 
             return (
                 <CheckBoxWrapper
-                    key={`CheckBox_Rarity_${rarityId}`}
-                    label={rarityName}
-                    checked={this.isRarityChecked(rarityId)}
-                    onChange={(checked) => this.checkRarity(rarityId)}
+                    key={`CheckBox_Rarity_${id}`}
+                    label={name}
+                    checked={this.isChecked(id, propName)}
+                    onChange={(checked) => this.checkItem(id, propName)}
                 />
             );
         });
@@ -113,13 +115,34 @@ export class ServantFilter extends Component<State.Props, any> {
         return (
             <TabScene>
                 <TabPageScroll>
-                    <CheckListTitle>Rarity</CheckListTitle>
+                    <CheckListTitle>星级</CheckListTitle>
                     <CheckListBox>
-                        {this.renderRarityChecks()}
+                        {this.renderChecks("rarity", Const.SERVANT_RARITY_NAMES)}
                     </CheckListBox>
                     <CheckListBox>
-                        <CheckBoxButton onPress={this.touchRarityButton.bind(this)}>
-                            {this.getRarityButtonText()}
+                        <CheckBoxButton
+                            onPress={() => this.touchButton.bind(this)("rarity", Const.SERVANT_RARITY_NAMES)}>
+                            {this.getButtonText("rarity", Const.SERVANT_RARITY_NAMES)}
+                        </CheckBoxButton>
+                    </CheckListBox>
+                    <CheckListTitle>职阶</CheckListTitle>
+                    <CheckListBox>
+                        {this.renderChecks("classId", Const.SERVANT_CLASS_NAMES)}
+                    </CheckListBox>
+                    <CheckListBox>
+                        <CheckBoxButton
+                            onPress={() => this.touchButton.bind(this)("classId", Const.SERVANT_CLASS_NAMES)}>
+                            {this.getButtonText("classId", Const.SERVANT_CLASS_NAMES)}
+                        </CheckBoxButton>
+                    </CheckListBox>
+                    <CheckListTitle>性别</CheckListTitle>
+                    <CheckListBox>
+                        {this.renderChecks("genderType", Const.SERVANT_GENDER_TYPES)}
+                    </CheckListBox>
+                    <CheckListBox>
+                        <CheckBoxButton
+                            onPress={() => this.touchButton.bind(this)("genderType", Const.SERVANT_GENDER_TYPES)}>
+                            {this.getButtonText("genderType", Const.SERVANT_GENDER_TYPES)}
                         </CheckBoxButton>
                     </CheckListBox>
                 </TabPageScroll>
@@ -150,7 +173,13 @@ class CheckListBox extends Component<Props, any> {
     }
 }
 
-class CheckBoxWrapper extends Component<Props, any> {
+interface CheckBoxWrapperProps extends Props {
+    label?: string;
+    checked?: boolean;
+    onChange?: (checked: boolean) => void;
+}
+
+class CheckBoxWrapper extends Component<CheckBoxWrapperProps, any> {
     render() {
         return (
             <View style={Styles.Common.checkBoxWrapper}>

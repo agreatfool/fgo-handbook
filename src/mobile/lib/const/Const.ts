@@ -9,16 +9,16 @@ export default class Const {
         22, // 魔神王盖提亚
     ];
     public static readonly SERVANT_CLASS_NAMES: {[key: number]: string} = {
-        1: "Saber",
-        2: "Archer",
-        3: "Lancer",
-        4: "Rider",
-        5: "Caster",
-        6: "Assassin",
-        7: "Berserker",
-        8: "Shielder",
-        9: "Ruler",
-        11: "Avenger",
+        1: "剑士",
+        2: "弓手",
+        3: "枪兵",
+        4: "骑兵",
+        5: "术士",
+        6: "暗杀",
+        7: "狂战",
+        8: "盾",
+        9: "裁决",
+        11: "复仇",
     };
     public static readonly SERVANT_RARITY_MAPPING: {[key: number]: number} = {
         60: 1, // Lv60 一星

@@ -46,6 +46,7 @@ export const Common = StyleSheet.create({
         width: 30,
     },
     checkListTitle: {
+        marginTop: 15,
         marginBottom: 5,
     },
     checkList: {
@@ -55,13 +56,16 @@ export const Common = StyleSheet.create({
         borderStyle: "solid" as any,
         borderColor: "black",
         flexDirection: "row" as FlexDirection,
+        flexWrap: "wrap" as any,
     },
     checkBoxWrapper: {
-        flex: 1,
-        flexDirection: "row" as FlexDirection
+        flexGrow: 1,
+        flexDirection: "row" as FlexDirection,
+        height: 20,
     },
     checkBoxContainer: {
-        flex: 1
+        flex: 1,
+        height: 15,
     },
     checkBoxLabel: {
         fontSize: 12,
@@ -77,7 +81,7 @@ export const Common = StyleSheet.create({
         height: 20,
         marginBottom: 5,
         alignItems: "center" as FlexJustifyType,
-    },
+    } as ViewStyle,
     checkBoxButtonText: {
         width: 100,
         height: 20,
