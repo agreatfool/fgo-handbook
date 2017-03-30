@@ -44,7 +44,48 @@ export const Common = StyleSheet.create({
     },
     resImgBoxInlineText: {
         width: 30,
-    }
+    },
+    checkListTitle: {
+        marginBottom: 5,
+    },
+    checkList: {
+        padding: 5,
+        paddingTop: 10,
+        borderWidth: 1,
+        borderStyle: "solid" as any,
+        borderColor: "black",
+        flexDirection: "row" as FlexDirection,
+    },
+    checkBoxWrapper: {
+        flex: 1,
+        flexDirection: "row" as FlexDirection
+    },
+    checkBoxContainer: {
+        flex: 1
+    },
+    checkBoxLabel: {
+        fontSize: 12,
+        color: "black"
+    },
+    checkBoxSelf: {
+        width: 15,
+        height: 15
+    },
+    checkBoxButton: {
+        flex: 1,
+        width: 100,
+        height: 20,
+        marginBottom: 5,
+        alignItems: "center" as FlexJustifyType,
+    },
+    checkBoxButtonText: {
+        width: 100,
+        height: 20,
+        lineHeight: 20,
+        fontSize: 12,
+        textAlign: "center" as any,
+        backgroundColor: "yellow",
+    },
 });
 
 export const NavTop = StyleSheet.create({

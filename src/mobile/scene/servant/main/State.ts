@@ -1,5 +1,6 @@
 import {MstSvt} from "../../../../model/master/Master";
 import InjectedProps from "../../../../lib/react/InjectedProps";
+import Const from "../../../lib/const/Const";
 
 export enum SvtOrderChoices {
     collectionNo,
@@ -19,7 +20,11 @@ export interface State {
 }
 
 export const defaultState = {
-    filter: {} as SvtListFilter,
+    filter: {
+        classId: Object.keys(Const.SERVANT_CLASS_NAMES),
+        genderType: Object.keys(Const.SERVANT_GENDER_TYPES),
+        rarity: Object.keys(Const.SERVANT_RARITY_NAMES),
+    } as SvtListFilter,
     rawData: [],
     displayData: [],
     order: {
@@ -31,9 +36,9 @@ export const defaultState = {
 export const StateName = "SceneServantList";
 
 export interface SvtListFilter {
-    classId?: Array<number>;
-    genderType?: Array<number>;
-    rarity?: Array<number>;
+    classId?: Array<string>;
+    genderType?: Array<string>;
+    rarity?: Array<string>;
 }
 
 export interface SvtListOrder {

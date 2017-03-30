@@ -61,9 +61,9 @@ export class Service {
 
     private static _filterSvtData(data: Array<MstSvt>, filter: SvtListFilter): Array<MstSvt> {
         return data.filter((element: MstSvt) => {
-            let classCondition = filter.classId ? (filter.classId.indexOf(element.classId) !== -1) : true;
-            let genderCondition = filter.genderType ? (filter.genderType.indexOf(element.genderType) !== -1) : true;
-            let rarityCondition = filter.rarity ? (filter.rarity.indexOf(Const.SERVANT_RARITY_MAPPING[element.rewardLv]) !== -1) : true;
+            let classCondition = filter.classId ? (filter.classId.indexOf(element.classId + "") !== -1) : true;
+            let genderCondition = filter.genderType ? (filter.genderType.indexOf(element.genderType + "") !== -1) : true;
+            let rarityCondition = filter.rarity ? (filter.rarity.indexOf(Const.SERVANT_RARITY_MAPPING[element.rewardLv] + "") !== -1) : true;
 
             return classCondition && genderCondition && rarityCondition;
         });

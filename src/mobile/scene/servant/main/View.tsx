@@ -5,7 +5,7 @@ import {CacheImage} from "../../../component/cache_image/App";
 import * as Styles from "../../../style/Styles";
 import JSXElement = JSX.JSXElement;
 
-interface Props {
+export interface Props {
     children?: ReactNode;
 }
 

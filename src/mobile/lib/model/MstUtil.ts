@@ -94,6 +94,14 @@ export default class MstUtil {
         return Object.keys(obj).length === 0 && obj.constructor === Object;
     }
 
+    public static removeValueFromArr(arr, value) {
+        let pos = arr.indexOf(value);
+        if (pos !== -1) {
+            arr.splice(pos, 1);
+        }
+        return arr;
+    }
+
     public static filterHtmlTags(str: string): string {
         return str.replace(/(<([^>]+)>)/ig, "");
     }
