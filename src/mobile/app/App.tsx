@@ -13,7 +13,7 @@ import {App as ServantSkill} from "../scene/servant/skill/App";
 import {App as ServantStory} from "../scene/servant/story/App";
 import {App as ServantMaterial} from "../scene/servant/material/App";
 import {App as ServantFilter} from "../scene/servant/filter/App";
-import {App as Material} from "../scene/material/main/App";
+import {App as Goal} from "../scene/goal/main/App";
 import {App as Options} from "../scene/options/main/App";
 
 const store = createStore(
@@ -30,7 +30,7 @@ export class App extends Component<any, any> {
                         <Scene key="tabs" tabs={true} tabBarStyle={Styles.Tab.tabBar}>
                             <Scene key="servant" component={Servant} title="Servant" icon={TabButton}
                                    hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
-                            <Scene key="material" component={Material} title="Material" icon={TabButton}
+                            <Scene key="goal" component={Goal} title="Goal" icon={TabButton}
                                    hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
                             <Scene key="options" component={Options} title="Options" icon={TabButton}
                                    hideNavBar={false} renderBackButton={() => undefined} sceneStyle={Styles.Tab.sceneContainer} />
