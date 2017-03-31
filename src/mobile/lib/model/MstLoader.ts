@@ -75,6 +75,11 @@ export default class MstLoader {
         return Promise.resolve(goal);
     }
 
+    public async writeGoal(goal: MstGoal): Promise<any> {
+        return MstUtil.instance.writeJson(`${RNFS.DocumentDirectoryPath}/${Const.DB_FILE_PATH}`,
+            JSON.stringify(goal, null, 4));
+    }
+
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* MASTER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

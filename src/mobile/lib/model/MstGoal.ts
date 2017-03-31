@@ -4,14 +4,19 @@ export interface MstGoal {
 }
 
 export interface Goal {
-    id: number;
+    id: string; // UUID
     name: string;
-    items: Array<GoalItem>;
+    servants: Array<GoalSvt>;
 }
 
-export interface GoalItem {
-    itemId: number;
-    count: number;
+export interface GoalSvt {
+    svtId: number;
+    skills: Array<GoalSvtSkill>;
+}
+
+export interface GoalSvtSkill {
+    skillId: number;
+    level: number;
 }
 
 export const defaultMstGoal = {

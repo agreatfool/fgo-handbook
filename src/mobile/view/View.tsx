@@ -138,6 +138,7 @@ export class ResImage extends Component<ResImageProps, any> {
 
 export interface ResImageWithTextProps extends ResImageProps {
     text: string;
+    width?: number;
 }
 
 export class ResImageWithText extends Component<ResImageWithTextProps, any> {
@@ -145,15 +146,18 @@ export class ResImageWithText extends Component<ResImageWithTextProps, any> {
         let props = this.props as ResImageWithTextProps;
         props.size = "small"; // 固定小图标
 
+        let style = [
+            Styles.Common.flexDefault,
+            Styles.Common.flexRow,
+            Styles.Common.centering,
+            Styles.Common.resImgBoxWithText,
+        ];
+        if (props.hasOwnProperty("width")) {
+            style.push({width: props.width});
+        }
+
         return (
-            <View
-                style={[
-                    Styles.Common.flexDefault,
-                    Styles.Common.flexRow,
-                    Styles.Common.centering,
-                    Styles.Common.resImgBoxWithText,
-                ]}
-            >
+            <View style={style}>
                 <ResImage {...props} />
                 <Text
                     style={[
@@ -173,14 +177,17 @@ export class ResImageWithTextPlaceholder extends Component<any, any> {
         let props = this.props as any;
         let children = props.children ? props.children : " ";
 
+        let style = [
+            Styles.Common.flexDefault,
+            Styles.Common.centering,
+            Styles.Common.resImgBoxWithText,
+        ];
+        if (props.hasOwnProperty("width")) {
+            style.push({width: props.width});
+        }
+
         return (
-            <View
-                style={[
-                    Styles.Common.flexDefault,
-                    Styles.Common.centering,
-                    Styles.Common.resImgBoxWithText,
-                ]}
-            >
+            <View style={style}>
                 <Text style={[Styles.Common.textCenter]}>{children}</Text>
             </View>
         );

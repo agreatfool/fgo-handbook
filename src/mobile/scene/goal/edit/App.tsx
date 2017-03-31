@@ -18,6 +18,7 @@ class GoalEdit extends Component<any, any> {
                 />
                 <TabPageScroll>
                     <Text>GoalEdit</Text>
+                    <Text>{JSON.stringify(this.props, null, 4)}</Text>
                 </TabPageScroll>
             </TabScene>
         );

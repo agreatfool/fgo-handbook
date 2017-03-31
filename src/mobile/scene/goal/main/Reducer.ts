@@ -5,6 +5,8 @@ import {
     ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL, ACT_UPDATE_GOAL,
     ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal, ActionUpdateGoal,
 } from "./Action";
+import MstLoader from "../../../lib/model/MstLoader";
+import {Goal} from "../../../lib/model/MstGoal";
 
 export {StateName} from "./State";
 
@@ -20,7 +22,7 @@ export const updateCurrentStatus = {
     action: ACT_UPDATE_CURRENT_STATUS,
     reducer: function (state: State, action: ActionUpdateCurrentStatus) {
         state.current = action.current;
-        // TODO 写入文件，更新记录
+        MstLoader.instance.writeGoal(state).catch((err) => console.error(err));
         return state;
     }
 } as ReducerInterface<State>;
@@ -29,7 +31,7 @@ export const addGoal = {
     action: ACT_ADD_GOAL,
     reducer: function (state: State, action: ActionAddGoal) {
         state.goals.push(action.goal);
-        // TODO 写入文件，更新记录
+        MstLoader.instance.writeGoal(state).catch((err) => console.error(err));
         return state;
     }
 } as ReducerInterface<State>;
@@ -37,8 +39,12 @@ export const addGoal = {
 export const updateGoal = {
     action: ACT_UPDATE_GOAL,
     reducer: function (state: State, action: ActionUpdateGoal) {
-        state.goals[action.goal.id] = action.goal;
-        // TODO 写入文件，更新记录
+        state.goals.forEach((goal: Goal, index) => {
+            if (goal.id === action.goal.id) {
+                state.goals[index] = action.goal;
+            }
+        });
+        MstLoader.instance.writeGoal(state).catch((err) => console.error(err));
         return state;
     }
 } as ReducerInterface<State>;
