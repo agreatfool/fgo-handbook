@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {View, Text} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
-import MstUtil from "../../../lib/model/MstUtil";
+import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";

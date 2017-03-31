@@ -2,7 +2,7 @@ import * as RNFS from "react-native-fs";
 import RNFetchBlob from 'react-native-fetch-blob';
 import React, {Component} from "react";
 import {Image} from "react-native";
-import MstUtil from "../../lib/model/MstUtil";
+import MstUtil from "../../lib/utility/MstUtil";
 
 interface State {
     data: ImageSource;

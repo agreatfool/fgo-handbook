@@ -35,7 +35,7 @@ import {
     MstCombineLimitContainer,
     MstCombineSkillContainer
 } from "../../model/impl/MstContainer";
-import MstUtil from "../lib/model/MstUtil";
+import MstUtil from "../lib/utility/MstUtil";
 import {TransSvtName} from "../../model/master/EmbeddedCodeConverted";
 
 export class Service {

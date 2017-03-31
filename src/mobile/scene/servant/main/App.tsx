@@ -7,7 +7,7 @@ import {MstSvtContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
 import * as Action from "./Action";
-import MstUtil from "../../../lib/model/MstUtil";
+import MstUtil from "../../../lib/utility/MstUtil";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";

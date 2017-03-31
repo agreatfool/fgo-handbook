@@ -6,7 +6,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "../../../view/View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
-import MstUtil from "../../../lib/model/MstUtil";
+import MstUtil from "../../../lib/utility/MstUtil";
 import Const from "../../../lib/const/Const";
 import {ResImage, ToolBoxWrapper, TabScene, TabPageScroll, Table} from "../../../view/View";
 

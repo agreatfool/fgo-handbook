@@ -1,7 +1,7 @@
 import * as RNFS from "react-native-fs";
 import VersionConfig from "../../model/config/VersionConfig";
 import moment from "moment";
-import MstUtil from "../lib/model/MstUtil";
+import MstUtil from "../lib/utility/MstUtil";
 
 export interface VerCheckResult {
     needUpgrade: boolean;
