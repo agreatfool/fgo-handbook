@@ -132,6 +132,7 @@ class GoalList extends Component<State.Props, any> {
                         {content: "编辑现状", onPress: () => (Actions as any).goal_edit({
                             mode: "edit", isCurrent: true, goalId: undefined
                         })},
+                        {content: "经验计算器", onPress: () => (Actions as any).goal_exp()},
                     ]}
                 />
                 <TabPageScroll>

@@ -16,6 +16,7 @@ import {App as ServantFilter} from "../scene/servant/filter/App";
 import {App as Goal} from "../scene/goal/main/App";
 import {App as GoalEdit} from "../scene/goal/edit/App";
 import {App as GoalCompare} from "../scene/goal/compare/App";
+import {App as GoalExp} from "../scene/goal/exp/App";
 import {App as Options} from "../scene/options/main/App";
 
 const store = createStore(
@@ -51,6 +52,7 @@ export class App extends Component<any, any> {
                         <Scene key="servant_filter" component={ServantFilter} title="ServantFilter" hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer}/>
                         <Scene key="goal_edit" component={GoalEdit} title="GoalEdit" hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer}/>
                         <Scene key="goal_compare" component={GoalCompare} title="GoalCompare" hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer}/>
+                        <Scene key="goal_exp" component={GoalExp} title="GoalExp" hideNavBar={false} sceneStyle={Styles.Tab.sceneContainer}/>
                     </Scene>
                 </Router>
             </Provider>
