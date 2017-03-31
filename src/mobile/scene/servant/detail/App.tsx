@@ -4,11 +4,11 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "./View";
+import * as Renderer from "../../../view/View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/model/MstUtil";
 import Const from "../../../lib/const/Const";
-import {ResImage, ToolBoxWrapper, TabScene, TabPageScroll, Table} from "../main/View";
+import {ResImage, ToolBoxWrapper, TabScene, TabPageScroll, Table} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";

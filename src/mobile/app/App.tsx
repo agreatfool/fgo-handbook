@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import {Text} from "react-native";
-import * as Styles from "../style/Styles";
+import * as Styles from "../view/Styles";
 import Reducers from "../app/Reducers";
 import {App as Initialization} from "../scene/init/App";
 import {App as Servant} from "../scene/servant/main/App";

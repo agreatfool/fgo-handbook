@@ -11,8 +11,8 @@ import MstUtil from "../../../lib/model/MstUtil";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
-import * as Styles from "../../../style/Styles";
-import {TabScene, ToolBoxWrapper, ResImage} from "./View";
+import * as Styles from "../../../view/Styles";
+import {TabScene, ToolBoxWrapper, ResImage} from "../../../view/View";
 import {SvtOrderDirections} from "./State";
 import {SvtListOrder} from "./State";
 

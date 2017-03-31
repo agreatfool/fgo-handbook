@@ -5,13 +5,13 @@ import MstUtil from "../../../lib/model/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "./View";
-import * as Styles from "../../../style/Styles";
+import * as Renderer from "../../../view/View";
+import * as Styles from "../../../view/Styles";
 import {
     SvtInfoMaterial, SvtInfoMaterialLimit, SvtInfoMaterialSkill,
     SvtInfoMaterialDetail
 } from "../../../lib/model/MstInfo";
-import {TabScene, ToolBoxWrapper, TabPageScroll, Table, ResImageWithText} from "../main/View";
+import {TabScene, ToolBoxWrapper, TabPageScroll, Table, ResImageWithText} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";

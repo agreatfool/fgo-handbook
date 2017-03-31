@@ -5,12 +5,12 @@ import MstUtil from "../../../lib/model/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "./View";
+import * as Renderer from "../../../view/View";
 import {
     SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
     SvtInfoTreasureDetail, SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
-import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../main/View";
+import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";

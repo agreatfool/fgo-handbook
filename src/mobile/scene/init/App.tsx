@@ -6,7 +6,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import * as SystemService from "../../service/SystemService";
 import InjectedProps from "../../../lib/react/InjectedProps";
-import * as Styles from "../../style/Styles";
+import * as Styles from "../../view/Styles";
 
 export * from "./State";
 export * from "./Action";

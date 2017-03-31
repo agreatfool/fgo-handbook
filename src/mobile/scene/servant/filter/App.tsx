@@ -4,11 +4,11 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Props, TabScene, TabPageScroll} from "../main/View";
+import {Props, TabScene, TabPageScroll} from "../../../view/View";
 import CheckBox from "react-native-checkbox";
 import MstUtil from "../../../lib/model/MstUtil";
 import {SvtListFilter} from "../main/State";
-import * as Styles from "../../../style/Styles";
+import * as Styles from "../../../view/Styles";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";

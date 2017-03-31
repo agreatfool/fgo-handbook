@@ -1,8 +1,8 @@
 import React, {Component, ReactNode} from "react";
 import {View, TouchableOpacity, Text, ScrollView} from "react-native";
-import MstUtil from "../../../lib/model/MstUtil";
-import {CacheImage} from "../../../component/cache_image/App";
-import * as Styles from "../../../style/Styles";
+import MstUtil from "../lib/model/MstUtil";
+import {CacheImage} from "../component/cache_image/App";
+import * as Styles from "./Styles";
 import JSXElement = JSX.JSXElement;
 
 export interface Props {
