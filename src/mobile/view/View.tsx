@@ -168,6 +168,25 @@ export class ResImageWithText extends Component<ResImageWithTextProps, any> {
     }
 }
 
+export class ResImageWithTextPlaceholder extends Component<any, any> {
+    render() {
+        let props = this.props as any;
+        let children = props.children ? props.children : " ";
+
+        return (
+            <View
+                style={[
+                    Styles.Common.flexDefault,
+                    Styles.Common.centering,
+                    Styles.Common.resImgBoxWithText,
+                ]}
+            >
+                <Text style={[Styles.Common.textCenter]}>{children}</Text>
+            </View>
+        );
+    }
+}
+
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TAB PAGE
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

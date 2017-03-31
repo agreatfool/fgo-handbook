@@ -1,17 +1,25 @@
 import React, {Component} from "react";
-import {View, Text} from "react-native";
+import {View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
-import MstUtil from "../../../lib/model/MstUtil";
+import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "../../../view/View";
-import * as Styles from "../../../view/Styles";
 import {
-    SvtInfoMaterial, SvtInfoMaterialLimit, SvtInfoMaterialSkill,
+    TabScene,
+    ToolBoxWrapper,
+    TabPageScroll,
+    Table,
+    ResImageWithText,
+    ResImageWithTextPlaceholder
+} from "../../../view/View";
+import {
+    SvtInfoMaterial,
+    SvtInfoMaterialLimit,
+    SvtInfoMaterialSkill,
     SvtInfoMaterialDetail
 } from "../../../lib/model/MstInfo";
-import {TabScene, ToolBoxWrapper, TabPageScroll, Table, ResImageWithText} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -81,11 +89,11 @@ class ServantMaterial extends Component<State.Props, any> {
                     />
                 );
             });
-            cells.push(<CellPlaceholder>{this.genQpStr(element.qp)}</CellPlaceholder>);
+            cells.push(<ResImageWithTextPlaceholder>{this.genQpStr(element.qp)}</ResImageWithTextPlaceholder>);
             if (cells.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - cells.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<CellPlaceholder />);
+                    cells.push(<ResImageWithTextPlaceholder />);
                 }
             }
             column.rows.push(cells);
@@ -121,28 +129,9 @@ class ServantMaterial extends Component<State.Props, any> {
                     ]}
                 />
                 <TabPageScroll>
-                    <Table pageName="ServantMaterial" data={data} />
+                    <Table pageName="ServantMaterial" data={data}/>
                 </TabPageScroll>
             </TabScene>
-        );
-    }
-}
-
-class CellPlaceholder extends Component<any, any> {
-    render() {
-        let props = this.props as any;
-        let children = props.children ? props.children : " ";
-
-        return (
-            <View
-                style={[
-                    Styles.Common.flexDefault,
-                    Styles.Common.centering,
-                    Styles.Common.resImgBoxWithText,
-                ]}
-            >
-                <Text style={[Styles.Common.textCenter]}>{children}</Text>
-            </View>
         );
     }
 }
