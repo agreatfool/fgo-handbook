@@ -1,3 +1,4 @@
+import * as RNFS from "react-native-fs";
 import BaseContainer from "../../../lib/container/base/BaseContainer";
 import * as MstContainers from "../../../model/impl/MstContainer";
 import {
@@ -5,9 +6,11 @@ import {
     MstSvtTreasureDeviceContainer,
     MstTreasureDeviceLvContainer
 } from "../../../model/impl/MstContainer";
-import MstUtil from "./MstUtil";
+import MstUtil from "../utility/MstUtil";
 import {EmbeddedCodeConverted, TransSvtName} from "../../../model/master/EmbeddedCodeConverted";
 import {MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from "../../../model/master/Master";
+import {MstGoal, defaultMstGoal} from "./MstGoal";
+import Const from "../const/Const";
 
 export default class MstLoader {
 
@@ -58,6 +61,18 @@ export default class MstLoader {
         this._embeddedCode = data;
 
         return Promise.resolve(data);
+    }
+
+    public async loadGoal(): Promise<MstGoal> {
+        let goal = defaultMstGoal;
+        let path = `${RNFS.DocumentDirectoryPath}/${Const.DB_FILE_PATH}`;
+
+        let exists = await RNFS.exists(path);
+        if (exists) {
+            goal = await MstUtil.instance.loadJson(path) as MstGoal;
+        }
+
+        return Promise.resolve(goal);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

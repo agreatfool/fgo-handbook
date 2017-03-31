@@ -1,30 +1,12 @@
 import InjectedProps from "../../../../lib/react/InjectedProps";
+import {MstGoal, defaultMstGoal} from "../../../lib/model/MstGoal";
 
-export interface State {
-    current: CurrentStatus;
-    goals: Array<Goal>;
-}
+export interface State extends MstGoal {}
 
-export const defaultState = {
-} as State;
+export const defaultState = defaultMstGoal as State;
 
-export const StateName = "SceneMaterial";
+export const StateName = "SceneGoal";
 
 export interface Props extends InjectedProps {
-    SceneMaterial: State;
-}
-
-export interface CurrentStatus {
-    items: Array<GoalItem>;
-}
-
-export interface Goal {
-    id: number;
-    name: string;
-    items: Array<GoalItem>;
-}
-
-export interface GoalItem {
-    itemId: number;
-    count: number;
+    SceneGoal: State;
 }

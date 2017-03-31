@@ -1,14 +1,28 @@
 import {ActionCreator} from "redux";
-import {CurrentStatus, Goal} from "./State";
+import {Goal, MstGoal} from "../../../lib/model/MstGoal";
+
+export const ACT_UPDATE_ALL = "ACT_UPDATE_ALL";
+
+export interface ActionUpdateAll {
+    type: string;
+    all: MstGoal;
+}
+
+export const updateAll: ActionCreator<ActionUpdateAll> = function (all: MstGoal) {
+    return {
+        type: ACT_UPDATE_ALL,
+        all: all
+    };
+};
 
 export const ACT_UPDATE_CURRENT_STATUS = "ACT_UPDATE_CURRENT_STATUS";
 
 export interface ActionUpdateCurrentStatus {
     type: string;
-    current: CurrentStatus;
+    current: Goal;
 }
 
-export const updateCurrentStatus: ActionCreator<ActionUpdateCurrentStatus> = function (current: CurrentStatus) {
+export const updateCurrentStatus: ActionCreator<ActionUpdateCurrentStatus> = function (current: Goal) {
     return {
         type: ACT_UPDATE_CURRENT_STATUS,
         current: current
@@ -44,6 +58,7 @@ export const updateGoal: ActionCreator<ActionUpdateGoal> = function (goal: Goal)
 };
 
 export const Actions = {
+    updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,

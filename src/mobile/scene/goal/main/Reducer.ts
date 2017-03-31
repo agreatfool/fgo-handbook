@@ -2,11 +2,19 @@ import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Red
 
 import {State, defaultState} from "./State";
 import {
-    ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL, ACT_UPDATE_GOAL,
-    ActionUpdateCurrentStatus, ActionAddGoal, ActionUpdateGoal,
+    ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL, ACT_UPDATE_GOAL,
+    ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal, ActionUpdateGoal,
 } from "./Action";
 
 export {StateName} from "./State";
+
+export const updateAll = {
+    action: ACT_UPDATE_ALL,
+    reducer: function (state: State, action: ActionUpdateAll) {
+        state = action.all;
+        return state;
+    }
+} as ReducerInterface<State>;
 
 export const updateCurrentStatus = {
     action: ACT_UPDATE_CURRENT_STATUS,
@@ -36,6 +44,7 @@ export const updateGoal = {
 } as ReducerInterface<State>;
 
 export let Reducers = bindComponentReducers([
+    updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,

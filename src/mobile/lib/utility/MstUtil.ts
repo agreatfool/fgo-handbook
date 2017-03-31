@@ -153,6 +153,10 @@ export default class MstUtil {
         return Promise.resolve(JSON.parse(file));
     }
 
+    public async writeJson(path: string, obj: any): Promise<any> {
+        return RNFS.writeFile(path, JSON.stringify(obj, null, 4));
+    }
+
     public static randomString(length = 12, chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
         let result = "";
 
