@@ -1,4 +1,5 @@
 export interface MstGoal {
+    appVer: string;
     current: Goal;
     goals: Array<Goal>;
 }
@@ -20,6 +21,7 @@ export interface GoalSvtSkill {
 }
 
 export const defaultMstGoal = {
+    appVer: undefined,
     current: undefined,
     goals: [],
 } as MstGoal;
