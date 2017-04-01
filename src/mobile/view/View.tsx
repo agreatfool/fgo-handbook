@@ -136,14 +136,14 @@ export class ResImage extends Component<ResImageProps, any> {
     }
 }
 
-export interface ResImageWithTextProps extends ResImageProps {
-    text: string;
+export interface ResImageWithElementProps extends ResImageProps {
+    text?: string;
     width?: number;
 }
 
-export class ResImageWithText extends Component<ResImageWithTextProps, any> {
+export class ResImageWithElement extends Component<ResImageWithElementProps, any> {
     render() {
-        let props = this.props as ResImageWithTextProps;
+        let props = this.props as ResImageWithElementProps;
         props.size = "small"; // 固定小图标
 
         let style = [
@@ -156,10 +156,11 @@ export class ResImageWithText extends Component<ResImageWithTextProps, any> {
             style.push({width: props.width});
         }
 
-        return (
-            <View style={style}>
-                <ResImage {...props} />
+        let subElement = [];
+        if (props.text) {
+            subElement.push(
                 <Text
+                    key={props.text}
                     style={[
                         Styles.Common.flexDefault,
                         Styles.Common.resImgBoxInlineText,
@@ -167,12 +168,21 @@ export class ResImageWithText extends Component<ResImageWithTextProps, any> {
                 >
                     {props.text}
                 </Text>
+            );
+        } else if (props.children) {
+            subElement.push(props.children);
+        }
+
+        return (
+            <View style={style}>
+                <ResImage {...props} />
+                {subElement}
             </View>
         );
     }
 }
 
-export class ResImageWithTextPlaceholder extends Component<any, any> {
+export class ResImageWithElementPlaceholder extends Component<any, any> {
     render() {
         let props = this.props as any;
         let children = props.children ? props.children : " ";

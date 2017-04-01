@@ -7,8 +7,8 @@ import {
     TabScene,
     TabPageScroll,
     Table,
-    ResImageWithText,
-    ResImageWithTextPlaceholder
+    ResImageWithElement,
+    ResImageWithElementPlaceholder
 } from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
@@ -79,7 +79,7 @@ class GoalList extends Component<State.Props, any> {
     //     let cells = [];
     //     goal.items.forEach((item: GoalItem) => {
     //         cells.push(
-    //             <ResImageWithText
+    //             <ResImageWithElement
     //                 appVer={this._appVer}
     //                 type="item"
     //                 id={item.itemId}
@@ -102,7 +102,7 @@ class GoalList extends Component<State.Props, any> {
     //         let lastRow = rows.pop();
     //         let appendCount = CELL_COUNT - lastRow.length;
     //         for (let loop = 0; loop < appendCount; loop++) {
-    //             lastRow.push(<ResImageWithTextPlaceholder width={77} />);
+    //             lastRow.push(<ResImageWithElementPlaceholder width={77} />);
     //         }
     //         rows.push(lastRow);
     //     }

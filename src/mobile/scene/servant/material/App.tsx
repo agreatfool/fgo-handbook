@@ -11,8 +11,8 @@ import {
     ToolBoxWrapper,
     TabPageScroll,
     Table,
-    ResImageWithText,
-    ResImageWithTextPlaceholder
+    ResImageWithElement,
+    ResImageWithElementPlaceholder
 } from "../../../view/View";
 import {
     SvtInfoMaterial,
@@ -80,7 +80,7 @@ class ServantMaterial extends Component<State.Props, any> {
             cells.push(subTitleRenderer(index + 1));
             element.items.forEach((item: SvtInfoMaterialDetail) => {
                 cells.push(
-                    <ResImageWithText
+                    <ResImageWithElement
                         appVer={this._appVer}
                         type="item"
                         id={item.itemId}
@@ -89,11 +89,14 @@ class ServantMaterial extends Component<State.Props, any> {
                     />
                 );
             });
-            cells.push(<ResImageWithTextPlaceholder>{this.genQpStr(element.qp)}</ResImageWithTextPlaceholder>);
+            cells.push(
+                <ResImageWithElementPlaceholder>
+                    {this.genQpStr(element.qp)}
+                </ResImageWithElementPlaceholder>);
             if (cells.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - cells.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<ResImageWithTextPlaceholder />);
+                    cells.push(<ResImageWithElementPlaceholder />);
                 }
             }
             column.rows.push(cells);

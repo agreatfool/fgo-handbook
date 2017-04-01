@@ -1,17 +1,15 @@
 import React, {Component} from "react";
-import {View, Text, Picker, ViewStyle, TouchableOpacity} from "react-native";
-import {Actions} from "react-native-router-flux";
-import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImage} from "../../../view/View";
+import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput} from "react-native";
+import * as Renderer from "../../../view/View";
+import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImage, ResImageWithElement} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import MstUtil from "../../../lib/utility/MstUtil";
 import * as Styles from "../../../view/Styles";
 import {Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
-import * as Renderer from "../../../view/View";
-import * as MstService from "../../../service/MstService";
 import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
 
 export * from "./State";
 export * from "./Action";
@@ -35,7 +33,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         if (props.mode === "add") {
             currentGoal = this.createNewGoal();
         } else {
-            currentGoal = this.getGoalWithId(props.goalId);
+            currentGoal = this.getGoalFromStore(props.goalId);
         }
 
         this.setState({
@@ -52,7 +50,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         } as Goal;
     }
 
-    getGoalWithId(goalId: string): Goal {
+    getGoalFromStore(goalId: string): Goal {
         let goal = {} as Goal;
         let props = this.props as GoalEditProps;
 
@@ -71,46 +69,89 @@ class GoalEdit extends Component<GoalEditProps, any> {
         return goal;
     }
 
-    genServantDropButton() {
-        return (
-            <TouchableOpacity>
+    updateSkillLv(svtId: number, skillId: number, lv: number) {
+        let state = this.state as GoalEditState;
 
-            </TouchableOpacity>
-        );
+        let goal = Object.assign({}, state.goal);
+        goal.servants.forEach((svt: GoalSvt, svtIndex) => {
+            if (svt.svtId !== svtId) {
+                return;
+            }
+            svt.skills.forEach((skill: GoalSvtSkill) => {
+                if (skill.skillId !== skillId) {
+                    return;
+                }
+                skill.level = lv;
+            });
+            goal.servants[svtIndex] = svt;
+        });
+
+        this.setState({goal: goal});
+    }
+
+    //TODO:
+    // 1. goal的名字输入，需要找个地方，做个TextInput控件
+    // 2. saveGoal实现；需要检查database文件的创建和修改是否正确
+    // 3. 点击从者头像删除从者数据
+    // 4. ResImgTextInputAppend样式优化
+    // 5. 所有按钮上的文字，需要检查，部分应该按模式会有变化
+    saveGoal(): void {
+
     }
 
     genServantLine(goalSvt: GoalSvt) {
         let props = this.props as GoalEditProps;
         let appVer = props.SceneGoal.appVer;
 
-        let svtInfo = this.searchSvtInfo(goalSvt.svtId);
-        let skills = this.searchSvtSkills(goalSvt.svtId);
+        let skills = this.searchMstSkillArr(goalSvt.svtId);
+
+        let skillElements = [];
+        skills.forEach((skill: MstSkill, index) => {
+            console.log("skill level", goalSvt.skills[index].level);
+            skillElements.push(
+                <ResImageWithElement appVer={appVer}
+                                     type="skill"
+                                     size="small"
+                                     width={110}
+                                     id={skill.iconId}>
+                    <ResImgTextInputAppend
+                        value={`${goalSvt.skills[index].level}`}
+                        onEndingEditing={(text) => {
+                            this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
+                        }}
+                    />
+                </ResImageWithElement>
+            );
+        });
 
         return [
-            <ResImage appVer={appVer}
-                      type="face"
-                      size="small"
-                      id={goalSvt.svtId}/>,
-            <ResImage appVer={appVer}
-                      type="skill"
-                      size="small"
-                      id={skills[0].iconId}/>,
-            <ResImage appVer={appVer}
-                      type="skill"
-                      size="small"
-                      id={skills[1].iconId}/>,
-            <ResImage appVer={appVer}
-                      type="skill"
-                      size="small"
-                      id={skills[2].iconId}/>,
+            <ResImageWithElement appVer={appVer}
+                                 type="face"
+                                 size="small"
+                                 width={55}
+                                 text="  "
+                                 id={goalSvt.svtId}/>,
+            ...skillElements
         ];
     }
 
-    addSvtIntoGoal() {
+    addSvtIntoGoal(): void {
         let state = this.state as GoalEditState;
         let svtId = state.selectedSvtId;
 
-        let skills = this.searchSvtSkills(svtId);
+        // 检查目标从者是否已存在
+        let alreadyExists = false;
+        state.goal.servants.forEach((svt: GoalSvt) => {
+            if (svt.svtId === svtId) {
+                alreadyExists = true;
+            }
+        });
+        if (alreadyExists) {
+            return;
+        }
+
+        // 构造技能数据
+        let skills = this.searchMstSkillArr(svtId);
         let skillsResult = skills.map((skill: MstSkill) => {
             return {
                 skillId: skill.id,
@@ -123,17 +164,18 @@ class GoalEdit extends Component<GoalEditProps, any> {
             skills: skillsResult,
         } as GoalSvt;
 
+        // 更新目标
         let currentGoal = Object.assign({}, state.goal);
         currentGoal.servants.push(goalSvt);
         this.setState({goal: currentGoal});
     }
 
-    searchSvtSkills(svtId: number): Array<MstSkill> {
+    searchMstSkillArr(svtId: number): Array<MstSkill> {
         let result = [] as Array<MstSkill>;
 
         let props = this.props as GoalEditProps;
-        let svtSkillData = props.SceneGoal.svtSkillData;
-        let skillData = props.SceneGoal.skillData;
+        let svtSkillData: MstSvtSkillContainer = props.SceneGoal.svtSkillData;
+        let skillData: MstSkillContainer = props.SceneGoal.skillData;
 
         let skills: Map<number, MstSvtSkill> = svtSkillData.getGroup(svtId);
         for (let skill of skills.values()) {
@@ -141,16 +183,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
         }
 
         return result;
-    }
-
-    searchSvtInfo(svtId: number): MstSvt {
-        let target = {} as MstSvt;
-        (this.props as GoalEditProps).SceneGoal.svtRowData.forEach((svt: MstSvt) => {
-            if (svt.id === svtId) {
-                target = svt;
-            }
-        });
-        return target;
     }
 
     prepareData() {
@@ -164,17 +196,17 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
         columnAddServant.rows.push([
-            <ServantDropList
-                svtRowData={props.SceneGoal.svtRowData}
-                selectedSvtId={state.selectedSvtId}
-                onValueChange={(svtId) => this.setState({selectedSvtId: svtId})}
-            />
-        ],
-        [
-            <ServantDropButton onPress={() => this.addSvtIntoGoal()}>
-                添加目标
-            </ServantDropButton>
-        ]);
+                <ServantDropList
+                    svtRowData={props.SceneGoal.svtRowData}
+                    selectedSvtId={state.selectedSvtId}
+                    onValueChange={(svtId) => this.setState({selectedSvtId: svtId})}
+                />
+            ],
+            [
+                <ServantDropButton onPress={() => this.addSvtIntoGoal()}>
+                    添加目标
+                </ServantDropButton>
+            ]);
 
         return [[columnServant], [columnAddServant]];
     }
@@ -189,7 +221,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 <ToolBoxWrapper
                     pageName="GoalEdit"
                     buttons={[
-                        {content: "保存改动", onPress: () => {}},
+                        {content: "保存改动", onPress: () => this.saveGoal()},
                     ]}
                 />
                 <TabPageScroll>
@@ -216,7 +248,7 @@ class ServantDropList extends Component<ServantDropListProps, any> {
         svtRowData.forEach((svt: MstSvt) => {
             //noinspection TypeScriptUnresolvedVariable
             svtItems.push(
-                <Picker.Item key={`SvtPicker_${svt.id}`} label={`${svt.collectionNo}: ${svt.name}`} value={svt.id} />
+                <Picker.Item key={`SvtPicker_${svt.id}`} label={`${svt.collectionNo}: ${svt.name}`} value={svt.id}/>
             );
         });
 
@@ -253,6 +285,32 @@ class ServantDropButton extends Component<ServantDropButtonProps, any> {
                     Styles.Common.textCenter,
                 ]}>{props.children}</Text>
             </TouchableOpacity>
+        );
+    }
+}
+
+interface ResImgTextInputAppendProps extends Renderer.Props {
+    value: string;
+    onEndingEditing: (text: string) => void;
+}
+
+class ResImgTextInputAppend extends Component<any, any> {
+    render() {
+        let props = this.props as ResImgTextInputAppendProps;
+        return (
+            <View style={{flex: 1, flexDirection: "row" as any}}>
+                <Text style={{flex: 1, textAlign: "center"}}>Lv.</Text>
+                <View style={{flex: 1, flexDirection: "row", borderColor: "gray", borderBottomWidth: 1, marginRight: 2}}>
+                    <TextInput
+                        style={{flex: 1, textAlign: "center"}}
+                        onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
+                        defaultValue={props.value}
+                        multiline={false}
+                        editable={true}
+                        maxLength={3}
+                    />
+                </View>
+            </View>
         );
     }
 }
