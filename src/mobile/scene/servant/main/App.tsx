@@ -24,8 +24,6 @@ export class ServantList extends Component<State.Props, any> {
     private _service: MstService.Service;
     private _dataSource: ListViewDataSource;
 
-    private _svtContainer: MstSvtContainer;
-
     constructor(props, context) {
         super(props, context);
 
@@ -41,10 +39,8 @@ export class ServantList extends Component<State.Props, any> {
 
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return MstLoader.instance.loadModel("MstSvt");
-        }).then((container: BaseContainer<MstSvt>) => {
-            this._svtContainer = container as MstSvtContainer;
-            let rawData = this._service.filterSvtRawData(this._svtContainer.getRaw());
+            return this._service.loadSvtRawData();
+        }).then((rawData: Array<MstSvt>) => {
             let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
             props.actions.updateRawData(rawData);

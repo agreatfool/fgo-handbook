@@ -43,16 +43,15 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* GOAL SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    
+
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public filterSvtRawData(rawData: Array<MstSvt>): Array<MstSvt> {
-        return rawData.filter((element: MstSvt) => {
-            return (Const.VALID_CLASS_IDS.indexOf(element.classId) !== -1)
-                && (element.collectionNo > 0);
-        });
+    public async loadSvtRawData(): Promise<Array<MstSvt>> {
+        let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
+
+        return Promise.resolve(this._filterSvtRawData(container.getRaw()));
     }
 
     public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<Array<MstSvt>> {
@@ -62,6 +61,13 @@ export class Service {
                 order
             )
         );
+    }
+
+    private _filterSvtRawData(rawData: Array<MstSvt>): Array<MstSvt> {
+        return rawData.filter((element: MstSvt) => {
+            return (Const.VALID_CLASS_IDS.indexOf(element.classId) !== -1)
+                && (element.collectionNo > 0);
+        });
     }
 
     private static _filterSvtData(data: Array<MstSvt>, filter: SvtListFilter): Array<MstSvt> {
