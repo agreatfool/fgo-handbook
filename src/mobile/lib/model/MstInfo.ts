@@ -151,3 +151,16 @@ export interface SvtInfoMaterialDetail {
     itemId: number;
     count: number;
 }
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* FILTER
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export enum SvtOrderChoices {
+    collectionNo,
+    rarity,
+}
+
+export enum SvtOrderDirections {
+    ASC,
+    DESC,
+}

@@ -1,5 +1,6 @@
 import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
-import {SvtListFilter, SvtListOrder, SvtOrderDirections, SvtOrderChoices} from "../scene/servant/main/State";
+import {SvtListFilter, SvtListOrder} from "../scene/servant/main/State";
+import {SvtOrderChoices, SvtOrderDirections} from "../lib/model/MstInfo";
 import Const from "../lib/const/Const";
 import {
     SvtInfoBase,
@@ -52,6 +53,28 @@ export class Service {
         let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
 
         return Promise.resolve(this._filterSvtRawData(container.getRaw()));
+    }
+
+    public async loadSvtRawDataConverted(): Promise<Array<MstSvt>> {
+        let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
+        let rawData = this._filterSvtRawData(container.getRaw());
+
+        let embeddedNames: {[key: number]: TransSvtName} = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
+
+        rawData.forEach((svt: MstSvt, index) => {
+            if (!embeddedNames.hasOwnProperty(svt.id)) {
+                return;
+            }
+            let embeddedName = embeddedNames[svt.id];
+            svt.name = embeddedName.name;
+            svt.battleName = embeddedName.battleName;
+            rawData[index] = svt;
+        });
+
+        return Promise.resolve(Service._sortSvtData(rawData, {
+            order: SvtOrderChoices.collectionNo,
+            direction: SvtOrderDirections.DESC,
+        } as SvtListOrder));
     }
 
     public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<Array<MstSvt>> {

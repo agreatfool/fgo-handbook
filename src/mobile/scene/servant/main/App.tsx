@@ -3,18 +3,15 @@ import {View, ListView, Image, TouchableOpacity, ListViewDataSource} from "react
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
-import {MstSvtContainer} from "../../../../model/impl/MstContainer";
-import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
+import {SvtListOrder} from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
-import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
 import {TabScene, ToolBoxWrapper, ResImage} from "../../../view/View";
-import {SvtOrderDirections} from "./State";
-import {SvtListOrder} from "./State";
+import {SvtOrderDirections} from "../../../lib/model/MstInfo";
 
 export * from "./State";
 export * from "./Action";
@@ -49,7 +46,7 @@ export class ServantList extends Component<State.Props, any> {
     }
 
     genDirectionStr(direction: number) {
-        return direction === State.SvtOrderDirections.DESC ? "降序" : "升序";
+        return direction === SvtOrderDirections.DESC ? "降序" : "升序";
     }
 
     genButtonsData(app: ServantList) {

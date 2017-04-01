@@ -17,6 +17,10 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as Styles from "../../../view/Styles";
+import * as MstService from "../../../service/MstService";
+import {MstSvt} from "../../../../model/master/Master";
+import BaseContainer from "../../../../lib/container/base/BaseContainer";
+import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 
 export * from "./State";
 export * from "./Action";
@@ -29,14 +33,36 @@ export * from "./Action";
  */
 class GoalList extends Component<State.Props, any> {
     private _appVer: string;
+    private _service: MstService.Service;
+
+    constructor(props, context) {
+        super(props, context);
+        this._service = new MstService.Service();
+    }
 
     componentWillMount() {
         let props = this.props as State.Props;
+
+        let svtRawData = [];
+        let svtSkillData = null;
+        let skillData = null;
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
+            return this._service.loadSvtRawDataConverted();
+        }).then((rawData: Array<MstSvt>) => {
+            svtRawData = rawData;
+            return MstLoader.instance.loadModel("MstSvtSkill");
+        }).then((container: BaseContainer<any>) => {
+            svtSkillData = container as MstSvtSkillContainer;
+            return MstLoader.instance.loadModel("MstSkill");
+        }).then((container: BaseContainer<any>) => {
+            skillData = container as MstSkillContainer;
             return MstLoader.instance.loadGoal();
         }).then((data: MstGoal) => {
             data.appVer = this._appVer;
+            data.svtRowData = svtRawData;
+            data.svtSkillData = svtSkillData;
+            data.skillData = skillData;
             props.actions.updateAll(data);
         });
     }

@@ -1,5 +1,11 @@
+import {MstSvt} from "../../../model/master/Master";
+import {MstSkillContainer, MstSvtSkillContainer} from "../../../model/impl/MstContainer";
+
 export interface MstGoal {
     appVer: string;
+    svtRowData: Array<MstSvt>;
+    svtSkillData: MstSvtSkillContainer;
+    skillData: MstSkillContainer;
     current: Goal;
     goals: Array<Goal>;
 }

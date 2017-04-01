@@ -1,16 +1,7 @@
 import {MstSvt} from "../../../../model/master/Master";
 import InjectedProps from "../../../../lib/react/InjectedProps";
 import Const from "../../../lib/const/Const";
-
-export enum SvtOrderChoices {
-    collectionNo,
-    rarity,
-}
-
-export enum SvtOrderDirections {
-    ASC,
-    DESC,
-}
+import {SvtOrderChoices, SvtOrderDirections} from "../../../lib/model/MstInfo";
 
 export interface State {
     filter: SvtListFilter; // 过滤器
