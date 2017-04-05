@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {TouchableOpacity, View, Text} from "react-native";
+import {TouchableOpacity, View, Text, Alert} from "react-native";
 import {Actions} from "react-native-router-flux";
 import * as Renderer from "../../../view/View";
 import {
@@ -118,21 +118,26 @@ class GoalList extends Component<State.Props, any> {
     // }
 
     prepareData(goals: Array<Goal>) {
+        let props = this.props as State.Props;
         let column = Renderer.buildColumnData(`Goal List`, []);
 
         column.rows.push([
-            "name",
-            "servant count",
-            <ActionButtonText>Edit</ActionButtonText>,
-            <ActionButtonText>Compare</ActionButtonText>,
+            "名字",
+            "数量",
+            <ActionButtonText>编辑</ActionButtonText>,
+            <ActionButtonText>扩展</ActionButtonText>,
+            <ActionButtonText>比较</ActionButtonText>,
+            <ActionButtonText>删除</ActionButtonText>,
         ]);
 
         goals.forEach((goal: Goal) => {
             column.rows.push([
                 goal.name,
                 goal.servants.length,
-                <ActionButton action="Edit" goalId={goal.id} />,
-                <ActionButton action="Compare" goalId={goal.id} />,
+                <ActionButton action="edit" goal={goal} injectedActions={props.actions} />,
+                <ActionButton action="extend" goal={goal} injectedActions={props.actions} />,
+                <ActionButton action="compare" goal={goal} injectedActions={props.actions} />,
+                <ActionButton action="delete" goal={goal} injectedActions={props.actions} />,
             ]);
         });
 
@@ -142,7 +147,7 @@ class GoalList extends Component<State.Props, any> {
     render() {
         let table = <View />;
         let goals: Array<Goal> = (this.props as State.Props).SceneGoal.goals;
-        if (goals.length !== 0) {
+        if (goals && goals.length !== 0) {
             table = <Table pageName="GoalList" data={this.prepareData(goals)}/>;
         }
 
@@ -174,7 +179,7 @@ class ActionButtonText extends Component<Renderer.Props, any> {
         let props = this.props as Renderer.Props;
         return (
             <Text style={[
-                Styles.Common.textCenter, {width: 70}
+                Styles.Common.textCenter, {width: 50}
             ]}>
                 {props.children}
             </Text>
@@ -184,38 +189,64 @@ class ActionButtonText extends Component<Renderer.Props, any> {
 
 interface ActionButtonProps extends Renderer.Props {
     action: string;
-    goalId: string;
+    goal: Goal;
+    injectedActions: any;
 }
 
 class ActionButton extends Component<ActionButtonProps, any> {
     render() {
         let props = this.props as ActionButtonProps;
-        let onPress = () => console.error("Wrong action of ActionButton on page GoalList", props.action);
+        let text = "";
+        let onPress = () => {};
 
-        if (props.action === "Compare") {
-            //noinspection TypeScriptUnresolvedFunction
-            onPress = () => (Actions as any).goal_compare({goalId: props.goalId});
-        } else if (props.action = "Edit") {
-            //noinspection TypeScriptUnresolvedFunction
-            onPress = () => (Actions as any).goal_edit({
-                mode: "edit",
-                isCurrent: false,
-                goalId: props.goalId
-            });
+        switch (props.action) {
+            case "compare":
+                text = "比对";
+                //noinspection TypeScriptUnresolvedFunction
+                onPress = () => (Actions as any).goal_compare({
+                    goalId: props.goal.id
+                });
+                break;
+            case "edit":
+                text = "编辑";
+                //noinspection TypeScriptUnresolvedFunction
+                onPress = () => (Actions as any).goal_edit({
+                    mode: "edit", isCurrent: false, goalId: props.goal.id
+                });
+                break;
+            case "delete":
+                text = "删除";
+                onPress = () => {
+                    Alert.alert("确认删除该目标吗？", null, [
+                        {text: "取消"},
+                        {text: "确定", onPress: () => props.injectedActions.deleteGoal(props.goal.id)},
+                    ]);
+                };
+                break;
+            case "extend":
+                text = "扩展";
+                //noinspection TypeScriptUnresolvedFunction
+                onPress = () => (Actions as any).goal_edit({
+                    mode: "extend", isCurrent: false, goalId: props.goal.id
+                });
+                break;
+            default:
+                onPress = () => console.error("Wrong action of ActionButton on page GoalList", props.action);
+                break;
         }
 
         return (
             <TouchableOpacity
                 style={[
                     Styles.Common.verticalCentering,
-                    {width: 70, height: Renderer.TABLE_CONTENT_HEIGHT_DEFAULT},
+                    {width: 50, height: Renderer.TABLE_CONTENT_HEIGHT_DEFAULT},
                     {backgroundColor: "yellow"}
                 ]}
                 onPress={onPress}
             >
                 <Text style={[
                     Styles.Common.textCenter,
-                ]}>{props.action}</Text>
+                ]}>{text}</Text>
             </TouchableOpacity>
         );
     }

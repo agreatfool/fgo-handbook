@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput, Alert} from "react-native";
 import * as Renderer from "../../../view/View";
-import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImage, ResImageWithElement} from "../../../view/View";
+import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImageWithElement} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -11,6 +11,7 @@ import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
 import * as Styles from "../../../view/Styles";
 import MstUtil from "../../../lib/utility/MstUtil";
+import {Actions} from "react-native-router-flux";
 
 export * from "./State";
 export * from "./Action";
@@ -27,14 +28,25 @@ interface GoalEditState {
 }
 
 class GoalEdit extends Component<GoalEditProps, any> {
+    private currentStatusName: string = "当前玩家状态";
+    private defaultGoalName: string = "目标";
+
     componentDidMount() {
         let props = this.props as GoalEditProps;
 
         let currentGoal = {} as Goal;
-        if (props.mode === "add") {
-            currentGoal = this.createNewGoal();
-        } else {
-            currentGoal = this.getGoalFromStore(props.goalId);
+        switch (props.mode) {
+            case "add":
+                currentGoal = this.createNewGoal();
+                break;
+            case "edit":
+                currentGoal = this.getGoalFromStore(props.goalId);
+                break;
+            case "extend":
+                currentGoal = this.getGoalFromStore(props.goalId);
+                currentGoal.id = LibUuid.v4();
+                currentGoal.name = this.defaultGoalName;
+                break;
         }
 
         this.setState({
@@ -46,7 +58,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     createNewGoal(): Goal {
         return {
             id: LibUuid.v4(),
-            name: "",
+            name: this.defaultGoalName,
             servants: [],
         } as Goal;
     }
@@ -64,7 +76,12 @@ class GoalEdit extends Component<GoalEditProps, any> {
             });
         } else {
             // 获取玩家当前状态
-            goal = Object.assign({}, props.SceneGoal.current);
+            if (props.SceneGoal.current) {
+                goal = Object.assign({}, props.SceneGoal.current);
+            } else {
+                goal = this.createNewGoal();
+                goal.id = goal.name = "current";
+            }
         }
 
         return goal;
@@ -99,12 +116,22 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     //TODO:
-    // 2. saveGoal实现；需要检查database文件的创建和修改是否正确
-    // 3. 点击从者头像删除从者数据
     // 4. ResImgTextInputAppend样式优化
     // 5. 所有按钮上的文字，需要检查，部分应该按模式会有变化
     saveGoal(): void {
+        let props = this.props as GoalEditProps;
+        let state = this.state as GoalEditState;
 
+        if (props.mode === "add" || props.mode === "extend") {
+            props.actions.addGoal(state.goal);
+        } else {
+            if (props.isCurrent) {
+                props.actions.updateCurrentStatus(state.goal);
+            } else {
+                props.actions.updateGoal(state.goal);
+            }
+        }
+        Actions.pop();
     }
 
     genServantLine(goalSvt: GoalSvt) {
@@ -226,17 +253,24 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
 
-        let columnName = Renderer.buildColumnData("编辑目标名称", []);
+        let columnName = Renderer.buildColumnData("目标名称", []);
+        let goalName = "";
+        if (props.isCurrent) {
+            goalName = this.currentStatusName;
+        } else {
+            goalName = state.goal.name ? state.goal.name : this.defaultGoalName;
+        }
         columnName.rows.push([
             <GoalNameInput
-                value={state.goal.name ? state.goal.name : "目标"}
+                value={goalName}
                 onEndingEditing={(text) => {
                     this.updateGoalName(text);
                 }}
+                editable={!props.isCurrent}
             />
         ]);
 
-        let columnServant = Renderer.buildColumnData("编辑从者目标", []);
+        let columnServant = Renderer.buildColumnData("从者目标", []);
         state.goal.servants.forEach((goalSvt: GoalSvt) => {
             columnServant.rows.push(this.genServantLine(goalSvt));
         });
@@ -271,7 +305,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         {content: "保存改动", onPress: () => this.saveGoal()},
                     ]}
                 />
-                <TabPageScroll>
+                <TabPageScroll style={{height: 620, paddingBottom: 5}}>
                     <Table pageName="GoalEdit" data={this.prepareData()}/>
                 </TabPageScroll>
             </TabScene>
@@ -279,16 +313,20 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 }
 
-class GoalNameInput extends Component<TextInputProps, any> {
+interface GoalNameInputProps extends TextInputProps {
+    editable: boolean;
+}
+
+class GoalNameInput extends Component<GoalNameInputProps, any> {
     render() {
-        let props = this.props as TextInputProps;
+        let props = this.props as GoalNameInputProps;
         return (
             <TextInput
                 style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
                 onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
                 defaultValue={props.value}
                 multiline={false}
-                editable={true}
+                editable={props.editable}
                 maxLength={20}
             />
         );
@@ -363,7 +401,8 @@ class ResImgSvtSkillLvInput extends Component<TextInputProps, any> {
         return (
             <View style={{flex: 1, flexDirection: "row" as any}}>
                 <Text style={{flex: 1, textAlign: "center"}}>Lv.</Text>
-                <View style={{flex: 1, flexDirection: "row", borderColor: "gray", borderBottomWidth: 1, marginRight: 2}}>
+                <View
+                    style={{flex: 1, flexDirection: "row", borderColor: "gray", borderBottomWidth: 1, marginRight: 2}}>
                     <TextInput
                         style={{flex: 1, textAlign: "center"}}
                         onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
