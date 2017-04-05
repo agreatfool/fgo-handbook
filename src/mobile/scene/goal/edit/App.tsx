@@ -145,28 +145,31 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     removeSvtFromGoal(svtId: number): void {
+        let exec = () => {
+            let state = this.state as GoalEditState;
+
+            let foundPos = -1;
+            state.goal.servants.forEach((svt: GoalSvt, index) => {
+                if (svt.svtId === svtId) {
+                    foundPos = index;
+                }
+            });
+
+            if (foundPos !== -1) {
+                let goal = Object.assign({}, state.goal);
+                goal.servants = MstUtil.removeFromArrAtIndex(goal.servants, foundPos);
+                this.setState({goal: goal});
+            }
+        };
+
         Alert.alert(
             "确定从目标中删除从者信息吗？",
             null,
             [
                 {text: "取消"},
-                {text: "确定", onPress: () => {
-                    let state = this.state as GoalEditState;
-
-                    let foundPos = -1;
-                    state.goal.servants.forEach((svt: GoalSvt, index) => {
-                        if (svt.svtId === svtId) {
-                            foundPos = index;
-                        }
-                    });
-
-                    if (foundPos !== -1) {
-                        let goal = Object.assign({}, state.goal);
-                        goal.servants = MstUtil.removeFromArrAtIndex(goal.servants, foundPos);
-                        this.setState({goal: goal});
-                    }
-                }},
-            ]);
+                {text: "确定", onPress: () => exec()},
+            ]
+        );
     }
 
     addSvtIntoGoal(): void {
