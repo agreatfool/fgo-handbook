@@ -57,9 +57,24 @@ export const updateGoal: ActionCreator<ActionUpdateGoal> = function (goal: Goal)
     }
 };
 
+export const ACT_DELETE_GOAL = "ACT_DELETE_GOAL";
+
+export interface ActionDeleteGoal {
+    type: string;
+    goalId: string;
+}
+
+export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: string) {
+    return {
+        type: ACT_DELETE_GOAL,
+        goalId: goalId,
+    }
+};
+
 export const Actions = {
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
+    deleteGoal,
 };
