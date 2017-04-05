@@ -43,7 +43,7 @@ export const addGoal: ActionCreator<ActionAddGoal> = function (goal: Goal) {
     }
 };
 
-export const ACT_UPDATE_GOAL = "ACT_ADD_GOAL";
+export const ACT_UPDATE_GOAL = "ACT_UPDATE_GOAL";
 
 export interface ActionUpdateGoal {
     type: string;
