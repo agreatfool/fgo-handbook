@@ -5,11 +5,11 @@ import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImage, ResImageWithEl
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Styles from "../../../view/Styles";
 import {Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
 import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
+import * as Styles from "../../../view/Styles";
 
 export * from "./State";
 export * from "./Action";
@@ -89,6 +89,14 @@ class GoalEdit extends Component<GoalEditProps, any> {
         this.setState({goal: goal});
     }
 
+    updateGoalName(name: string) {
+        let state = this.state as GoalEditState;
+
+        let goal = Object.assign({}, state.goal);
+        goal.name = name;
+        this.setState({goal: goal});
+    }
+
     //TODO:
     // 1. goal的名字输入，需要找个地方，做个TextInput控件
     // 2. saveGoal实现；需要检查database文件的创建和修改是否正确
@@ -107,14 +115,13 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let skillElements = [];
         skills.forEach((skill: MstSkill, index) => {
-            console.log("skill level", goalSvt.skills[index].level);
             skillElements.push(
                 <ResImageWithElement appVer={appVer}
                                      type="skill"
                                      size="small"
                                      width={110}
                                      id={skill.iconId}>
-                    <ResImgTextInputAppend
+                    <ResImgSvtSkillLvInput
                         value={`${goalSvt.skills[index].level}`}
                         onEndingEditing={(text) => {
                             this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
@@ -189,26 +196,36 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
 
-        let columnServant = Renderer.buildColumnData(`编辑从者目标`, []);
+        let columnName = Renderer.buildColumnData("编辑目标名称", []);
+        columnName.rows.push([
+            <GoalNameInput
+                value={state.goal.name ? state.goal.name : "目标"}
+                onEndingEditing={(text) => {
+                    this.updateGoalName(text);
+                }}
+            />
+        ]);
+
+        let columnServant = Renderer.buildColumnData("编辑从者目标", []);
         state.goal.servants.forEach((goalSvt: GoalSvt) => {
             columnServant.rows.push(this.genServantLine(goalSvt));
         });
 
         let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
         columnAddServant.rows.push([
-                <ServantDropList
+                <ServantListDropdown
                     svtRowData={props.SceneGoal.svtRowData}
                     selectedSvtId={state.selectedSvtId}
                     onValueChange={(svtId) => this.setState({selectedSvtId: svtId})}
                 />
             ],
             [
-                <ServantDropButton onPress={() => this.addSvtIntoGoal()}>
+                <TableLineButton onPress={() => this.addSvtIntoGoal()}>
                     添加目标
-                </ServantDropButton>
+                </TableLineButton>
             ]);
 
-        return [[columnServant], [columnAddServant]];
+        return [[columnName], [columnServant], [columnAddServant]];
     }
 
     render() {
@@ -232,15 +249,31 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 }
 
-interface ServantDropListProps extends Renderer.Props {
+class GoalNameInput extends Component<TextInputProps, any> {
+    render() {
+        let props = this.props as TextInputProps;
+        return (
+            <TextInput
+                style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
+                onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
+                defaultValue={props.value}
+                multiline={false}
+                editable={true}
+                maxLength={20}
+            />
+        );
+    }
+}
+
+interface ServantListDropdownProps extends Renderer.Props {
     svtRowData: Array<MstSvt>;
     selectedSvtId: number;
     onValueChange: (svtId: number) => void;
 }
 
-class ServantDropList extends Component<ServantDropListProps, any> {
+class ServantListDropdown extends Component<ServantListDropdownProps, any> {
     render() {
-        let props = this.props as ServantDropListProps;
+        let props = this.props as ServantListDropdownProps;
         let svtItems = [];
 
         let svtRowData = props.svtRowData as Array<MstSvt>;
@@ -265,13 +298,13 @@ class ServantDropList extends Component<ServantDropListProps, any> {
     }
 }
 
-interface ServantDropButtonProps extends Renderer.Props {
+interface TableLineButtonProps extends Renderer.Props {
     onPress: () => void;
 }
 
-class ServantDropButton extends Component<ServantDropButtonProps, any> {
+class TableLineButton extends Component<TableLineButtonProps, any> {
     render() {
-        let props = this.props as ServantDropButtonProps;
+        let props = this.props as TableLineButtonProps;
         return (
             <TouchableOpacity
                 style={[
@@ -289,14 +322,14 @@ class ServantDropButton extends Component<ServantDropButtonProps, any> {
     }
 }
 
-interface ResImgTextInputAppendProps extends Renderer.Props {
+interface TextInputProps extends Renderer.Props {
     value: string;
     onEndingEditing: (text: string) => void;
 }
 
-class ResImgTextInputAppend extends Component<any, any> {
+class ResImgSvtSkillLvInput extends Component<TextInputProps, any> {
     render() {
-        let props = this.props as ResImgTextInputAppendProps;
+        let props = this.props as TextInputProps;
         return (
             <View style={{flex: 1, flexDirection: "row" as any}}>
                 <Text style={{flex: 1, textAlign: "center"}}>Lv.</Text>
