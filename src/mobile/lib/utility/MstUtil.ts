@@ -102,6 +102,11 @@ export default class MstUtil {
         return arr;
     }
 
+    public static removeFromArrAtIndex(arr, index) {
+        arr.splice(index, 1);
+        return arr;
+    }
+
     public static filterHtmlTags(str: string): string {
         return str.replace(/(<([^>]+)>)/ig, "");
     }

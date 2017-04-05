@@ -3,7 +3,7 @@ import {MstSkillContainer, MstSvtSkillContainer} from "../../../model/impl/MstCo
 
 export interface MstGoal {
     appVer: string;
-    svtRowData: Array<MstSvt>;
+    svtRawData: Array<MstSvt>;
     svtSkillData: MstSvtSkillContainer;
     skillData: MstSkillContainer;
     current: Goal;

@@ -60,7 +60,7 @@ class GoalList extends Component<State.Props, any> {
             return MstLoader.instance.loadGoal();
         }).then((data: MstGoal) => {
             data.appVer = this._appVer;
-            data.svtRowData = svtRawData;
+            data.svtRawData = svtRawData;
             data.svtSkillData = svtSkillData;
             data.skillData = skillData;
             props.actions.updateAll(data);

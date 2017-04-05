@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput} from "react-native";
+import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput, Alert} from "react-native";
 import * as Renderer from "../../../view/View";
 import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImage, ResImageWithElement} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
@@ -10,6 +10,7 @@ import * as LibUuid from "uuid";
 import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
 import * as Styles from "../../../view/Styles";
+import MstUtil from "../../../lib/utility/MstUtil";
 
 export * from "./State";
 export * from "./Action";
@@ -37,7 +38,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         }
 
         this.setState({
-            selectedSvtId: props.SceneGoal.svtRowData[0].id,
+            selectedSvtId: props.SceneGoal.svtRawData[0].id,
             goal: currentGoal
         });
     }
@@ -69,7 +70,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         return goal;
     }
 
-    updateSkillLv(svtId: number, skillId: number, lv: number) {
+    updateSkillLv(svtId: number, skillId: number, lv: number): void {
         let state = this.state as GoalEditState;
 
         let goal = Object.assign({}, state.goal);
@@ -89,7 +90,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         this.setState({goal: goal});
     }
 
-    updateGoalName(name: string) {
+    updateGoalName(name: string): void {
         let state = this.state as GoalEditState;
 
         let goal = Object.assign({}, state.goal);
@@ -98,7 +99,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     //TODO:
-    // 1. goal的名字输入，需要找个地方，做个TextInput控件
     // 2. saveGoal实现；需要检查database文件的创建和修改是否正确
     // 3. 点击从者头像删除从者数据
     // 4. ResImgTextInputAppend样式优化
@@ -132,14 +132,41 @@ class GoalEdit extends Component<GoalEditProps, any> {
         });
 
         return [
-            <ResImageWithElement appVer={appVer}
-                                 type="face"
-                                 size="small"
-                                 width={55}
-                                 text="  "
-                                 id={goalSvt.svtId}/>,
+            <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+                <ResImageWithElement appVer={appVer}
+                                     type="face"
+                                     size="small"
+                                     width={55}
+                                     text="  "
+                                     id={goalSvt.svtId}/>
+            </TouchableOpacity>,
             ...skillElements
         ];
+    }
+
+    removeSvtFromGoal(svtId: number): void {
+        Alert.alert(
+            "确定从目标中删除从者信息吗？",
+            null,
+            [
+                {text: "取消"},
+                {text: "确定", onPress: () => {
+                    let state = this.state as GoalEditState;
+
+                    let foundPos = -1;
+                    state.goal.servants.forEach((svt: GoalSvt, index) => {
+                        if (svt.svtId === svtId) {
+                            foundPos = index;
+                        }
+                    });
+
+                    if (foundPos !== -1) {
+                        let goal = Object.assign({}, state.goal);
+                        goal.servants = MstUtil.removeFromArrAtIndex(goal.servants, foundPos);
+                        this.setState({goal: goal});
+                    }
+                }},
+            ]);
     }
 
     addSvtIntoGoal(): void {
@@ -214,7 +241,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
         columnAddServant.rows.push([
                 <ServantListDropdown
-                    svtRowData={props.SceneGoal.svtRowData}
+                    svtRawData={props.SceneGoal.svtRawData}
                     selectedSvtId={state.selectedSvtId}
                     onValueChange={(svtId) => this.setState({selectedSvtId: svtId})}
                 />
@@ -266,7 +293,7 @@ class GoalNameInput extends Component<TextInputProps, any> {
 }
 
 interface ServantListDropdownProps extends Renderer.Props {
-    svtRowData: Array<MstSvt>;
+    svtRawData: Array<MstSvt>;
     selectedSvtId: number;
     onValueChange: (svtId: number) => void;
 }
@@ -276,9 +303,9 @@ class ServantListDropdown extends Component<ServantListDropdownProps, any> {
         let props = this.props as ServantListDropdownProps;
         let svtItems = [];
 
-        let svtRowData = props.svtRowData as Array<MstSvt>;
+        let svtRawData = props.svtRawData as Array<MstSvt>;
 
-        svtRowData.forEach((svt: MstSvt) => {
+        svtRawData.forEach((svt: MstSvt) => {
             //noinspection TypeScriptUnresolvedVariable
             svtItems.push(
                 <Picker.Item key={`SvtPicker_${svt.id}`} label={`${svt.collectionNo}: ${svt.name}`} value={svt.id}/>
