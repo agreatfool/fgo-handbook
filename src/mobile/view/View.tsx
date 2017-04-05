@@ -217,10 +217,21 @@ export class TabScene extends Component<Props, any> {
     }
 }
 
-export class TabPageScroll extends Component<Props, any> {
+interface TabPageScrollProps extends Props {
+    style?: {[key: string]: any};
+}
+
+export class TabPageScroll extends Component<TabPageScrollProps, any> {
     render() {
+        let styles = [Styles.Tab.pageDisplayArea];
+
+        let props = this.props as TabPageScrollProps;
+        if (props.hasOwnProperty("style")) {
+            styles.push(props.style);
+        }
+
         return (
-            <View style={Styles.Tab.pageDisplayArea}>
+            <View style={styles}>
                 <ScrollView style={Styles.Common.flexColumn}>
                     {(this.props as Props).children}
                 </ScrollView>
