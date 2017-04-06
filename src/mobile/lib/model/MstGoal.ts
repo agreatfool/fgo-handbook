@@ -26,6 +26,12 @@ export interface GoalSvtSkill {
     level: number;
 }
 
+export const defaultCurrentGoal = {
+    id: "current",
+    name: "current",
+    servants: [],
+} as Goal;
+
 export const defaultMstGoal = {
     appVer: undefined,
     current: undefined,
