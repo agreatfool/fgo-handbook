@@ -1,7 +1,15 @@
 import React, {Component} from "react";
-import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput, Alert} from "react-native";
+import {View, Text, TouchableOpacity, TextInput, Alert} from "react-native";
 import * as Renderer from "../../../view/View";
-import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImageWithElement, DropdownList} from "../../../view/View";
+import {
+    ToolBoxWrapper,
+    TabScene,
+    TabPageScroll,
+    Table,
+    ResImageWithElement,
+    DropdownList,
+    TableLineButton
+} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -289,7 +297,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 <TableLineButton onPress={() => this.addSvtIntoGoal()}>
                     添加目标
                 </TableLineButton>
-            ]);
+            ]
+        );
 
         return [[columnName], [columnServant], [columnAddServant]];
     }
@@ -331,63 +340,6 @@ class GoalNameInput extends Component<GoalNameInputProps, any> {
                 editable={props.editable}
                 maxLength={20}
             />
-        );
-    }
-}
-
-interface ServantListDropdownProps extends Renderer.Props {
-    svtRawData: Array<MstSvt>;
-    selectedSvtId: number;
-    onValueChange: (svtId: number) => void;
-}
-
-class ServantListDropdown extends Component<ServantListDropdownProps, any> {
-    render() {
-        let props = this.props as ServantListDropdownProps;
-        let svtItems = [];
-
-        let svtRawData = props.svtRawData as Array<MstSvt>;
-
-        svtRawData.forEach((svt: MstSvt) => {
-            //noinspection TypeScriptUnresolvedVariable
-            svtItems.push(
-                <Picker.Item key={`SvtPicker_${svt.id}`} label={`${svt.collectionNo}: ${svt.name}`} value={svt.id}/>
-            );
-        });
-
-        //noinspection TypeScriptUnresolvedVariable
-        return (
-            <Picker
-                style={{width: 392, height: 200}}
-                itemStyle={{fontSize: 12, height: 200} as ViewStyle}
-                selectedValue={props.selectedSvtId}
-                onValueChange={props.onValueChange}>
-                {svtItems}
-            </Picker>
-        );
-    }
-}
-
-interface TableLineButtonProps extends Renderer.Props {
-    onPress: () => void;
-}
-
-class TableLineButton extends Component<TableLineButtonProps, any> {
-    render() {
-        let props = this.props as TableLineButtonProps;
-        return (
-            <TouchableOpacity
-                style={[
-                    Styles.Common.verticalCentering,
-                    {width: 392, height: Renderer.TABLE_CONTENT_HEIGHT_DEFAULT},
-                    {backgroundColor: "yellow"}
-                ]}
-                onPress={props.onPress}
-            >
-                <Text style={[
-                    Styles.Common.textCenter,
-                ]}>{props.children}</Text>
-            </TouchableOpacity>
         );
     }
 }

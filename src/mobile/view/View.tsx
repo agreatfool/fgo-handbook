@@ -611,3 +611,27 @@ export class Table extends Component<TableProps, any> {
         );
     }
 }
+
+interface TableLineButtonProps extends Props {
+    onPress: () => void;
+}
+
+export class TableLineButton extends Component<TableLineButtonProps, any> {
+    render() {
+        let props = this.props as TableLineButtonProps;
+        return (
+            <TouchableOpacity
+                style={[
+                    Styles.Common.verticalCentering,
+                    {width: 392, height: TABLE_CONTENT_HEIGHT_DEFAULT},
+                    {backgroundColor: "yellow"}
+                ]}
+                onPress={props.onPress}
+            >
+                <Text style={[
+                    Styles.Common.textCenter,
+                ]}>{props.children}</Text>
+            </TouchableOpacity>
+        );
+    }
+}
