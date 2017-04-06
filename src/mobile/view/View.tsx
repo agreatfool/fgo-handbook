@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from "react";
-import {View, TouchableOpacity, Text, ScrollView, ViewStyle, Picker} from "react-native";
+import {View, TouchableOpacity, Text, ScrollView, Picker} from "react-native";
 import MstUtil from "../lib/utility/MstUtil";
 import {CacheImage} from "../component/cache_image/App";
 import * as Styles from "./Styles";
@@ -9,6 +9,9 @@ export interface Props {
     children?: ReactNode;
 }
 
+// FIXME 1. 将所有Styles从单个文件分出来，复用率这么低的情况下集合代码就没有意义了；
+// FIXME 2. 将当前文件的通用components打散，也不需要集中管理；
+// FIXME 3. 所有的style都不允许含有定长的宽度，高度可以适当使用定长；
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TOOL BOX
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
