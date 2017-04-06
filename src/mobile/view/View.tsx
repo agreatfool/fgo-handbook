@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from "react";
-import {View, TouchableOpacity, Text, ScrollView} from "react-native";
+import {View, TouchableOpacity, Text, ScrollView, ViewStyle, Picker} from "react-native";
 import MstUtil from "../lib/utility/MstUtil";
 import {CacheImage} from "../component/cache_image/App";
 import * as Styles from "./Styles";
@@ -205,6 +205,56 @@ export class ResImageWithElementPlaceholder extends Component<any, any> {
 }
 
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* PICKER
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+interface DropdownListProps extends Props {
+    data: Array<any>;
+    selectedValue: string;
+    onValueChange: (value: string) => void;
+    getValue: (data: any) => string;
+    getLabel: (data: any) => string;
+    style?: any;
+    itemStyle?: any;
+}
+
+export class DropdownList extends Component<DropdownListProps, any> {
+    render() {
+        let props = this.props as DropdownListProps;
+        let items = [];
+
+        props.data.forEach((data: any) => {
+            //noinspection TypeScriptUnresolvedVariable
+            items.push(
+                <Picker.Item
+                    key={`SvtPicker_${props.getValue(data)}`}
+                    label={props.getLabel(data)}
+                    value={props.getValue(data)}
+                />
+            );
+        });
+
+        let styles = [Styles.Common.dropdownList];
+        let itemStyles = [Styles.Common.dropdownListItem];
+        if (props.hasOwnProperty("style")) {
+            styles.push(props.style);
+        }
+        if (props.hasOwnProperty("itemStyle")) {
+            styles.push(props.itemStyle);
+        }
+
+        return (
+            <Picker
+                style={styles}
+                itemStyle={itemStyles}
+                selectedValue={props.selectedValue}
+                onValueChange={props.onValueChange}>
+                {items}
+            </Picker>
+        );
+    }
+}
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 //-* TAB PAGE
 //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 export class TabScene extends Component<Props, any> {
@@ -218,7 +268,7 @@ export class TabScene extends Component<Props, any> {
 }
 
 interface TabPageScrollProps extends Props {
-    style?: {[key: string]: any};
+    style?: any;
 }
 
 export class TabPageScroll extends Component<TabPageScrollProps, any> {

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {View, Text, Picker, ViewStyle, TouchableOpacity, TextInput, Alert} from "react-native";
 import * as Renderer from "../../../view/View";
-import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImageWithElement} from "../../../view/View";
+import {ToolBoxWrapper, TabScene, TabPageScroll, Table, ResImageWithElement, DropdownList} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -277,10 +277,12 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
         columnAddServant.rows.push([
-                <ServantListDropdown
-                    svtRawData={props.SceneGoal.svtRawData}
-                    selectedSvtId={state.selectedSvtId}
-                    onValueChange={(svtId) => this.setState({selectedSvtId: svtId})}
+                <DropdownList
+                    data={props.SceneGoal.svtRawData}
+                    selectedValue={`${state.selectedSvtId}`}
+                    onValueChange={(svtId: string) => this.setState({selectedSvtId: parseInt(svtId)})}
+                    getValue={(svt: MstSvt) => `${svt.id}`}
+                    getLabel={(svt: MstSvt) => `${svt.collectionNo}: ${svt.name}`}
                 />
             ],
             [

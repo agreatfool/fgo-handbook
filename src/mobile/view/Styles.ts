@@ -90,6 +90,14 @@ export const Common = StyleSheet.create({
         textAlign: "center" as any,
         backgroundColor: "yellow",
     },
+    dropdownList: {
+        width: 392,
+        height: 200
+    },
+    dropdownListItem: {
+        fontSize: 12,
+        height: 200
+    }
 });
 
 export const NavTop = StyleSheet.create({
