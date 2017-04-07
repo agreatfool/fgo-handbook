@@ -19,8 +19,8 @@ interface GoalCompareProps extends State.Props {
 
 interface GoalCompareState {
     selectedGoalId: string;
-    currentGoal: Goal;
-    targetGoal: Goal;
+    currentStatus: Goal; // 比对的基准，永远是当前的玩家状态
+    targetGoal: Goal; // 比对的目标
 }
 
 interface CalcResultSvt {
@@ -35,17 +35,30 @@ interface CalcResultItem {
 
 class GoalCompare extends Component<GoalCompareProps, any> {
     componentDidMount() {
-        let currentGoal = this.getCurrentGoal();
-        let targetGoal = this.getDefaultTargetGoal();
+        let currentStatus = this.getDefaultCurrentStatus();
+        let targetGoal = this.getTargetGoal();
 
         this.setState({
             selectedGoalId: "current",
-            currentGoal: currentGoal,
+            currentStatus: currentStatus,
             targetGoal: targetGoal,
-        });
+        } as GoalCompareState);
     }
 
-    getCurrentGoal(): Goal {
+    getDefaultCurrentStatus() {
+        let props = this.props as GoalCompareProps;
+
+        let targetGoal = {};
+        if (!props.SceneGoal.current || props.SceneGoal.current.servants.length === 0) {
+            targetGoal = defaultCurrentGoal;
+        } else {
+            targetGoal = props.SceneGoal.current;
+        }
+
+        return targetGoal;
+    }
+
+    getTargetGoal(): Goal {
         let props = this.props as GoalCompareProps;
         let goal = {} as Goal;
 
@@ -58,11 +71,11 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return goal;
     }
 
-    getGoalSvtFromCurrentGoal(svtId): GoalSvt {
+    getSvtFromCurrentStatus(svtId): GoalSvt {
         let state = this.state as GoalCompareState;
 
         let search = undefined;
-        state.currentGoal.servants.forEach((svt: GoalSvt) => {
+        state.currentStatus.servants.forEach((svt: GoalSvt) => {
             if (svt.svtId === svtId) {
                 search = svt;
             }
@@ -100,26 +113,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return result;
     }
 
-    getDefaultTargetGoal() {
-        let props = this.props as GoalCompareProps;
-
-        let targetGoal = {};
-        if (!props.SceneGoal.current || props.SceneGoal.current.servants.length === 0) {
-            targetGoal = defaultCurrentGoal;
-        } else {
-            targetGoal = props.SceneGoal.current;
-        }
-
-        return targetGoal;
-    }
-
     getGoalList(): Array<Goal> {
-        let props = this.props as GoalCompareProps;
-
-        let data = MstUtil.arrDeepCopy(props.SceneGoal.goals);
-        data.unshift(this.getDefaultTargetGoal()); // 将当前的玩家状态作为第一个选项
-
-        return data;
+        return MstUtil.arrDeepCopy((this.props as GoalCompareProps).SceneGoal.goals);
     }
 
     switchTargetGoal(): void {
@@ -132,18 +127,15 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         let calcResultSvts = [] as Array<CalcResultSvt>;
         let calcResultItems = [] as Array<CalcResultItem>;
 
-        state.targetGoal.servants.forEach((svt: GoalSvt) => {
-            let currentSvt = this.getGoalSvtFromCurrentGoal(svt.svtId);
-            let items = this.calcSvtSkillItems(currentSvt, svt);
+        state.targetGoal.servants.forEach((targetSvt: GoalSvt) => {
+            let currentSvt = this.getSvtFromCurrentStatus(targetSvt.svtId);
+            let items = this.calcSvtSkillItems(currentSvt, targetSvt);
             calcResultSvts.push({
-                svtId: svt.svtId,
+                svtId: targetSvt.svtId,
                 items: items
             } as CalcResultSvt);
             calcResultItems = this.calcMergeItems(calcResultItems, items);
         });
-
-        console.log("calcResultSvts", calcResultSvts);
-        console.log("calcResultItems", calcResultItems);
 
         return [calcResultSvts, calcResultItems];
     }
@@ -191,6 +183,9 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         if (currentLv > targetLv || targetLv === 1) {
             return [];
         }
+        if (targetLv >= 10) {
+            targetLv = 9; // 9意味着"9级升到10级的配置"，最高就到9
+        }
 
         let result = [] as Array<CalcResultItem>;
         let props = this.props as GoalCompareProps;
@@ -223,7 +218,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         let props = this.props as GoalCompareProps;
         let state = this.state as GoalCompareState;
 
-        // TODO 调试
+        // TODO 画界面
         let [calcResultSvts, calcResultItems] = this.calcCompareResult();
 
         let columnServants = Renderer.buildColumnData("从者差值", []);
@@ -251,7 +246,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     render() {
-        if (!this.state || !this.state.hasOwnProperty("currentGoal") || this.state["currentGoal"] === undefined) {
+        if (!this.state || !this.state.hasOwnProperty("targetGoal") || this.state["targetGoal"] === undefined) {
             return <View />;
         }
 
