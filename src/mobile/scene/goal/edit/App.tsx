@@ -164,7 +164,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                      id={skill.iconId}>
                     <ResImgSvtSkillLvInput
                         value={`${goalSvt.skills[index].level}`}
-                        onEndingEditing={(text) => {
+                        onChange={(text) => {
                             this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
                         }}
                     />
@@ -277,7 +277,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         columnName.rows.push([
             <GoalNameInput
                 value={goalName}
-                onEndingEditing={(text) => {
+                onChange={(text) => {
                     this.updateGoalName(text);
                 }}
                 editable={!props.isCurrent}
@@ -340,8 +340,9 @@ class GoalNameInput extends Component<GoalNameInputProps, any> {
         return (
             <TextInput
                 style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
-                onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
+                onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
                 defaultValue={props.value}
+                onChange={(event) => props.onChange(event.nativeEvent.text)}
                 multiline={false}
                 editable={props.editable}
                 maxLength={20}
@@ -352,7 +353,7 @@ class GoalNameInput extends Component<GoalNameInputProps, any> {
 
 interface TextInputProps extends Renderer.Props {
     value: string;
-    onEndingEditing: (text: string) => void;
+    onChange: (text: string) => void;
 }
 
 class ResImgSvtSkillLvInput extends Component<TextInputProps, any> {
@@ -365,11 +366,12 @@ class ResImgSvtSkillLvInput extends Component<TextInputProps, any> {
                     style={{flex: 1, flexDirection: "row", borderColor: "gray", borderBottomWidth: 1, marginRight: 2}}>
                     <TextInput
                         style={{flex: 1, textAlign: "center"}}
-                        onEndEditing={(event) => props.onEndingEditing(event.nativeEvent.text)}
+                        onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
                         defaultValue={props.value}
+                        onChange={(event) => props.onChange(event.nativeEvent.text)}
                         multiline={false}
                         editable={true}
-                        maxLength={3}
+                        maxLength={2}
                     />
                 </View>
             </View>
