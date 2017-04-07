@@ -20,7 +20,7 @@ import * as Styles from "../../../view/Styles";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
-import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
+import {MstSkillContainer, MstSvtSkillContainer, MstCombineSkillContainer} from "../../../../model/impl/MstContainer";
 
 export * from "./State";
 export * from "./Action";
@@ -45,6 +45,7 @@ class GoalList extends Component<State.Props, any> {
 
         let svtRawData = [];
         let svtSkillData = null;
+        let skillCombineData = null;
         let skillData = null;
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
@@ -54,6 +55,9 @@ class GoalList extends Component<State.Props, any> {
             return MstLoader.instance.loadModel("MstSvtSkill");
         }).then((container: BaseContainer<any>) => {
             svtSkillData = container as MstSvtSkillContainer;
+            return MstLoader.instance.loadModel("MstCombineSkill");
+        }).then((container: BaseContainer<any>) => {
+            skillCombineData = container as MstCombineSkillContainer;
             return MstLoader.instance.loadModel("MstSkill");
         }).then((container: BaseContainer<any>) => {
             skillData = container as MstSkillContainer;
@@ -62,6 +66,7 @@ class GoalList extends Component<State.Props, any> {
             data.appVer = this._appVer;
             data.svtRawData = svtRawData;
             data.svtSkillData = svtSkillData;
+            data.skillCombineData = skillCombineData;
             data.skillData = skillData;
             props.actions.updateAll(data);
         });
