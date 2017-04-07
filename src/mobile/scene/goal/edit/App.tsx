@@ -98,6 +98,12 @@ class GoalEdit extends Component<GoalEditProps, any> {
     updateSkillLv(svtId: number, skillId: number, lv: number): void {
         let state = this.state as GoalEditState;
 
+        if (lv <= 0) {
+            lv = 1;
+        } else if (lv > 10) {
+            lv = 10;
+        }
+
         let goal = Object.assign({}, state.goal);
         goal.servants.forEach((svt: GoalSvt, svtIndex) => {
             if (svt.svtId !== svtId) {
