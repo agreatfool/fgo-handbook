@@ -35,14 +35,21 @@ interface CalcResultItem {
 
 class GoalCompare extends Component<GoalCompareProps, any> {
     componentDidMount() {
-        let currentStatus = this.getDefaultCurrentStatus();
-        let targetGoal = this.getTargetGoal();
+        let props = this.props as GoalCompareProps;
 
         this.setState({
-            selectedGoalId: "current",
-            currentStatus: currentStatus,
-            targetGoal: targetGoal,
+            selectedGoalId: props.goalId,
+            currentStatus: this.getDefaultCurrentStatus(),
+            targetGoal: this.getTargetGoal(),
         } as GoalCompareState);
+    }
+
+    shouldComponentUpdate(nextProps: Object, nextState: Object) {
+        if (this.state && this.state.hasOwnProperty("selectedGoalId")
+            && this.state["selectedGoalId"] == nextState["selectedGoalId"]) {
+            return false;
+        }
+        return true;
     }
 
     getDefaultCurrentStatus() {
@@ -58,12 +65,16 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return targetGoal;
     }
 
-    getTargetGoal(): Goal {
+    getTargetGoal(goalId?: string): Goal {
         let props = this.props as GoalCompareProps;
         let goal = {} as Goal;
 
+        if (!goalId) {
+            goalId = props.goalId;
+        }
+
         props.SceneGoal.goals.forEach((element: Goal) => {
-            if (element.id === props.goalId) {
+            if (element.id === goalId) {
                 goal = Object.assign({}, element);
             }
         });
@@ -118,7 +129,9 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     switchTargetGoal(): void {
-        // Dropdown List 切换目标Goal，重新计算页面内容
+        let state = this.state as GoalCompareState;
+
+        this.setState({targetGoal: this.getTargetGoal(state.selectedGoalId)});
     }
 
     calcCompareResult() {
