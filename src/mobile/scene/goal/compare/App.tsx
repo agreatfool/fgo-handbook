@@ -1,13 +1,22 @@
 import React, {Component} from "react";
 import {View} from "react-native";
 import * as Renderer from "../../../view/View";
-import {ToolBoxWrapper, TabScene, TabPageScroll, Table, DropdownList, TableLineButton} from "../../../view/View";
+import {
+    ToolBoxWrapper,
+    TabScene,
+    TabPageScroll,
+    Table,
+    DropdownList,
+    TableLineButton,
+    ResImage,
+    ResImageWithElement
+} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Goal, defaultCurrentGoal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {MstSkill, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSkill, MstSvtSkill, MstSvt} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
 
 export * from "./State";
@@ -42,14 +51,6 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             currentStatus: this.getDefaultCurrentStatus(),
             targetGoal: this.getTargetGoal(),
         } as GoalCompareState);
-    }
-
-    shouldComponentUpdate(nextProps: Object, nextState: Object) {
-        if (this.state && this.state.hasOwnProperty("selectedGoalId")
-            && this.state["selectedGoalId"] == nextState["selectedGoalId"]) {
-            return false;
-        }
-        return true;
     }
 
     getDefaultCurrentStatus() {
@@ -227,16 +228,75 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return result;
     }
 
+    getSvtName(svtId: number): MstSvt {
+        let props = this.props as GoalCompareProps;
+        let result = {} as MstSvt;
+
+        props.SceneGoal.svtRawData.forEach((svt: MstSvt) => {
+            if (svt.id === svtId) {
+                result = svt;
+            }
+        });
+
+        return result;
+    }
+
+    divideDataIntoRows(data: Array<any>, dataInRow = 5): Array<Array<any>> {
+        let result: Array<Array<any>> = [];
+
+        for (let index = 0, loop = data.length; index < loop; index += dataInRow) {
+            result.push(data.slice(index, index + dataInRow));
+        }
+
+        return result;
+    }
+
     prepareData() {
         let props = this.props as GoalCompareProps;
         let state = this.state as GoalCompareState;
 
-        // TODO 画界面
         let [calcResultSvts, calcResultItems] = this.calcCompareResult();
+        calcResultSvts = calcResultSvts as Array<CalcResultSvt>;
+        calcResultItems = calcResultItems as Array<CalcResultItem>;
 
         let columnServants = Renderer.buildColumnData("从者差值", []);
+        calcResultSvts.forEach((svt: CalcResultSvt) => {
+            columnServants.rows.push([
+                <ResImage appVer={props.SceneGoal.appVer}
+                          type="face"
+                          size="small"
+                          id={svt.svtId}/>,
+                this.getSvtName(svt.svtId).name
+            ]);
+            let itemsDivided = this.divideDataIntoRows(svt.items);
+            itemsDivided.forEach((items: Array<CalcResultItem>) => {
+                columnServants.rows.push(items.map((item: CalcResultItem) => {
+                    return <ResImageWithElement
+                        width={77}
+                        appVer={props.SceneGoal.appVer}
+                        type="item"
+                        id={item.itemId}
+                        size="small"
+                        text={`x${item.count}`}
+                    />;
+                }));
+            });
+        });
 
         let columnMaterials = Renderer.buildColumnData("材料差值", []);
+        let itemDivided = this.divideDataIntoRows(calcResultItems);
+        itemDivided.forEach((items: Array<CalcResultItem>) => {
+            columnMaterials.rows.push(items.map((item: CalcResultItem) => {
+                return <ResImageWithElement
+                    width={77}
+                    appVer={props.SceneGoal.appVer}
+                    type="item"
+                    id={item.itemId}
+                    size="small"
+                    text={`x${item.count}`}
+                />;
+            }));
+        });
 
         let columnSelectTarget = Renderer.buildColumnData("切换比对目标", []);
         columnSelectTarget.rows.push([
