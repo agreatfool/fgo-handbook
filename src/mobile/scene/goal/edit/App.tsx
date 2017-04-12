@@ -165,6 +165,9 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <ResImgSvtSkillLvInput
                         value={`${goalSvt.skills[index].level}`}
                         onChange={(text) => {
+                            if (text === "") {
+                                return;
+                            }
                             this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
                         }}
                     />
@@ -278,6 +281,9 @@ class GoalEdit extends Component<GoalEditProps, any> {
             <GoalNameInput
                 value={goalName}
                 onChange={(text) => {
+                    if (text === "") {
+                        return;
+                    }
                     this.updateGoalName(text);
                 }}
                 editable={!props.isCurrent}
