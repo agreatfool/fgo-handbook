@@ -148,7 +148,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 svtId: targetSvt.svtId,
                 items: items
             } as CalcResultSvt);
-            calcResultItems = this.calcMergeItems(calcResultItems, items);
+            calcResultItems = this.calcMergeItems(MstUtil.arrDeepCopy(calcResultItems), MstUtil.arrDeepCopy(items));
         });
 
         return [calcResultSvts, calcResultItems];
@@ -194,11 +194,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     calcSkillItems(svtId: number, currentLv: number, targetLv: number): Array<CalcResultItem> {
-        if (currentLv > targetLv || targetLv === 1) {
+        if (currentLv >= targetLv || targetLv === 1) {
             return [];
-        }
-        if (targetLv >= 10) {
-            targetLv = 9; // 9意味着"9级升到10级的配置"，最高就到9
         }
 
         let result = [] as Array<CalcResultItem>;
@@ -206,8 +203,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         let container = props.SceneGoal.skillCombineData;
 
         let items = new Map<number, number>();
-        for (let lvIndex = currentLv; lvIndex <= targetLv; lvIndex++) {
+        for (let lvIndex = currentLv; lvIndex < targetLv; lvIndex++) {
             let combineData = container.get(svtId, lvIndex);
+            if (!combineData || !combineData.itemIds) {
+                console.log("Invalid skill combine data: svtId: ", svtId, "lvIndex: ", lvIndex, combineData);
+                continue;
+            }
             combineData.itemIds.forEach((itemId: number, index) => {
                 let count = combineData.itemNums[index];
                 if (items.has(itemId)) {
