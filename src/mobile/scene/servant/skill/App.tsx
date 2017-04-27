@@ -93,6 +93,7 @@ class ServantSkill extends Component<State.Props, any> {
     }
 
     prepareTreasureData(treasure: SvtInfoTreasureDetail) {
+        //FIXME 宝具需要显示类型，否则红蓝绿完全就不知道了
         let column = Renderer.buildColumnData("宝具", []);
 
         column.rows.push([
