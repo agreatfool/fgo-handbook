@@ -1654,5 +1654,753 @@
         "imageId": 6529,
         "type": 11,
         "dropPriority": 8290
+    },
+    {
+        "id": 94009601,
+        "name": "月見団子",
+        "detail": "【イベントアイテム】\n『復刻:月の女神はお団子の夢を見るか? ライト版』\nで回収した、祭儀用の団子。",
+        "imageId": 94000401,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "id": 94009602,
+        "name": "特選団子",
+        "detail": "【イベントアイテム】\n『復刻:月の女神はお団子の夢を見るか? ライト版』\nで回収した、幻のニホンの銘菓、\n七や橋屋の特選団子。",
+        "imageId": 94000402,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "id": 94009801,
+        "name": "マシュからの手紙",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\nマシュから届いた何の変哲もない手紙。\n\n手紙を受け取ったことにより\n新たに期間限定イベントクエスト\n「チョコが陽だまりで溶けぬ間に」\nが発生しました。\n\n※このアイテム自体の使用用途はありません。",
+        "imageId": 94001801,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "id": 94009802,
+        "name": "材料チョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、シンプルなチョコレート。",
+        "imageId": 94001802,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "id": 94009803,
+        "name": "剣のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、セイバーのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001803,
+        "type": 15,
+        "dropPriority": 2010
+    },
+    {
+        "script": {},
+        "id": 94009804,
+        "name": "弓のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、アーチャーのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001804,
+        "type": 15,
+        "dropPriority": 2009
+    },
+    {
+        "script": {},
+        "id": 94009805,
+        "name": "槍のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、ランサーのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001805,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "id": 94009806,
+        "name": "騎のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、ライダーのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001806,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "id": 94009807,
+        "name": "術のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、キャスターのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001807,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "id": 94009808,
+        "name": "殺のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、アサシンのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001808,
+        "type": 15,
+        "dropPriority": 2005
+    },
+    {
+        "script": {},
+        "id": 94009809,
+        "name": "狂のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、バーサーカーのエンブレムが\n刻まれたコイン型のチョコ。",
+        "imageId": 94001809,
+        "type": 15,
+        "dropPriority": 2004
+    },
+    {
+        "script": {},
+        "id": 94009810,
+        "name": "全のコインチョコ",
+        "detail": "【イベントアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、あらゆるクラスのコインチョコに\n交換可能なコイン型のチョコ。",
+        "imageId": 94001810,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009811,
+        "name": "剣のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをセイバーのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nセイバークラスのみに限定できる。",
+        "imageId": 94009811,
+        "type": 19,
+        "dropPriority": 4010
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009812,
+        "name": "弓のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをアーチャーのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nアーチャークラスのみに限定できる。",
+        "imageId": 94009812,
+        "type": 19,
+        "dropPriority": 4009
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009813,
+        "name": "槍のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをランサーのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nランサークラスのみに限定できる。",
+        "imageId": 94009813,
+        "type": 19,
+        "dropPriority": 4008
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009814,
+        "name": "騎のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをライダーのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nライダークラスのみに限定できる。",
+        "imageId": 94009814,
+        "type": 19,
+        "dropPriority": 4007
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009815,
+        "name": "術のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをキャスターのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nキャスタークラスのみに限定できる。",
+        "imageId": 94009815,
+        "type": 19,
+        "dropPriority": 4006
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009816,
+        "name": "殺のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをアサシンのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nアサシンクラスのみに限定できる。",
+        "imageId": 94009816,
+        "type": 19,
+        "dropPriority": 4005
+    },
+    {
+        "script": {
+            "BOOST_EFFECT_TIMING": 1
+        },
+        "id": 94009817,
+        "name": "狂のチョコ型",
+        "detail": "【イベントアイテム／ブーストアイテム】\n『復刻：チョコレート・レディの空騒ぎ』で\n手に入れた、チョコをバーサーカーのエンブレムの\n形に成型する型。\n\n『復刻：チョコレート・レディの空騒ぎ』の\nフリークエストで使用すると、出現エネミーを\nバーサーカークラスのみに限定できる。",
+        "imageId": 94009817,
+        "type": 19,
+        "dropPriority": 4004
+    },
+    {
+        "script": {},
+        "id": 6530,
+        "name": "魔術髄液",
+        "detail": "【スキル強化＆霊基再臨素材】\nただの人間を魔術師に仕立て上げる霊薬。\n脊髄に打ち込むことで僅かな刻の間\n疑似的な魔術回路を形成する。",
+        "imageId": 6530,
+        "type": 11,
+        "dropPriority": 8103
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011301,
+        "name": "永楽銭",
+        "detail": "【イベントアイテム】\n『ぐだぐだ明治維新』で手に入れた、\n小銭の束。\n\nちなみにちびノブの時給は20文ぐらい。\n週休二日で福利厚生も完備。\n社員の結婚式などには\nノッブがスピーチに押しかけて\n敦盛したりするのでありがた迷惑。",
+        "imageId": 94011301,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011302,
+        "name": "砂金",
+        "detail": "【イベントアイテム】\n『ぐだぐだ明治維新』で手に入れた、\n砂状の自然金。\n\n幕末といえば軍資金を求めて北海道から\nアラスカ経由の道中で\n謎のアメリケン忍者マスターと\nバトルオブウエスタンしたり、\n流れで見つかる謎の地図のポイントで\nゴールドラッシュしたりしてこそじゃな！",
+        "imageId": 94011302,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011303,
+        "name": "小判",
+        "detail": "【イベントアイテム】\n『ぐだぐだ明治維新』で手に入れた、 \n黄金色の最中…もとい小判。 \n\nこちら信長様の好物の最中でございます。 \nどうぞお納めください。\nほほう……（チラリ） 尾張屋、お主も悪よのう……。\nうっはっはっはっは！\nうん、これやってみたかったんだよネ！\nこのあと謎のジジイと２人組に襲われたりする。",
+        "imageId": 94011303,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {
+            "eventGroupId": 8005002,
+            "eventId": 80050
+        },
+        "eventId": 80050,
+        "eventGroupId": 8005002,
+        "id": 94011304,
+        "name": "新選組ポイント",
+        "detail": "【イベントポイント】\n『ぐだぐだ明治維新』で手に入れた、\n新選組と共に戦った武勇を讃えるポイント。\n\n通称おき太ポイント。",
+        "imageId": 94011304,
+        "type": 14,
+        "dropPriority": 3004
+    },
+    {
+        "script": {
+            "eventGroupId": 8005001,
+            "eventId": 80050
+        },
+        "eventId": 80050,
+        "eventGroupId": 8005001,
+        "id": 94011305,
+        "name": "織田幕府ポイント",
+        "detail": "【イベントポイント】\n『ぐだぐだ明治維新』で手に入れた、\n織田幕府と共に戦った功績を讃えるポイント。\n\n通称ノッブポイント。",
+        "imageId": 94011305,
+        "type": 14,
+        "dropPriority": 3005
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011306,
+        "name": "蘭奢待",
+        "detail": "【イベントアイテム／霊基再臨素材】\n『ぐだぐだ明治維新』で手に入れた、\n天下第一の名香と謳われる香木。\n\n正倉院に納められていたものを\nテンションあがったノッブが切り取ったものを\n茶々が遊びに行ったときにもらってきたもの。\nえ？ 茶々好みの入れ物より、\n中身の木っ端の方が価値があるって？ \nマジか。",
+        "imageId": 94011306,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011307,
+        "name": "日輪扇子",
+        "detail": "【イベント交換アイテム】\n『ぐだぐだ明治維新』で手に入れた、\n日輪模様のめでたい扇子。\n\n茶々好みの超ナイスティングな逸品なんだけど、\n派手すぎて利休とかには受けが悪かった。\n侘び寂びとか茶々\nぜーんぜん趣味じゃないんですけどー！",
+        "imageId": 94011307,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011901,
+        "name": "サクラチップ",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、仮想通貨サクラメントの硬貨。\nSE.RA.PHに漂う余剰魔力リソース。\n",
+        "imageId": 94011901,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011902,
+        "name": "サクラマネー",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、仮想通貨サクラメントの紙幣。\nSE.RA.PHに漂う高純度の魔力リソース。\n紙幣に印刷された偉人は「黒コートの天使」と\n言うらしいが、どう見ても悪魔である。\n",
+        "imageId": 94011902,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011903,
+        "name": "KP",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、謎のアイテム。\nＫＰが何の略かはまるで分からない。\n",
+        "imageId": 94011903,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011905,
+        "name": "リップの鍵",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nパッションリップの心の鍵。",
+        "imageId": 94011905,
+        "type": 15,
+        "dropPriority": 2005
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011906,
+        "name": "メルトの鍵",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nメルトリリスの心の鍵。",
+        "imageId": 94011906,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011907,
+        "name": "鈴鹿の鍵",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\n鈴鹿御前の心の鍵。",
+        "imageId": 94011907,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011908,
+        "name": "こちょこちょアーム",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nあやしい手つきのマジックハンド。\nキミよ、世界をひっくり返せ。",
+        "imageId": 94011908,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011909,
+        "name": "キアラパニッシャー『メルトちゃんデスwhip』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『五蘊黒縄』を打ち破り\n魔性菩薩化を阻止する。",
+        "imageId": 94011909,
+        "type": 15,
+        "dropPriority": 2005
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011911,
+        "name": "思い出のリボン",
+        "detail": "【霊基再臨素材】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、ピンク色のリボン。\n赤い悪魔から、桜色の悪魔へ。",
+        "imageId": 94011911,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011912,
+        "name": "キアラパニッシャーリセット",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nにおいて、\nすべてのキアラパニッシャーの購入状態をリセットし、\n購入に使ったKPを返還する。",
+        "imageId": 94011912,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011913,
+        "name": "ゲート・キー（エルボー）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011914,
+        "name": "教会の鍵",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2004
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011915,
+        "name": "ゲート・キー（アンクル）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2005
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011916,
+        "name": "ゲート・キー（ネコ）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011917,
+        "name": "ゲート・キー（セパレータ）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011918,
+        "name": "ゲート・キー（カインド）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011919,
+        "name": "ゲート・キー（ネープ）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2009
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011920,
+        "name": "ゲート・キー（ステーション）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2000
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011921,
+        "name": "ゲート・キー（レイ）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011922,
+        "name": "ゲート・キー（コースター）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011923,
+        "name": "ゲート・キー（ジェイル）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011924,
+        "name": "ゲート・キー（ダーク）",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nSE.RA.PHのゲートを開くための鍵。",
+        "imageId": 94011904,
+        "type": 15,
+        "dropPriority": 2004
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011925,
+        "name": "キアラパニッシャー『ダメージ抑制スプレー』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『攻撃力アップ20%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011926,
+        "name": "キアラパニッシャー『化粧落とし・防御力』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『防御力アップ20%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011927,
+        "name": "キアラパニッシャー『スーパー賢者カプセル』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『宝具威力アップ50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011928,
+        "name": "キアラパニッシャー『クリティカル・ノン』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『クリティカル威力アップ50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2009
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011929,
+        "name": "キアラパニッシャー『化粧落とし・弱耐性』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『弱体耐性アップ50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2000
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011930,
+        "name": "キアラパニッシャー『スタン・グッド・スキン』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『行動不能耐性アップ50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011931,
+        "name": "キアラパニッシャー『Quickツウジール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『Quick攻撃耐性50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2002
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011932,
+        "name": "キアラパニッシャー『Artsツウジール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『Arts攻撃耐性50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2003
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011933,
+        "name": "キアラパニッシャー『Busterツウジール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『Buster攻撃耐性50%』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2004
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011934,
+        "name": "キアラパニッシャー『スリップ・バリアー』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力\n『毎ターン終了時に敵全体のHPを1000減らす』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2005
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011935,
+        "name": "キアラパニッシャー『スター・セーフ』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力\n『毎ターン終了時に敵全体のスターを10減らす』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2006
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011936,
+        "name": "キアラパニッシャー『抗エロス剤』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力\n『毎ターン終了時に敵全体のNPを5%減らす』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011937,
+        "name": "キアラパニッシャー『賢者カプセルEX』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『毎ターンHPを5000回復する』\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011938,
+        "name": "キアラパニッシャー『ただ一つの色』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『万色悠滞 EX』の魅了効果\nを打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2009
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011939,
+        "name": "キアラパニッシャー『人理倫理剣』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの能力『獣の権能 A』の使用\nを封じる。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2000
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011940,
+        "name": "キアラパニッシャー『人魚姫の原文』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒ戦でコンティニューを可能にする。",
+        "imageId": 94011909,
+        "type": 15,
+        "dropPriority": 2001
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011941,
+        "name": "キアラパニッシャー『Quickヨクアタール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒに\n『Quick攻撃耐性ダウン20%』を付与する。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2007
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011942,
+        "name": "キアラパニッシャー『Artsヨクアタール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒに\n『Arts攻撃耐性ダウン20%』を付与する。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2008
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011943,
+        "name": "キアラパニッシャー『Busterヨクアタール』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒに\n『Buster攻撃耐性ダウン20%』を付与する。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2009
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011944,
+        "name": "キアラパニッシャー『増殖抑制剤アンチセル』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒに\n『スキルと宝具によるHP回復力ダウン50%』を付与する。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2000
+    },
+    {
+        "script": {},
+        "eventId": 0,
+        "eventGroupId": 0,
+        "id": 94011945,
+        "name": "キアラパニッシャー『宝具封印ガードマスク』",
+        "detail": "【イベントアイテム】\n『Fate/EXTRA CCC スペシャルイベント』\nで手に入れた、\nキアラのエクスタシーを抑え込むシール。\n\nビーストⅢ／Ｒの宝具の宝具封印効果を打ち消す。",
+        "imageId": 94011910,
+        "type": 15,
+        "dropPriority": 2001
     }
 ]

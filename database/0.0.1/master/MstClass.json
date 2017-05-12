@@ -2,126 +2,187 @@
     {
         "id": 1,
         "name": "セイバー",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 2,
         "name": "アーチャー",
-        "attackRate": 950
+        "attackRate": 950,
+        "frameId": 0
     },
     {
         "id": 3,
         "name": "ランサー",
-        "attackRate": 1050
+        "attackRate": 1050,
+        "frameId": 0
     },
     {
         "id": 4,
         "name": "ライダー",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 5,
         "name": "キャスター",
-        "attackRate": 900
+        "attackRate": 900,
+        "frameId": 0
     },
     {
         "id": 6,
         "name": "アサシン",
-        "attackRate": 900
+        "attackRate": 900,
+        "frameId": 0
     },
     {
         "id": 7,
         "name": "バーサーカー",
-        "attackRate": 1100
+        "attackRate": 1100,
+        "frameId": 0
     },
     {
         "id": 8,
         "name": "シールダー",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 9,
         "name": "ルーラー",
-        "attackRate": 1100
+        "attackRate": 1100,
+        "frameId": 0
     },
     {
         "id": 10,
-        "name": "？",
-        "attackRate": 1000
+        "name": "アルターエゴ",
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 11,
         "name": "アヴェンジャー",
-        "attackRate": 1100
+        "attackRate": 1100,
+        "frameId": 0
     },
     {
         "id": 12,
         "name": "？",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 13,
         "name": "？",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 14,
         "name": "？",
-        "attackRate": 950
+        "attackRate": 950,
+        "frameId": 0
     },
     {
         "id": 15,
         "name": "？",
-        "attackRate": 1050
+        "attackRate": 1050,
+        "frameId": 0
     },
     {
         "id": 16,
         "name": "？",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 17,
         "name": "グランドキャスター",
-        "attackRate": 900
+        "attackRate": 900,
+        "frameId": 0
     },
     {
         "id": 18,
         "name": "？",
-        "attackRate": 900
+        "attackRate": 900,
+        "frameId": 0
     },
     {
         "id": 19,
         "name": "？",
-        "attackRate": 1100
+        "attackRate": 1100,
+        "frameId": 0
+    },
+    {
+        "id": 20,
+        "name": "ビーストII",
+        "attackRate": 1000,
+        "frameId": 20
+    },
+    {
+        "id": 21,
+        "name": "？",
+        "attackRate": 1000,
+        "frameId": 0
+    },
+    {
+        "id": 22,
+        "name": "ビーストI",
+        "attackRate": 1000,
+        "frameId": 20
+    },
+    {
+        "id": 23,
+        "name": "ムーンキャンサー",
+        "attackRate": 1000,
+        "frameId": 0
+    },
+    {
+        "id": 24,
+        "name": "ビーストIII",
+        "attackRate": 1000,
+        "frameId": 20
     },
     {
         "id": 97,
         "name": "不明",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 98,
         "name": "NPC(不使用)",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 99,
         "name": "エネミー(不使用)",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 100,
         "name": "テスト(不使用)",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
+    },
+    {
+        "id": 124,
+        "name": "？",
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 1000,
         "name": "OTHER",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     },
     {
         "id": 1001,
         "name": "ALL",
-        "attackRate": 1000
+        "attackRate": 1000,
+        "frameId": 0
     }
 ]

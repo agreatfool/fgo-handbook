@@ -22337,7 +22337,7 @@
         "tdPointA": 87,
         "tdPointB": 87,
         "tdPointEx": 87,
-        "tdPointD": 300
+        "tdPointDef": 300
     },
     {
         "treaureDeviceId": 101701,
@@ -22407,6 +22407,756 @@
         "tdPointA": 86,
         "tdPointB": 86,
         "tdPointEx": 86,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 702401,
+        "lv": 1,
+        "tdPoint": 107,
+        "tdPointQ": 107,
+        "tdPointA": 107,
+        "tdPointB": 107,
+        "tdPointEx": 107,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702401,
+        "lv": 2,
+        "tdPoint": 107,
+        "tdPointQ": 107,
+        "tdPointA": 107,
+        "tdPointB": 107,
+        "tdPointEx": 107,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702401,
+        "lv": 3,
+        "tdPoint": 107,
+        "tdPointQ": 107,
+        "tdPointA": 107,
+        "tdPointB": 107,
+        "tdPointEx": 107,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702401,
+        "lv": 4,
+        "tdPoint": 107,
+        "tdPointQ": 107,
+        "tdPointA": 107,
+        "tdPointB": 107,
+        "tdPointEx": 107,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702401,
+        "lv": 5,
+        "tdPoint": 107,
+        "tdPointQ": 107,
+        "tdPointA": 107,
+        "tdPointB": 107,
+        "tdPointEx": 107,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 201601,
+        "lv": 1,
+        "tdPoint": 43,
+        "tdPointQ": 43,
+        "tdPointA": 43,
+        "tdPointB": 43,
+        "tdPointEx": 43,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 201601,
+        "lv": 2,
+        "tdPoint": 43,
+        "tdPointQ": 43,
+        "tdPointA": 43,
+        "tdPointB": 43,
+        "tdPointEx": 43,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 201601,
+        "lv": 3,
+        "tdPoint": 43,
+        "tdPointQ": 43,
+        "tdPointA": 43,
+        "tdPointB": 43,
+        "tdPointEx": 43,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 201601,
+        "lv": 4,
+        "tdPoint": 43,
+        "tdPointQ": 43,
+        "tdPointA": 43,
+        "tdPointB": 43,
+        "tdPointEx": 43,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 201601,
+        "lv": 5,
+        "tdPoint": 43,
+        "tdPointQ": 43,
+        "tdPointA": 43,
+        "tdPointB": 43,
+        "tdPointEx": 43,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202300,
+        "lv": 1,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202300,
+        "lv": 2,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202300,
+        "lv": 3,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202300,
+        "lv": 4,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202300,
+        "lv": 5,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202301,
+        "lv": 1,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202301,
+        "lv": 2,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202301,
+        "lv": 3,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202301,
+        "lv": 4,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 202301,
+        "lv": 5,
+        "tdPoint": 38,
+        "tdPointQ": 38,
+        "tdPointA": 38,
+        "tdPointB": 38,
+        "tdPointEx": 38,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 602601,
+        "lv": 1,
+        "tdPoint": 71,
+        "tdPointQ": 71,
+        "tdPointA": 71,
+        "tdPointB": 71,
+        "tdPointEx": 71,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 602601,
+        "lv": 2,
+        "tdPoint": 71,
+        "tdPointQ": 71,
+        "tdPointA": 71,
+        "tdPointB": 71,
+        "tdPointEx": 71,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 602601,
+        "lv": 3,
+        "tdPoint": 71,
+        "tdPointQ": 71,
+        "tdPointA": 71,
+        "tdPointB": 71,
+        "tdPointEx": 71,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 602601,
+        "lv": 4,
+        "tdPoint": 71,
+        "tdPointQ": 71,
+        "tdPointA": 71,
+        "tdPointB": 71,
+        "tdPointEx": 71,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 602601,
+        "lv": 5,
+        "tdPoint": 71,
+        "tdPointQ": 71,
+        "tdPointA": 71,
+        "tdPointB": 71,
+        "tdPointEx": 71,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1100501,
+        "lv": 1,
+        "tdPoint": 79,
+        "tdPointQ": 79,
+        "tdPointA": 79,
+        "tdPointB": 79,
+        "tdPointEx": 79,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 1100501,
+        "lv": 2,
+        "tdPoint": 79,
+        "tdPointQ": 79,
+        "tdPointA": 79,
+        "tdPointB": 79,
+        "tdPointEx": 79,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 1100501,
+        "lv": 3,
+        "tdPoint": 79,
+        "tdPointQ": 79,
+        "tdPointA": 79,
+        "tdPointB": 79,
+        "tdPointEx": 79,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 1100501,
+        "lv": 4,
+        "tdPoint": 79,
+        "tdPointQ": 79,
+        "tdPointA": 79,
+        "tdPointB": 79,
+        "tdPointEx": 79,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 1100501,
+        "lv": 5,
+        "tdPoint": 79,
+        "tdPointQ": 79,
+        "tdPointA": 79,
+        "tdPointB": 79,
+        "tdPointEx": 79,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 102901,
+        "lv": 1,
+        "tdPoint": 84,
+        "tdPointQ": 84,
+        "tdPointA": 84,
+        "tdPointB": 84,
+        "tdPointEx": 84,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 102901,
+        "lv": 2,
+        "tdPoint": 84,
+        "tdPointQ": 84,
+        "tdPointA": 84,
+        "tdPointB": 84,
+        "tdPointEx": 84,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 102901,
+        "lv": 3,
+        "tdPoint": 84,
+        "tdPointQ": 84,
+        "tdPointA": 84,
+        "tdPointB": 84,
+        "tdPointEx": 84,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 102901,
+        "lv": 4,
+        "tdPoint": 84,
+        "tdPointQ": 84,
+        "tdPointA": 84,
+        "tdPointB": 84,
+        "tdPointEx": 84,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 102901,
+        "lv": 5,
+        "tdPoint": 84,
+        "tdPointQ": 84,
+        "tdPointA": 84,
+        "tdPointB": 84,
+        "tdPointEx": 84,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 702501,
+        "lv": 1,
+        "tdPoint": 108,
+        "tdPointQ": 108,
+        "tdPointA": 108,
+        "tdPointB": 108,
+        "tdPointEx": 108,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702501,
+        "lv": 2,
+        "tdPoint": 108,
+        "tdPointQ": 108,
+        "tdPointA": 108,
+        "tdPointB": 108,
+        "tdPointEx": 108,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702501,
+        "lv": 3,
+        "tdPoint": 108,
+        "tdPointQ": 108,
+        "tdPointA": 108,
+        "tdPointB": 108,
+        "tdPointEx": 108,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702501,
+        "lv": 4,
+        "tdPoint": 108,
+        "tdPointQ": 108,
+        "tdPointA": 108,
+        "tdPointB": 108,
+        "tdPointEx": 108,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702501,
+        "lv": 5,
+        "tdPoint": 108,
+        "tdPointQ": 108,
+        "tdPointA": 108,
+        "tdPointB": 108,
+        "tdPointEx": 108,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702601,
+        "lv": 1,
+        "tdPoint": 103,
+        "tdPointQ": 103,
+        "tdPointA": 103,
+        "tdPointB": 103,
+        "tdPointEx": 103,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702601,
+        "lv": 2,
+        "tdPoint": 103,
+        "tdPointQ": 103,
+        "tdPointA": 103,
+        "tdPointB": 103,
+        "tdPointEx": 103,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702601,
+        "lv": 3,
+        "tdPoint": 103,
+        "tdPointQ": 103,
+        "tdPointA": 103,
+        "tdPointB": 103,
+        "tdPointEx": 103,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702601,
+        "lv": 4,
+        "tdPoint": 103,
+        "tdPointQ": 103,
+        "tdPointA": 103,
+        "tdPointB": 103,
+        "tdPointEx": 103,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 702601,
+        "lv": 5,
+        "tdPoint": 103,
+        "tdPointQ": 103,
+        "tdPointA": 103,
+        "tdPointB": 103,
+        "tdPointEx": 103,
+        "tdPointDef": 500
+    },
+    {
+        "treaureDeviceId": 100602,
+        "lv": 1,
+        "tdPoint": 70,
+        "tdPointQ": 70,
+        "tdPointA": 70,
+        "tdPointB": 70,
+        "tdPointEx": 70,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 100602,
+        "lv": 2,
+        "tdPoint": 70,
+        "tdPointQ": 70,
+        "tdPointA": 70,
+        "tdPointB": 70,
+        "tdPointEx": 70,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 100602,
+        "lv": 3,
+        "tdPoint": 70,
+        "tdPointQ": 70,
+        "tdPointA": 70,
+        "tdPointB": 70,
+        "tdPointEx": 70,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 100602,
+        "lv": 4,
+        "tdPoint": 70,
+        "tdPointQ": 70,
+        "tdPointA": 70,
+        "tdPointB": 70,
+        "tdPointEx": 70,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 100602,
+        "lv": 5,
+        "tdPoint": 70,
+        "tdPointQ": 70,
+        "tdPointA": 70,
+        "tdPointB": 70,
+        "tdPointEx": 70,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 103001,
+        "lv": 1,
+        "tdPoint": 57,
+        "tdPointQ": 57,
+        "tdPointA": 57,
+        "tdPointB": 57,
+        "tdPointEx": 57,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 103001,
+        "lv": 2,
+        "tdPoint": 57,
+        "tdPointQ": 57,
+        "tdPointA": 57,
+        "tdPointB": 57,
+        "tdPointEx": 57,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 103001,
+        "lv": 3,
+        "tdPoint": 57,
+        "tdPointQ": 57,
+        "tdPointA": 57,
+        "tdPointB": 57,
+        "tdPointEx": 57,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 103001,
+        "lv": 4,
+        "tdPoint": 57,
+        "tdPointQ": 57,
+        "tdPointA": 57,
+        "tdPointB": 57,
+        "tdPointEx": 57,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 103001,
+        "lv": 5,
+        "tdPoint": 57,
+        "tdPointQ": 57,
+        "tdPointA": 57,
+        "tdPointB": 57,
+        "tdPointEx": 57,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 1000101,
+        "lv": 1,
+        "tdPoint": 77,
+        "tdPointQ": 77,
+        "tdPointA": 77,
+        "tdPointB": 77,
+        "tdPointEx": 77,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000101,
+        "lv": 2,
+        "tdPoint": 77,
+        "tdPointQ": 77,
+        "tdPointA": 77,
+        "tdPointB": 77,
+        "tdPointEx": 77,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000101,
+        "lv": 3,
+        "tdPoint": 77,
+        "tdPointQ": 77,
+        "tdPointA": 77,
+        "tdPointB": 77,
+        "tdPointEx": 77,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000101,
+        "lv": 4,
+        "tdPoint": 77,
+        "tdPointQ": 77,
+        "tdPointA": 77,
+        "tdPointB": 77,
+        "tdPointEx": 77,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000101,
+        "lv": 5,
+        "tdPoint": 77,
+        "tdPointQ": 77,
+        "tdPointA": 77,
+        "tdPointB": 77,
+        "tdPointEx": 77,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000201,
+        "lv": 1,
+        "tdPoint": 92,
+        "tdPointQ": 92,
+        "tdPointA": 92,
+        "tdPointB": 92,
+        "tdPointEx": 92,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000201,
+        "lv": 2,
+        "tdPoint": 92,
+        "tdPointQ": 92,
+        "tdPointA": 92,
+        "tdPointB": 92,
+        "tdPointEx": 92,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000201,
+        "lv": 3,
+        "tdPoint": 92,
+        "tdPointQ": 92,
+        "tdPointA": 92,
+        "tdPointB": 92,
+        "tdPointEx": 92,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000201,
+        "lv": 4,
+        "tdPoint": 92,
+        "tdPointQ": 92,
+        "tdPointA": 92,
+        "tdPointB": 92,
+        "tdPointEx": 92,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000201,
+        "lv": 5,
+        "tdPoint": 92,
+        "tdPointQ": 92,
+        "tdPointA": 92,
+        "tdPointB": 92,
+        "tdPointEx": 92,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000301,
+        "lv": 1,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000301,
+        "lv": 2,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000301,
+        "lv": 3,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000301,
+        "lv": 4,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 1000301,
+        "lv": 5,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 400
+    },
+    {
+        "treaureDeviceId": 2300101,
+        "lv": 1,
+        "tdPoint": 61,
+        "tdPointQ": 61,
+        "tdPointA": 61,
+        "tdPointB": 61,
+        "tdPointEx": 61,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 2300101,
+        "lv": 2,
+        "tdPoint": 61,
+        "tdPointQ": 61,
+        "tdPointA": 61,
+        "tdPointB": 61,
+        "tdPointEx": 61,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 2300101,
+        "lv": 3,
+        "tdPoint": 61,
+        "tdPointQ": 61,
+        "tdPointA": 61,
+        "tdPointB": 61,
+        "tdPointEx": 61,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 2300101,
+        "lv": 4,
+        "tdPoint": 61,
+        "tdPointQ": 61,
+        "tdPointA": 61,
+        "tdPointB": 61,
+        "tdPointEx": 61,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 2300101,
+        "lv": 5,
+        "tdPoint": 61,
+        "tdPointQ": 61,
+        "tdPointA": 61,
+        "tdPointB": 61,
+        "tdPointEx": 61,
         "tdPointDef": 300
     }
 ]

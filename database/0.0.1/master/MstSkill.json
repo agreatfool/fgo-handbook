@@ -10822,13 +10822,6 @@
         "iconId": 601
     },
     {
-        "id": 304550,
-        "type": 2,
-        "name": "境界にて A",
-        "maxLv": 10,
-        "iconId": 409
-    },
-    {
         "id": 305450,
         "type": 1,
         "name": "美の顕現 B",
@@ -12311,5 +12304,2217 @@
         "name": "空の仏",
         "maxLv": 1,
         "iconId": 401
+    },
+    {
+        "id": 990668,
+        "type": 2,
+        "name": "幽谷の淵",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 990669,
+        "type": 2,
+        "name": "固有結界",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 990670,
+        "type": 2,
+        "name": "固有結界",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 990671,
+        "type": 2,
+        "name": "若返りの霊薬",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 990672,
+        "type": 2,
+        "name": "若返りの霊薬",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 990673,
+        "type": 2,
+        "name": "謎の仮面群",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 990674,
+        "type": 2,
+        "name": "謎の仮面群",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 57350,
+        "type": 1,
+        "name": "直感 C",
+        "maxLv": 10,
+        "iconId": 603
+    },
+    {
+        "id": 329650,
+        "type": 1,
+        "name": "∞黒餡子 EX",
+        "maxLv": 10,
+        "iconId": 600
+    },
+    {
+        "id": 330350,
+        "type": 1,
+        "name": "王の見えざる手 C",
+        "maxLv": 10,
+        "iconId": 537
+    },
+    {
+        "id": 331550,
+        "type": 2,
+        "name": "オルトリアクター A",
+        "maxLv": 10,
+        "iconId": 401
+    },
+    {
+        "id": 990675,
+        "type": 2,
+        "name": "キュート・オランジェット",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 990676,
+        "type": 2,
+        "name": "キュート・オランジェット",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 990677,
+        "type": 2,
+        "name": "ショコラティエ",
+        "maxLv": 1,
+        "iconId": 305
+    },
+    {
+        "id": 990678,
+        "type": 2,
+        "name": "ショコラティエ",
+        "maxLv": 1,
+        "iconId": 305
+    },
+    {
+        "id": 990679,
+        "type": 2,
+        "name": "スイート・クリスタル",
+        "maxLv": 1,
+        "iconId": 312
+    },
+    {
+        "id": 990680,
+        "type": 2,
+        "name": "スイート・クリスタル",
+        "maxLv": 1,
+        "iconId": 312
+    },
+    {
+        "id": 990681,
+        "type": 2,
+        "name": "フォンダン・オ・ショコラ",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 990682,
+        "type": 2,
+        "name": "フォンダン・オ・ショコラ",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 990683,
+        "type": 2,
+        "name": "チョコ・エンゼル",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990684,
+        "type": 2,
+        "name": "チョコ・エンゼル",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990685,
+        "type": 2,
+        "name": "ビター・ブラック",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990686,
+        "type": 2,
+        "name": "ビター・ブラック",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990687,
+        "type": 2,
+        "name": "ブレスフル・タイム",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990688,
+        "type": 2,
+        "name": "ブレスフル・タイム",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990689,
+        "type": 2,
+        "name": "勝者の余裕",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 990690,
+        "type": 2,
+        "name": "勝者の余裕",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 990691,
+        "type": 2,
+        "name": "黒騎士くん",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 990693,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990694,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990695,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990696,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990697,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990698,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990699,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990700,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990701,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990702,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990703,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990704,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990705,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990706,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990707,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990708,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990709,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990710,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990711,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990712,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990713,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990714,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990715,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990716,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990717,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990718,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990719,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990720,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990721,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990722,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990723,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990724,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990725,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990726,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990727,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990728,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990729,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990730,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990731,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990732,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990733,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990734,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990735,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990736,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990737,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990738,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990739,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990740,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990741,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990742,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990743,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990744,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990745,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990746,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990747,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990748,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990749,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990750,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990751,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990752,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990753,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990754,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990755,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990756,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990757,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990758,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990759,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990760,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990761,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990762,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990763,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990764,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990765,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990766,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990767,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990768,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990769,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990770,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990771,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990772,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990773,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990774,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990775,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990776,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990777,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990778,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990779,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990780,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990781,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990782,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990783,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990784,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990785,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990786,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990787,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990788,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990789,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990790,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990791,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990792,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990793,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990794,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990795,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990796,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990797,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990798,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990799,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990800,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990801,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990802,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990803,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990804,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990805,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990806,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990834,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 76550,
+        "type": 1,
+        "name": "諜報 A",
+        "maxLv": 10,
+        "iconId": 604
+    },
+    {
+        "id": 171450,
+        "type": 2,
+        "name": "自己回復(魔力) B",
+        "maxLv": 10,
+        "iconId": 109
+    },
+    {
+        "id": 263350,
+        "type": 1,
+        "name": "投影魔術 C",
+        "maxLv": 10,
+        "iconId": 317
+    },
+    {
+        "id": 333650,
+        "type": 1,
+        "name": "魔弾の射手 EX",
+        "maxLv": 10,
+        "iconId": 312
+    },
+    {
+        "id": 334552,
+        "type": 1,
+        "name": "蜘蛛糸の果て A++",
+        "maxLv": 10,
+        "iconId": 601
+    },
+    {
+        "id": 335550,
+        "type": 1,
+        "name": "邪智のカリスマ A",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
+        "id": 336550,
+        "type": 1,
+        "name": "防弾加工 A",
+        "maxLv": 10,
+        "iconId": 400
+    },
+    {
+        "id": 337550,
+        "type": 1,
+        "name": "嗤う鉄心 A",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
+        "id": 338550,
+        "type": 2,
+        "name": "無頼漢 A",
+        "maxLv": 10,
+        "iconId": 303
+    },
+    {
+        "id": 339650,
+        "type": 1,
+        "name": "中国拳法 EX",
+        "maxLv": 10,
+        "iconId": 311
+    },
+    {
+        "id": 340551,
+        "type": 1,
+        "name": "天巧星 A+",
+        "maxLv": 10,
+        "iconId": 537
+    },
+    {
+        "id": 341551,
+        "type": 1,
+        "name": "堕天の魔 A+",
+        "maxLv": 10,
+        "iconId": 311
+    },
+    {
+        "id": 342550,
+        "type": 1,
+        "name": "死を纏う者 A",
+        "maxLv": 10,
+        "iconId": 524
+    },
+    {
+        "id": 990807,
+        "type": 2,
+        "name": "フリーランサー",
+        "maxLv": 1,
+        "iconId": 303
+    },
+    {
+        "id": 990808,
+        "type": 2,
+        "name": "フリーランサー",
+        "maxLv": 1,
+        "iconId": 303
+    },
+    {
+        "id": 990809,
+        "type": 2,
+        "name": "小惑星の力学",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 990810,
+        "type": 2,
+        "name": "干将・莫耶（拳銃）",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 990811,
+        "type": 2,
+        "name": "彼方の荒野",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 990812,
+        "type": 2,
+        "name": "百八魔星",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 990833,
+        "type": 1,
+        "name": "セイバー忍法・ハンドブレーキ",
+        "maxLv": 1,
+        "iconId": 503
+    },
+    {
+        "id": 990836,
+        "type": 1,
+        "name": "チョコレート中毒",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960548,
+        "type": 2,
+        "name": "魅了耐性",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960549,
+        "type": 2,
+        "name": "出現クラス限定：〔セイバー〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960550,
+        "type": 2,
+        "name": "出現クラス限定：〔アーチャー〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960551,
+        "type": 2,
+        "name": "出現クラス限定：〔ランサー〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960552,
+        "type": 2,
+        "name": "出現クラス限定：〔ライダー〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960553,
+        "type": 2,
+        "name": "出現クラス限定：〔キャスター〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960554,
+        "type": 2,
+        "name": "出現クラス限定：〔アサシン〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960555,
+        "type": 2,
+        "name": "出現クラス限定：〔バーサーカー〕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960556,
+        "type": 1,
+        "name": "冥界の護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960557,
+        "type": 2,
+        "name": "悪の遍満",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960558,
+        "type": 2,
+        "name": "幸せの花冠",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960559,
+        "type": 1,
+        "name": "メンチを切る",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960560,
+        "type": 1,
+        "name": "啖呵を切る",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960561,
+        "type": 1,
+        "name": "ガンを飛ばす",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960562,
+        "type": 1,
+        "name": "マガジンチェンジ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960563,
+        "type": 1,
+        "name": "マガジンチェンジ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960564,
+        "type": 1,
+        "name": "アジタート",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960565,
+        "type": 1,
+        "name": "プリマドンナの惨劇",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960566,
+        "type": 1,
+        "name": "声なき悲鳴",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960567,
+        "type": 1,
+        "name": "花嫁の口づけ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960568,
+        "type": 1,
+        "name": "轟咆哮",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960569,
+        "type": 1,
+        "name": "轟咆哮",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960570,
+        "type": 1,
+        "name": "王の嘆き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960571,
+        "type": 1,
+        "name": "鉛の羽根",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960572,
+        "type": 1,
+        "name": "輝く煙",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960573,
+        "type": 1,
+        "name": "冷たい炎",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960574,
+        "type": 1,
+        "name": "星の恋人たち",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960575,
+        "type": 1,
+        "name": "天使の声",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960576,
+        "type": 1,
+        "name": "不死身の予言",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960577,
+        "type": 1,
+        "name": "バーナムの森が動いたか",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960578,
+        "type": 1,
+        "name": "３０００年の憎悪",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960579,
+        "type": 1,
+        "name": "瞠目",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960580,
+        "type": 1,
+        "name": "宿願の時来たれり",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960581,
+        "type": 1,
+        "name": "３０００年の応報",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960582,
+        "type": 1,
+        "name": "千の糸",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960583,
+        "type": 1,
+        "name": "完全なる悪",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960584,
+        "type": 1,
+        "name": "レッドヘリング",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960585,
+        "type": 1,
+        "name": "ミッシング・リンク",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960586,
+        "type": 1,
+        "name": "ミスディレクション",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960587,
+        "type": 1,
+        "name": "増援",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960588,
+        "type": 1,
+        "name": "増援",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960589,
+        "type": 2,
+        "name": "ハンドオーバー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960590,
+        "type": 1,
+        "name": "ハンドオーバー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960591,
+        "type": 1,
+        "name": "奇襲失敗",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960592,
+        "type": 1,
+        "name": "援護射撃",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960593,
+        "type": 1,
+        "name": "百八星梁山泊",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960594,
+        "type": 1,
+        "name": "天魁・天機・天間",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960595,
+        "type": 1,
+        "name": "天勇・天雄・天猛",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960596,
+        "type": 1,
+        "name": "天威・天英・天貴",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960597,
+        "type": 1,
+        "name": "四姦六賊",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960598,
+        "type": 1,
+        "name": "憎悪の叫び",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960599,
+        "type": 1,
+        "name": "憎悪の叫び",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960600,
+        "type": 1,
+        "name": "憤怒の焔",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960601,
+        "type": 1,
+        "name": "インビジブル",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960602,
+        "type": 1,
+        "name": "虚無の数式",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960603,
+        "type": 1,
+        "name": "不解なる問い",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960604,
+        "type": 1,
+        "name": "名探偵たちの名推理",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960605,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960606,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960607,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960608,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960609,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960610,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 332550,
+        "type": 1,
+        "name": "巨獣狩り A",
+        "maxLv": 10,
+        "iconId": 301
+    },
+    {
+        "id": 990813,
+        "type": 2,
+        "name": "熱砂の語らい",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 990814,
+        "type": 2,
+        "name": "熱砂の語らい",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 990815,
+        "type": 2,
+        "name": "探偵ヱドモン～春先旅情編～",
+        "maxLv": 1,
+        "iconId": 312
+    },
+    {
+        "id": 990816,
+        "type": 2,
+        "name": "探偵ヱドモン～春先旅情編～",
+        "maxLv": 1,
+        "iconId": 312
+    },
+    {
+        "id": 990817,
+        "type": 2,
+        "name": "アズ・ユー・ウィッシュ",
+        "maxLv": 1,
+        "iconId": 403
+    },
+    {
+        "id": 990818,
+        "type": 2,
+        "name": "アズ・ユー・ウィッシュ",
+        "maxLv": 1,
+        "iconId": 403
+    },
+    {
+        "id": 990819,
+        "type": 2,
+        "name": "カフェ・キャメロット",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990820,
+        "type": 2,
+        "name": "カフェ・キャメロット",
+        "maxLv": 1,
+        "iconId": 611
+    },
+    {
+        "id": 990821,
+        "type": 2,
+        "name": "アウトレイジ",
+        "maxLv": 1,
+        "iconId": 700
+    },
+    {
+        "id": 990822,
+        "type": 2,
+        "name": "アウトレイジ",
+        "maxLv": 1,
+        "iconId": 700
+    },
+    {
+        "id": 990823,
+        "type": 2,
+        "name": "オペレーション・フィオナ",
+        "maxLv": 1,
+        "iconId": 603
+    },
+    {
+        "id": 990824,
+        "type": 2,
+        "name": "オペレーション・フィオナ",
+        "maxLv": 1,
+        "iconId": 603
+    },
+    {
+        "id": 990825,
+        "type": 2,
+        "name": "",
+        "maxLv": 2,
+        "iconId": 600
+    },
+    {
+        "id": 990826,
+        "type": 2,
+        "name": "キャトルフィーユ",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 990827,
+        "type": 2,
+        "name": "キャトルフィーユ",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 990828,
+        "type": 2,
+        "name": "ネヴァーランド",
+        "maxLv": 1,
+        "iconId": 604
+    },
+    {
+        "id": 990829,
+        "type": 2,
+        "name": "ネヴァーランド",
+        "maxLv": 1,
+        "iconId": 604
+    },
+    {
+        "id": 990830,
+        "type": 2,
+        "name": "ラ・シエスタ",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 990831,
+        "type": 2,
+        "name": "ラ・シエスタ",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 990832,
+        "type": 2,
+        "name": "ガーデン",
+        "maxLv": 1,
+        "iconId": 300
+    },
+    {
+        "id": 54151,
+        "type": 2,
+        "name": "狂化 E+",
+        "maxLv": 10,
+        "iconId": 106
+    },
+    {
+        "id": 54251,
+        "type": 2,
+        "name": "狂化 D+",
+        "maxLv": 10,
+        "iconId": 106
+    },
+    {
+        "id": 343450,
+        "type": 1,
+        "name": "戦場の鬼 B",
+        "maxLv": 10,
+        "iconId": 306
+    },
+    {
+        "id": 344650,
+        "type": 1,
+        "name": "局中法度 EX",
+        "maxLv": 10,
+        "iconId": 311
+    },
+    {
+        "id": 345450,
+        "type": 1,
+        "name": "黄金律(凶) B",
+        "maxLv": 10,
+        "iconId": 607
+    },
+    {
+        "id": 346350,
+        "type": 1,
+        "name": "無辜の怪物(焔) C",
+        "maxLv": 10,
+        "iconId": 605
+    },
+    {
+        "id": 347650,
+        "type": 1,
+        "name": "日輪の寵姫 EX",
+        "maxLv": 10,
+        "iconId": 504
+    },
+    {
+        "id": 990837,
+        "type": 2,
+        "name": "第六天魔王",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990838,
+        "type": 2,
+        "name": "第六天魔王",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990839,
+        "type": 2,
+        "name": "日輪の城",
+        "maxLv": 1,
+        "iconId": 303
+    },
+    {
+        "id": 990840,
+        "type": 2,
+        "name": "日輪の城",
+        "maxLv": 1,
+        "iconId": 303
+    },
+    {
+        "id": 990841,
+        "type": 2,
+        "name": "壬生狼",
+        "maxLv": 1,
+        "iconId": 316
+    },
+    {
+        "id": 990842,
+        "type": 2,
+        "name": "壬生狼",
+        "maxLv": 1,
+        "iconId": 316
+    },
+    {
+        "id": 990843,
+        "type": 2,
+        "name": "春風遊歩道",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 990844,
+        "type": 2,
+        "name": "春風遊歩道",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 990845,
+        "type": 2,
+        "name": "社交界の華",
+        "maxLv": 1,
+        "iconId": 314
+    },
+    {
+        "id": 990846,
+        "type": 2,
+        "name": "社交界の華",
+        "maxLv": 1,
+        "iconId": 314
+    },
+    {
+        "id": 990847,
+        "type": 2,
+        "name": "概念礼装EXPカード：ぐだぐだ明治維新",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990848,
+        "type": 2,
+        "name": "概念礼装EXPカード：ぐだぐだウェルカム",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990849,
+        "type": 2,
+        "name": "誓いの羽織",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 990850,
+        "type": 2,
+        "name": "小豆のお手玉",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 93451,
+        "type": 1,
+        "name": "魔眼 B+",
+        "maxLv": 10,
+        "iconId": 509
+    },
+    {
+        "id": 161150,
+        "type": 2,
+        "name": "単独顕現 E",
+        "maxLv": 10,
+        "iconId": 101
+    },
+    {
+        "id": 268650,
+        "type": 1,
+        "name": "女神変生 EX",
+        "maxLv": 10,
+        "iconId": 403
+    },
+    {
+        "id": 348550,
+        "type": 2,
+        "name": "ハイ・サーヴァント A",
+        "maxLv": 10,
+        "iconId": 999999
+    },
+    {
+        "id": 349250,
+        "type": 2,
+        "name": "獣の権能 D",
+        "maxLv": 10,
+        "iconId": 303
+    },
+    {
+        "id": 350350,
+        "type": 2,
+        "name": "ロゴスイーター C",
+        "maxLv": 10,
+        "iconId": 400
+    },
+    {
+        "id": 351550,
+        "type": 2,
+        "name": "ネガ・セイヴァー A",
+        "maxLv": 10,
+        "iconId": 301
+    },
+    {
+        "id": 352550,
+        "type": 1,
+        "name": "クライム・バレエ A",
+        "maxLv": 10,
+        "iconId": 402
+    },
+    {
+        "id": 353650,
+        "type": 1,
+        "name": "メルトウイルス EX",
+        "maxLv": 10,
+        "iconId": 506
+    },
+    {
+        "id": 354550,
+        "type": 1,
+        "name": "ブレスト・バレー A",
+        "maxLv": 10,
+        "iconId": 400
+    },
+    {
+        "id": 355550,
+        "type": 1,
+        "name": "被虐体質 A",
+        "maxLv": 10,
+        "iconId": 700
+    },
+    {
+        "id": 356650,
+        "type": 1,
+        "name": "トラッシュ＆クラッシュ EX",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
+        "id": 357250,
+        "type": 1,
+        "name": "十の王冠 D",
+        "maxLv": 10,
+        "iconId": 608
+    },
+    {
+        "id": 358350,
+        "type": 1,
+        "name": "黄金の杯 C",
+        "maxLv": 10,
+        "iconId": 508
+    },
+    {
+        "id": 359450,
+        "type": 1,
+        "name": "神通力 B",
+        "maxLv": 10,
+        "iconId": 306
+    },
+    {
+        "id": 360350,
+        "type": 1,
+        "name": "才知の祝福 C",
+        "maxLv": 10,
+        "iconId": 607
+    },
+    {
+        "id": 361250,
+        "type": 1,
+        "name": "千里眼（獣） D",
+        "maxLv": 10,
+        "iconId": 502
+    },
+    {
+        "id": 362550,
+        "type": 1,
+        "name": "五停心観 A",
+        "maxLv": 10,
+        "iconId": 513
+    },
+    {
+        "id": 980025,
+        "type": 1,
+        "name": "霊子向上・全",
+        "maxLv": 10,
+        "iconId": 305
+    },
+    {
+        "id": 980026,
+        "type": 1,
+        "name": "生存への布石",
+        "maxLv": 10,
+        "iconId": 411
+    },
+    {
+        "id": 980027,
+        "type": 1,
+        "name": "ダウン・スライド",
+        "maxLv": 10,
+        "iconId": 513
+    },
+    {
+        "id": 990851,
+        "type": 2,
+        "name": "我らが征くは星の大海",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990852,
+        "type": 2,
+        "name": "我らが征くは星の大海",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990853,
+        "type": 2,
+        "name": "イーター系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990854,
+        "type": 2,
+        "name": "イーター系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990855,
+        "type": 2,
+        "name": "いつかの夏",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 990856,
+        "type": 2,
+        "name": "いつかの夏",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 990857,
+        "type": 2,
+        "name": "サクラ系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990858,
+        "type": 2,
+        "name": "サクラ系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990859,
+        "type": 2,
+        "name": "始まりの予感",
+        "maxLv": 1,
+        "iconId": 605
+    },
+    {
+        "id": 990860,
+        "type": 2,
+        "name": "始まりの予感",
+        "maxLv": 1,
+        "iconId": 605
+    },
+    {
+        "id": 990861,
+        "type": 2,
+        "name": "サクラチップのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 990862,
+        "type": 2,
+        "name": "サクラチップのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 990863,
+        "type": 2,
+        "name": "月の海の生徒会",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 990864,
+        "type": 2,
+        "name": "月の海の生徒会",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 990865,
+        "type": 2,
+        "name": "シェイプシフター系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990866,
+        "type": 2,
+        "name": "シェイプシフター系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990867,
+        "type": 2,
+        "name": "ザ・ケージ",
+        "maxLv": 1,
+        "iconId": 601
+    },
+    {
+        "id": 990868,
+        "type": 2,
+        "name": "ザ・ケージ",
+        "maxLv": 1,
+        "iconId": 601
+    },
+    {
+        "id": 990869,
+        "type": 2,
+        "name": "TYPE I 系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990870,
+        "type": 2,
+        "name": "TYPE I 系エネミー追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 990871,
+        "type": 2,
+        "name": "概念礼装EXPカード：BBショット！",
+        "maxLv": 1,
+        "iconId": 999999
+    },
+    {
+        "id": 990872,
+        "type": 2,
+        "name": "輝くばかりの",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 990873,
+        "type": 2,
+        "name": "目を逸らさずに",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990874,
+        "type": 2,
+        "name": "路傍の夢",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 990875,
+        "type": 2,
+        "name": "天魔の春修行",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 990876,
+        "type": 2,
+        "name": "揺籃の夢",
+        "maxLv": 1,
+        "iconId": 305
     }
 ]

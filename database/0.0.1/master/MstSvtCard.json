@@ -475,7 +475,8 @@
             9,
             18,
             27,
-            46
+            46,
+            0
         ],
         "singleDamage": [
             9,
@@ -14959,9 +14960,15 @@
             9,
             18,
             27,
+            9,
+            18,
+            27,
             46
         ],
         "singleDamage": [
+            9,
+            18,
+            27,
             9,
             18,
             27,
@@ -14971,15 +14978,24 @@
             9,
             18,
             27,
+            9,
+            18,
+            27,
             46
         ],
         "unisonDamage": [
             9,
             18,
             27,
+            9,
+            18,
+            27,
             46
         ],
         "grandDamage": [
+            9,
+            18,
+            27,
             9,
             18,
             27,
@@ -30926,6 +30942,1550 @@
             40
         ],
         "svtId": 101700,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 702400,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 702400,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 702400,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 702400,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 201600,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 201600,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 201600,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 201600,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 202300,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 202300,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 202300,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "singleDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "trinityDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "unisonDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "grandDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 202300,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 602600,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 602600,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 602600,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 602600,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 1100500,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 1100500,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1100500,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 1100500,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 102900,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 102900,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 102900,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 102900,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 702500,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 702500,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 702500,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            12,
+            25,
+            63
+        ],
+        "singleDamage": [
+            12,
+            25,
+            63
+        ],
+        "trinityDamage": [
+            12,
+            25,
+            63
+        ],
+        "unisonDamage": [
+            12,
+            25,
+            63
+        ],
+        "grandDamage": [
+            12,
+            25,
+            63
+        ],
+        "svtId": 702500,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 702600,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 702600,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 702600,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 702600,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 103000,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 103000,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 103000,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 103000,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1000100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 1000100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 1000100,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "singleDamage": [
+            33,
+            67
+        ],
+        "trinityDamage": [
+            33,
+            67
+        ],
+        "unisonDamage": [
+            33,
+            67
+        ],
+        "grandDamage": [
+            33,
+            67
+        ],
+        "svtId": 1000200,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 1000200,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000200,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "singleDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "trinityDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "unisonDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "grandDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 1000200,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            6,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1000300,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 1000300,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1000300,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "singleDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "trinityDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "unisonDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "grandDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 1000300,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "singleDamage": [
+            100
+        ],
+        "trinityDamage": [
+            100
+        ],
+        "unisonDamage": [
+            100
+        ],
+        "grandDamage": [
+            100
+        ],
+        "svtId": 2300100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 2300100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "singleDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "trinityDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "unisonDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "grandDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 2300100,
         "cardId": 4
     }
 ]
