@@ -3,6 +3,8 @@ interface SourceConfig {
     originHost: string;             // kazemai.github.io
     baseUri: string;                // fgo-vz/common
     masterJsonUri: string;          // js/master.js
+    svtDataUri: string;             // js/svtData.js
+    transDataUri: string;           // js/transData.js
     imageSvtFaceUri: string;        // 从者icon images/icon/faces/#SVTID.png
     imageSvtThumbnailUri: string;   // 从者灵基三次每次的半身像，透明背景 images/Servant/#SVTID_status_servant_#NO.png
     imageSvtSkillUri: string;       // 技能icon images/SkillIcon/SkillIcon_#SKILLID.png

@@ -3,6 +3,8 @@
     "originHost": "kazemai.github.io",
     "baseUri": "fgo-vz/common",
     "masterJsonUri": "js/master.js",
+    "svtDataUri": "js/svtData.js",
+    "transDataUri": "js/transData.js",
     "imageSvtFaceUri": "images/icon/faces/#SVTID.png",
     "imageSvtThumbnailUri": "images/Servant/#SVTID_status_servant_#NO.png",
     "imageSvtSkillUri": "images/SkillIcon/SkillIcon_#SKILLID.png",
