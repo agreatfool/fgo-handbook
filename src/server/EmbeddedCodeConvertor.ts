@@ -248,12 +248,30 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertPersonality(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertPersonality ...");
+        let data: string;
+
+        // parse data from svtData.js
         try {
-            if (this._personality.length <= 0) {
+            let reg = new RegExp(/policy]\+"\\u30fb"\+"(.+)"\.split\(" "\)\[master.mstSvtLimit\[.]\.personality]/);
+            let match = this._svtData.match(reg);
+            if (!match || match.length <= 0) {
+                data = this._personality;
+            } else {
+                data = match[1];
+            }
+        } catch (e) {
+            Log.instance.info("[EmbeddedCodeConvertor] Error in _convertPersonality, use predefined data ...");
+            data = this._personality;
+        }
+
+        // process personality
+        try {
+            if (data.length <= 0) {
                 return Promise.resolve(this._personalityConverted);
             }
             let id = 0;
-            let split: Array<string> = this._personality.split(" ");
+            let split: Array<string> = data.split(" ");
             for (let index in split) {
                 this._personalityConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
