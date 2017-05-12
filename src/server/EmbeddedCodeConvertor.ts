@@ -202,7 +202,7 @@ export default class EmbeddedCodeConvertor {
 
         // parse data from svtData.js
         try {
-            let reg = new RegExp(/\+\[(.+)]\[master.mstSvt\[.]\.genderType]/);
+            let reg = new RegExp(/\+\[(.+)]\[master\.mstSvt\[.]\.genderType]/);
             let match = this._svtData.match(reg);
             if (!match || match.length <= 0) {
                 data = this._gender;
@@ -231,12 +231,30 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertPolicy(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertPolicy ...");
+        let data: string;
+
+        // parse data from svtData.js
         try {
-            if (this._policy.length <= 0) {
+            let reg = new RegExp(/\+\("<td>"\+"(.+)".split\(" "\)\[master\.mstSvtLimit\[.]\.policy]/);
+            let match = this._svtData.match(reg);
+            if (!match || match.length <= 0) {
+                data = this._policy;
+            } else {
+                data = match[1];
+            }
+        } catch (e) {
+            Log.instance.info("[EmbeddedCodeConvertor] Error in _convertPolicy, use predefined data ...");
+            data = this._policy;
+        }
+
+        // process policy
+        try {
+            if (data.length <= 0) {
                 return Promise.resolve(this._policyConverted);
             }
             let id = 0;
-            let split: Array<string> = this._policy.split(" ");
+            let split: Array<string> = data.split(" ");
             for (let index in split) {
                 this._policyConverted[id] = Utility.fromUnicode(split[index]);
                 id++;
@@ -253,7 +271,7 @@ export default class EmbeddedCodeConvertor {
 
         // parse data from svtData.js
         try {
-            let reg = new RegExp(/policy]\+"\\u30fb"\+"(.+)"\.split\(" "\)\[master.mstSvtLimit\[.]\.personality]/);
+            let reg = new RegExp(/policy]\+"\\u30fb"\+"(.+)"\.split\(" "\)\[master\.mstSvtLimit\[.]\.personality]/);
             let match = this._svtData.match(reg);
             if (!match || match.length <= 0) {
                 data = this._personality;
