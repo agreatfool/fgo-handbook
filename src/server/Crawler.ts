@@ -49,8 +49,8 @@ export default class Crawler {
             let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
             this._masterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
             this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.json");
-            this._svtDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.json");
-            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "transData.json");
+            this._svtDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
+            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "transData.js");
 
             masterFile = await this.downloadMasterFile();
             masterJson = await this.parseMasterJson(masterFile);
