@@ -1,57 +1,34 @@
-import * as asyncFile from "async-file";
-import * as libPath from "path";
-import * as LZString from "lz-string";
-
 import Crawler from "./Crawler";
-
-async function main() {
-    let crawler = new Crawler();
-
-    let masterJson: any = await crawler.run();
-}
-
 import EmbeddedCodeConvertor from "./EmbeddedCodeConvertor";
-let convertor = new EmbeddedCodeConvertor();
-convertor.run();
-
-import Utility from "../lib/utility/Utility";
-console.log(Utility.toUnicode("筋力"));
-console.log(Utility.fromUnicode("\u3000"));
-
-import Const from "../lib/const/Const";
-import Config from "../lib/config/Config";
-import SourceConfig from "../model/config/SourceConfig";
-import EmbeddedCodeConverted from "../model/master/EmbeddedCodeConverted";
-async function testConfig() {
-    let conf = await Config.instance.loadWholeConfig(Const.CONF_SOURCE) as SourceConfig;
-    let property = await Config.instance.loadConfig(Const.CONF_SOURCE, "baseUri") as String;
-    let code = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_CODE) as EmbeddedCodeConverted;
-
-    // console.log(conf);
-    // console.log(property);
-    // console.log(code);
-}
-testConfig();
-
-import ModelLoader from "../lib/model/MstLoader";
-async function testModel() {
-    let result = await ModelLoader.instance.loadModel('MstClass');
-    return Promise.resolve(result);
-}
-testModel();
-
 import MasterDumper from "./MasterDumper";
-new MasterDumper().run();
-
 import ResourceDownloader from "./ResourceDownloader";
-//new ResourceDownloader().run();
-
 import ResourceListBuilder from "./ResourceListBuilder";
-new ResourceListBuilder().run().then((list) => {
-    console.log(list);
-});
 
-//main();
+async function run() {
+    // 下载站点数据文件，并进行基本解析
+    let crawler = new Crawler();
+    await crawler.run();
+
+    // 解析嵌入代码及数据
+    let convertor = new EmbeddedCodeConvertor();
+    await convertor.run();
+
+    // 将 Master 数据分解成子文件
+    let dumper = new MasterDumper();
+    await dumper.run();
+
+    // 下载 Icon 等资源
+    let downloader = new ResourceDownloader();
+    await downloader.run();
+
+    // 构建 resources.json 列表文件
+    let builder = new ResourceListBuilder();
+    await builder.run();
+
+    return Promise.resolve("Done");
+}
+
+run().then((_) => console.log(_));
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);

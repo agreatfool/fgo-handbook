@@ -25,6 +25,7 @@ export default class ResourceDownloader {
     private _imageItemIconPath: string;
 
     constructor() {
+        Log.instance.info("[ResourceDownloader] Starting ...");
         this._libHttp = new HttpPromise();
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
     }

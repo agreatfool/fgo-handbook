@@ -3,6 +3,7 @@ import * as LibPath from "path";
 import * as LibAsyncFile from "async-file";
 
 import MstUtil from "../lib/model/MstUtil";
+import Log from "../lib/log/Log";
 
 export default class ResourceListBuilder {
 
@@ -14,6 +15,7 @@ export default class ResourceListBuilder {
     }
 
     public async run(): Promise<any> {
+        Log.instance.info("[ResourceListBuilder] Starting ...");
         let dbPath = await MstUtil.instance.getDbPathWithVer();
 
         let subFiles = await LibAsyncFile.readdir(LibPath.join(dbPath, "master"));

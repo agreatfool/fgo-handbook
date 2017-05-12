@@ -6,6 +6,7 @@ import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import Utility from "../lib/utility/Utility";
 import MstUtil from "../lib/model/MstUtil";
+import Log from "../lib/log/Log";
 
 export default class MasterDumper {
 
@@ -13,6 +14,7 @@ export default class MasterDumper {
     private _masterJson: any;
 
     public async run(): Promise<any> {
+        Log.instance.info("[MasterDumper] Starting ...");
         try {
             let dbPath = await MstUtil.instance.getDbPathWithVer();
             this._dbMasterDirPath = LibPath.join(dbPath, "master");
@@ -29,6 +31,7 @@ export default class MasterDumper {
     }
 
     private async _parseEntities(): Promise<any> {
+        Log.instance.info("[MasterDumper] Processing _parseEntities ...");
         let names = [
             "MstClass",
             "MstSkill",
@@ -57,6 +60,7 @@ export default class MasterDumper {
     }
 
     private async _parseEntity(name: string): Promise<any> {
+        Log.instance.info(`[MasterDumper] Processing _parseEntity: ${name} ...`);
         let lcName = Utility.lcFirst(name);
         let ucName = Utility.ucFirst(name);
 

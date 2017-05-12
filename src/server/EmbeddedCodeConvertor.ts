@@ -336,6 +336,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertRankFont(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertRankFont ...");
         try {
             if (this._rankFont.length <= 0) {
                 return Promise.resolve(this._rankFontConverted);
@@ -353,6 +354,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertRankSymbol(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertRankSymbol ...");
         try {
             if (this._rankSymbol.length <= 0) {
                 return Promise.resolve(this._rankSymbolConverted);
@@ -370,6 +372,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertTransSvtName(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransSvtName ...");
         try {
             let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
@@ -395,6 +398,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertTransSkillDetail(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransSkillDetail ...");
         try {
             let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
@@ -423,6 +427,7 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertTransTreasureDetail(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransTreasureDetail ...");
         try {
             let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
 
