@@ -18,7 +18,9 @@ export default class EmbeddedCodeConvertor {
     private _combined: EmbeddedCodeConverted;
     private _dbJsonPath: string;
 
-    // FIXME 需要重新确认该列表内的内容是否都可以自动更新，不希望后续的更新都需要手动介入
+    private _svtDataJsPath: string;
+    private _svtData: string;
+
     // EMBEDDED CODE
     private _individuality: Array<Array<number | string>>; // 特性 [[2000, "\u795e\u6027"]]
     private _gender: Array<string>; // 性别
@@ -33,7 +35,7 @@ export default class EmbeddedCodeConvertor {
      * var tdDetail
      * var skDetail
      * 部分内容过大，使用文件存储 database/embedded_trans.json
-     * FIXME 后续这块需要自动化
+     * 该文件内容由 Crawler.ts 脚本内逻辑从网络抓取并处理
      */
     private _transSvtName: Array<Array<string>>;
     private _transSkillDetail: Array<Array<string>>;
@@ -52,6 +54,7 @@ export default class EmbeddedCodeConvertor {
     private _transTreasureDetailConverted: {[key: number]: TransTreasureDetail};
 
     constructor() {
+        Log.instance.info("[EmbeddedCodeConvertor] Starting ...");
         /**
          * EMBEDDED CODE
          */
@@ -121,6 +124,9 @@ export default class EmbeddedCodeConvertor {
         try {
             let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
             this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_code.json");
+            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
+
+            this._svtData = (await LibAsyncFile.readFile(this._svtDataJsPath)).toString();
 
             await this._convertIndividuality();
             await this._convertGender();
@@ -155,13 +161,34 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertIndividuality(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertIndividuality ...");
+        let data: Array<Array<number | string>>;
+
+        // parse data from svtData.js
         try {
-            if (this._individuality.length <= 0) {
+            let start = "[[";
+            let end = "]]";
+
+            let startPos = this._svtData.indexOf(start);
+            let endPos = this._svtData.indexOf(end);
+            let content = this._svtData.substr(
+                startPos,
+                endPos - startPos
+            );
+            data = eval(`${content}${end}`);
+        } catch (e) {
+            Log.instance.info("[EmbeddedCodeConvertor] Error in _convertIndividuality, use predefined data ...");
+            data = this._individuality;
+        }
+
+        // process individuality
+        try {
+            if (data.length <= 0) {
                 return Promise.resolve(this._individualityConverted);
             }
-            for (let index in this._individuality) {
-                let id: number = this._individuality[index][0] as number;
-                this._individualityConverted[id] = Utility.fromUnicode(this._individuality[index][1] as string);
+            for (let index in data) {
+                let id: number = data[index][0] as number;
+                this._individualityConverted[id] = Utility.fromUnicode(data[index][1] as string);
             }
             return Promise.resolve(this._individualityConverted);
         } catch (err) {
@@ -170,13 +197,31 @@ export default class EmbeddedCodeConvertor {
     }
 
     private async _convertGender(): Promise<any> {
+        Log.instance.info("[EmbeddedCodeConvertor] Processing _convertGender ...");
+        let data: Array<string>;
+
+        // parse data from svtData.js
         try {
-            if (this._gender.length <= 0) {
+            let reg = new RegExp(/\+\[(.+)]\[master.mstSvt\[.]\.genderType]/);
+            let match = this._svtData.match(reg);
+            if (!match || match.length <= 0) {
+                data = this._gender;
+            } else {
+                data = eval(`[${match[1]}]`);
+            }
+        } catch (e) {
+            Log.instance.info("[EmbeddedCodeConvertor] Error in _convertGender, use predefined data ...");
+            data = this._gender;
+        }
+
+        // process gender
+        try {
+            if (data.length <= 0) {
                 return Promise.resolve(this._genderConverted);
             }
             let id = 0;
-            for (let index in this._gender) {
-                this._genderConverted[id] = Utility.fromUnicode(this._gender[index]);
+            for (let index in data) {
+                this._genderConverted[id] = Utility.fromUnicode(data[index]);
                 id++;
             }
             return Promise.resolve(this._genderConverted);
