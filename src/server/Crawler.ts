@@ -17,9 +17,10 @@ export default class Crawler {
     private _masterJsonPath: string;
 
     private _sourceSvtDataUrl: string;
-    private _svtDataFilePath: string;
+    private _svtDataJsPath: string;
 
     private _sourceTransDataUrl: string;
+    private _transDataJsPath: string;
     private _transDataFilePath: string;
 
     private _libHttp: HttpPromise;
@@ -44,18 +45,21 @@ export default class Crawler {
     public async run(): Promise<any> {
         let masterFile: string;
         let masterJson: any;
+        let transFile: string;
 
         try {
             let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
             this._masterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
             this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.json");
-            this._svtDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
-            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "transData.js");
+            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
+            this._transDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "transData.js");
+            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_trans.json");
 
             masterFile = await this.downloadMasterFile();
             masterJson = await this.parseMasterJson(masterFile);
             await this.downloadSvtDataFile();
-            await this.downloadTransDataFile();
+            transFile = await this.downloadTransDataFile();
+            await this.parseTransData(transFile);
         } catch (err) {
             return Promise.reject(err);
         }
@@ -93,7 +97,7 @@ export default class Crawler {
             let decompressed = Utility.decompressFromHexStr(result);
             this._masterJson = JSON.parse(decompressed);
 
-            await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(this._masterJson, null, "    "));
+            await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(this._masterJson, null, 4));
             return Promise.resolve(this._masterJson);
         } catch (err) {
             return Promise.reject(err);
@@ -112,7 +116,7 @@ export default class Crawler {
             let file: string = buffer.toString();
             Log.instance.info(`[Crawler] Downloaded file size ${file.length} ...`);
 
-            await LibAsyncFile.writeFile(this._svtDataFilePath, file);
+            await LibAsyncFile.writeFile(this._svtDataJsPath, file);
             return Promise.resolve(file);
         } catch (err) {
             return Promise.reject(err);
@@ -131,11 +135,55 @@ export default class Crawler {
             let file: string = buffer.toString();
             Log.instance.info(`[Crawler] Downloaded file size ${file.length} ...`);
 
-            await LibAsyncFile.writeFile(this._transDataFilePath, file);
+            await LibAsyncFile.writeFile(this._transDataJsPath, file);
             return Promise.resolve(file);
         } catch (err) {
             return Promise.reject(err);
         }
+    }
+
+    public async parseTransData(file: string): Promise<any> {
+        Log.instance.info("[Crawler] Processing parseTransData ...");
+
+        let convertedTrans = {
+            "name": null,
+            "skill": null,
+            "treasure": null
+        };
+        let nameStart = "var svtName = ";
+        let skillStart = "var skDetail = ";
+        let treasureStart = "var tdDetail = ";
+
+        // split file into lines
+        let lines = file.split("\n");
+
+        for (let line of lines) {
+            if (line.indexOf(nameStart) === -1 && line.indexOf(skillStart) === -1 && line.indexOf(treasureStart) === -1) {
+                continue;
+            }
+
+            let start: string;
+            let convertedKey: string;
+            if (line.indexOf(nameStart) !== -1) {
+                start = nameStart;
+                convertedKey = "name";
+            } else if (line.indexOf(skillStart) !== -1) {
+                start = skillStart;
+                convertedKey = "skill";
+            } else {
+                start = treasureStart;
+                convertedKey = "treasure";
+            }
+
+            let content = line.substr(
+                line.indexOf("[["),
+                line.length - start.length - 1
+            );
+            convertedTrans[convertedKey] = eval(content);
+        }
+
+        await LibAsyncFile.writeFile(this._transDataFilePath, JSON.stringify(convertedTrans, null, 4));
+        return Promise.resolve(convertedTrans);
     }
 
     get masterJson(): any {
