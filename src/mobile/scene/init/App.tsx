@@ -7,6 +7,7 @@ import * as Action from "./Action";
 import * as SystemService from "../../service/SystemService";
 import InjectedProps from "../../../lib/react/InjectedProps";
 import * as Styles from "../../view/Styles";
+import {Container, Content, Footer, Grid, Row, Col, Spinner, Body} from "native-base";
 
 export * from "./State";
 export * from "./Action";
@@ -27,44 +28,32 @@ class Initialization extends Component<Props, {}> {
 
     componentDidMount() {
         this._system.init((this.props as Props).actions.updateLoading).then(() => {
-            //noinspection TypeScriptValidateJSTypes
-            (Actions as any).tabs();
+            //noinspection TypeScriptUnresolvedFunction
+            (Actions as any).servant_list();
         });
-    }
-
-    componentWillUnmount() {
-        (this.props as Props).actions.stopAnimating();
     }
 
     render() {
         let state: State.State = (this.props as Props).SceneInitialization;
         return (
-            <View style={[Styles.Common.flexColumn, Styles.Common.flexDefault]}>
-                <View style={Styles.Common.flexDefault}>
-                    <View style={Styles.Landing.footer}>
-                        <Text style={Styles.Common.textCenter}>
-                            {state.loading}
-                        </Text>
-                    </View>
-                </View>
-                <View style={Styles.Common.flexDefault}>
-                    <ActivityIndicator
-                        animating={state.animating}
-                        style={[
-                            Styles.Common.flexDefault,
-                            Styles.Common.centering,
-                            {padding: 8}
-                        ]}
-                        size="large"
-                    />
-                </View>
-                <View style={Styles.Common.flexDefault}>
-                    <View style={Styles.Landing.footer}>
-                        <Text style={Styles.Common.textCenter}>Copyright Jonathan</Text>
-                        <Text style={Styles.Common.textCenter}>Company Good</Text>
-                    </View>
-                </View>
-            </View>
+            <Container>
+                <Grid>
+                    <Row size={1} />
+                    <Row style={{height: 50}}>
+                        <Body><Text>{state.loading}</Text></Body>
+                    </Row>
+                    <Row size={1}>
+                        <Body><Spinner /></Body>
+                    </Row>
+                    <Row size={1} />
+                    <Row style={{height: 50}}>
+                        <Grid>
+                            <Row><Body><Text>Copyright Jonathan</Text></Body></Row>
+                            <Row><Body><Text>Company Good</Text></Body></Row>
+                        </Grid>
+                    </Row>
+                </Grid>
+            </Container>
         );
     }
 }
