@@ -5,7 +5,7 @@ import {createStore, applyMiddleware, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import Reducers from "../app/Reducers";
 import {App as Initialization} from "../scene/init/App";
-import {App as ServantList} from "../scene/servant/main/App";
+import {App as ServantList} from "../scene/servant/list/App";
 import {App as ServantDetail} from "../scene/servant/detail/App";
 import {App as ServantSkill} from "../scene/servant/skill/App";
 import {App as ServantStory} from "../scene/servant/story/App";

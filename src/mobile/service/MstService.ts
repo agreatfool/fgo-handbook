@@ -1,5 +1,5 @@
 import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
-import {SvtListFilter, SvtListOrder} from "../scene/servant/main/State";
+import {SvtListFilter, SvtListOrder} from "../scene/servant/list/State";
 import {SvtOrderChoices, SvtOrderDirections} from "../lib/model/MstInfo";
 import Const from "../lib/const/Const";
 import {

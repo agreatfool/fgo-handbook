@@ -7,7 +7,7 @@ import * as Action from "./Action";
 import {Props, TabScene, TabPageScroll} from "../../../view/View";
 import CheckBox from "react-native-checkbox";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {SvtListFilter} from "../main/State";
+import {SvtListFilter} from "../list/State";
 import * as Styles from "../../../view/Styles";
 import Const from "../../../lib/const/Const";
 
