@@ -23158,5 +23158,55 @@
         "tdPointB": 61,
         "tdPointEx": 61,
         "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 9939131,
+        "lv": 1,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 9939131,
+        "lv": 2,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 9939131,
+        "lv": 3,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 9939131,
+        "lv": 4,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 300
+    },
+    {
+        "treaureDeviceId": 9939131,
+        "lv": 5,
+        "tdPoint": 55,
+        "tdPointQ": 55,
+        "tdPointA": 55,
+        "tdPointB": 55,
+        "tdPointEx": 55,
+        "tdPointDef": 300
     }
 ]

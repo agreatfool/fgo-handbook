@@ -1,5 +1,5 @@
 import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
-import {SvtListFilter, SvtListOrder} from "../scene/servant/main/State";
+import {SvtListFilter, SvtListOrder} from "../scene/servant/list/State";
 import {SvtOrderChoices, SvtOrderDirections} from "../lib/model/MstInfo";
 import Const from "../lib/const/Const";
 import {
@@ -77,12 +77,10 @@ export class Service {
         } as SvtListOrder));
     }
 
-    public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<Array<MstSvt>> {
-        return Service._divideSvtDataIntoRows(
-            Service._sortSvtData(
-                Service._filterSvtData(rawData, filter),
-                order
-            )
+    public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<MstSvt> {
+        return Service._sortSvtData(
+            Service._filterSvtData(rawData, filter),
+            order
         );
     }
 

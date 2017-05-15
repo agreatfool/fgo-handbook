@@ -1,6 +1,7 @@
 import {ActionCreator} from "redux";
 import {MstSvt} from "../../../../model/master/Master";
 import {SvtListFilter, SvtListOrder} from "./State";
+import {TransSvtName} from "../../../../model/master/EmbeddedCodeConverted";
 
 export const ACT_UPDATE_RAW_DATA = "ACT_UPDATE_RAW_DATA";
 
@@ -20,7 +21,7 @@ export const ACT_UPDATE_DISPLAY_DATA = "ACT_UPDATE_DISPLAY_DATA";
 
 export interface ActionUpdateDisplayData {
     type: string;
-    displayData: Array<Array<MstSvt>>;
+    displayData: Array<MstSvt>;
 }
 
 export const updateDisplayData: ActionCreator<ActionUpdateDisplayData> = function (displayData: Array<any>) {
@@ -28,6 +29,20 @@ export const updateDisplayData: ActionCreator<ActionUpdateDisplayData> = functio
         type: ACT_UPDATE_DISPLAY_DATA,
         displayData: displayData,
     };
+};
+
+export const ACT_UPDATE_TRANS_NAME = "ACT_UPDATE_TRANS_NAME";
+
+export interface ActionUpdateTransName {
+    type: string;
+    transSvtName: {[key: number]: TransSvtName};
+}
+
+export const updateTransName: ActionCreator<ActionUpdateTransName> = function (transSvtName: {[key: number]: TransSvtName}) {
+    return {
+        type: ACT_UPDATE_TRANS_NAME,
+        transSvtName: transSvtName
+    }
 };
 
 export const ACT_UPDATE_FILTER = "ACT_UPDATE_FILTER";
@@ -61,6 +76,7 @@ export const updateOrder: ActionCreator<ActionUpdateOrder> = function (order: Sv
 export const Actions = {
     updateRawData,
     updateDisplayData,
+    updateTransName,
     updateFilter,
     updateOrder,
 };

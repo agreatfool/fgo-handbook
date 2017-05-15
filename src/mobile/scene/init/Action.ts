@@ -1,17 +1,5 @@
 import {ActionCreator} from "redux";
 
-export const ACT_STOP_ANIMATING = "ACT_STOP_ANIMATING";
-
-export interface ActionStopAnimating {
-    type: string;
-}
-
-export const stopAnimating: ActionCreator<ActionStopAnimating> = function () {
-    return {
-        type: ACT_STOP_ANIMATING,
-    };
-};
-
 export const ACT_UPDATE_LOADING = "ACT_UPDATE_LOADING";
 
 export interface ActionUpdateLoading {
@@ -27,6 +15,5 @@ export const updateLoading: ActionCreator<ActionUpdateLoading> = function (loadi
 };
 
 export const Actions = {
-    stopAnimating,
     updateLoading,
 };

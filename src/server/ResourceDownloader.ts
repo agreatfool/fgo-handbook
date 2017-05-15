@@ -4,10 +4,10 @@ import HttpPromise from "../lib/http/Http";
 import SourceConfig from "../model/config/SourceConfig";
 import Const from "../lib/const/Const";
 import {
-    MstSvtContainer, MstSkillContainer, MstItemContainer
+    MstSvtContainer, MstSkillContainer, MstItemContainer, MstClassContainer
 } from "../model/impl/MstContainer";
 import MstLoader from "../lib/model/MstLoader";
-import {MstSvt, MstSkill, MstItem} from "../model/master/Master";
+import {MstSvt, MstSkill, MstItem, MstClass} from "../model/master/Master";
 import MstUtil from "../lib/model/MstUtil";
 import Log from "../lib/log/Log";
 
@@ -19,10 +19,12 @@ export default class ResourceDownloader {
     private _mstSvt: MstSvtContainer;
     private _mstSkill: MstSkillContainer;
     private _mstItem: MstItemContainer;
+    private _mstClass: MstClassContainer;
 
     private _imageSvtFacePath: string;
     private _imageSvtSkillPath: string;
     private _imageItemIconPath: string;
+    private _imageClassIconPath: string;
 
     constructor() {
         Log.instance.info("[ResourceDownloader] Starting ...");
@@ -35,22 +37,26 @@ export default class ResourceDownloader {
             this._mstSvt = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
             this._mstSkill = await MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
             this._mstItem = await MstLoader.instance.loadModel("MstItem") as MstItemContainer;
+            this._mstClass = await MstLoader.instance.loadModel("MstClass") as MstClassContainer;
 
             let dbPath = await MstUtil.instance.getDbPathWithVer();
             this._imageSvtFacePath = LibPath.join(dbPath, "images", "face");
             this._imageSvtSkillPath = LibPath.join(dbPath, "images", "skill");
             this._imageItemIconPath = LibPath.join(dbPath, "images", "item");
+            this._imageClassIconPath = LibPath.join(dbPath, "images", "class");
 
             await MstUtil.instance.ensureDirs([
                 LibPath.join(dbPath, "images"),
                 this._imageSvtFacePath,
                 this._imageSvtSkillPath,
-                this._imageItemIconPath
+                this._imageItemIconPath,
+                this._imageClassIconPath,
             ]);
 
             await this._downloadServantResources();
             await this._downloadSkillResources();
             await this._downloadItemResources();
+            await this._downloadClassResources();
         } catch (err) {
             return Promise.reject(err);
         }
@@ -67,7 +73,7 @@ export default class ResourceDownloader {
             let url = this._genImageSvtFaceUri(svtId);
             let urlParts = url.split(".");
             let ext = urlParts[urlParts.length - 1];
-            let filename = svt.id + "." + ext;
+            let filename = svtId + "." + ext;
             let filePath = LibPath.join(this._imageSvtFacePath, filename);
 
             let result = await this._libHttp.downloadWithCheck(url, filePath);
@@ -105,12 +111,31 @@ export default class ResourceDownloader {
             let url = this._genImageItemIconUri(itemId);
             let urlParts = url.split(".");
             let ext = urlParts[urlParts.length - 1];
-            let filename = item.id + "." + ext;
+            let filename = itemId + "." + ext;
             let filePath = LibPath.join(this._imageItemIconPath, filename);
 
             let result = await this._libHttp.downloadWithCheck(url, filePath);
             current++;
             Log.instance.info(`[ResourceDownloader] _downloadItemResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
+        }
+    }
+
+    private async _downloadClassResources(): Promise<any> {
+        let total = this._mstClass.count();
+        Log.instance.info(`[ResourceDownloader] _downloadClassResources: total count: ${total}`);
+
+        let current = 0;
+        for (let [id, classObj] of this._mstClass.iterator()) {
+            let classId = (classObj as MstClass).id;
+            let url = this._genImageClassIconUri(classId);
+            let urlParts = url.split(".");
+            let ext = urlParts[urlParts.length - 1];
+            let filename = classId + "." + ext;
+            let filePath = LibPath.join(this._imageClassIconPath, filename);
+
+            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            current++;
+            Log.instance.info(`[ResourceDownloader] _downloadClassResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
         }
     }
 
@@ -127,6 +152,11 @@ export default class ResourceDownloader {
     private _genImageItemIconUri(itemId: number): string {
         return this._genBaseSourceUri() + "/" +
             this._sourceConf.imageItemIconUri.replace("#ITEMID", itemId + "");
+    }
+
+    private _genImageClassIconUri(classId: number): string {
+        return this._genBaseSourceUri() + "/" +
+            this._sourceConf.imageClassIconUri.replace("#CLASSID", classId + "");
     }
 
     private _genBaseSourceUri(): string {

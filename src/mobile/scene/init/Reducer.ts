@@ -2,19 +2,11 @@ import {ReducerInterface, bindComponentReducers} from "../../../lib/react/Reduce
 
 import {State, defaultState} from "./State";
 import {
-    ACT_STOP_ANIMATING, ACT_UPDATE_LOADING,
-    ActionStopAnimating, ActionUpdateLoading,
+    ACT_UPDATE_LOADING,
+    ActionUpdateLoading,
 } from "./Action";
 
 export {StateName} from "./State";
-
-export const stopAnimating = {
-    action: ACT_STOP_ANIMATING,
-    reducer: function (state: State, action: ActionStopAnimating) {
-        state.animating = false;
-        return state;
-    }
-} as ReducerInterface<State>;
 
 export const updateLoading = {
     action: ACT_UPDATE_LOADING,
@@ -25,6 +17,5 @@ export const updateLoading = {
 } as ReducerInterface<State>;
 
 export const Reducers = bindComponentReducers([
-    stopAnimating,
     updateLoading,
 ], defaultState);

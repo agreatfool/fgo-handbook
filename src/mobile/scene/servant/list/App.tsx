@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, ListView, Image, TouchableOpacity, ListViewDataSource} from "react-native";
+import {Image, ListView, ListViewDataSource, Text, TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
@@ -10,8 +10,28 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
-import {TabScene, ToolBoxWrapper, ResImage} from "../../../view/View";
+import {ResImage} from "../../../view/View";
 import {SvtOrderDirections} from "../../../lib/model/MstInfo";
+import {
+    Body,
+    Button,
+    Container,
+    Content,
+    Footer,
+    Header,
+    Icon,
+    Left,
+    List,
+    ListItem,
+    Right,
+    Thumbnail,
+    Title,
+    FooterTab,
+    Grid,
+    Col
+} from "native-base";
+import MstLoader from "../../../lib/model/MstLoader";
+import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
 
 export * from "./State";
 export * from "./Action";
@@ -36,6 +56,10 @@ export class ServantList extends Component<State.Props, any> {
 
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
+            return MstLoader.instance.loadEmbeddedCode();
+        }).then((embeddedCode: EmbeddedCodeConverted) => {
+            props.actions.updateTransName(embeddedCode.transSvtName);
+
             return this._service.loadSvtRawData();
         }).then((rawData: Array<MstSvt>) => {
             let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
@@ -43,6 +67,20 @@ export class ServantList extends Component<State.Props, any> {
             props.actions.updateRawData(rawData);
             props.actions.updateDisplayData(displayData);
         });
+    }
+
+    genDirectionIconStr(): string {
+        let props = this.props as State.Props;
+        let state = props.SceneServantList;
+
+        let orderDirectionIcon = "";
+        if (state.order.direction === SvtOrderDirections.DESC) {
+            orderDirectionIcon = "arrow-down";
+        } else {
+            orderDirectionIcon = "arrow-up";
+        }
+
+        return orderDirectionIcon;
     }
 
     genDirectionStr(direction: number) {
@@ -82,86 +120,45 @@ export class ServantList extends Component<State.Props, any> {
         } as SvtListOrder);
     }
 
-    renderRow(rowData, rowId, app) {
-        let placeholder = [];
-        let placeholderCount = Const.SERVANT_IN_ROW - rowData.length;
-        if (placeholderCount > 0) {
-            for (let loop = 0; loop < placeholderCount; loop++) {
-                placeholder.push(
-                    <ImagePlaceholder key={`ImagePlaceholder_${rowId}_${loop}`}/>
-                );
-            }
-        }
-
-        let rowCells = [];
-        rowData.forEach((element) => {
-            let svtId = (element as MstSvt).id;
-            rowCells.push(
-                <ImageCell
-                    key={`ImageCell_${svtId}`}
-                    appVer={app._appVer}
-                    svtId={svtId}/>
-            );
-        });
+    renderRow(data: MstSvt) {
+        let props = this.props as State.Props;
+        let state = props.SceneServantList;
 
         return (
-            <View style={Styles.ServantList.row}>
-                {rowCells}
-                {placeholder}
-            </View>
+            <ListItem>
+                <Thumbnail square size={50} source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
+                <Grid style={{marginLeft: 10}}>
+                    <Col size={1}><Text>{data.collectionNo}</Text></Col>
+                    <Col size={1}><Thumbnail square size={30} source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/></Col>
+                    <Col size={3}><Text>{state.transSvtName[data.id].name}</Text></Col>
+                </Grid>
+            </ListItem>
         );
     }
 
     render() {
-        //noinspection TypeScriptUnresolvedVariable
         return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="ServantList"
-                    buttons={this.genButtonsData(this)}
-                />
-                <ListView
-                    style={Styles.Tab.pageDisplayArea}
-                    dataSource={this._dataSource.cloneWithRows((this.props as State.Props).SceneServantList.displayData)}
-                    renderRow={(rowData, sectionId, rowId) => this.renderRow(rowData, rowId, this)}
-                    showsVerticalScrollIndicator={false}
-                    enableEmptySections={true}
-                />
-            </TabScene>
-        );
-    }
-}
-
-class ImagePlaceholder extends Component<any, any> {
-    render() {
-        return (
-            <View style={[Styles.ServantList.cellBase, Styles.ServantList.cellPlaceholder]}>
-                <Image style={Styles.Common.resImgBig} source={undefined}/>
-            </View>
-        );
-    }
-}
-
-interface ImageCellProps {
-    appVer: string;
-    svtId: number;
-}
-
-class ImageCell extends Component<ImageCellProps, any> {
-    render() {
-        let props = this.props as ImageCellProps;
-
-        //noinspection TypeScriptUnresolvedFunction
-        return (
-            <TouchableOpacity
-                onPress={() => (Actions as any).servant_info({svtId: props.svtId})}>
-                <View style={[Styles.ServantList.cell, Styles.ServantList.cellBase]}>
-                    <ResImage
-                        appVer={props.appVer}
-                        type="face"
-                        id={props.svtId}/>
-                </View>
-            </TouchableOpacity>
+            <Container>
+                <Header>
+                    <Left />
+                    <Body>
+                        <Title>ServantList</Title>
+                    </Body>
+                    <Right>
+                        <Button transparent>
+                            <Icon name="funnel" />
+                        </Button>
+                        <Button transparent>
+                            <Icon name={this.genDirectionIconStr()} />
+                        </Button>
+                    </Right>
+                </Header>
+                <Content>
+                    <List dataArray={(this.props as State.Props).SceneServantList.displayData}
+                          renderRow={this.renderRow.bind(this)}>
+                    </List>
+                </Content>
+            </Container>
         );
     }
 }

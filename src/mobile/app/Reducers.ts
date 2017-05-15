@@ -1,5 +1,5 @@
 import * as SceneInitReducer from "../scene/init/Reducer";
-import * as SceneServantListReducer from "../scene/servant/main/Reducer";
+import * as SceneServantListReducer from "../scene/servant/list/Reducer";
 import * as SceneServantInfoReducer from "../scene/servant/detail/Reducer";
 import * as SceneGoalReducer from "../scene/goal/main/Reducer";
 

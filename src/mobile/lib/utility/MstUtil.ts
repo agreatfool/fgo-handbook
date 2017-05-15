@@ -61,6 +61,10 @@ export default class MstUtil {
         return `${this.getRemoteDbUrl(remoteVer)}/images/item/${itemId}.png`;
     }
 
+    public getRemoteClassUrl(remoteVer: string, classId: number): string {
+        return `${this.getRemoteDbUrl(remoteVer)}/images/class/${classId}.png`;
+    }
+
     public getRemoteSkillUrl(remoteVer: string, iconId: number): string {
         return `${this.getRemoteDbUrl(remoteVer)}/images/skill/${iconId}.png`;
     }
