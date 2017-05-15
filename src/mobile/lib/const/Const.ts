@@ -4,10 +4,11 @@ export default class Const {
     public static readonly DB_FILE_PATH: string = "database.json";
     public static readonly SERVANT_IN_ROW: number = 5;
     public static readonly VALID_CLASS_IDS: Array<number> = [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 11, // 剑弓枪骑术杀狂盾裁仇
-        17, // GrandCaster
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, // 剑弓枪骑术杀狂盾裁AlterEgo仇
+        17, // Grand Caster
         20, // 提亚马特
         22, // 魔神王盖提亚
+        23, // Moon Cancer
     ];
     public static readonly SERVANT_CLASS_NAMES: {[key: number]: string} = {
         1: "Saber",

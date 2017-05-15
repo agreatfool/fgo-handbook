@@ -27,7 +27,7 @@ class ServantDetail extends Component<State.Props, any> {
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
             return this._service.buildSvtInfoBase(props.svtId);
-        }).then((info) => {
+        }).then((info: SvtInfoBase) => {
             props.actions.updatePageTitle(info.name);
             props.actions.updateSvtInfo({baseInfo: info});
         });
