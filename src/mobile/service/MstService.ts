@@ -77,12 +77,10 @@ export class Service {
         } as SvtListOrder));
     }
 
-    public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<Array<MstSvt>> {
-        return Service._divideSvtDataIntoRows(
-            Service._sortSvtData(
-                Service._filterSvtData(rawData, filter),
-                order
-            )
+    public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<MstSvt> {
+        return Service._sortSvtData(
+            Service._filterSvtData(rawData, filter),
+            order
         );
     }
 
