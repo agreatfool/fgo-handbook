@@ -12251,5 +12251,22 @@
         "condLv": 0,
         "condFriendshipRank": 0,
         "cardId": 1
+    },
+    {
+        "damage": [
+            16,
+            33,
+            51
+        ],
+        "strengthStatus": 0,
+        "svtId": 9939130,
+        "num": 1,
+        "flag": 0,
+        "treasureDeviceId": 9939131,
+        "condQuestId": 0,
+        "condQuestPhase": 0,
+        "condLv": 0,
+        "condFriendshipRank": 0,
+        "cardId": 1
     }
 ]

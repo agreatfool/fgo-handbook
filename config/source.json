@@ -9,6 +9,7 @@
     "imageSvtThumbnailUri": "images/Servant/#SVTID_status_servant_#NO.png",
     "imageSvtSkillUri": "images/SkillIcon/SkillIcon_#SKILLID.png",
     "imageItemIconUri": "images/icon/items/#ITEMID.png",
+    "imageClassIconUri": "images/icon/class/class_#CLASSID_5.png",
     "imageSvtCmdUri": "images/Servant/#SVTID_card_servant_#NO.png",
     "imageSvtCardUri": "images/CharaGraph/#SVTID#NO.png"
 }

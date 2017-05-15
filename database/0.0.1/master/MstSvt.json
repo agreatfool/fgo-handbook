@@ -53858,5 +53858,57 @@
         "illustratorId": 1,
         "cvId": 0,
         "collectionNo": 578
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [
+            5000,
+            9939130,
+            2,
+            116,
+            204,
+            301,
+            304,
+            2001
+        ],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            1,
+            1,
+            2,
+            2
+        ],
+        "script": {
+            "cameraActionId": 188
+        },
+        "id": 9939130,
+        "baseSvtId": 9939130,
+        "name": "ビーストⅢ／Ｒ",
+        "ruby": "ビーストⅢ／Ｒ",
+        "battleName": "ヘブンズホール",
+        "classId": 24,
+        "type": 9,
+        "limitMax": 4,
+        "rewardLv": 90,
+        "friendshipId": 1050,
+        "maxFriendshipRank": 10,
+        "genderType": 2,
+        "attri": 5,
+        "combineSkillId": 9939130,
+        "combineLimitId": 9939130,
+        "sellQp": 5000,
+        "sellMana": 9,
+        "sellRarePri": 5,
+        "expType": 15,
+        "combineMaterialId": 5,
+        "cost": 16,
+        "battleSize": 6,
+        "starRate": 100,
+        "deathRate": 0,
+        "attackAttri": 3,
+        "illustratorId": 52,
+        "cvId": 72,
+        "collectionNo": 168
     }
 ]

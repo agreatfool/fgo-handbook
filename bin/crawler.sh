@@ -5,4 +5,4 @@ cd ${BASEDIR}/../
 
 tsc -p server-tsconfig.json
 
-node build/server/Runner.js
+node server_build/server/Runner.js
