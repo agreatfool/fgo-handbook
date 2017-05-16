@@ -13,20 +13,20 @@ export const Common = StyleSheet.create({
     flexDefault: {
         flex: 1,
     },
-    row: {
+    Row: {
         marginBottom: 15,
     },
     textCenter: {
         textAlign: "center" as any,
     },
-    centering: {
+    Centering: {
         alignItems: "center" as FlexAlignType,
         justifyContent: "center" as FlexJustifyType,
     },
-    horizontalCentering: {
+    HorizontalCentering: {
         alignItems: "center" as FlexAlignType,
     },
-    verticalCentering: {
+    VerticalCentering: {
         justifyContent: "center" as FlexJustifyType,
     },
     resImgSmall: {
@@ -97,13 +97,19 @@ export const Common = StyleSheet.create({
     dropdownListItem: {
         fontSize: 12,
         height: 200
+    },
+    Star: {
+        color: "#FFD500",
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 1,
+        textShadowColor: "#000000",
     }
 });
 
-export const NavTop = StyleSheet.create({
-    navBar: {
-        height: 64
-    },
+export const Box = StyleSheet.create({
+    Wrapper: {
+        padding: 10,
+    }
 });
 
 export const Tab = StyleSheet.create({
@@ -150,40 +156,6 @@ export const ToolBoxTop = StyleSheet.create({
         textAlign: "center",
         backgroundColor: "yellow",
     } as TextStyle
-});
-
-export const Landing = StyleSheet.create({
-    footer: {
-        position: "absolute" as any,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        padding: 8
-    }
-});
-
-export const ServantList = StyleSheet.create({
-    row: {
-        flexDirection: "row" as FlexDirection,
-        marginTop: 5,
-        marginBottom: 5
-    },
-    cellBase: {
-        flex: 1,
-        width: 70,
-        height: 70,
-        marginLeft: 5,
-        marginRight: 5,
-    },
-    cell: {
-        borderWidth: 1,
-        borderStyle: "solid" as any,
-        borderColor: "black",
-    },
-    cellPlaceholder: {
-        marginLeft: 6,
-        marginRight: 6,
-    },
 });
 
 export const ServantStory = StyleSheet.create({
