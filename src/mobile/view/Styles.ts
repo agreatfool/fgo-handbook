@@ -14,9 +14,9 @@ export const Common = StyleSheet.create({
         flex: 1,
     },
     Row: {
-        marginBottom: 15,
+        marginBottom: 10,
     },
-    textCenter: {
+    TextCenter: {
         textAlign: "center" as any,
     },
     Centering: {
