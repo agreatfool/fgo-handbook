@@ -27,6 +27,7 @@ import {
 } from "native-base";
 import MstLoader from "../../../lib/model/MstLoader";
 import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
+import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 
 export * from "./State";
 export * from "./Action";
@@ -141,6 +142,7 @@ export class ServantList extends Component<State.Props, any> {
                           renderRow={this.renderRow.bind(this)}>
                     </List>
                 </Content>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Servant}/>
             </Container>
         );
     }
