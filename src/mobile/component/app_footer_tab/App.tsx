@@ -6,7 +6,7 @@ import {Actions} from "react-native-router-flux";
 export enum AppFooterTabIndex {
     Servant,
     Progress,
-    Option
+    Option,
 }
 
 interface AppFooterTabProps {
