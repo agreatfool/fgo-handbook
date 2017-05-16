@@ -29,20 +29,7 @@ export const updateSvtInfo: ActionCreator<ActionUpdateSvtInfo> = function (info:
     }
 };
 
-export const ACT_SWITCH_MODE = "ACT_SWITCH_MODE";
-
-export interface ActionSwitchMode {
-    type: string;
-}
-
-export const switchMode: ActionCreator<ActionSwitchMode> = function () {
-    return {
-        type: ACT_SWITCH_MODE,
-    }
-};
-
 export const Actions = {
     updatePageTitle,
     updateSvtInfo,
-    switchMode,
 };
