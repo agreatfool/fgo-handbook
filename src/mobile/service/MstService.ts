@@ -257,7 +257,11 @@ export class Service {
                 cardCount++;
             }
         });
-        let hitCount = mstSvtCard.normalDamage.length;
+
+        let hitCount = 0;
+        try {
+            hitCount = mstSvtCard.normalDamage.length;
+        } catch (e) { /* Just ignore it */ }
 
         return {
             count: cardCount,
