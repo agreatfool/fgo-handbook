@@ -4,7 +4,6 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import * as State from "./State";
-import {SvtListOrder} from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
@@ -28,6 +27,7 @@ import {
 import MstLoader from "../../../lib/model/MstLoader";
 import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
+import * as Styles from "../../../view/Styles";
 
 export * from "./State";
 export * from "./Action";
@@ -92,7 +92,7 @@ export class ServantList extends Component<State.Props, any> {
         actions.updateOrder({
             order: state.order.order,
             direction: direction,
-        } as SvtListOrder);
+        } as State.SvtListOrder);
     }
 
     renderRow(data: MstSvt) {
@@ -104,14 +104,14 @@ export class ServantList extends Component<State.Props, any> {
             <ListItem onPress={() => (Actions as any).servant_detail({svtId: data.id})}>
                 <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
                 <Grid style={{marginLeft: 10}}>
-                    <Col size={.5} style={{justifyContent: "center"}}>
+                    <Col size={.5} style={Styles.Common.verticalCentering}>
                         <Text>{data.collectionNo}</Text>
                     </Col>
                     <Col size={1}>
                         <Thumbnail square small
                                    source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
                     </Col>
-                    <Col size={3} style={{justifyContent: "center"}}>
+                    <Col size={3} style={Styles.Common.verticalCentering}>
                         <Text>{state.transSvtName[data.id].name}</Text>
                     </Col>
                 </Grid>
