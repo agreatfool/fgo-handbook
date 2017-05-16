@@ -1,16 +1,16 @@
 import React, {Component} from "react";
 import {View} from "react-native";
 import * as Renderer from "../../../view/View";
-import {
-    ToolBoxWrapper,
-    TabScene,
-    TabPageScroll,
-    Table,
-    DropdownList,
-    TableLineButton,
-    ResImage,
-    ResImageWithElement
-} from "../../../view/View";
+// import {
+//     ToolBoxWrapper,
+//     TabScene,
+//     TabPageScroll,
+//     Table,
+//     DropdownList,
+//     TableLineButton,
+//     ResImage,
+//     ResImageWithElement
+// } from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -260,82 +260,87 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         calcResultSvts = calcResultSvts as Array<CalcResultSvt>;
         calcResultItems = calcResultItems as Array<CalcResultItem>;
 
-        let columnServants = Renderer.buildColumnData("从者差值", []);
-        calcResultSvts.forEach((svt: CalcResultSvt) => {
-            columnServants.rows.push([
-                <ResImage appVer={props.SceneGoal.appVer}
-                          type="face"
-                          size="small"
-                          id={svt.svtId}/>,
-                this.getSvtName(svt.svtId).name
-            ]);
-            let itemsDivided = this.divideDataIntoRows(svt.items);
-            itemsDivided.forEach((items: Array<CalcResultItem>) => {
-                columnServants.rows.push(items.map((item: CalcResultItem) => {
-                    return <ResImageWithElement
-                        width={77}
-                        appVer={props.SceneGoal.appVer}
-                        type="item"
-                        id={item.itemId}
-                        size="small"
-                        text={`x${item.count}`}
-                    />;
-                }));
-            });
-        });
+        // let columnServants = Renderer.buildColumnData("从者差值", []);
+        // calcResultSvts.forEach((svt: CalcResultSvt) => {
+        //     columnServants.rows.push([
+        //         <ResImage appVer={props.SceneGoal.appVer}
+        //                   type="face"
+        //                   size="small"
+        //                   id={svt.svtId}/>,
+        //         this.getSvtName(svt.svtId).name
+        //     ]);
+        //     let itemsDivided = this.divideDataIntoRows(svt.items);
+        //     itemsDivided.forEach((items: Array<CalcResultItem>) => {
+        //         columnServants.rows.push(items.map((item: CalcResultItem) => {
+        //             return <ResImageWithElement
+        //                 width={77}
+        //                 appVer={props.SceneGoal.appVer}
+        //                 type="item"
+        //                 id={item.itemId}
+        //                 size="small"
+        //                 text={`x${item.count}`}
+        //             />;
+        //         }));
+        //     });
+        // });
 
-        let columnMaterials = Renderer.buildColumnData("材料差值", []);
-        let itemDivided = this.divideDataIntoRows(calcResultItems);
-        itemDivided.forEach((items: Array<CalcResultItem>) => {
-            columnMaterials.rows.push(items.map((item: CalcResultItem) => {
-                return <ResImageWithElement
-                    width={77}
-                    appVer={props.SceneGoal.appVer}
-                    type="item"
-                    id={item.itemId}
-                    size="small"
-                    text={`x${item.count}`}
-                />;
-            }));
-        });
+        // let columnMaterials = Renderer.buildColumnData("材料差值", []);
+        // let itemDivided = this.divideDataIntoRows(calcResultItems);
+        // itemDivided.forEach((items: Array<CalcResultItem>) => {
+        //     columnMaterials.rows.push(items.map((item: CalcResultItem) => {
+        //         return <ResImageWithElement
+        //             width={77}
+        //             appVer={props.SceneGoal.appVer}
+        //             type="item"
+        //             id={item.itemId}
+        //             size="small"
+        //             text={`x${item.count}`}
+        //         />;
+        //     }));
+        // });
 
-        let columnSelectTarget = Renderer.buildColumnData("切换比对目标", []);
-        columnSelectTarget.rows.push([
-                <DropdownList
-                    data={this.getGoalList()}
-                    selectedValue={`${state.selectedGoalId}`}
-                    onValueChange={(goalId: string) => this.setState({selectedGoalId: goalId})}
-                    getValue={(goal: Goal) => `${goal.id}`}
-                    getLabel={(goal: Goal) => `${goal.name}`}
-                />
-            ],
-            [
-                <TableLineButton onPress={() => this.switchTargetGoal()}>
-                    进行比对
-                </TableLineButton>
-            ]
-        );
-
-        return [[columnServants], [columnMaterials], [columnSelectTarget]];
+        // let columnSelectTarget = Renderer.buildColumnData("切换比对目标", []);
+        // columnSelectTarget.rows.push([
+        //         <DropdownList
+        //             data={this.getGoalList()}
+        //             selectedValue={`${state.selectedGoalId}`}
+        //             onValueChange={(goalId: string) => this.setState({selectedGoalId: goalId})}
+        //             getValue={(goal: Goal) => `${goal.id}`}
+        //             getLabel={(goal: Goal) => `${goal.name}`}
+        //         />
+        //     ],
+        //     [
+        //         <TableLineButton onPress={() => this.switchTargetGoal()}>
+        //             进行比对
+        //         </TableLineButton>
+        //     ]
+        // );
+        //
+        // return [[columnServants], [columnMaterials], [columnSelectTarget]];
     }
 
-    render() {
-        if (!this.state || !this.state.hasOwnProperty("targetGoal") || this.state["targetGoal"] === undefined) {
-            return <View />;
-        }
+    // render() {
+    //     if (!this.state || !this.state.hasOwnProperty("targetGoal") || this.state["targetGoal"] === undefined) {
+    //         return <View />;
+    //     }
+    //
+    //     //noinspection TypeScriptUnresolvedVariable,TypeScriptUnresolvedFunction
+    //     return (
+    //         <TabScene>
+    //             <ToolBoxWrapper
+    //                 pageName="GoalCompare"
+    //                 buttons={[]}
+    //             />
+    //             <TabPageScroll style={{height: 620, paddingBottom: 5}}>
+    //                 <Table pageName="GoalCompare" data={this.prepareData()}/>
+    //             </TabPageScroll>
+    //         </TabScene>
+    //     );
+    // }
 
-        //noinspection TypeScriptUnresolvedVariable,TypeScriptUnresolvedFunction
-        return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="GoalCompare"
-                    buttons={[]}
-                />
-                <TabPageScroll style={{height: 620, paddingBottom: 5}}>
-                    <Table pageName="GoalCompare" data={this.prepareData()}/>
-                </TabPageScroll>
-            </TabScene>
-        );
+
+    render() {
+        return <View/>;
     }
 }
 

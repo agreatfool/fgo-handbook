@@ -10,7 +10,7 @@ import {
     SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
     SvtInfoTreasureDetail, SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
-import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../../../view/View";
+// import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -46,72 +46,72 @@ class ServantSkill extends Component<State.Props, any> {
     }
 
     prepareSkillData(skill: SvtInfoSkillDetail) {
-        let column = Renderer.buildColumnData("保有技能", []);
-        column.rows.push([
-            <ResImage
-                appVer={this._appVer}
-                type="skill"
-                id={skill.iconId}
-                size="small"
-            />,
-            skill.name,
-            this.genChargeTurnStr(skill.chargeTurn),
-            skill.condition
-        ]);
-
-        skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-            column.rows.push([effect.description]);
-            if (effect.effects.length > 0) {
-                column.rows.push(effect.effects);
-            }
-        });
-
-        return [column];
+        // let column = Renderer.buildColumnData("保有技能", []);
+        // column.rows.push([
+        //     <ResImage
+        //         appVer={this._appVer}
+        //         type="skill"
+        //         id={skill.iconId}
+        //         size="small"
+        //     />,
+        //     skill.name,
+        //     this.genChargeTurnStr(skill.chargeTurn),
+        //     skill.condition
+        // ]);
+        //
+        // skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+        //     column.rows.push([effect.description]);
+        //     if (effect.effects.length > 0) {
+        //         column.rows.push(effect.effects);
+        //     }
+        // });
+        //
+        // return [column];
     }
 
     preparePassiveSkillData(skills: Array<SvtInfoPassiveSkill>) {
-        let column = Renderer.buildColumnData("职阶技能", []);
-
-        skills.forEach((skill: SvtInfoPassiveSkill) => {
-            column.rows.push([
-                <ResImage
-                    appVer={this._appVer}
-                    type="skill"
-                    id={skill.iconId}
-                    size="small"
-                />,
-                skill.name
-            ]);
-            let effects = [];
-            skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-                effects.push(effect.description + effect.effects.join(""));
-            });
-            column.rows.push([effects.join("\n")]);
-        });
-
-        return [column];
+        // let column = Renderer.buildColumnData("职阶技能", []);
+        //
+        // skills.forEach((skill: SvtInfoPassiveSkill) => {
+        //     column.rows.push([
+        //         <ResImage
+        //             appVer={this._appVer}
+        //             type="skill"
+        //             id={skill.iconId}
+        //             size="small"
+        //         />,
+        //         skill.name
+        //     ]);
+        //     let effects = [];
+        //     skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+        //         effects.push(effect.description + effect.effects.join(""));
+        //     });
+        //     column.rows.push([effects.join("\n")]);
+        // });
+        //
+        // return [column];
     }
 
     prepareTreasureData(treasure: SvtInfoTreasureDetail) {
         //FIXME 宝具需要显示类型，否则红蓝绿完全就不知道了
-        let column = Renderer.buildColumnData("宝具", []);
-
-        column.rows.push([
-            treasure.name,
-            treasure.rank,
-            treasure.type,
-            treasure.condition,
-            this.genTreasureHitStr(treasure.hits),
-        ]);
-
-        treasure.effects.forEach((effect: SvtInfoTreasureEffect) => {
-            column.rows.push([effect.description]);
-            if (effect.effects.length > 0) {
-                column.rows.push(effect.effects);
-            }
-        });
-
-        return [column];
+        // let column = Renderer.buildColumnData("宝具", []);
+        //
+        // column.rows.push([
+        //     treasure.name,
+        //     treasure.rank,
+        //     treasure.type,
+        //     treasure.condition,
+        //     this.genTreasureHitStr(treasure.hits),
+        // ]);
+        //
+        // treasure.effects.forEach((effect: SvtInfoTreasureEffect) => {
+        //     column.rows.push([effect.description]);
+        //     if (effect.effects.length > 0) {
+        //         column.rows.push(effect.effects);
+        //     }
+        // });
+        //
+        // return [column];
     }
 
     prepareData(info: SvtInfoSkill) {
@@ -128,28 +128,32 @@ class ServantSkill extends Component<State.Props, any> {
         return data;
     }
 
+    render1() {
+        // let info: SvtInfoSkill = (this.props as State.Props).SceneServantInfo.skillInfo;
+        // if (MstUtil.isObjEmpty(info)) {
+        //     // 数据未准备好，不要渲染页面
+        //     return <View />;
+        // }
+        //
+        // let data = this.prepareData(info);
+        //
+        // return (
+        //     <TabScene>
+        //         <ToolBoxWrapper
+        //             pageName="ServantSkill"
+        //             buttons={[
+        //                 {content: "编辑模式"}
+        //             ]}
+        //         />
+        //         <TabPageScroll>
+        //             <Table pageName="ServantSkill" data={data} />
+        //         </TabPageScroll>
+        //     </TabScene>
+        // );
+    }
+
     render() {
-        let info: SvtInfoSkill = (this.props as State.Props).SceneServantInfo.skillInfo;
-        if (MstUtil.isObjEmpty(info)) {
-            // 数据未准备好，不要渲染页面
-            return <View />;
-        }
-
-        let data = this.prepareData(info);
-
-        return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="ServantSkill"
-                    buttons={[
-                        {content: "编辑模式"}
-                    ]}
-                />
-                <TabPageScroll>
-                    <Table pageName="ServantSkill" data={data} />
-                </TabPageScroll>
-            </TabScene>
-        );
+        return <View/>;
     }
 }
 

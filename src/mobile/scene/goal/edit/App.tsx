@@ -1,15 +1,15 @@
 import React, {Component} from "react";
 import {View, Text, TouchableOpacity, TextInput, Alert} from "react-native";
 import * as Renderer from "../../../view/View";
-import {
-    ToolBoxWrapper,
-    TabScene,
-    TabPageScroll,
-    Table,
-    ResImageWithElement,
-    DropdownList,
-    TableLineButton
-} from "../../../view/View";
+// import {
+//     ToolBoxWrapper,
+//     TabScene,
+//     TabPageScroll,
+//     Table,
+//     ResImageWithElement,
+//     DropdownList,
+//     TableLineButton
+// } from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -156,36 +156,36 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let skillElements = [];
         skills.forEach((skill: MstSkill, index) => {
-            skillElements.push(
-                <ResImageWithElement appVer={appVer}
-                                     type="skill"
-                                     size="small"
-                                     width={110}
-                                     id={skill.iconId}>
-                    <ResImgSvtSkillLvInput
-                        value={`${goalSvt.skills[index].level}`}
-                        onChange={(text) => {
-                            if (text === "") {
-                                return;
-                            }
-                            this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
-                        }}
-                    />
-                </ResImageWithElement>
-            );
+            // skillElements.push(
+            //     <ResImageWithElement appVer={appVer}
+            //                          type="skill"
+            //                          size="small"
+            //                          width={110}
+            //                          id={skill.iconId}>
+            //         <ResImgSvtSkillLvInput
+            //             value={`${goalSvt.skills[index].level}`}
+            //             onChange={(text) => {
+            //                 if (text === "") {
+            //                     return;
+            //                 }
+            //                 this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
+            //             }}
+            //         />
+            //     </ResImageWithElement>
+            // );
         });
 
-        return [
-            <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
-                <ResImageWithElement appVer={appVer}
-                                     type="face"
-                                     size="small"
-                                     width={55}
-                                     text="  "
-                                     id={goalSvt.svtId}/>
-            </TouchableOpacity>,
-            ...skillElements
-        ];
+        // return [
+        //     <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+        //         <ResImageWithElement appVer={appVer}
+        //                              type="face"
+        //                              size="small"
+        //                              width={55}
+        //                              text="  "
+        //                              id={goalSvt.svtId}/>
+        //     </TouchableOpacity>,
+        //     ...skillElements
+        // ];
     }
 
     removeSvtFromGoal(svtId: number): void {
@@ -267,72 +267,77 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     prepareData() {
-        let props = this.props as GoalEditProps;
-        let state = this.state as GoalEditState;
-
-        let columnName = Renderer.buildColumnData("目标名称", []);
-        let goalName = "";
-        if (props.isCurrent) {
-            goalName = this.currentStatusName;
-        } else {
-            goalName = state.goal.name ? state.goal.name : this.defaultGoalName;
-        }
-        columnName.rows.push([
-            <GoalNameInput
-                value={goalName}
-                onChange={(text) => {
-                    if (text === "") {
-                        return;
-                    }
-                    this.updateGoalName(text);
-                }}
-                editable={!props.isCurrent}
-            />
-        ]);
-
-        let columnServant = Renderer.buildColumnData("从者目标", []);
-        state.goal.servants.forEach((goalSvt: GoalSvt) => {
-            columnServant.rows.push(this.genServantLine(goalSvt));
-        });
-
-        let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
-        columnAddServant.rows.push([
-                <DropdownList
-                    data={props.SceneGoal.svtRawData}
-                    selectedValue={`${state.selectedSvtId}`}
-                    onValueChange={(svtId: string) => this.setState({selectedSvtId: parseInt(svtId)})}
-                    getValue={(svt: MstSvt) => `${svt.id}`}
-                    getLabel={(svt: MstSvt) => `${svt.collectionNo}: ${svt.name}`}
-                />
-            ],
-            [
-                <TableLineButton onPress={() => this.addSvtIntoGoal()}>
-                    添加目标
-                </TableLineButton>
-            ]
-        );
-
-        return [[columnName], [columnServant], [columnAddServant]];
+        // let props = this.props as GoalEditProps;
+        // let state = this.state as GoalEditState;
+        //
+        // let columnName = Renderer.buildColumnData("目标名称", []);
+        // let goalName = "";
+        // if (props.isCurrent) {
+        //     goalName = this.currentStatusName;
+        // } else {
+        //     goalName = state.goal.name ? state.goal.name : this.defaultGoalName;
+        // }
+        // columnName.rows.push([
+        //     <GoalNameInput
+        //         value={goalName}
+        //         onChange={(text) => {
+        //             if (text === "") {
+        //                 return;
+        //             }
+        //             this.updateGoalName(text);
+        //         }}
+        //         editable={!props.isCurrent}
+        //     />
+        // ]);
+        //
+        // let columnServant = Renderer.buildColumnData("从者目标", []);
+        // state.goal.servants.forEach((goalSvt: GoalSvt) => {
+        //     columnServant.rows.push(this.genServantLine(goalSvt));
+        // });
+        //
+        // let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
+        // columnAddServant.rows.push([
+        //         <DropdownList
+        //             data={props.SceneGoal.svtRawData}
+        //             selectedValue={`${state.selectedSvtId}`}
+        //             onValueChange={(svtId: string) => this.setState({selectedSvtId: parseInt(svtId)})}
+        //             getValue={(svt: MstSvt) => `${svt.id}`}
+        //             getLabel={(svt: MstSvt) => `${svt.collectionNo}: ${svt.name}`}
+        //         />
+        //     ],
+        //     [
+        //         <TableLineButton onPress={() => this.addSvtIntoGoal()}>
+        //             添加目标
+        //         </TableLineButton>
+        //     ]
+        // );
+        //
+        // return [[columnName], [columnServant], [columnAddServant]];
     }
 
-    render() {
-        if (!this.state || !this.state.hasOwnProperty("goal") || this.state["goal"] === undefined) {
-            return <View />;
-        }
+    // render() {
+    //     if (!this.state || !this.state.hasOwnProperty("goal") || this.state["goal"] === undefined) {
+    //         return <View />;
+    //     }
+    //
+    //     return (
+    //         <TabScene>
+    //             <ToolBoxWrapper
+    //                 pageName="GoalEdit"
+    //                 buttons={[
+    //                     {content: "保存改动", onPress: () => this.saveGoal()},
+    //                 ]}
+    //             />
+    //             <TabPageScroll style={{height: 620, paddingBottom: 5}}>
+    //                 <Table pageName="GoalEdit" data={this.prepareData()}/>
+    //             </TabPageScroll>
+    //         </TabScene>
+    //     );
+    // }
 
-        return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="GoalEdit"
-                    buttons={[
-                        {content: "保存改动", onPress: () => this.saveGoal()},
-                    ]}
-                />
-                <TabPageScroll style={{height: 620, paddingBottom: 5}}>
-                    <Table pageName="GoalEdit" data={this.prepareData()}/>
-                </TabPageScroll>
-            </TabScene>
-        );
+
+    render() {
+        return <View/>;
     }
 }
 

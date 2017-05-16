@@ -6,14 +6,14 @@ import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as Renderer from "../../../view/View";
-import {
-    TabScene,
-    ToolBoxWrapper,
-    TabPageScroll,
-    Table,
-    ResImageWithElement,
-    ResImageWithElementPlaceholder
-} from "../../../view/View";
+// import {
+//     TabScene,
+//     ToolBoxWrapper,
+//     TabPageScroll,
+//     Table,
+//     ResImageWithElement,
+//     ResImageWithElementPlaceholder
+// } from "../../../view/View";
 import {
     SvtInfoMaterial,
     SvtInfoMaterialLimit,
@@ -63,46 +63,46 @@ class ServantMaterial extends Component<State.Props, any> {
     }
 
     prepareRowData(elements: Array<SvtInfoMaterialLimit | SvtInfoMaterialSkill>, title: string, subTitleRenderer: Function) {
-        let column = Renderer.buildColumnData(title, []);
-
-        if (elements.length <= 0) {
-            return [column];
-        }
-
-        const CELL_COUNT = 5;
-        let loopBase = elements;
-        if (loopBase.length < 9) {
-            // 这是一个灵基再临数据结构，需要删除最后的圣杯再临数据；P.S 技能只有9个升级项，故此按9判断
-            loopBase = loopBase.slice(0, 4);
-        }
-        loopBase.forEach((element: SvtInfoMaterialLimit | SvtInfoMaterialSkill, index) => {
-            let cells = [];
-            cells.push(subTitleRenderer(index + 1));
-            element.items.forEach((item: SvtInfoMaterialDetail) => {
-                cells.push(
-                    <ResImageWithElement
-                        appVer={this._appVer}
-                        type="item"
-                        id={item.itemId}
-                        size="small"
-                        text={this.genItemCountStr(item.count)}
-                    />
-                );
-            });
-            cells.push(
-                <ResImageWithElementPlaceholder>
-                    {this.genQpStr(element.qp)}
-                </ResImageWithElementPlaceholder>);
-            if (cells.length < CELL_COUNT) {
-                let appendCount = CELL_COUNT - cells.length;
-                for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<ResImageWithElementPlaceholder />);
-                }
-            }
-            column.rows.push(cells);
-        });
-
-        return [column];
+        // let column = Renderer.buildColumnData(title, []);
+        //
+        // if (elements.length <= 0) {
+        //     return [column];
+        // }
+        //
+        // const CELL_COUNT = 5;
+        // let loopBase = elements;
+        // if (loopBase.length < 9) {
+        //     // 这是一个灵基再临数据结构，需要删除最后的圣杯再临数据；P.S 技能只有9个升级项，故此按9判断
+        //     loopBase = loopBase.slice(0, 4);
+        // }
+        // loopBase.forEach((element: SvtInfoMaterialLimit | SvtInfoMaterialSkill, index) => {
+        //     let cells = [];
+        //     cells.push(subTitleRenderer(index + 1));
+        //     element.items.forEach((item: SvtInfoMaterialDetail) => {
+        //         cells.push(
+        //             <ResImageWithElement
+        //                 appVer={this._appVer}
+        //                 type="item"
+        //                 id={item.itemId}
+        //                 size="small"
+        //                 text={this.genItemCountStr(item.count)}
+        //             />
+        //         );
+        //     });
+        //     cells.push(
+        //         <ResImageWithElementPlaceholder>
+        //             {this.genQpStr(element.qp)}
+        //         </ResImageWithElementPlaceholder>);
+        //     if (cells.length < CELL_COUNT) {
+        //         let appendCount = CELL_COUNT - cells.length;
+        //         for (let loop = 0; loop < appendCount; loop++) {
+        //             cells.push(<ResImageWithElementPlaceholder />);
+        //         }
+        //     }
+        //     column.rows.push(cells);
+        // });
+        //
+        // return [column];
     }
 
     prepareData(info: SvtInfoMaterial) {
@@ -114,28 +114,32 @@ class ServantMaterial extends Component<State.Props, any> {
         return data;
     }
 
+    render1() {
+        // let info: SvtInfoMaterial = (this.props as State.Props).SceneServantInfo.materialInfo;
+        // if (MstUtil.isObjEmpty(info)) {
+        //     // 数据未准备好，不要渲染页面
+        //     return <View />;
+        // }
+        //
+        // let data = this.prepareData(info);
+        //
+        // return (
+        //     <TabScene>
+        //         <ToolBoxWrapper
+        //             pageName="ServantMaterial"
+        //             buttons={[
+        //                 {content: "编辑模式"}
+        //             ]}
+        //         />
+        //         <TabPageScroll>
+        //             <Table pageName="ServantMaterial" data={data}/>
+        //         </TabPageScroll>
+        //     </TabScene>
+        // );
+    }
+
     render() {
-        let info: SvtInfoMaterial = (this.props as State.Props).SceneServantInfo.materialInfo;
-        if (MstUtil.isObjEmpty(info)) {
-            // 数据未准备好，不要渲染页面
-            return <View />;
-        }
-
-        let data = this.prepareData(info);
-
-        return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="ServantMaterial"
-                    buttons={[
-                        {content: "编辑模式"}
-                    ]}
-                />
-                <TabPageScroll>
-                    <Table pageName="ServantMaterial" data={data}/>
-                </TabPageScroll>
-            </TabScene>
-        );
+        return <View/>;
     }
 }
 

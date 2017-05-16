@@ -8,7 +8,7 @@ import * as Action from "./Action";
 import * as Renderer from "../../../view/View";
 import * as Styles from "../../../view/Styles";
 import {SvtInfoStory, SvtInfoFSReq} from "../../../lib/model/MstInfo";
-import {TabScene, ToolBoxWrapper, TabPageScroll, Table} from "../../../view/View";
+// import {TabScene, ToolBoxWrapper, TabPageScroll, Table} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -40,59 +40,59 @@ class ServantStory extends Component<State.Props, any> {
     };
 
     prepareStoryData(info: SvtInfoStory) {
-        let column = Renderer.buildColumnData("角色故事", []);
-
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"角色详细"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.detail}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"羁绊等级1"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.friendship1}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"羁绊等级2"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.friendship2}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"羁绊等级3"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.friendship3}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"羁绊等级4"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.friendship4}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"羁绊等级5"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.friendship5}</StoryBoxRowFixedText>
-        ]);
-        column.rows.push([
-            <StoryBowRowFixedTitle>{"最终故事"}</StoryBowRowFixedTitle>,
-            <StoryBoxRowFixedText>{info.lastStory}</StoryBoxRowFixedText>
-        ]);
-
-        return [column];
+        // let column = Renderer.buildColumnData("角色故事", []);
+        //
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"角色详细"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.detail}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"羁绊等级1"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.friendship1}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"羁绊等级2"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.friendship2}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"羁绊等级3"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.friendship3}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"羁绊等级4"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.friendship4}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"羁绊等级5"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.friendship5}</StoryBoxRowFixedText>
+        // ]);
+        // column.rows.push([
+        //     <StoryBowRowFixedTitle>{"最终故事"}</StoryBowRowFixedTitle>,
+        //     <StoryBoxRowFixedText>{info.lastStory}</StoryBoxRowFixedText>
+        // ]);
+        //
+        // return [column];
     }
 
     prepareFriendshipData(data: Array<SvtInfoFSReq>) {
-        let column = Renderer.buildColumnData("羁绊需求(累计)", []);
-
-        column.rows.push([
-            this.genFriendshipStr(data[0]),
-            this.genFriendshipStr(data[1]),
-            this.genFriendshipStr(data[2]),
-            this.genFriendshipStr(data[3]),
-            this.genFriendshipStr(data[4]),
-        ]);
-        column.rows.push([
-            this.genFriendshipStr(data[5]),
-            this.genFriendshipStr(data[6]),
-            this.genFriendshipStr(data[7]),
-            this.genFriendshipStr(data[8]),
-            this.genFriendshipStr(data[9]),
-        ]);
-
-        return [column];
+        // let column = Renderer.buildColumnData("羁绊需求(累计)", []);
+        //
+        // column.rows.push([
+        //     this.genFriendshipStr(data[0]),
+        //     this.genFriendshipStr(data[1]),
+        //     this.genFriendshipStr(data[2]),
+        //     this.genFriendshipStr(data[3]),
+        //     this.genFriendshipStr(data[4]),
+        // ]);
+        // column.rows.push([
+        //     this.genFriendshipStr(data[5]),
+        //     this.genFriendshipStr(data[6]),
+        //     this.genFriendshipStr(data[7]),
+        //     this.genFriendshipStr(data[8]),
+        //     this.genFriendshipStr(data[9]),
+        // ]);
+        //
+        // return [column];
     }
 
     prepareData(info: SvtInfoStory) {
@@ -104,65 +104,77 @@ class ServantStory extends Component<State.Props, any> {
         return data;
     }
 
+    render1() {
+        // let info: SvtInfoStory = (this.props as State.Props).SceneServantInfo.storyInfo;
+        // if (MstUtil.isObjEmpty(info)) {
+        //     // 数据未准备好，不要渲染页面
+        //     return <View />;
+        // }
+        //
+        // let data = this.prepareData(info);
+        //
+        // return (
+        //     <TabScene>
+        //         <ToolBoxWrapper
+        //             pageName="ServantStory"
+        //             buttons={[
+        //                 {content: "编辑模式"}
+        //             ]}
+        //         />
+        //         <TabPageScroll>
+        //             <Table pageName="ServantStory" data={data}/>
+        //         </TabPageScroll>
+        //     </TabScene>
+        // );
+    }
+
     render() {
-        let info: SvtInfoStory = (this.props as State.Props).SceneServantInfo.storyInfo;
-        if (MstUtil.isObjEmpty(info)) {
-            // 数据未准备好，不要渲染页面
-            return <View />;
-        }
-
-        let data = this.prepareData(info);
-
-        return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="ServantStory"
-                    buttons={[
-                        {content: "编辑模式"}
-                    ]}
-                />
-                <TabPageScroll>
-                    <Table pageName="ServantStory" data={data}/>
-                </TabPageScroll>
-            </TabScene>
-        );
+        return <View/>;
     }
 }
 
 class StoryBowRowFixedTitle extends Component<any, any> {
-    render() {
+    render1() {
         //noinspection TypeScriptUnresolvedVariable
-        return (
-            <View
-                style={[
-                    Styles.Common.centering,
-                    Styles.Common.flexDefault,
-                ]}
-            >
-                <Text
-                    style={[
-                        Styles.Common.textCenter,
-                        Styles.Common.resImgBoxWithText,
-                    ]}
-                >
-                    {this.props.children}
-                </Text>
-            </View>
-        );
+        // return (
+        //     <View
+        //         style={[
+        //             Styles.Common.centering,
+        //             Styles.Common.flexDefault,
+        //         ]}
+        //     >
+        //         <Text
+        //             style={[
+        //                 Styles.Common.textCenter,
+        //                 Styles.Common.resImgBoxWithText,
+        //             ]}
+        //         >
+        //             {this.props.children}
+        //         </Text>
+        //     </View>
+        // );
+    }
+
+    render() {
+        return <View/>;
     }
 }
 
 class StoryBoxRowFixedText extends Component<any, any> {
-    render() {
+    render1() {
         //noinspection TypeScriptUnresolvedVariable
-        return (
-            <Text style={[
-                Styles.Common.centering,
-                Styles.ServantStory.fixedText,
-            ]}>
-                {this.props.children}
-            </Text>
-        );
+        // return (
+        //     <Text style={[
+        //         Styles.Common.centering,
+        //         Styles.ServantStory.fixedText,
+        //     ]}>
+        //         {this.props.children}
+        //     </Text>
+        // );
+    }
+
+    render() {
+        return <View/>;
     }
 }
 
