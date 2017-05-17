@@ -99,6 +99,33 @@ export class ColCard extends Component<ColCardProps, any> {
     }
 }
 
+interface ColCardWrapperProps extends Props {
+    size?: number;
+}
+
+export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
+    render() {
+        let props = this.props as ColCardWrapperProps;
+
+        let colProps = {};
+        if (props.hasOwnProperty("size")) {
+            colProps = Object.assign(colProps, {size: props.size});
+        }
+
+        return (
+            <Col {colProps}>
+                <Card>
+                    <CardItem>
+                        <Grid>
+                            {props.children}
+                        </Grid>
+                    </CardItem>
+                </Card>
+            </Col>
+        );
+    }
+}
+
 export class GridColCardWrapper extends Component<Props, any> {
     render() {
         let props = this.props as Props;

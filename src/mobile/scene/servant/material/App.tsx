@@ -5,21 +5,17 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "../../../view/View";
-// import {
-//     TabScene,
-//     ToolBoxWrapper,
-//     TabPageScroll,
-//     Table,
-//     ResImageWithElement,
-//     ResImageWithElementPlaceholder
-// } from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
 import {
     SvtInfoMaterial,
+    SvtInfoMaterialDetail,
     SvtInfoMaterialLimit,
-    SvtInfoMaterialSkill,
-    SvtInfoMaterialDetail
+    SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
+import {Actions} from "react-native-router-flux";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
+import * as Styles from "../../../view/Styles";
+import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 
 export * from "./State";
 export * from "./Action";
@@ -42,6 +38,7 @@ class ServantMaterial extends Component<State.Props, any> {
             props.actions.updatePageTitle(name);
             return this._service.buildSvtInfoMaterial(props.svtId);
         }).then((info) => {
+            props.actions.updateSvtId(props.svtId);
             props.actions.updateSvtInfo({materialInfo: info});
         });
     }
@@ -55,91 +52,116 @@ class ServantMaterial extends Component<State.Props, any> {
     }
 
     genQpStr(qp: number) {
-        return `${qp}QP`;
+        return `${qp / 10000}万QP`;
     }
 
     genSkillStr(index: number) {
         return `Lv.${index}\n->\nLv.${index + 1}`;
     }
 
-    prepareRowData(elements: Array<SvtInfoMaterialLimit | SvtInfoMaterialSkill>, title: string, subTitleRenderer: Function) {
-        // let column = Renderer.buildColumnData(title, []);
-        //
-        // if (elements.length <= 0) {
-        //     return [column];
-        // }
-        //
-        // const CELL_COUNT = 5;
-        // let loopBase = elements;
-        // if (loopBase.length < 9) {
-        //     // 这是一个灵基再临数据结构，需要删除最后的圣杯再临数据；P.S 技能只有9个升级项，故此按9判断
-        //     loopBase = loopBase.slice(0, 4);
-        // }
-        // loopBase.forEach((element: SvtInfoMaterialLimit | SvtInfoMaterialSkill, index) => {
-        //     let cells = [];
-        //     cells.push(subTitleRenderer(index + 1));
-        //     element.items.forEach((item: SvtInfoMaterialDetail) => {
-        //         cells.push(
-        //             <ResImageWithElement
-        //                 appVer={this._appVer}
-        //                 type="item"
-        //                 id={item.itemId}
-        //                 size="small"
-        //                 text={this.genItemCountStr(item.count)}
-        //             />
-        //         );
-        //     });
-        //     cells.push(
-        //         <ResImageWithElementPlaceholder>
-        //             {this.genQpStr(element.qp)}
-        //         </ResImageWithElementPlaceholder>);
-        //     if (cells.length < CELL_COUNT) {
-        //         let appendCount = CELL_COUNT - cells.length;
-        //         for (let loop = 0; loop < appendCount; loop++) {
-        //             cells.push(<ResImageWithElementPlaceholder />);
-        //         }
-        //     }
-        //     column.rows.push(cells);
-        // });
-        //
-        // return [column];
+    renderCommon(elements: Array<SvtInfoMaterialLimit | SvtInfoMaterialSkill>, title: string, subTitleRender: Function) {
+        let result = [];
+        const CELL_COUNT = 4;
+
+        let loopBase = elements;
+        if (loopBase.length < 9) {
+            // 这是一个灵基再临数据结构，需要删除最后的圣杯再临数据；P.S 技能只有9个升级项，故此按9判断
+            loopBase = loopBase.slice(0, 4);
+        }
+
+        loopBase.forEach((element: SvtInfoMaterialLimit | SvtInfoMaterialSkill, index) => {
+            let materials = [];
+
+            element.items.forEach((item: SvtInfoMaterialDetail, index) => {
+                materials.push(
+                    <Col key={`ElementCell_${index}`}>
+                        <Row style={Styles.Common.Centering}>
+                            <Col>
+                                <Thumbnail small square
+                                           source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                            </Col>
+                            <Col>
+                                <TextCentering>{this.genItemCountStr(item.count)}</TextCentering>
+                            </Col>
+                        </Row>
+                    </Col>
+                );
+            });
+            materials.push(
+                <Col key={`ElementQP_${index}`} style={Styles.Common.Centering}>
+                    <TextCentering>{this.genQpStr(element.qp)}</TextCentering>
+                </Col>
+            );
+            if (materials.length < CELL_COUNT) {
+                let appendCount = CELL_COUNT - materials.length;
+                for (let loop = 0; loop < appendCount; loop++) {
+                    materials.push(<Col key={`ElementPH_${index}_${loop}`}/>);
+                }
+            }
+
+            result.push(
+                <Row key={`Element_${index}`}>
+                    <ColCard size={.3} items={[subTitleRender(index + 1)]} rowHeight={36}/>
+                    <ColCardWrapper>
+                        {materials}
+                    </ColCardWrapper>
+                </Row>
+            )
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={[title]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    {result}
+                </GridLine>
+            </View>
+        );
     }
 
-    prepareData(info: SvtInfoMaterial) {
-        let data = [];
-
-        data.push(this.prepareRowData(info.limit, "灵基再临", this.genLimitStr));
-        data.push(this.prepareRowData(info.skill, "技能强化", this.genSkillStr));
-
-        return data;
+    renderLimit(elements: Array<SvtInfoMaterialLimit>) {
+        return this.renderCommon(elements, "灵基再临", this.genLimitStr);
     }
 
-    render1() {
-        // let info: SvtInfoMaterial = (this.props as State.Props).SceneServantInfo.materialInfo;
-        // if (MstUtil.isObjEmpty(info)) {
-        //     // 数据未准备好，不要渲染页面
-        //     return <View />;
-        // }
-        //
-        // let data = this.prepareData(info);
-        //
-        // return (
-        //     <TabScene>
-        //         <ToolBoxWrapper
-        //             pageName="ServantMaterial"
-        //             buttons={[
-        //                 {content: "编辑模式"}
-        //             ]}
-        //         />
-        //         <TabPageScroll>
-        //             <Table pageName="ServantMaterial" data={data}/>
-        //         </TabPageScroll>
-        //     </TabScene>
-        // );
+    renderSkill(elements: Array<SvtInfoMaterialSkill>) {
+        return this.renderCommon(elements, "技能强化", this.genSkillStr);
     }
 
     render() {
-        return <View/>;
+        let props = this.props as State.Props;
+        let state = props.SceneServantInfo;
+        let info: SvtInfoMaterial = state.materialInfo;
+        if (MstUtil.isObjEmpty(info)) {
+            return <View />;
+        }
+
+        let limit = this.renderLimit(info.limit);
+        let skill = this.renderSkill(info.skill);
+
+        return (
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>{state.title}</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        {limit}
+                        {skill}
+                    </View>
+                </Content>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Material} svtId={state.svtId}/>
+            </Container>
+        );
     }
 }
 
