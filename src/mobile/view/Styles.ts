@@ -16,7 +16,7 @@ export const Common = StyleSheet.create({
     Row: {
         marginBottom: 10,
     },
-    TextCenter: {
+    TextCentering: {
         textAlign: "center" as any,
     },
     Centering: {
