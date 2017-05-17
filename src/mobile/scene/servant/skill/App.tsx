@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View} from "react-native";
+import {View, Text} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
@@ -15,7 +15,7 @@ import {
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Thumbnail, Title} from "native-base";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Thumbnail, Title, Col, Row, Grid} from "native-base";
 import * as Styles from "../../../view/Styles";
 
 export * from "./State";
@@ -128,28 +128,28 @@ class ServantSkill extends Component<State.Props, any> {
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
                 effects.push(
                     <RowCentering>
-                        <ColCentering><TextCentering>{effect.description}</TextCentering></ColCentering>
+                        <Col><Text>{effect.description}</Text></Col>
                     </RowCentering>
                 );
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
                     effect.effects.forEach((effectNumber: string) => {
-                        effectNumbers.push(<ColCentering><TextCentering>{effectNumber}</TextCentering></ColCentering>);
+                        effectNumbers.push(<Col><Text>{effectNumber}</Text></Col>);
                     });
                     effects.push(<RowCentering>{effectNumbers}</RowCentering>);
                 }
             });
             skills.push(
                 <GridColCardWrapper key={`SkillInfo_${index}`}>
-                    <RowCentering>
-                        <ColCentering size={.5}>
+                    <Row>
+                        <Col size={.5}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
-                        </ColCentering>
+                        </Col>
                         <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{skill.condition}</TextCentering></ColCentering>
-                    </RowCentering>
+                    </Row>
                     {effects}
                 </GridColCardWrapper>
             );

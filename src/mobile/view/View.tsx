@@ -121,7 +121,7 @@ export class RowCentering extends Component<RowCenteringProps, any> {
         let props = this.props as RowCenteringProps;
 
         let rowStyle = [];
-        rowStyle.push([Styles.Common.Centering, {minHeight: 20}]);
+        rowStyle.push(...[Styles.Common.Centering, {minHeight: 20}]);
         if (props.hasOwnProperty("height")) {
             rowStyle.push({height: props.height});
         }
@@ -148,7 +148,7 @@ export class ColCentering extends Component<ColCenteringProps, any> {
         }
 
         return (
-            <Col style={Styles.Common.Centering}>
+            <Col {...colProps} style={Styles.Common.Centering}>
                 {props.children}
             </Col>
         );
