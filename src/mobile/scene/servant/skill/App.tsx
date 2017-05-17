@@ -52,30 +52,6 @@ class ServantSkill extends Component<State.Props, any> {
         return `${hits} Hits`;
     }
 
-    prepareSkillData(skill: SvtInfoSkillDetail) {
-        // let column = Renderer.buildColumnData("保有技能", []);
-        // column.rows.push([
-        //     <ResImage
-        //         appVer={this._appVer}
-        //         type="skill"
-        //         id={skill.iconId}
-        //         size="small"
-        //     />,
-        //     skill.name,
-        //     this.genChargeTurnStr(skill.chargeTurn),
-        //     skill.condition
-        // ]);
-        //
-        // skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-        //     column.rows.push([effect.description]);
-        //     if (effect.effects.length > 0) {
-        //         column.rows.push(effect.effects);
-        //     }
-        // });
-        //
-        // return [column];
-    }
-
     preparePassiveSkillData(skills: Array<SvtInfoPassiveSkill>) {
         // let column = Renderer.buildColumnData("职阶技能", []);
         //
@@ -125,24 +101,24 @@ class ServantSkill extends Component<State.Props, any> {
         let skills = [];
         skillInfo.skills.forEach((skill: SvtInfoSkillDetail, index) => {
             let effects = [];
-            skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
                 effects.push(
-                    <RowCentering>
+                    <RowCentering key={`SkillEffectDesc_${index}`}>
                         <Col><Text>{effect.description}</Text></Col>
                     </RowCentering>
                 );
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
-                    effect.effects.forEach((effectNumber: string) => {
-                        effectNumbers.push(<Col><Text>{effectNumber}</Text></Col>);
+                    effect.effects.forEach((effectNumber: string, index) => {
+                        effectNumbers.push(<Col key={`SkillEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
                     });
-                    effects.push(<RowCentering>{effectNumbers}</RowCentering>);
+                    effects.push(<RowCentering key={`SkillEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
                 }
             });
             skills.push(
                 <GridColCardWrapper key={`SkillInfo_${index}`}>
                     <Row>
-                        <Col size={.5}>
+                        <Col size={.4}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </Col>
@@ -166,7 +142,36 @@ class ServantSkill extends Component<State.Props, any> {
     }
 
     renderPassiveSkills(skillInfo: SvtInfoSkill) {
+        let skills = [];
 
+        skillInfo.passiveSkills.forEach((skill: SvtInfoPassiveSkill, index) => {
+            let effects = [];
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
+                effects.push(<Row key={`PasEffect_${index}`}><Text>{effect.description + effect.effects.join("")}</Text></Row>);
+            });
+
+            skills.push(
+                <GridColCardWrapper key={`PasSkill_${index}`}>
+                    <Row>
+                        <Col size={.4}>
+                            <Thumbnail small square
+                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                        </Col>
+                        <Col size={1}><Text>{skill.name}</Text></Col>
+                        <Col size={2}>{effects}</Col>
+                    </Row>
+                </GridColCardWrapper>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["职阶技能"]}/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
     renderTreasures(skillInfo: SvtInfoSkill) {
