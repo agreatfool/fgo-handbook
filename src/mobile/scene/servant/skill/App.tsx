@@ -5,12 +5,18 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "../../../view/View";
+import {ColCard, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering} from "../../../view/View";
 import {
-    SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
-    SvtInfoTreasureDetail, SvtInfoTreasureEffect
+    SvtInfoPassiveSkill,
+    SvtInfoSkill,
+    SvtInfoSkillDetail,
+    SvtInfoSkillEffect,
+    SvtInfoTreasureDetail
 } from "../../../lib/model/MstInfo";
-// import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../../../view/View";
+import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
+import {Actions} from "react-native-router-flux";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Thumbnail, Title} from "native-base";
+import * as Styles from "../../../view/Styles";
 
 export * from "./State";
 export * from "./Action";
@@ -33,6 +39,7 @@ class ServantSkill extends Component<State.Props, any> {
             props.actions.updatePageTitle(name);
             return this._service.buildSvtInfoSkill(props.svtId);
         }).then((info) => {
+            props.actions.updateSvtId(props.svtId);
             props.actions.updateSvtInfo({skillInfo: info});
         });
     }
@@ -114,46 +121,93 @@ class ServantSkill extends Component<State.Props, any> {
         // return [column];
     }
 
-    prepareData(info: SvtInfoSkill) {
-        let data = [];
-
-        info.skills.forEach((skill: SvtInfoSkillDetail) => {
-            data.push(this.prepareSkillData(skill));
+    renderSkills(skillInfo: SvtInfoSkill) {
+        let skills = [];
+        skillInfo.skills.forEach((skill: SvtInfoSkillDetail, index) => {
+            let effects = [];
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
+                effects.push(
+                    <RowCentering>
+                        <ColCentering><TextCentering>{effect.description}</TextCentering></ColCentering>
+                    </RowCentering>
+                );
+                let effectNumbers = [];
+                if (effect.effects.length > 0) {
+                    effect.effects.forEach((effectNumber: string) => {
+                        effectNumbers.push(<ColCentering><TextCentering>{effectNumber}</TextCentering></ColCentering>);
+                    });
+                    effects.push(<RowCentering>{effectNumbers}</RowCentering>);
+                }
+            });
+            skills.push(
+                <GridColCardWrapper key={`SkillInfo_${index}`}>
+                    <RowCentering>
+                        <ColCentering size={.5}>
+                            <Thumbnail small square
+                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                        </ColCentering>
+                        <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
+                        <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
+                        <ColCentering><TextCentering>{skill.condition}</TextCentering></ColCentering>
+                    </RowCentering>
+                    {effects}
+                </GridColCardWrapper>
+            );
         });
-        info.treasures.forEach((treasure: SvtInfoTreasureDetail) => {
-            data.push(this.prepareTreasureData(treasure));
-        });
-        data.push(this.preparePassiveSkillData(info.passiveSkills));
 
-        return data;
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["保有技能"]}/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
-    render1() {
-        // let info: SvtInfoSkill = (this.props as State.Props).SceneServantInfo.skillInfo;
-        // if (MstUtil.isObjEmpty(info)) {
-        //     // 数据未准备好，不要渲染页面
-        //     return <View />;
-        // }
-        //
-        // let data = this.prepareData(info);
-        //
-        // return (
-        //     <TabScene>
-        //         <ToolBoxWrapper
-        //             pageName="ServantSkill"
-        //             buttons={[
-        //                 {content: "编辑模式"}
-        //             ]}
-        //         />
-        //         <TabPageScroll>
-        //             <Table pageName="ServantSkill" data={data} />
-        //         </TabPageScroll>
-        //     </TabScene>
-        // );
+    renderPassiveSkills(skillInfo: SvtInfoSkill) {
+
+    }
+
+    renderTreasures(skillInfo: SvtInfoSkill) {
+
     }
 
     render() {
-        return <View/>;
+        let props = this.props as State.Props;
+        let state = props.SceneServantInfo;
+        let info: SvtInfoSkill = state.skillInfo;
+        if (MstUtil.isObjEmpty(info)) {
+            return <View />;
+        }
+
+        let skills = this.renderSkills(info);
+        let passiveSkills = this.renderPassiveSkills(info);
+        let treasures = this.renderTreasures(info);
+
+        return (
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>{state.title}</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        {skills}
+                        {passiveSkills}
+                        {treasures}
+                    </View>
+                </Content>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Detail} svtId={state.svtId}/>
+            </Container>
+        );
     }
 }
 
