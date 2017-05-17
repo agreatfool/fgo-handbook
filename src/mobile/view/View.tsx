@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from "react";
-import {Text, TextStyle, ViewStyle} from "react-native";
+import {Text, TextStyle, ViewStyle, StyleSheet} from "react-native";
 import {Card, CardItem, Col, Grid, Row} from "native-base";
 import * as Styles from "./Styles";
 import JSXElement = JSX.JSXElement;
@@ -28,6 +28,7 @@ interface ColCardProps extends Props {
     isVerticalCentered?: boolean;   // default true
     isHorizontalCentered?: boolean; // default true
     isTextCentered?: boolean;       // default true
+    backgroundColor?: string;
 }
 
 export class ColCard extends Component<ColCardProps, any> {
@@ -35,32 +36,37 @@ export class ColCard extends Component<ColCardProps, any> {
         let props = this.props as ColCardProps;
         let rows = [];
 
-        let colProps = [];
+        let colProps = {};
         if (props.hasOwnProperty("size")) {
-            colProps.push({size: props.size});
+            colProps = Object.assign(colProps, {size: props.size});
         }
 
-        let rowStyle = [];
-        rowStyle.push({minHeight: 20});
+        let rowStyle = {};
+        rowStyle = Object.assign(rowStyle, {minHeight: 20});
         if (!(props.hasOwnProperty("isVerticalCentered") && !props.isVerticalCentered)) {
-            rowStyle.push(Styles.Common.VerticalCentering);
+            rowStyle = Object.assign(rowStyle, StyleSheet.flatten(Styles.Common.VerticalCentering));
         }
         if (!(props.hasOwnProperty("isHorizontalCentered") && !props.isHorizontalCentered)) {
-            rowStyle.push(Styles.Common.HorizontalCentering);
+            rowStyle = Object.assign(rowStyle, StyleSheet.flatten(Styles.Common.HorizontalCentering));
         }
         if (props.hasOwnProperty("rowHeight")) {
-            rowStyle.push({height: props.rowHeight});
+            rowStyle = Object.assign(rowStyle, {height: props.rowHeight});
         }
         if (props.hasOwnProperty("rowStyle")) {
-            rowStyle = [...rowStyle, props.rowStyle];
+            rowStyle = Object.assign(rowStyle, props.rowStyle);
         }
 
-        let textStyle = [];
+        let textStyle = {};
         if (!(props.hasOwnProperty("isTextCentered") && !props.isTextCentered)) {
-            textStyle.push(Styles.Common.TextCentering);
+            textStyle = Object.assign(textStyle, StyleSheet.flatten(Styles.Common.TextCentering));
         }
         if (props.hasOwnProperty("textStyle")) {
-            textStyle = [...textStyle, props.textStyle];
+            textStyle = Object.assign(textStyle, props.textStyle);
+        }
+
+        let cardItemStyle = {};
+        if (props.hasOwnProperty("backgroundColor")) {
+            cardItemStyle = Object.assign(cardItemStyle, {backgroundColor: props.backgroundColor});
         }
 
         props.items.forEach((item, index) => {
@@ -80,9 +86,9 @@ export class ColCard extends Component<ColCardProps, any> {
         });
 
         return (
-            <Col {...colProps}>
+            <Col {colProps}>
                 <Card>
-                    <CardItem>
+                    <CardItem style={cardItemStyle}>
                         <Grid>
                             {rows}
                         </Grid>
@@ -120,10 +126,11 @@ export class RowCentering extends Component<RowCenteringProps, any> {
     render() {
         let props = this.props as RowCenteringProps;
 
-        let rowStyle = [];
-        rowStyle.push(...[Styles.Common.Centering, {minHeight: 20}]);
+        let rowStyle = {};
+        rowStyle = Object.assign(rowStyle, StyleSheet.flatten(Styles.Common.Centering));
+        rowStyle = Object.assign(rowStyle, {minHeight: 20});
         if (props.hasOwnProperty("height")) {
-            rowStyle.push({height: props.height});
+            rowStyle = Object.assign(rowStyle, {height: props.height});
         }
 
         return (
@@ -142,13 +149,13 @@ export class ColCentering extends Component<ColCenteringProps, any> {
     render() {
         let props = this.props as ColCenteringProps;
 
-        let colProps = [];
+        let colProps = {};
         if (props.hasOwnProperty("size")) {
-            colProps.push({size: props.size});
+            colProps = Object.assign(colProps, {size: props.size});
         }
 
         return (
-            <Col {...colProps} style={Styles.Common.Centering}>
+            <Col {colProps} style={Styles.Common.Centering}>
                 {props.children}
             </Col>
         );

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text} from "react-native";
+import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
@@ -11,11 +11,12 @@ import {
     SvtInfoSkill,
     SvtInfoSkillDetail,
     SvtInfoSkillEffect,
-    SvtInfoTreasureDetail
+    SvtInfoTreasureDetail,
+    SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Thumbnail, Title, Col, Row, Grid} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 
 export * from "./State";
@@ -52,49 +53,15 @@ class ServantSkill extends Component<State.Props, any> {
         return `${hits} Hits`;
     }
 
-    preparePassiveSkillData(skills: Array<SvtInfoPassiveSkill>) {
-        // let column = Renderer.buildColumnData("职阶技能", []);
-        //
-        // skills.forEach((skill: SvtInfoPassiveSkill) => {
-        //     column.rows.push([
-        //         <ResImage
-        //             appVer={this._appVer}
-        //             type="skill"
-        //             id={skill.iconId}
-        //             size="small"
-        //         />,
-        //         skill.name
-        //     ]);
-        //     let effects = [];
-        //     skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-        //         effects.push(effect.description + effect.effects.join(""));
-        //     });
-        //     column.rows.push([effects.join("\n")]);
-        // });
-        //
-        // return [column];
-    }
-
-    prepareTreasureData(treasure: SvtInfoTreasureDetail) {
-        //FIXME 宝具需要显示类型，否则红蓝绿完全就不知道了
-        // let column = Renderer.buildColumnData("宝具", []);
-        //
-        // column.rows.push([
-        //     treasure.name,
-        //     treasure.rank,
-        //     treasure.type,
-        //     treasure.condition,
-        //     this.genTreasureHitStr(treasure.hits),
-        // ]);
-        //
-        // treasure.effects.forEach((effect: SvtInfoTreasureEffect) => {
-        //     column.rows.push([effect.description]);
-        //     if (effect.effects.length > 0) {
-        //         column.rows.push(effect.effects);
-        //     }
-        // });
-        //
-        // return [column];
+    genTreasureColorCode(cardId: number) {
+        // 1. Art; 2. Buster; 3. Quick;
+        if (cardId === 1) {
+            return "#0000ff";
+        } else if (cardId === 2) {
+            return "#ff0000";
+        } else {
+            return "#00ff00";
+        }
     }
 
     renderSkills(skillInfo: SvtInfoSkill) {
@@ -110,7 +77,8 @@ class ServantSkill extends Component<State.Props, any> {
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
                     effect.effects.forEach((effectNumber: string, index) => {
-                        effectNumbers.push(<Col key={`SkillEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
+                        effectNumbers.push(<Col
+                            key={`SkillEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
                     });
                     effects.push(<RowCentering key={`SkillEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
                 }
@@ -134,7 +102,7 @@ class ServantSkill extends Component<State.Props, any> {
         return (
             <View>
                 <GridLine>
-                    <ColCard items={["保有技能"]}/>
+                    <ColCard items={["保有技能"]} backgroundColor="#CDE1F9"/>
                 </GridLine>
                 {skills}
             </View>
@@ -167,7 +135,7 @@ class ServantSkill extends Component<State.Props, any> {
         return (
             <View>
                 <GridLine>
-                    <ColCard items={["职阶技能"]}/>
+                    <ColCard items={["职阶技能"]} backgroundColor="#CDE1F9"/>
                 </GridLine>
                 {skills}
             </View>
@@ -175,7 +143,51 @@ class ServantSkill extends Component<State.Props, any> {
     }
 
     renderTreasures(skillInfo: SvtInfoSkill) {
+        let skills = [];
 
+        skillInfo.treasures.forEach((treasure: SvtInfoTreasureDetail, index) => {
+            let effects = [];
+            treasure.effects.forEach((effect: SvtInfoTreasureEffect, index) => {
+                effects.push(
+                    <RowCentering key={`TreEffectDesc_${index}`}>
+                        <Col><Text>{effect.description}</Text></Col>
+                    </RowCentering>
+                );
+                let effectNumbers = [];
+                if (effect.effects.length > 0) {
+                    effect.effects.forEach((effectNumber: string, index) => {
+                        effectNumbers.push(<Col
+                            key={`TreEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
+                    });
+                    effects.push(<RowCentering key={`TreEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
+                }
+            });
+            skills.push(
+                <GridColCardWrapper key={`TreSkill_${index}`}>
+                    <Row style={[Styles.Common.VerticalCentering, {marginBottom: 5, height: 20}]}>
+                        <Col size={2}>
+                            <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
+                                {treasure.name}
+                            </Text>
+                        </Col>
+                        <Col size={.5}><Text>{treasure.rank}</Text></Col>
+                        <Col size={1}><Text>{treasure.type}</Text></Col>
+                        <Col size={1}><Text>{treasure.condition}</Text></Col>
+                        <Col size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></Col>
+                    </Row>
+                    {effects}
+                </GridColCardWrapper>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["宝具"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
     render() {
@@ -210,7 +222,7 @@ class ServantSkill extends Component<State.Props, any> {
                         {treasures}
                     </View>
                 </Content>
-                <SvtFooterTab activeIndex={SvtFooterTabIndex.Detail} svtId={state.svtId}/>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Skill} svtId={state.svtId}/>
             </Container>
         );
     }
