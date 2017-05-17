@@ -1,15 +1,29 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity} from "react-native";
+import {View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-// import {Props, TabScene, TabPageScroll} from "../../../view/View";
-import CheckBox from "react-native-checkbox";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
+import {Actions} from "react-native-router-flux";
+import {
+    Body,
+    Button,
+    CheckBox,
+    Col,
+    Container,
+    Content,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
-import Const from "../../../lib/const/Const";
+import {ColCard, GridLine, ColR, ColCardWrapper} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -21,11 +35,6 @@ export class ServantFilter extends Component<State.Props, any> {
         super(props, context);
 
         this._service = new MstService.Service();
-    }
-
-    componentDidMount() {
-        let props = this.props as State.Props;
-        let state = props.SceneServantList;
     }
 
     isChecked(id: number, propName: string): boolean {
@@ -53,7 +62,7 @@ export class ServantFilter extends Component<State.Props, any> {
         props.actions.updateFilter(filter);
     }
 
-    getButtonText(propName: string, dataSet: {[key: number]: string}): string {
+    getButtonText(propName: string, dataSet: { [key: number]: string }): string {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
         let stateLength = (state.filter[propName] as Array<string>).length;
@@ -71,7 +80,7 @@ export class ServantFilter extends Component<State.Props, any> {
         return text;
     }
 
-    touchButton(propName: string, dataSet: {[key: number]: string}): void {
+    touchButton(propName: string, dataSet: { [key: number]: string }): void {
         let props = this.props as State.Props;
         let filter = Object.assign({}, props.SceneServantList.filter) as SvtListFilter;
         let filterSet = filter[propName] as Array<string>;
@@ -95,7 +104,7 @@ export class ServantFilter extends Component<State.Props, any> {
         props.actions.updateFilter(filter);
     }
 
-    renderChecks(propName: string, dataSet: {[key: number]: string}) {
+    renderChecks(propName: string, dataSet: { [key: number]: string }) {
         return Object.keys(dataSet).map((index) => {
             let id = parseInt(index);
             let name = dataSet[index];
@@ -150,8 +159,65 @@ export class ServantFilter extends Component<State.Props, any> {
         // );
     }
 
+    renderClass() {
+        let props = this.props as State.Props;
+        let state = props.SceneServantList;
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["职阶选择"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        <Row>
+                            <ColR>
+                                <Row style={Styles.Common.Centering}>
+                                    <ColR>
+                                        <Thumbnail small square
+                                                   source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, 2)}}/>
+                                    </ColR>
+                                    <ColR><CheckBox checked={true}/></ColR>
+                                </Row>
+                            </ColR>
+                        </Row>
+                    </ColCardWrapper>
+                </GridLine>
+            </View>
+        );
+    }
+
+    renderRarity() {
+
+    }
+
+    renderGender() {
+
+    }
+
     render() {
-        return <View/>;
+        return (
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                    <Title>ServantFilter</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        {this.renderClass()}
+                        {this.renderRarity()}
+                        {this.renderGender()}
+                    </View>
+                </Content>
+            </Container>
+        );
     }
 }
 
