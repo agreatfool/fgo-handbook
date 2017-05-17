@@ -31,6 +31,7 @@ class ServantDetail extends Component<State.Props, any> {
             this._appVer = appVer;
             return this._service.buildSvtInfoBase(props.svtId);
         }).then((info: SvtInfoBase) => {
+            props.actions.updateSvtId(props.svtId);
             props.actions.updatePageTitle(info.name);
             props.actions.updateSvtInfo({baseInfo: info});
         });
@@ -48,7 +49,7 @@ class ServantDetail extends Component<State.Props, any> {
         return (
             <View style={Styles.Box.Wrapper}>
                 <GridLine>
-                    <Col size={.6} style={Styles.Common.Centering}>
+                    <Col size={.6} style={Styles.Common.Centering} toLocaleString={() => "col"} toString={() => "col"}>
                         <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, info.svtId)}}/>
                     </Col>
                     <ColCard items={["图鉴编号", info.collectionNo]}/>
