@@ -5,6 +5,7 @@ import {SvtOrderChoices, SvtOrderDirections} from "../../../lib/model/MstInfo";
 import {TransSvtName} from "../../../../model/master/EmbeddedCodeConverted";
 
 export interface State {
+    appVer: string; // 应用版本号
     filter: SvtListFilter; // 过滤器
     rawData: Array<MstSvt>; // 所有从者的原始数组
     displayData: Array<MstSvt>; // 过滤、排序等操作完成后用来显示的数组
@@ -13,6 +14,7 @@ export interface State {
 }
 
 export const defaultState = {
+    appVer: "",
     filter: {
         classId: Object.keys(Const.SERVANT_CLASS_NAMES),
         genderType: Object.keys(Const.SERVANT_GENDER_TYPES),

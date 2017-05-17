@@ -61,6 +61,7 @@ export class ServantList extends Component<State.Props, any> {
         }).then((rawData: Array<MstSvt>) => {
             let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
+            props.actions.updateAppVer(this._appVer);
             props.actions.updateRawData(rawData);
             props.actions.updateDisplayData(displayData);
         });

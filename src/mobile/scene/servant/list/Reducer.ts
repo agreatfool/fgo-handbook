@@ -4,9 +4,9 @@ import * as MstService from "../../../service/MstService";
 import {State, defaultState} from "./State";
 import {
     ACT_UPDATE_RAW_DATA, ACT_UPDATE_DISPLAY_DATA, ACT_UPDATE_TRANS_NAME,
-    ACT_UPDATE_FILTER, ACT_UPDATE_ORDER,
+    ACT_UPDATE_FILTER, ACT_UPDATE_ORDER, ACT_UPDATE_APP_VER,
     ActionUpdateRawData, ActionUpdateDisplayData, ActionUpdateTransName,
-    ActionUpdateFilter, ActionUpdateOrder,
+    ActionUpdateFilter, ActionUpdateOrder, ActionUpdateAppVer,
 } from "./Action";
 
 export {StateName} from "./State";
@@ -53,10 +53,19 @@ export const updateOrder = {
     }
 } as ReducerInterface<State>;
 
+export const updateAppVer = {
+    action: ACT_UPDATE_APP_VER,
+    reducer: function (state: State, action: ActionUpdateAppVer) {
+        state.appVer = action.appVer;
+        return state;
+    }
+} as ReducerInterface<State>;
+
 export let Reducers = bindComponentReducers([
     updateRawData,
     updateDisplayData,
     updateTransName,
     updateFilter,
     updateOrder,
+    updateAppVer,
 ], defaultState);

@@ -73,10 +73,25 @@ export const updateOrder: ActionCreator<ActionUpdateOrder> = function (order: Sv
     };
 };
 
+export const ACT_UPDATE_APP_VER = "ACT_UPDATE_APP_VER";
+
+export interface ActionUpdateAppVer {
+    type: string;
+    appVer: string;
+}
+
+export const updateAppVer: ActionCreator<ActionUpdateAppVer> = function (appVer: string) {
+    return {
+        type: ACT_UPDATE_APP_VER,
+        appVer: appVer,
+    };
+};
+
 export const Actions = {
     updateRawData,
     updateDisplayData,
     updateTransName,
     updateFilter,
     updateOrder,
+    updateAppVer,
 };
