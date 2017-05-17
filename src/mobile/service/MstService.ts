@@ -336,6 +336,11 @@ export class Service {
                     // 枪大公第一技能
                     embeddedDetail["effect4"] = ["10%", "11%", "12%", "13%", "14%", "15%", "16%", "17%", "18%", "20%"];
                     break;
+                case 356650:
+                    // PassionLip第三技能
+                    embeddedDetail["effect4"] = ["10%", "12%", "14%", "16%", "18%", "20%", "22%", "24%", "26%", "30%"];
+                    embeddedDetail["effect5"] = [];
+                    break;
                 default:
                     break;
             }
