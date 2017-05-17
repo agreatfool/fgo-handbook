@@ -5,7 +5,6 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {ColCard, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering} from "../../../view/View";
 import {
     SvtInfoPassiveSkill,
     SvtInfoSkill,
@@ -18,6 +17,7 @@ import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
+import {ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -71,14 +71,17 @@ class ServantSkill extends Component<State.Props, any> {
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
                 effects.push(
                     <RowCentering key={`SkillEffectDesc_${index}`}>
-                        <Col><Text>{effect.description}</Text></Col>
+                        <ColR><Text>{effect.description}</Text></ColR>
                     </RowCentering>
                 );
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
                     effect.effects.forEach((effectNumber: string, index) => {
-                        effectNumbers.push(<Col
-                            key={`SkillEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
+                        effectNumbers.push(
+                            <ColR key={`SkillEffectNumberDetail_${index}`}>
+                                <Text>{effectNumber}</Text>
+                            </ColR>
+                        );
                     });
                     effects.push(<RowCentering key={`SkillEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
                 }
@@ -86,10 +89,10 @@ class ServantSkill extends Component<State.Props, any> {
             skills.push(
                 <GridColCardWrapper key={`SkillInfo_${index}`}>
                     <Row>
-                        <Col size={.4}>
+                        <ColR size={.4}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
-                        </Col>
+                        </ColR>
                         <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{skill.condition}</TextCentering></ColCentering>
@@ -121,12 +124,12 @@ class ServantSkill extends Component<State.Props, any> {
             skills.push(
                 <GridColCardWrapper key={`PasSkill_${index}`}>
                     <Row>
-                        <Col size={.4}>
+                        <ColR size={.4}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
-                        </Col>
-                        <Col size={1}><Text>{skill.name}</Text></Col>
-                        <Col size={2}>{effects}</Col>
+                        </ColR>
+                        <ColR size={1}><Text>{skill.name}</Text></ColR>
+                        <ColR size={2}>{effects}</ColR>
                     </Row>
                 </GridColCardWrapper>
             );
@@ -150,14 +153,17 @@ class ServantSkill extends Component<State.Props, any> {
             treasure.effects.forEach((effect: SvtInfoTreasureEffect, index) => {
                 effects.push(
                     <RowCentering key={`TreEffectDesc_${index}`}>
-                        <Col><Text>{effect.description}</Text></Col>
+                        <ColR><Text>{effect.description}</Text></ColR>
                     </RowCentering>
                 );
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
                     effect.effects.forEach((effectNumber: string, index) => {
-                        effectNumbers.push(<Col
-                            key={`TreEffectNumberDetail_${index}`}><Text>{effectNumber}</Text></Col>);
+                        effectNumbers.push(
+                            <ColR key={`TreEffectNumberDetail_${index}`}>
+                                <Text>{effectNumber}</Text>
+                            </ColR>
+                        );
                     });
                     effects.push(<RowCentering key={`TreEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
                 }
@@ -165,15 +171,15 @@ class ServantSkill extends Component<State.Props, any> {
             skills.push(
                 <GridColCardWrapper key={`TreSkill_${index}`}>
                     <Row style={[Styles.Common.VerticalCentering, {marginBottom: 5, height: 20}]}>
-                        <Col size={2}>
+                        <ColR size={2}>
                             <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
                                 {treasure.name}
                             </Text>
-                        </Col>
-                        <Col size={.5}><Text>{treasure.rank}</Text></Col>
-                        <Col size={1}><Text>{treasure.type}</Text></Col>
-                        <Col size={1}><Text>{treasure.condition}</Text></Col>
-                        <Col size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></Col>
+                        </ColR>
+                        <ColR size={.5}><Text>{treasure.rank}</Text></ColR>
+                        <ColR size={1}><Text>{treasure.type}</Text></ColR>
+                        <ColR size={1}><Text>{treasure.condition}</Text></ColR>
+                        <ColR size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></ColR>
                     </Row>
                     {effects}
                 </GridColCardWrapper>

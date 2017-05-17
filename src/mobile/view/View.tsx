@@ -86,7 +86,7 @@ export class ColCard extends Component<ColCardProps, any> {
         });
 
         return (
-            <Col {colProps}>
+            <ColR {...colProps}>
                 <Card>
                     <CardItem style={cardItemStyle}>
                         <Grid>
@@ -94,7 +94,7 @@ export class ColCard extends Component<ColCardProps, any> {
                         </Grid>
                     </CardItem>
                 </Card>
-            </Col>
+            </ColR>
         );
     }
 }
@@ -113,7 +113,7 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
         }
 
         return (
-            <Col {colProps}>
+            <ColR {...colProps}>
                 <Card>
                     <CardItem>
                         <Grid>
@@ -121,7 +121,7 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
                         </Grid>
                     </CardItem>
                 </Card>
-            </Col>
+            </ColR>
         );
     }
 }
@@ -131,7 +131,7 @@ export class GridColCardWrapper extends Component<Props, any> {
         let props = this.props as Props;
         return (
             <GridLine>
-                <Col>
+                <ColR>
                     <Card>
                         <CardItem>
                             <Grid>
@@ -139,7 +139,7 @@ export class GridColCardWrapper extends Component<Props, any> {
                             </Grid>
                         </CardItem>
                     </Card>
-                </Col>
+                </ColR>
             </GridLine>
         );
     }
@@ -182,9 +182,9 @@ export class ColCentering extends Component<ColCenteringProps, any> {
         }
 
         return (
-            <Col {colProps} style={Styles.Common.Centering}>
+            <ColR {...colProps} style={Styles.Common.Centering}>
                 {props.children}
-            </Col>
+            </ColR>
         );
     }
 }
@@ -196,6 +196,29 @@ export class TextCentering extends Component<Props, any> {
             <Text style={Styles.Common.TextCentering}>
                 {props.children}
             </Text>
+        );
+    }
+}
+
+interface ColRProps extends Props {
+    size?: number;
+    style?: ViewStyle;
+}
+
+export class ColR extends Component<ColRProps, any> {
+    /**
+     * 在所有使用 Col 的地方 tsc 莫名报错找不到 toString 和 toLocalString，
+     * 只能自己封装一个 dummy 组件
+     */
+    render() {
+        let props = this.props as ColRProps;
+
+        let colProps = Object.assign({}, props);
+
+        return (
+            <Col {...colProps} toString={() => "col"} toLocaleString={() => "col"} >
+                {props.children}
+            </Col>
         );
     }
 }

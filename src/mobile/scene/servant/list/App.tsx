@@ -28,6 +28,7 @@ import MstLoader from "../../../lib/model/MstLoader";
 import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import * as Styles from "../../../view/Styles";
+import {ColR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -104,16 +105,16 @@ export class ServantList extends Component<State.Props, any> {
             <ListItem onPress={() => (Actions as any).servant_detail({svtId: data.id})}>
                 <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
                 <Grid style={{marginLeft: 10}}>
-                    <Col size={.5} style={Styles.Common.VerticalCentering}>
+                    <ColR size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>{data.collectionNo}</Text>
-                    </Col>
-                    <Col size={1}>
+                    </ColR>
+                    <ColR size={1}>
                         <Thumbnail square small
                                    source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
-                    </Col>
-                    <Col size={3} style={Styles.Common.VerticalCentering}>
+                    </ColR>
+                    <ColR size={3} style={Styles.Common.VerticalCentering}>
                         <Text>{state.transSvtName[data.id].name}</Text>
-                    </Col>
+                    </ColR>
                 </Grid>
             </ListItem>
         );

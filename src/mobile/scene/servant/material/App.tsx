@@ -5,7 +5,6 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {ColCard, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
 import {
     SvtInfoMaterial,
     SvtInfoMaterialDetail,
@@ -16,6 +15,7 @@ import {Actions} from "react-native-router-flux";
 import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
+import {ColCard, ColCardWrapper, GridLine, TextCentering, ColR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -74,28 +74,28 @@ class ServantMaterial extends Component<State.Props, any> {
 
             element.items.forEach((item: SvtInfoMaterialDetail, index) => {
                 materials.push(
-                    <Col key={`ElementCell_${index}`}>
+                    <ColR key={`ElementCell_${index}`}>
                         <Row style={Styles.Common.Centering}>
-                            <Col>
+                            <ColR>
                                 <Thumbnail small square
                                            source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
-                            </Col>
-                            <Col>
+                            </ColR>
+                            <ColR>
                                 <TextCentering>{this.genItemCountStr(item.count)}</TextCentering>
-                            </Col>
+                            </ColR>
                         </Row>
-                    </Col>
+                    </ColR>
                 );
             });
             materials.push(
-                <Col key={`ElementQP_${index}`} style={Styles.Common.Centering}>
+                <ColR key={`ElementQP_${index}`} style={Styles.Common.Centering}>
                     <TextCentering>{this.genQpStr(element.qp)}</TextCentering>
-                </Col>
+                </ColR>
             );
             if (materials.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - materials.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    materials.push(<Col key={`ElementPH_${index}_${loop}`}/>);
+                    materials.push(<ColR key={`ElementPH_${index}_${loop}`}/>);
                 }
             }
 
