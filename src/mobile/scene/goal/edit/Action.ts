@@ -1,1 +1,1 @@
-export * from "../main/Action";
+export * from "../list/Action";

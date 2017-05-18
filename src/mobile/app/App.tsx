@@ -11,7 +11,7 @@ import {App as ServantSkill} from "../scene/servant/skill/App";
 import {App as ServantStory} from "../scene/servant/story/App";
 import {App as ServantMaterial} from "../scene/servant/material/App";
 import {App as ServantFilter} from "../scene/servant/filter/App";
-import {App as GoalList} from "../scene/goal/main/App";
+import {App as GoalList} from "../scene/goal/list/App";
 import {App as GoalEdit} from "../scene/goal/edit/App";
 import {App as GoalCompare} from "../scene/goal/compare/App";
 import {App as GoalExp} from "../scene/goal/exp/App";
