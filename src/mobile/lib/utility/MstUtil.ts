@@ -180,4 +180,14 @@ export default class MstUtil {
         return result;
     }
 
+    public static divideArrayIntoParts(data: Array<any>, itemInRow: number): Array<Array<any>> {
+        let result: Array<Array<any>> = [];
+
+        for (let index = 0, loop = data.length; index < loop; index += itemInRow) {
+            result.push(data.slice(index, index + itemInRow));
+        }
+
+        return result;
+    }
+
 }

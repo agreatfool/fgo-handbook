@@ -118,16 +118,6 @@ export class Service {
         return data.sort(func);
     }
 
-    private static _divideSvtDataIntoRows(data: Array<MstSvt>, svtInRow = Const.SERVANT_IN_ROW): Array<Array<MstSvt>> {
-        let result: Array<Array<MstSvt>> = [];
-
-        for (let index = 0, loop = data.length; index < loop; index += svtInRow) {
-            result.push(data.slice(index, index + svtInRow));
-        }
-
-        return result;
-    }
-
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: MAIN
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
