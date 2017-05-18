@@ -1,6 +1,6 @@
 import React, {Component, ReactNode} from "react";
-import {Text, TextStyle, ViewStyle, StyleSheet} from "react-native";
-import {Card, CardItem, Col, Grid, Row} from "native-base";
+import {StyleSheet, Text, TextStyle, ViewStyle} from "react-native";
+import {Button, Card, CardItem, Col, Grid, Row} from "native-base";
 import * as Styles from "./Styles";
 import JSXElement = JSX.JSXElement;
 
@@ -126,6 +126,32 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
     }
 }
 
+interface ColCardWithRightButtonProps extends Props {
+    title: string;
+    button: string;
+    onPress: () => void;
+}
+
+export class ColCardWithRightButton extends Component<ColCardWithRightButtonProps, any> {
+    render() {
+        let props = this.props as ColCardWithRightButtonProps;
+        return (
+            <ColCardWrapper>
+                <Row>
+                    <ColR style={Styles.Common.VerticalCentering}>
+                        <Text>{props.title}</Text>
+                    </ColR>
+                    <ColR size={.3} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
+                        <Button outline small block info bordered onPress={props.onPress}>
+                            <Text>{props.button}</Text>
+                        </Button>
+                    </ColR>
+                </Row>
+            </ColCardWrapper>
+        );
+    }
+}
+
 export class GridColCardWrapper extends Component<Props, any> {
     render() {
         let props = this.props as Props;
@@ -216,7 +242,7 @@ export class ColR extends Component<ColRProps, any> {
         let colProps = Object.assign({}, props);
 
         return (
-            <Col {...colProps} toString={() => "col"} toLocaleString={() => "col"} >
+            <Col {...colProps} toString={() => "col"} toLocaleString={() => "col"}>
                 {props.children}
             </Col>
         );

@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {TouchableOpacity, View, Text, Alert} from "react-native";
-import {Actions} from "react-native-router-flux";
+import {TouchableOpacity, View, Text, Alert, StyleSheet} from "react-native";
 import * as Renderer from "../../../view/View";
 // import {
 //     ToolBoxWrapper,
@@ -16,21 +15,22 @@ import {MstGoal, Goal} from "../../../lib/model/MstGoal";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
-import * as Styles from "../../../view/Styles";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {MstSkillContainer, MstSvtSkillContainer, MstCombineSkillContainer} from "../../../../model/impl/MstContainer";
+import {Actions} from "react-native-router-flux";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Toast, Row, Thumbnail, Title, Picker, Item} from "native-base";
+import * as Styles from "../../../view/Styles";
+import {
+    ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering, ColCardWithRightButton,
+    ColCardWrapper
+} from "../../../view/View";
+import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 
 export * from "./State";
 export * from "./Action";
 
-/**
- * #1 目标应该按从者来设定，从者的技能；最后也需要展示当前目标的所有素材需求内容
- * #2 目标应该可以继承，e.g 2号目标继承1号目标，则1号目标中的所有内容都需要跟到2号目标中
- * #3 目标应该可以直接和当前状态比对
- * #4 点击素材应该会显示另一个页面，显示当前的目标中，当前材料都是哪些从者的需求
- */
 class GoalList extends Component<State.Props, any> {
     private _appVer: string;
     private _service: MstService.Service;
@@ -178,25 +178,146 @@ class GoalList extends Component<State.Props, any> {
         // );
     }
 
-    render() {
-        return <View/>;
-    }
-}
+    renderGoalsPicker(header: string, goals: Array<Goal>, selectedValue: string, onChange: (value: string) => void) {
+        let pickerGoalItems = [];
+        goals.forEach((goal: Goal, index) => {
+            pickerGoalItems.push(<Picker.Item key={`PickerItem_${header}_${index}`} label={goal.name} value={goal.id} />);
+        });
 
-class ActionButtonText extends Component<Renderer.Props, any> {
-    render1() {
-        // let props = this.props as Renderer.Props;
-        // return (
-        //     <Text style={[
-        //         Styles.Common.textCenter, {width: 50}
-        //     ]}>
-        //         {props.children}
-        //     </Text>
-        // );
+        return (
+            <Button outline small info block bordered style={StyleSheet.flatten(Styles.Common.VerticalCentering)}>
+                <Picker
+                    iosHeader={header}
+                    mode="dropdown"
+                    textStyle={{fontSize: 14}}
+                    selectedValue={selectedValue}
+                    onValueChange={(value: string) => onChange(value)}>
+                    {pickerGoalItems}
+                </Picker>
+            </Button>
+        );
+    }
+
+    renderCompareButton() {
+        let props = this.props as State.Props;
+        let state = props.SceneGoal;
+
+        let buttons = [<ColR />];
+        let goals: Array<Goal> = state.goals;
+        if (goals && goals.length !== 0) {
+            buttons = [];
+            buttons.push(
+                <ColR key="CompareSource">
+                    {this.renderGoalsPicker(
+                        "选择比对源", goals, state.compareSourceId,
+                        (value: string) => props.actions.updateCompareSource(value))}
+                </ColR>
+            );
+            buttons.push(
+                <ColR key="CompareVS" size={.2} style={Styles.Common.VerticalCentering}>
+                    <TextCentering>VS</TextCentering>
+                </ColR>
+            );
+            buttons.push(
+                <ColR key="CompareTarget">
+                    {this.renderGoalsPicker(
+                        "选择比对目标", goals, state.compareTargetId,
+                        (value: string) => props.actions.updateCompareTarget(value))}
+                </ColR>
+            );
+        }
+
+        return (
+            <GridLine>
+                <ColCardWrapper>
+                    <Row>
+                        <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                            <Text>选择进度比较</Text>
+                        </ColR>
+                    </Row>
+                    <Row style={{marginTop: 10}}>
+                        {buttons}
+                        <Button outline small info bordered style={{marginLeft: 5}}
+                                onPress={() => {
+                                    if (state.compareSourceId === state.compareTargetId) {
+                                        Toast.show({
+                                            text: "比对双方不得为同一个进度！",
+                                            position: "bottom",
+                                            buttonText: "OK",
+                                            type: "warning",
+                                            duration: 3000
+                                        });
+                                        return;
+                                    }
+                                    //noinspection TypeScriptUnresolvedFunction
+                                    (Actions as any).goal_compare({
+                                        sourceId: state.compareSourceId,
+                                        targetId: state.compareTargetId
+                                    });
+                                }}>
+                            <Text>Go</Text>
+                        </Button>
+                    </Row>
+                </ColCardWrapper>
+            </GridLine>
+        );
+    }
+
+    renderGoalList() {
+        let props = this.props as State.Props;
+        let state = props.SceneGoal;
+
+        let result = <View />;
+        let goals: Array<Goal> = state.goals;
+        if (!goals || goals.length === 0) {
+            return result;
+        }
+
+        // FIXME 等有数据了再回头做这块
+
+        return result;
     }
 
     render() {
-        return <View/>;
+        //noinspection TypeScriptUnresolvedFunction
+        return (
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>Progress</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        <GridLine>
+                            <ColCardWithRightButton
+                                title="编辑当前进度"
+                                button="Go"
+                                onPress={() => (Actions as any).goal_edit({
+                                    mode: "edit", isCurrent: true, goalId: undefined
+                                })} />
+                        </GridLine>
+                        <GridLine>
+                            <ColCardWithRightButton
+                                title="添加新进度目标"
+                                button="Go"
+                                onPress={() => (Actions as any).goal_edit({
+                                    mode: "add", isCurrent: false, goalId: undefined
+                                })} />
+                        </GridLine>
+                        {this.renderCompareButton()}
+                        {this.renderGoalList()}
+                    </View>
+                </Content>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
+            </Container>
+        );
     }
 }
 
