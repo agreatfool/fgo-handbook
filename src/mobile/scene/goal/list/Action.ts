@@ -71,10 +71,40 @@ export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: str
     }
 };
 
+export const ACT_UPDATE_COMPARE_SOURCE = "ACT_UPDATE_COMPARE_SOURCE";
+
+export interface ActionUpdateCompareSource {
+    type: string;
+    compareSourceId: string;
+}
+
+export const updateCompareSource: ActionCreator<ActionUpdateCompareSource> = function (sourceId: string) {
+    return {
+        type: ACT_UPDATE_COMPARE_SOURCE,
+        compareSourceId: sourceId,
+    }
+};
+
+export const ACT_UPDATE_COMPARE_TARGET = "ACT_UPDATE_COMPARE_TARGET";
+
+export interface ActionUpdateCompareTarget {
+    type: string;
+    compareTargetId: string;
+}
+
+export const updateCompareTarget: ActionCreator<ActionUpdateCompareTarget> = function (targetId: string) {
+    return {
+        type: ACT_UPDATE_COMPARE_TARGET,
+        compareTargetId: targetId,
+    }
+};
+
 export const Actions = {
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
     deleteGoal,
+    updateCompareSource,
+    updateCompareTarget,
 };
