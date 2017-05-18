@@ -29,16 +29,16 @@ export interface GoalSvtSkill {
     level: number;
 }
 
-export const defaultCurrentGoal = {
+export const defaultCurrentGoal = { // Goal
     id: "current",
-    name: "current",
+    name: "当前进度",
     servants: [],
 } as Goal;
 
-export const defaultMstGoal = {
+export const defaultMstGoal = { // MstGoal
     appVer: undefined,
     current: undefined,
-    goals: [],
+    goals: [defaultCurrentGoal],
     compareSourceId: "current",
     compareTargetId: "current",
 } as MstGoal;
