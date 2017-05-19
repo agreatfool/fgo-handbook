@@ -77,7 +77,7 @@ export class Service {
     async upgradeApp(verCheckResult: VerCheckResult, log: Function): Promise<void> {
         let remoteVer = verCheckResult.remoteVer;
         let dbBaseUrl = MstUtil.instance.getRemoteDbUrl(remoteVer);
-        let dbBasePath = MstUtil.instance.getRemoteDbPath(remoteVer);
+        let dbBasePath = MstUtil.instance.getLocalDbPathSync(remoteVer);
 
         // 创建数据库版本文件夹
         await RNFS.mkdir(dbBasePath);

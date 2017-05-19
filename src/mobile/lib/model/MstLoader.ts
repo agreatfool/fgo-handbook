@@ -39,7 +39,7 @@ export default class MstLoader {
         }
 
         let rawData = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getDbPath()}/master/${name}.json`
+            `${await MstUtil.instance.getLocalDbPath()}/master/${name}.json`
         );
 
         let containerName = `${name}Container`;
@@ -56,7 +56,7 @@ export default class MstLoader {
         }
 
         let data = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getDbPath()}/embedded_code.json`
+            `${await MstUtil.instance.getLocalDbPath()}/embedded_code.json`
         ) as EmbeddedCodeConverted;
         this._embeddedCode = data;
 

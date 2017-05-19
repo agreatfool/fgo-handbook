@@ -39,14 +39,14 @@ export default class MstUtil {
         return `${Const.GITHUB_BASE}/master/VERSION`;
     }
 
-    public async getDbPath(): Promise<string> {
+    public async getLocalDbPath(): Promise<string> {
         return Promise.resolve(
             `${RNFS.DocumentDirectoryPath}/database/${await this.getAppVer()}`
         );
     }
 
-    public getRemoteDbPath(remoteVer: string): string {
-        return `${RNFS.DocumentDirectoryPath}/database/${remoteVer}`;
+    public getLocalDbPathSync(appVer: string): string {
+        return `${RNFS.DocumentDirectoryPath}/database/${appVer}`;
     }
 
     public getRemoteDbUrl(remoteVer: string): string {
@@ -69,8 +69,12 @@ export default class MstUtil {
         return `${this.getRemoteDbUrl(remoteVer)}/images/skill/${iconId}.png`;
     }
 
-    public async getLocalImagePath() {
-        return Promise.resolve(`${await this.getDbPath()}/images`);
+    public getLocalImagePath(appVer: string, type: string, id: number): string {
+        return `${this.getLocalDbPathSync(appVer)}/images/${type}/${id}.png`;
+    }
+
+    public getRemoteImageUrl(remoteVer: string, type: string, id: number): string {
+        return `${this.getRemoteDbUrl(remoteVer)}/images/${type}/${id}.png`;
     }
 
     public static isArray(object: any) {

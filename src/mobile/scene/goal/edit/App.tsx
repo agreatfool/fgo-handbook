@@ -348,17 +348,19 @@ interface GoalNameInputProps extends TextInputProps {
 class GoalNameInput extends Component<GoalNameInputProps, any> {
     render() {
         let props = this.props as GoalNameInputProps;
-        return (
-            <TextInput
-                style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
-                onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
-                defaultValue={props.value}
-                onChange={(event) => props.onChange(event.nativeEvent.text)}
-                multiline={false}
-                editable={props.editable}
-                maxLength={20}
-            />
-        );
+        // return (
+        //     <TextInput
+        //         style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
+        //         onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
+        //         defaultValue={props.value}
+        //         onChange={(event) => props.onChange(event.nativeEvent.text)}
+        //         multiline={false}
+        //         editable={props.editable}
+        //         maxLength={20}
+        //     />
+        // );
+
+        return <View />;
     }
 }
 
