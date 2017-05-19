@@ -15,9 +15,18 @@ import {
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering} from "../../../view/View";
+import {
+    ColCard,
+    ColCentering,
+    ColR,
+    GridColCardWrapper,
+    GridLine,
+    RowCentering,
+    TextCentering,
+    ThumbnailR
+} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -90,8 +99,8 @@ class ServantSkill extends Component<State.Props, any> {
                 <GridColCardWrapper key={`SkillInfo_${index}`}>
                     <Row>
                         <ColR size={.4}>
-                            <Thumbnail small square
-                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            <ThumbnailR small square
+                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </ColR>
                         <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
@@ -125,8 +134,8 @@ class ServantSkill extends Component<State.Props, any> {
                 <GridColCardWrapper key={`PasSkill_${index}`}>
                     <Row>
                         <ColR size={.4}>
-                            <Thumbnail small square
-                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            <ThumbnailR small square
+                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </ColR>
                         <ColR size={1}><Text>{skill.name}</Text></ColR>
                         <ColR size={2}>{effects}</ColR>

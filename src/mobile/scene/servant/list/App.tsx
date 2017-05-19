@@ -8,27 +8,12 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
 import {SvtOrderDirections} from "../../../lib/model/MstInfo";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    List,
-    ListItem,
-    Right,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Container, Content, Grid, Header, Icon, Left, List, ListItem, Right, Title} from "native-base";
 import MstLoader from "../../../lib/model/MstLoader";
 import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import * as Styles from "../../../view/Styles";
-import {ColR} from "../../../view/View";
+import {ColR, ThumbnailR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -104,14 +89,14 @@ export class ServantList extends Component<State.Props, any> {
         //noinspection TypeScriptUnresolvedFunction
         return (
             <ListItem onPress={() => (Actions as any).servant_detail({svtId: data.id})}>
-                <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
+                <ThumbnailR square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
                 <Grid style={{marginLeft: 10}}>
                     <ColR size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>{data.collectionNo}</Text>
                     </ColR>
                     <ColR size={1}>
-                        <Thumbnail square small
-                                   source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
+                        <ThumbnailR square small
+                                    source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
                     </ColR>
                     <ColR size={3} style={Styles.Common.VerticalCentering}>
                         <Text>{state.transSvtName[data.id].name}</Text>

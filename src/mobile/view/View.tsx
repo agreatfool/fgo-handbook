@@ -1,6 +1,6 @@
 import React, {Component, ReactNode} from "react";
 import {StyleSheet, Text, TextStyle, ViewStyle} from "react-native";
-import {Button, Card, CardItem, Col, Grid, Row} from "native-base";
+import {Button, Card, CardItem, Col, Grid, Row, Thumbnail} from "native-base";
 import * as Styles from "./Styles";
 import JSXElement = JSX.JSXElement;
 
@@ -245,6 +245,30 @@ export class ColR extends Component<ColRProps, any> {
             <Col {...colProps} toString={() => "col"} toLocaleString={() => "col"}>
                 {props.children}
             </Col>
+        );
+    }
+}
+
+interface ThumbnailRProps extends Props {
+    square?: boolean;
+    small?: boolean;
+    source?: any;
+}
+
+export class ThumbnailR extends Component<ThumbnailRProps, any> {
+    /**
+     * 在所有使用 Thumbnail 的地方 tsc 莫名报错找不到 toString 和 toLocalString，
+     * 只能自己封装一个 dummy 组件
+     */
+    render() {
+        let props = this.props as ThumbnailRProps;
+
+        let thumbProps = Object.assign({}, props);
+
+        return (
+            <Thumbnail {...thumbProps} toString={() => "thumb"} toLocaleString={() => "thumb"}>
+                {props.children}
+            </Thumbnail>
         );
     }
 }

@@ -7,22 +7,9 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {
-    Body,
-    Button,
-    CheckBox,
-    Container,
-    Content,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, CheckBox, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
+import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -81,8 +68,8 @@ export class ServantFilter extends Component<State.Props, any> {
 
             let display = <TextCentering>{dataSet[index]}</TextCentering>;
             if (propName === "classId") {
-                display = <Thumbnail small square
-                                     source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
+                display = <ThumbnailR small square
+                                      source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
             }
 
             checkItems.push(

@@ -12,10 +12,10 @@ import {
     SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Thumbnail, Title} from "native-base";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {ColCard, ColCardWrapper, GridLine, TextCentering, ColR} from "../../../view/View";
+import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -77,8 +77,8 @@ class ServantMaterial extends Component<State.Props, any> {
                     <ColR key={`ElementCell_${index}`}>
                         <Row style={Styles.Common.Centering}>
                             <ColR>
-                                <Thumbnail small square
-                                           source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                                <ThumbnailR small square
+                                            source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
                             </ColR>
                             <ColR>
                                 <TextCentering>{this.genItemCountStr(item.count)}</TextCentering>
