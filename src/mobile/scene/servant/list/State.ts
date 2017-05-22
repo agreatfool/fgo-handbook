@@ -2,7 +2,6 @@ import {MstSvt} from "../../../../model/master/Master";
 import InjectedProps from "../../../../lib/react/InjectedProps";
 import Const from "../../../lib/const/Const";
 import {SvtOrderChoices, SvtOrderDirections} from "../../../lib/model/MstInfo";
-import {TransSvtName} from "../../../../model/master/EmbeddedCodeConverted";
 
 export interface State {
     appVer: string; // 应用版本号
