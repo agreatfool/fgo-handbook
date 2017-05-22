@@ -1,12 +1,5 @@
-import {MstSvt} from "../../../model/master/Master";
-import {MstSkillContainer, MstSvtSkillContainer, MstCombineSkillContainer} from "../../../model/impl/MstContainer";
-
 export interface MstGoal {
     appVer: string;
-    svtRawData: Array<MstSvt>;
-    svtSkillData: MstSvtSkillContainer;
-    skillCombineData: MstCombineSkillContainer;
-    skillData: MstSkillContainer;
     current: Goal;
     goals: Array<Goal>;
 }
@@ -38,6 +31,4 @@ export const defaultMstGoal = { // MstGoal
     appVer: undefined,
     current: defaultCurrentGoal,
     goals: [],
-    compareSourceId: "current",
-    compareTargetId: "current",
 } as MstGoal;

@@ -1,6 +1,6 @@
 import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Reducer";
 
-import {State, defaultState} from "./State";
+import {defaultState, State} from "./State";
 import {
     ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL,
     ACT_UPDATE_GOAL, ACT_DELETE_GOAL,
@@ -8,8 +8,8 @@ import {
     ActionUpdateGoal, ActionDeleteGoal,
 } from "./Action";
 import MstLoader from "../../../lib/model/MstLoader";
-import {Goal} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
+import {Goal} from "../../../lib/model/MstGoal";
 
 export {StateName} from "./State";
 

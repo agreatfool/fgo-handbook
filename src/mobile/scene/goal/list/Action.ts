@@ -1,14 +1,15 @@
 import {ActionCreator} from "redux";
 import {Goal, MstGoal} from "../../../lib/model/MstGoal";
+import {State} from "./State";
 
 export const ACT_UPDATE_ALL = "ACT_UPDATE_ALL";
 
 export interface ActionUpdateAll {
     type: string;
-    all: MstGoal;
+    all: State;
 }
 
-export const updateAll: ActionCreator<ActionUpdateAll> = function (all: MstGoal) {
+export const updateAll: ActionCreator<ActionUpdateAll> = function (all: State) {
     return {
         type: ACT_UPDATE_ALL,
         all: all

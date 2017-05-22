@@ -3,7 +3,6 @@ import {StyleSheet, Text, View} from "react-native";
 import {ColCard, ColCardWithRightButton, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
-import {defaultCurrentGoal, Goal, MstGoal} from "../../../lib/model/MstGoal";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
@@ -15,6 +14,7 @@ import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
+import {defaultCurrentGoal, Goal, MstGoal} from "../../../lib/model/MstGoal";
 
 export * from "./State";
 export * from "./Action";
@@ -55,7 +55,7 @@ class GoalList extends Component<State.Props, any> {
         }).then((container: BaseContainer<any>) => {
             skillData = container as MstSkillContainer;
             return MstLoader.instance.loadGoal();
-        }).then((data: MstGoal) => {
+        }).then((data: State) => {
             data.appVer = this._appVer;
             data.svtRawData = svtRawData;
             data.svtSkillData = svtSkillData;

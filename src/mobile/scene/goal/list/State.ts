@@ -1,7 +1,14 @@
 import InjectedProps from "../../../../lib/react/InjectedProps";
-import {MstGoal, defaultMstGoal} from "../../../lib/model/MstGoal";
+import {MstSvt} from "../../../../model/master/Master";
+import {MstCombineSkillContainer, MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
+import {defaultMstGoal, MstGoal} from "../../../lib/model/MstGoal";
 
-export interface State extends MstGoal {}
+export interface State extends MstGoal {
+    svtRawData: Array<MstSvt>;
+    svtSkillData: MstSvtSkillContainer;
+    skillCombineData: MstCombineSkillContainer;
+    skillData: MstSkillContainer;
+}
 
 export const defaultState = defaultMstGoal as State;
 
