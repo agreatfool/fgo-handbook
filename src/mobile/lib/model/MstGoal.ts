@@ -36,8 +36,8 @@ export const defaultCurrentGoal = { // Goal
 
 export const defaultMstGoal = { // MstGoal
     appVer: undefined,
-    current: undefined,
-    goals: [defaultCurrentGoal],
+    current: defaultCurrentGoal,
+    goals: [],
     compareSourceId: "current",
     compareTargetId: "current",
 } as MstGoal;
