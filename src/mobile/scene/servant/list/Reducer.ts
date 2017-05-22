@@ -3,9 +3,9 @@ import * as MstService from "../../../service/MstService";
 
 import {State, defaultState} from "./State";
 import {
-    ACT_UPDATE_RAW_DATA, ACT_UPDATE_DISPLAY_DATA, ACT_UPDATE_TRANS_NAME,
+    ACT_UPDATE_RAW_DATA, ACT_UPDATE_DISPLAY_DATA,
     ACT_UPDATE_FILTER, ACT_UPDATE_ORDER, ACT_UPDATE_APP_VER,
-    ActionUpdateRawData, ActionUpdateDisplayData, ActionUpdateTransName,
+    ActionUpdateRawData, ActionUpdateDisplayData,
     ActionUpdateFilter, ActionUpdateOrder, ActionUpdateAppVer,
 } from "./Action";
 
