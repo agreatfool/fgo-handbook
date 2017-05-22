@@ -293,7 +293,7 @@ class GoalList extends Component<State.Props, any> {
                     </Body>
                     <Right />
                 </Header>
-                <Content>
+                <Content scrollEnabled={false}>
                     <View style={Styles.Box.Wrapper}>
                         <GridLine>
                             <ColCardWithRightButton
@@ -312,7 +312,14 @@ class GoalList extends Component<State.Props, any> {
                                 })} />
                         </GridLine>
                         {this.renderCompareButton()}
-                        {this.renderGoalList()}
+                        <GridLine key="GoalServantList">
+                            <ColCard items={["进度列表"]} backgroundColor="#CDE1F9" />
+                        </GridLine>
+                        <Container>
+                            <Content>
+                                {this.renderGoalList()}
+                            </Content>
+                        </Container>
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
