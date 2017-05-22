@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity, TextInput, Alert} from "react-native";
+import {View, Text, TouchableOpacity, TextInput, Alert, StyleSheet} from "react-native";
 import * as Renderer from "../../../view/View";
 // import {
 //     ToolBoxWrapper,
@@ -13,13 +13,19 @@ import * as Renderer from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
+import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
 import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
-import * as Styles from "../../../view/Styles";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Toast, Row, Thumbnail, Form, Label, Input, Title, Picker, Item} from "native-base";
+import * as Styles from "../../../view/Styles";
+import {
+    ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering, ColCardWithRightButton,
+    ColCardWrapper, ThumbnailR
+} from "../../../view/View";
+import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 
 export * from "./State";
 export * from "./Action";
@@ -36,8 +42,7 @@ interface GoalEditState {
 }
 
 class GoalEdit extends Component<GoalEditProps, any> {
-    private currentStatusName: string = "当前玩家状态";
-    private defaultGoalName: string = "目标";
+    private defaultProgressGoalName: string = "目标进度";
 
     componentDidMount() {
         let props = this.props as GoalEditProps;
@@ -53,7 +58,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             case "extend":
                 currentGoal = this.getGoalFromStore(props.goalId);
                 currentGoal.id = LibUuid.v4();
-                currentGoal.name = this.defaultGoalName;
+                currentGoal.name = this.defaultProgressGoalName;
                 break;
         }
 
@@ -66,7 +71,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     createNewGoal(): Goal {
         return {
             id: LibUuid.v4(),
-            name: this.defaultGoalName,
+            name: this.defaultProgressGoalName,
             servants: [],
         } as Goal;
     }
@@ -129,9 +134,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
         this.setState({goal: goal});
     }
 
-    //TODO:
-    // 4. ResImgTextInputAppend样式优化
-    // 5. 所有按钮上的文字，需要检查，部分应该按模式会有变化
     saveGoal(): void {
         let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
@@ -148,44 +150,18 @@ class GoalEdit extends Component<GoalEditProps, any> {
         Actions.pop();
     }
 
-    genServantLine(goalSvt: GoalSvt) {
-        let props = this.props as GoalEditProps;
-        let appVer = props.SceneGoal.appVer;
-
-        let skills = this.searchMstSkillArr(goalSvt.svtId);
-
-        let skillElements = [];
-        skills.forEach((skill: MstSkill, index) => {
-            // skillElements.push(
-            //     <ResImageWithElement appVer={appVer}
-            //                          type="skill"
-            //                          size="small"
-            //                          width={110}
-            //                          id={skill.iconId}>
-            //         <ResImgSvtSkillLvInput
-            //             value={`${goalSvt.skills[index].level}`}
-            //             onChange={(text) => {
-            //                 if (text === "") {
-            //                     return;
-            //                 }
-            //                 this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
-            //             }}
-            //         />
-            //     </ResImageWithElement>
-            // );
-        });
-
-        // return [
-        //     <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
-        //         <ResImageWithElement appVer={appVer}
-        //                              type="face"
-        //                              size="small"
-        //                              width={55}
-        //                              text="  "
-        //                              id={goalSvt.svtId}/>
-        //     </TouchableOpacity>,
-        //     ...skillElements
-        // ];
+    laveEdit(): void {
+        Alert.alert(
+            "需要在离开之前保存吗？",
+            null,
+            [
+                {text: "离开", onPress: () => (Actions as any).pop()},
+                {text: "保存", onPress: () => {
+                    this.saveGoal();
+                    (Actions as any).pop();
+                }},
+            ]
+        );
     }
 
     removeSvtFromGoal(svtId: number): void {
@@ -207,7 +183,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         };
 
         Alert.alert(
-            "确定从目标中删除从者信息吗？",
+            "确定从进度中删除该从者吗？",
             null,
             [
                 {text: "取消"},
@@ -242,6 +218,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let goalSvt = {
             svtId: svtId,
+            limit: 0, // 灵基再临 0破
             skills: skillsResult,
         } as GoalSvt;
 
@@ -266,78 +243,214 @@ class GoalEdit extends Component<GoalEditProps, any> {
         return result;
     }
 
-    prepareData() {
-        // let props = this.props as GoalEditProps;
-        // let state = this.state as GoalEditState;
-        //
-        // let columnName = Renderer.buildColumnData("目标名称", []);
-        // let goalName = "";
-        // if (props.isCurrent) {
-        //     goalName = this.currentStatusName;
-        // } else {
-        //     goalName = state.goal.name ? state.goal.name : this.defaultGoalName;
-        // }
-        // columnName.rows.push([
-        //     <GoalNameInput
-        //         value={goalName}
-        //         onChange={(text) => {
-        //             if (text === "") {
-        //                 return;
-        //             }
-        //             this.updateGoalName(text);
-        //         }}
-        //         editable={!props.isCurrent}
-        //     />
-        // ]);
-        //
-        // let columnServant = Renderer.buildColumnData("从者目标", []);
-        // state.goal.servants.forEach((goalSvt: GoalSvt) => {
-        //     columnServant.rows.push(this.genServantLine(goalSvt));
-        // });
-        //
-        // let columnAddServant = Renderer.buildColumnData("添加从者目标", []);
-        // columnAddServant.rows.push([
-        //         <DropdownList
-        //             data={props.SceneGoal.svtRawData}
-        //             selectedValue={`${state.selectedSvtId}`}
-        //             onValueChange={(svtId: string) => this.setState({selectedSvtId: parseInt(svtId)})}
-        //             getValue={(svt: MstSvt) => `${svt.id}`}
-        //             getLabel={(svt: MstSvt) => `${svt.collectionNo}: ${svt.name}`}
-        //         />
-        //     ],
-        //     [
-        //         <TableLineButton onPress={() => this.addSvtIntoGoal()}>
-        //             添加目标
-        //         </TableLineButton>
-        //     ]
-        // );
-        //
-        // return [[columnName], [columnServant], [columnAddServant]];
+    renderTitle() {
+        let props = this.props as GoalEditProps;
+        let state = this.state as GoalEditState;
+
+        let goalName = "";
+        if (props.isCurrent) {
+            goalName = defaultCurrentGoal.name;
+        } else {
+            goalName = state.goal.name ? state.goal.name : this.defaultProgressGoalName;
+        }
+        let updateName = (text) => {
+            if (text === "") {
+                return;
+            }
+            this.updateGoalName(text);
+        };
+
+        return (
+            <GridColCardWrapper>
+                <Row>
+                    <ColR size={.5} style={Styles.Common.VerticalCentering}><Text>编辑名称</Text></ColR>
+                    <ColR>
+                        <Item underline>
+                            <Input style={{height: 24}}
+                                   placeholder="输入当前进度名称"
+                                   onChange={(event) => updateName(event.nativeEvent.text)}
+                                   defaultValue={goalName}
+                            />
+                        </Item>
+                    </ColR>
+                </Row>
+            </GridColCardWrapper>
+        );
     }
 
-    // render() {
-    //     if (!this.state || !this.state.hasOwnProperty("goal") || this.state["goal"] === undefined) {
-    //         return <View />;
-    //     }
-    //
-    //     return (
-    //         <TabScene>
-    //             <ToolBoxWrapper
-    //                 pageName="GoalEdit"
-    //                 buttons={[
-    //                     {content: "保存改动", onPress: () => this.saveGoal()},
-    //                 ]}
-    //             />
-    //             <TabPageScroll style={{height: 620, paddingBottom: 5}}>
-    //                 <Table pageName="GoalEdit" data={this.prepareData()}/>
-    //             </TabPageScroll>
-    //         </TabScene>
-    //     );
-    // }
+    renderServantSelect() {
+        let props = this.props as GoalEditProps;
+        let state = this.state as GoalEditState;
 
+        let header = "选择目标从者";
+        let pickerGoalItems = [];
+        props.SceneGoal.svtRawData.forEach((data: MstSvt, index) => {
+            pickerGoalItems.push(<Picker.Item key={`PickerItem_${header}_${index}`} label={data.name} value={data.id} />);
+        });
+
+        return (
+            <GridColCardWrapper>
+                <Row>
+                    <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                        <Text>选择目标从者</Text>
+                    </ColR>
+                    <ColR size={1}>
+                        <Button outline small info block bordered
+                                style={{marginRight: 5, justifyContent: "center"}}>
+                            <Picker
+                                iosHeader={header}
+                                mode="dropdown"
+                                textStyle={{fontSize: 14}}
+                                selectedValue={state.selectedSvtId}
+                                onValueChange={(value: string) => this.setState({selectedSvtId: parseInt(value)})}>
+                                {pickerGoalItems}
+                            </Picker>
+                        </Button>
+                    </ColR>
+                    <ColR size={.3}>
+                        <Button outline small info block bordered
+                                style={StyleSheet.flatten(Styles.Common.VerticalCentering)}
+                                onPress={() => this.addSvtIntoGoal()}>
+                            <TextCentering>+</TextCentering>
+                        </Button>
+                    </ColR>
+                </Row>
+            </GridColCardWrapper>
+        );
+    }
+
+    renderServantList() {
+        let props = this.props as GoalEditProps;
+        let state = this.state as GoalEditState;
+        let appVer = props.SceneGoal.appVer;
+
+        let view = [];
+
+        state.goal.servants.forEach((goalSvt: GoalSvt) => {
+            let svtElement = undefined;
+            let skills = this.searchMstSkillArr(goalSvt.svtId);
+            let skillElements = [];
+            skills.forEach((skill: MstSkill, index) => {
+                skillElements.push(
+                    <ColR key={`GoalSvt_${goalSvt.svtId}_Skill_${index}`}>
+                        <Row>
+                            <ColR>
+                                <ThumbnailR small square
+                                            source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
+                            </ColR>
+                            <ColR style={Styles.Common.VerticalCentering}>
+                                <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
+                            </ColR>
+                        </Row>
+                    </ColR>
+                );
+            });
+
+            svtElement = (
+                <GridColCardWrapper key={`GoalSvt_${goalSvt.svtId}`}>
+                    <Row>
+                        <ColR>
+                            <Row>
+                                <ColR>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
+                                </ColR>
+                                <ColR style={Styles.Common.VerticalCentering}>
+                                    <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
+                                </ColR>
+                            </Row>
+                        </ColR>
+                        {skillElements}
+                        <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                            <Button outline small danger block bordered
+                                    onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+                                <Text>-</Text>
+                            </Button>
+                        </ColR>
+                    </Row>
+                </GridColCardWrapper>
+            );
+
+            view.push(svtElement);
+        });
+
+        // let skills = this.searchMstSkillArr(goalSvt.svtId);
+        //
+        // let skillElements = [];
+        // skills.forEach((skill: MstSkill, index) => {
+            // skillElements.push(
+            //     <ResImageWithElement appVer={appVer}
+            //                          type="skill"
+            //                          size="small"
+            //                          width={110}
+            //                          id={skill.iconId}>
+            //         <ResImgSvtSkillLvInput
+            //             value={`${goalSvt.skills[index].level}`}
+            //             onChange={(text) => {
+            //                 if (text === "") {
+            //                     return;
+            //                 }
+            //                 this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
+            //             }}
+            //         />
+            //     </ResImageWithElement>
+            // );
+        // });
+
+        // return [
+        //     <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+        //         <ResImageWithElement appVer={appVer}
+        //                              type="face"
+        //                              size="small"
+        //                              width={55}
+        //                              text="  "
+        //                              id={goalSvt.svtId}/>
+        //     </TouchableOpacity>,
+        //     ...skillElements
+        // ];
+
+        return view;
+    }
 
     render() {
-        return <View/>;
+        if (!this.state || !this.state.hasOwnProperty("goal") || this.state["goal"] === undefined) {
+            return <View />;
+        }
+
+        return (
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => this.laveEdit()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>Progress Edit</Title>
+                    </Body>
+                    <Right>
+                        <Button transparent onPress={() => this.saveGoal()}>
+                            <Icon name="md-checkmark" />
+                        </Button>
+                    </Right>
+                </Header>
+                <Content scrollEnabled={false}>
+                    <View style={Styles.Box.Wrapper}>
+                        {this.renderTitle()}
+                        {this.renderServantSelect()}
+                        <GridLine key="GoalServantList">
+                            <ColCard items={["从者列表"]} backgroundColor="#CDE1F9" />
+                        </GridLine>
+                        <Container>
+                            <Content>
+                                {this.renderServantList()}
+                            </Content>
+                        </Container>
+                    </View>
+                </Content>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
+            </Container>
+        );
     }
 }
 
