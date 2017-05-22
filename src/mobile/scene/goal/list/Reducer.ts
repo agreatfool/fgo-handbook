@@ -3,11 +3,9 @@ import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Red
 import {State, defaultState} from "./State";
 import {
     ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL,
-    ACT_UPDATE_GOAL, ACT_DELETE_GOAL, ACT_UPDATE_COMPARE_SOURCE,
-    ACT_UPDATE_COMPARE_TARGET,
+    ACT_UPDATE_GOAL, ACT_DELETE_GOAL,
     ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal,
-    ActionUpdateGoal, ActionDeleteGoal, ActionUpdateCompareSource,
-    ActionUpdateCompareTarget,
+    ActionUpdateGoal, ActionDeleteGoal,
 } from "./Action";
 import MstLoader from "../../../lib/model/MstLoader";
 import {Goal} from "../../../lib/model/MstGoal";
@@ -76,28 +74,10 @@ export const deleteGoal = {
     }
 } as ReducerInterface<State>;
 
-export const updateCompareSource = {
-    action: ACT_UPDATE_COMPARE_SOURCE,
-    reducer: function (state: State, action: ActionUpdateCompareSource) {
-        state.compareSourceId = action.compareSourceId;
-        return state;
-    }
-} as ReducerInterface<State>;
-
-export const updateCompareTarget = {
-    action: ACT_UPDATE_COMPARE_TARGET,
-    reducer: function (state: State, action: ActionUpdateCompareTarget) {
-        state.compareTargetId = action.compareTargetId;
-        return state;
-    }
-} as ReducerInterface<State>;
-
 export let Reducers = bindComponentReducers([
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
     deleteGoal,
-    updateCompareSource,
-    updateCompareTarget,
 ], defaultState);

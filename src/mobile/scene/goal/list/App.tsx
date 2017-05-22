@@ -11,7 +11,7 @@ import * as Renderer from "../../../view/View";
 // } from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
-import {MstGoal, Goal} from "../../../lib/model/MstGoal";
+import {MstGoal, Goal, defaultCurrentGoal} from "../../../lib/model/MstGoal";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
@@ -30,6 +30,11 @@ import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab
 
 export * from "./State";
 export * from "./Action";
+
+interface GoalListState {
+    compareSourceId: string; // UUID of one Goal
+    compareTargetId: string; // UUID of one Goal
+}
 
 class GoalList extends Component<State.Props, any> {
     private _appVer: string;
@@ -69,6 +74,11 @@ class GoalList extends Component<State.Props, any> {
             data.skillCombineData = skillCombineData;
             data.skillData = skillData;
             props.actions.updateAll(data);
+        });
+
+        this.setState({
+            compareSourceId: defaultCurrentGoal.id,
+            compareTargetId: defaultCurrentGoal.id,
         });
     }
 
@@ -179,7 +189,12 @@ class GoalList extends Component<State.Props, any> {
     }
 
     renderGoalsPicker(header: string, goals: Array<Goal>, selectedValue: string, onChange: (value: string) => void) {
-        let pickerGoalItems = [];
+        let props = this.props as State.Props;
+        let state = props.SceneGoal;
+
+        let pickerGoalItems = [
+            <Picker.Item key={`PickerItem_${header}_Current`} label={state.current.name} value={state.current.id} />
+        ];
         goals.forEach((goal: Goal, index) => {
             pickerGoalItems.push(<Picker.Item key={`PickerItem_${header}_${index}`} label={goal.name} value={goal.id} />);
         });
@@ -200,32 +215,29 @@ class GoalList extends Component<State.Props, any> {
 
     renderCompareButton() {
         let props = this.props as State.Props;
-        let state = props.SceneGoal;
+        let state = this.state as GoalListState;
 
-        let buttons = [<ColR />];
-        let goals: Array<Goal> = state.goals;
-        if (goals && goals.length !== 0) {
-            buttons = [];
-            buttons.push(
-                <ColR key="CompareSource">
-                    {this.renderGoalsPicker(
-                        "选择比对源", goals, state.compareSourceId,
-                        (value: string) => props.actions.updateCompareSource(value))}
-                </ColR>
-            );
-            buttons.push(
-                <ColR key="CompareVS" size={.2} style={Styles.Common.VerticalCentering}>
-                    <TextCentering>VS</TextCentering>
-                </ColR>
-            );
-            buttons.push(
-                <ColR key="CompareTarget">
-                    {this.renderGoalsPicker(
-                        "选择比对目标", goals, state.compareTargetId,
-                        (value: string) => props.actions.updateCompareTarget(value))}
-                </ColR>
-            );
-        }
+        let goals: Array<Goal> = props.SceneGoal.goals;
+        let buttons = [];
+        buttons.push(
+            <ColR key="CompareSource">
+                {this.renderGoalsPicker(
+                    "选择比对源", goals, state.compareSourceId,
+                    (value: string) => this.setState({compareSourceId: value}))}
+            </ColR>
+        );
+        buttons.push(
+            <ColR key="CompareVS" size={.2} style={Styles.Common.VerticalCentering}>
+                <TextCentering>VS</TextCentering>
+            </ColR>
+        );
+        buttons.push(
+            <ColR key="CompareTarget">
+                {this.renderGoalsPicker(
+                    "选择比对目标", goals, state.compareTargetId,
+                    (value: string) => this.setState({compareTargetId: value}))}
+            </ColR>
+        );
 
         return (
             <GridLine>

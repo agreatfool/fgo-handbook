@@ -9,8 +9,6 @@ export interface MstGoal {
     skillData: MstSkillContainer;
     current: Goal;
     goals: Array<Goal>;
-    compareSourceId: string; // UUID of one Goal
-    compareTargetId: string; // UUID of one Goal
 }
 
 export interface Goal {
