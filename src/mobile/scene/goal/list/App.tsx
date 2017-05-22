@@ -289,7 +289,7 @@ class GoalList extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Progress</Title>
+                        <Title>Progress List</Title>
                     </Body>
                     <Right />
                 </Header>
