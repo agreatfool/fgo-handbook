@@ -19,7 +19,7 @@ import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Toast, Row, Thumbnail, Form, Label, Input, Title, Picker, Item} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Toast, Row, ActionSheet, Thumbnail, Form, Label, Input, Title, Picker, Item} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {
     ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering, ColCardWithRightButton,
@@ -126,6 +126,21 @@ class GoalEdit extends Component<GoalEditProps, any> {
         this.setState({goal: goal});
     }
 
+    updateSvtLimit(svtId: number, limit: number): void {
+        let state = this.state as GoalEditState;
+
+        let goal = Object.assign({}, state.goal);
+        goal.servants.forEach((svt: GoalSvt, svtIndex) => {
+            if (svt.svtId !== svtId) {
+                return;
+            }
+            svt.limit = limit;
+            goal.servants[svtIndex] = svt;
+        });
+
+        this.setState({goal: goal});
+    }
+
     updateGoalName(name: string): void {
         let state = this.state as GoalEditState;
 
@@ -150,7 +165,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         Actions.pop();
     }
 
-    laveEdit(): void {
+    leaveEdit(): void {
         Alert.alert(
             "需要在离开之前保存吗？",
             null,
@@ -158,7 +173,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 {text: "离开", onPress: () => (Actions as any).pop()},
                 {text: "保存", onPress: () => {
                     this.saveGoal();
-                    (Actions as any).pop();
                 }},
             ]
         );
@@ -241,6 +255,47 @@ class GoalEdit extends Component<GoalEditProps, any> {
         }
 
         return result;
+    }
+
+    showSvtLimitActionSheet(onSelect: (btnIndex: number) => void): void {
+        let buttons = [
+            "0破", "1破", "2破", "3破", "满破",
+            "Cancel",
+        ];
+        ActionSheet.show(
+            {
+                options: buttons,
+                cancelButtonIndex: buttons.length - 1,
+                title: "选择灵基再临阶段"
+            },
+            (btnIndex) => {
+                if (btnIndex === buttons.length - 1) {
+                    return; // canceled
+                }
+                onSelect(btnIndex)
+            }
+        );
+    }
+
+    showSkillLvActionSheet(onSelect: (btnIndex: number) => void): void {
+        let buttons = [
+            "Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5",
+            "Lv.6", "Lv.7", "Lv.8", "Lv.9", "Lv.10",
+            "Cancel",
+        ];
+        ActionSheet.show(
+            {
+                options: buttons,
+                cancelButtonIndex: buttons.length - 1,
+                title: "选择技能等级"
+            },
+            (btnIndex) => {
+                if (btnIndex === buttons.length - 1) {
+                    return; // canceled
+                }
+                onSelect(btnIndex)
+            }
+        );
     }
 
     renderTitle() {
@@ -327,7 +382,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let view = [];
 
         state.goal.servants.forEach((goalSvt: GoalSvt) => {
-            let svtElement = undefined;
             let skills = this.searchMstSkillArr(goalSvt.svtId);
             let skillElements = [];
             skills.forEach((skill: MstSkill, index) => {
@@ -335,8 +389,15 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <ColR key={`GoalSvt_${goalSvt.svtId}_Skill_${index}`}>
                         <Row>
                             <ColR>
-                                <ThumbnailR small square
-                                            source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        this.showSkillLvActionSheet((btnIndex) => {
+                                            this.updateSkillLv(goalSvt.svtId, skill.id, btnIndex + 1)
+                                        });
+                                    }}>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
+                                </TouchableOpacity>
                             </ColR>
                             <ColR style={Styles.Common.VerticalCentering}>
                                 <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
@@ -346,14 +407,21 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 );
             });
 
-            svtElement = (
+            view.push(
                 <GridColCardWrapper key={`GoalSvt_${goalSvt.svtId}`}>
                     <Row>
                         <ColR>
                             <Row>
                                 <ColR>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            this.showSvtLimitActionSheet((btnIndex) => {
+                                                this.updateSvtLimit(goalSvt.svtId, btnIndex)
+                                            });
+                                        }}>
+                                        <ThumbnailR small square
+                                                    source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
+                                    </TouchableOpacity>
                                 </ColR>
                                 <ColR style={Styles.Common.VerticalCentering}>
                                     <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
@@ -370,8 +438,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     </Row>
                 </GridColCardWrapper>
             );
-
-            view.push(svtElement);
         });
 
         // let skills = this.searchMstSkillArr(goalSvt.svtId);
@@ -421,7 +487,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => this.laveEdit()}>
+                        <Button transparent onPress={() => this.leaveEdit()}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
