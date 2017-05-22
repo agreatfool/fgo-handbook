@@ -31,20 +31,6 @@ export const updateDisplayData: ActionCreator<ActionUpdateDisplayData> = functio
     };
 };
 
-export const ACT_UPDATE_TRANS_NAME = "ACT_UPDATE_TRANS_NAME";
-
-export interface ActionUpdateTransName {
-    type: string;
-    transSvtName: {[key: number]: TransSvtName};
-}
-
-export const updateTransName: ActionCreator<ActionUpdateTransName> = function (transSvtName: {[key: number]: TransSvtName}) {
-    return {
-        type: ACT_UPDATE_TRANS_NAME,
-        transSvtName: transSvtName
-    }
-};
-
 export const ACT_UPDATE_FILTER = "ACT_UPDATE_FILTER";
 
 export interface ActionUpdateFilter {
@@ -90,7 +76,6 @@ export const updateAppVer: ActionCreator<ActionUpdateAppVer> = function (appVer:
 export const Actions = {
     updateRawData,
     updateDisplayData,
-    updateTransName,
     updateFilter,
     updateOrder,
     updateAppVer,

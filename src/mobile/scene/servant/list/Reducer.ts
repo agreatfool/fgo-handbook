@@ -27,14 +27,6 @@ export const updateDisplayData = {
     }
 } as ReducerInterface<State>;
 
-export const updateTransName = {
-    action: ACT_UPDATE_TRANS_NAME,
-    reducer: function (state: State, action: ActionUpdateTransName) {
-        state.transSvtName = action.transSvtName;
-        return state;
-    }
-} as ReducerInterface<State>;
-
 export const updateFilter = {
     action: ACT_UPDATE_FILTER,
     reducer: function (state: State, action: ActionUpdateFilter) {
@@ -64,7 +56,6 @@ export const updateAppVer = {
 export let Reducers = bindComponentReducers([
     updateRawData,
     updateDisplayData,
-    updateTransName,
     updateFilter,
     updateOrder,
     updateAppVer,

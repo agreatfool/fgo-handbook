@@ -38,11 +38,8 @@ export class ServantList extends Component<State.Props, any> {
 
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return MstLoader.instance.loadEmbeddedCode();
-        }).then((embeddedCode: EmbeddedCodeConverted) => {
-            props.actions.updateTransName(embeddedCode.transSvtName);
 
-            return this._service.loadSvtRawData();
+            return this._service.loadSvtRawDataConverted();
         }).then((rawData: Array<MstSvt>) => {
             let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
@@ -99,7 +96,7 @@ export class ServantList extends Component<State.Props, any> {
                                     source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
                     </ColR>
                     <ColR size={3} style={Styles.Common.VerticalCentering}>
-                        <Text>{state.transSvtName[data.id].name}</Text>
+                        <Text>{data.name}</Text>
                     </ColR>
                 </Grid>
             </ListItem>
