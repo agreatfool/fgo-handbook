@@ -242,6 +242,26 @@ class GoalEdit extends Component<GoalEditProps, any> {
         this.setState({goal: currentGoal});
     }
 
+    switchSvtListPosition(startIndex: number, delta: number) {
+        let state = this.state as GoalEditState;
+
+        if (delta === 0 // no movement
+            || (startIndex === 0 && delta < 0) // no lower position to swap
+            || (startIndex === (state.goal.servants.length - 1) && delta > 0) // no bigger position to swap
+        ) {
+            return;
+        }
+
+        let targetIndex = startIndex + delta;
+
+        // 更新目标
+        let currentGoal = Object.assign({}, state.goal);
+        let tmp = currentGoal.servants[startIndex];
+        currentGoal.servants[startIndex] = currentGoal.servants[targetIndex];
+        currentGoal.servants[targetIndex] = tmp;
+        this.setState({goal: currentGoal});
+    }
+
     searchMstSkillArr(svtId: number): Array<MstSkill> {
         let result = [] as Array<MstSkill>;
 
@@ -381,28 +401,28 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let view = [];
 
-        state.goal.servants.forEach((goalSvt: GoalSvt) => {
+        state.goal.servants.forEach((goalSvt: GoalSvt, svtIndex: number) => {
             let skills = this.searchMstSkillArr(goalSvt.svtId);
             let skillElements = [];
             skills.forEach((skill: MstSkill, index) => {
                 skillElements.push(
                     <ColR key={`GoalSvt_${goalSvt.svtId}_Skill_${index}`}>
-                        <Row>
-                            <ColR>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        this.showSkillLvActionSheet((btnIndex) => {
-                                            this.updateSkillLv(goalSvt.svtId, skill.id, btnIndex + 1)
-                                        });
-                                    }}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                this.showSkillLvActionSheet((btnIndex) => {
+                                    this.updateSkillLv(goalSvt.svtId, skill.id, btnIndex + 1)
+                                });
+                            }}>
+                            <GridLine>
+                                <Row style={Styles.Common.Centering}>
                                     <ThumbnailR small square
                                                 source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
-                                </TouchableOpacity>
-                            </ColR>
-                            <ColR style={Styles.Common.VerticalCentering}>
-                                <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
-                            </ColR>
-                        </Row>
+                                </Row>
+                                <Row style={Styles.Common.Centering}>
+                                    <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
+                                </Row>
+                            </GridLine>
+                        </TouchableOpacity>
                     </ColR>
                 );
             });
@@ -411,69 +431,47 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 <GridColCardWrapper key={`GoalSvt_${goalSvt.svtId}`}>
                     <Row>
                         <ColR>
-                            <Row>
-                                <ColR>
-                                    <TouchableOpacity
-                                        onPress={() => {
-                                            this.showSvtLimitActionSheet((btnIndex) => {
-                                                this.updateSvtLimit(goalSvt.svtId, btnIndex)
-                                            });
-                                        }}>
+                            <TouchableOpacity
+                                style={Styles.Common.VerticalCentering}
+                                onPress={() => {
+                                    this.showSvtLimitActionSheet((btnIndex) => {
+                                        this.updateSvtLimit(goalSvt.svtId, btnIndex)
+                                    });
+                                }}>
+                                <GridLine>
+                                    <Row style={Styles.Common.Centering}>
                                         <ThumbnailR small square
                                                     source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
-                                    </TouchableOpacity>
-                                </ColR>
-                                <ColR style={Styles.Common.VerticalCentering}>
-                                    <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
-                                </ColR>
-                            </Row>
+                                    </Row>
+                                    <Row style={Styles.Common.Centering}>
+                                        <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
+                                    </Row>
+                                </GridLine>
+                            </TouchableOpacity>
                         </ColR>
                         {skillElements}
-                        <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                        <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
                             <Button outline small danger block bordered
-                                    onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+                                onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
                                 <Text>-</Text>
+                            </Button>
+                        </ColR>
+                        <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
+                            <Button outline small danger block bordered
+                                    onPress={() => this.switchSvtListPosition(svtIndex, -1)}>
+                                <Text>{"<"}</Text>
+                            </Button>
+                        </ColR>
+                        <ColR size={.8} style={Styles.Common.VerticalCentering}>
+                            <Button outline small danger block bordered
+                                    onPress={() => this.switchSvtListPosition(svtIndex, 1)}>
+                                <Text>{">"}</Text>
                             </Button>
                         </ColR>
                     </Row>
                 </GridColCardWrapper>
             );
         });
-
-        // let skills = this.searchMstSkillArr(goalSvt.svtId);
-        //
-        // let skillElements = [];
-        // skills.forEach((skill: MstSkill, index) => {
-            // skillElements.push(
-            //     <ResImageWithElement appVer={appVer}
-            //                          type="skill"
-            //                          size="small"
-            //                          width={110}
-            //                          id={skill.iconId}>
-            //         <ResImgSvtSkillLvInput
-            //             value={`${goalSvt.skills[index].level}`}
-            //             onChange={(text) => {
-            //                 if (text === "") {
-            //                     return;
-            //                 }
-            //                 this.updateSkillLv(goalSvt.svtId, goalSvt.skills[index].skillId, parseInt(text));
-            //             }}
-            //         />
-            //     </ResImageWithElement>
-            // );
-        // });
-
-        // return [
-        //     <TouchableOpacity onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
-        //         <ResImageWithElement appVer={appVer}
-        //                              type="face"
-        //                              size="small"
-        //                              width={55}
-        //                              text="  "
-        //                              id={goalSvt.svtId}/>
-        //     </TouchableOpacity>,
-        //     ...skillElements
-        // ];
 
         return view;
     }
