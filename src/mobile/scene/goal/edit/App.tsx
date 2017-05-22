@@ -1,30 +1,32 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity, TextInput, Alert, StyleSheet} from "react-native";
-import * as Renderer from "../../../view/View";
-// import {
-//     ToolBoxWrapper,
-//     TabScene,
-//     TabPageScroll,
-//     Table,
-//     ResImageWithElement,
-//     DropdownList,
-//     TableLineButton
-// } from "../../../view/View";
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {ColCard, ColR, GridColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
-import {MstSvt, MstSkill, MstSvtSkill} from "../../../../model/master/Master";
-import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
+import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Toast, Row, ActionSheet, Thumbnail, Form, Label, Input, Title, Picker, Item} from "native-base";
-import * as Styles from "../../../view/Styles";
 import {
-    ColCard, ColR, ColCentering, GridColCardWrapper, GridLine, RowCentering, TextCentering, ColCardWithRightButton,
-    ColCardWrapper, ThumbnailR
-} from "../../../view/View";
+    ActionSheet,
+    Body,
+    Button,
+    Container,
+    Content,
+    Header,
+    Icon,
+    Input,
+    Item,
+    Left,
+    Picker,
+    Right,
+    Row,
+    Title
+} from "native-base";
+import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 
 export * from "./State";
@@ -170,10 +172,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
             "需要在离开之前保存吗？",
             null,
             [
-                {text: "离开", onPress: () => (Actions as any).pop()},
-                {text: "保存", onPress: () => {
-                    this.saveGoal();
-                }},
+                {text: "离开", onPress: () => Actions.pop()},
+                {text: "保存", onPress: () => this.saveGoal()},
             ]
         );
     }
@@ -360,7 +360,11 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let header = "选择目标从者";
         let pickerGoalItems = [];
         props.SceneGoal.svtRawData.forEach((data: MstSvt, index) => {
-            pickerGoalItems.push(<Picker.Item key={`PickerItem_${header}_${index}`} label={data.name} value={data.id} />);
+            pickerGoalItems.push(
+                <Picker.Item key={`PickerItem_${header}_${index}`}
+                             label={data.name}
+                             value={data.id}/>
+            );
         });
 
         return (
@@ -452,7 +456,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         {skillElements}
                         <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
                             <Button outline small danger block bordered
-                                onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
+                                    onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
                                 <Text>-</Text>
                             </Button>
                         </ColR>
@@ -494,7 +498,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     </Body>
                     <Right>
                         <Button transparent onPress={() => this.saveGoal()}>
-                            <Icon name="md-checkmark" />
+                            <Icon name="md-checkmark"/>
                         </Button>
                     </Right>
                 </Header>
@@ -503,7 +507,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         {this.renderTitle()}
                         {this.renderServantSelect()}
                         <GridLine key="GoalServantList">
-                            <ColCard items={["从者列表"]} backgroundColor="#CDE1F9" />
+                            <ColCard items={["从者列表"]} backgroundColor="#CDE1F9"/>
                         </GridLine>
                         <Container>
                             <Content>
@@ -514,57 +518,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
             </Container>
-        );
-    }
-}
-
-interface GoalNameInputProps extends TextInputProps {
-    editable: boolean;
-}
-
-class GoalNameInput extends Component<GoalNameInputProps, any> {
-    render() {
-        let props = this.props as GoalNameInputProps;
-        // return (
-        //     <TextInput
-        //         style={[{flex: 1, textAlign: "center", width: 392}, Styles.Tab.tabBar]}
-        //         onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
-        //         defaultValue={props.value}
-        //         onChange={(event) => props.onChange(event.nativeEvent.text)}
-        //         multiline={false}
-        //         editable={props.editable}
-        //         maxLength={20}
-        //     />
-        // );
-
-        return <View />;
-    }
-}
-
-interface TextInputProps extends Renderer.Props {
-    value: string;
-    onChange: (text: string) => void;
-}
-
-class ResImgSvtSkillLvInput extends Component<TextInputProps, any> {
-    render() {
-        let props = this.props as TextInputProps;
-        return (
-            <View style={{flex: 1, flexDirection: "row" as any}}>
-                <Text style={{flex: 1, textAlign: "center"}}>Lv.</Text>
-                <View
-                    style={{flex: 1, flexDirection: "row", borderColor: "gray", borderBottomWidth: 1, marginRight: 2}}>
-                    <TextInput
-                        style={{flex: 1, textAlign: "center"}}
-                        onEndEditing={(event) => props.onChange(event.nativeEvent.text)}
-                        defaultValue={props.value}
-                        onChange={(event) => props.onChange(event.nativeEvent.text)}
-                        multiline={false}
-                        editable={true}
-                        maxLength={2}
-                    />
-                </View>
-            </View>
         );
     }
 }
