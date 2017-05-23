@@ -14,6 +14,8 @@ import {App as ServantFilter} from "../scene/servant/filter/App";
 import {App as GoalList} from "../scene/goal/list/App";
 import {App as GoalEdit} from "../scene/goal/edit/App";
 import {App as GoalCompare} from "../scene/goal/compare/App";
+import {App as GoalCompareServant} from "../scene/goal/servant/App";
+import {App as GoalCompareItem} from "../scene/goal/item/App";
 import {App as GoalExp} from "../scene/goal/exp/App";
 import {App as Options} from "../scene/options/main/App";
 
@@ -38,6 +40,8 @@ export class App extends Component<any, any> {
                         <Scene key="goal_list" component={GoalList} title="GoalList" />
                         <Scene key="goal_edit" component={GoalEdit} title="GoalEdit" />
                         <Scene key="goal_compare" component={GoalCompare} title="GoalCompare" />
+                        <Scene key="goal_compare_svt" component={GoalCompareServant} title="GoalCompareServant" />
+                        <Scene key="goal_compare_item" component={GoalCompareItem} title="GoalCompareItem" />
                         <Scene key="goal_exp" component={GoalExp} title="GoalExp" />
                         <Scene key="options" component={Options} title="Options" />
                     </Scene>
