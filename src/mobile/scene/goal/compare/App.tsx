@@ -1,22 +1,25 @@
 import React, {Component} from "react";
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Goal, defaultCurrentGoal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
+import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {MstSkill, MstSvtSkill, MstSvt} from "../../../../model/master/Master";
-import {MstSvtSkillContainer, MstSkillContainer} from "../../../../model/impl/MstContainer";
+import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import {
-    CompareResItem, CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResSvtItem,
+    CompareResItem,
+    CompareResItemDetail,
+    CompareResSkill,
+    CompareResSvt,
+    CompareResSvtItem,
     CompareResult
 } from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {defaultCurrentGoal, Goal, MstGoal} from "../../../lib/model/MstGoal";
-import {GridLine} from "../../../view/View";
+import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -346,7 +349,138 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* RENDER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    goToCompareResServantPage(svtId: number): void {
+        let props = this.props as State.Props;
+        let state = props.SceneGoal;
+        let result: CompareResult = state.compareResult;
 
+        let found = false;
+        result.servants.forEach((svt: CompareResSvt) => {
+            if (svt.svtId === svtId) {
+                found = true;
+            }
+        });
+        if (!found) {
+            return;
+        }
+
+        //noinspection TypeScriptUnresolvedFunction
+        (Actions as any).goal_compare_svt({svtId: svtId});
+    }
+
+    goToCompareResItemPage(itemId: number): void {
+        let props = this.props as State.Props;
+        let state = props.SceneGoal;
+        let result: CompareResult = state.compareResult;
+
+        let found = false;
+        result.items.forEach((item: CompareResItem) => {
+            if (item.itemId === itemId) {
+                found = true;
+            }
+        });
+        if (!found) {
+            return;
+        }
+
+        //noinspection TypeScriptUnresolvedFunction
+        (Actions as any).goal_compare_item({itemId: itemId});
+    }
+
+    renderTitle(totalLimit: Array<CompareResItemDetail>,
+                totalSkill: Array<CompareResItemDetail>,
+                totalQP: number) {
+        let sigma = (arr: Array<CompareResItemDetail>): number => {
+            let total = 0;
+            arr.forEach((detail: CompareResItemDetail) => {
+                total += detail.count;
+            });
+            return total;
+        };
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]}
+                             backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        <Row>
+                            <ColR><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></ColR>
+                        </Row>
+                        <Row>
+                            <ColR><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></ColR>
+                        </Row>
+                        <Row>
+                            <ColR><Text>{`QP 需求：${totalQP / 10000}万`}</Text></ColR>
+                        </Row>
+                    </ColCardWrapper>
+                </GridLine>
+            </View>
+        );
+    }
+
+    renderItems(total: Array<CompareResItemDetail>, type: string) {
+        let props = this.props as State.Props;
+        let cellInRow = 5;
+        let data: Array<Array<CompareResItemDetail>> = MstUtil.divideArrayIntoParts(total, cellInRow);
+        let rows = [];
+
+        data.forEach((dataRow: Array<CompareResItemDetail>, rowIndex) => {
+            let padding = [];
+            if (dataRow.length < cellInRow) {
+                for (let i = 0; i < cellInRow - dataRow.length; i++) {
+                    padding.push(<ColR key={`Item_${type}_${rowIndex}_${i + dataRow.length}`}/>);
+                }
+            }
+
+            let cells = [];
+            dataRow.forEach((itemDetail: CompareResItemDetail, cellIndex) => {
+                cells.push(
+                    <ColR key={`Item_${type}_${rowIndex}_${cellIndex}`}>
+                        <Row>
+                            <ColR>
+                                <ThumbnailR small square
+                                            source={{
+                                                uri: MstUtil.instance.getRemoteItemUrl(
+                                                    props.SceneGoal.appVer, itemDetail.itemId
+                                                )
+                                            }}/>
+                            </ColR>
+                            <ColR style={Styles.Common.VerticalCentering}>
+                                <TextCentering>{`x${itemDetail.count}`}</TextCentering>
+                            </ColR>
+                        </Row>
+                    </ColR>
+                );
+            });
+
+            rows.push(
+                <Row key={`Item_${type}_${rowIndex}`} style={{paddingBottom: 5}}>
+                    {cells}
+                    {padding}
+                </Row>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["灵基再临总需求列表"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        {rows}
+                    </ColCardWrapper>
+                </GridLine>
+            </View>
+        );
+    }
+
+    renderServants(servants: Array<CompareResSvt>) {
+        
+    }
 
     render() {
         let props = this.props as State.Props;
@@ -370,8 +504,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                     </Body>
                     <Right />
                 </Header>
-                <Content scrollEnabled={false}>
+                <Content>
                     <View style={Styles.Box.Wrapper}>
+                        {this.renderTitle(result.totalLimit, result.totalSkill, result.totalQP)}
+                        {this.renderItems(result.totalLimit, "Limit")}
+                        {this.renderItems(result.totalSkill, "Skill")}
+                        {this.renderServants(result.servants)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
