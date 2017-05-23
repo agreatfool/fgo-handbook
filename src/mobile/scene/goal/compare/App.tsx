@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View} from "react-native";
+import {Text, View, TouchableOpacity} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -439,19 +439,21 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             dataRow.forEach((itemDetail: CompareResItemDetail, cellIndex) => {
                 cells.push(
                     <ColR key={`Item_${type}_${rowIndex}_${cellIndex}`}>
-                        <Row>
-                            <ColR>
-                                <ThumbnailR small square
-                                            source={{
-                                                uri: MstUtil.instance.getRemoteItemUrl(
-                                                    props.SceneGoal.appVer, itemDetail.itemId
-                                                )
-                                            }}/>
-                            </ColR>
-                            <ColR style={Styles.Common.VerticalCentering}>
-                                <TextCentering>{`x${itemDetail.count}`}</TextCentering>
-                            </ColR>
-                        </Row>
+                        <TouchableOpacity onPress={() => this.goToCompareResItemPage(itemDetail.itemId)}>
+                            <Row>
+                                <ColR>
+                                    <ThumbnailR small square
+                                                source={{
+                                                    uri: MstUtil.instance.getRemoteItemUrl(
+                                                        props.SceneGoal.appVer, itemDetail.itemId
+                                                    )
+                                                }}/>
+                                </ColR>
+                                <ColR style={Styles.Common.VerticalCentering}>
+                                    <TextCentering>{`x${itemDetail.count}`}</TextCentering>
+                                </ColR>
+                            </Row>
+                        </TouchableOpacity>
                     </ColR>
                 );
             });
@@ -479,7 +481,59 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     renderServants(servants: Array<CompareResSvt>) {
-        
+        let props = this.props as State.Props;
+        let cellInRow = 6;
+        let data: Array<Array<CompareResSvt>> = MstUtil.divideArrayIntoParts(servants, cellInRow);
+        let rows = [];
+
+        data.forEach((dataRow: Array<CompareResSvt>, rowIndex) => {
+            let padding = [];
+            if (dataRow.length < cellInRow) {
+                for (let i = 0; i < cellInRow - dataRow.length; i++) {
+                    padding.push(<ColR key={`Item_Svt_${rowIndex}_${i + dataRow.length}`}/>);
+                }
+            }
+
+            let cells = [];
+            dataRow.forEach((svt: CompareResSvt, cellIndex) => {
+                cells.push(
+                    <ColR key={`Item_Svt_${rowIndex}_${cellIndex}`}>
+                        <TouchableOpacity onPress={() => this.goToCompareResServantPage(svt.svtId)}>
+                            <Row>
+                                <ColR>
+                                    <ThumbnailR small square
+                                                source={{
+                                                    uri: MstUtil.instance.getRemoteFaceUrl(
+                                                        props.SceneGoal.appVer, svt.svtId
+                                                    )
+                                                }}/>
+                                </ColR>
+                            </Row>
+                        </TouchableOpacity>
+                    </ColR>
+                );
+            });
+
+            rows.push(
+                <Row key={`Item_Svt_${rowIndex}`} style={{paddingBottom: 5}}>
+                    {cells}
+                    {padding}
+                </Row>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["从者列表"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        {rows}
+                    </ColCardWrapper>
+                </GridLine>
+            </View>
+        );
     }
 
     render() {
