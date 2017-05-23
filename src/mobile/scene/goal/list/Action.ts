@@ -1,6 +1,6 @@
 import {ActionCreator} from "redux";
 import {Goal, MstGoal} from "../../../lib/model/MstGoal";
-import {State} from "./State";
+import {CompareResult, State} from "./State";
 
 export const ACT_UPDATE_ALL = "ACT_UPDATE_ALL";
 
@@ -72,10 +72,25 @@ export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: str
     }
 };
 
+export const ACT_UPDATE_COMPARE_RESULT = "ACT_UPDATE_COMPARE_RESULT";
+
+export interface ActionUpdateCompareResult {
+    type: string;
+    result: CompareResult;
+}
+
+export const updateCompareResult: ActionCreator<ActionUpdateCompareResult> = function (result: CompareResult) {
+    return {
+        type: ACT_UPDATE_COMPARE_RESULT,
+        result: result,
+    }
+};
+
 export const Actions = {
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
     deleteGoal,
+    updateCompareResult,
 };

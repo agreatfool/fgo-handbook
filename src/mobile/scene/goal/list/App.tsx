@@ -9,7 +9,10 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
-import {MstCombineSkillContainer, MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
+import {
+    MstCombineLimitContainer, MstCombineSkillContainer, MstSkillContainer,
+    MstSvtSkillContainer
+} from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
@@ -39,6 +42,7 @@ class GoalList extends Component<State.Props, any> {
         let svtRawData = [];
         let svtSkillData = null;
         let skillCombineData = null;
+        let limitCombineData = null;
         let skillData = null;
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
@@ -51,16 +55,21 @@ class GoalList extends Component<State.Props, any> {
             return MstLoader.instance.loadModel("MstCombineSkill");
         }).then((container: BaseContainer<any>) => {
             skillCombineData = container as MstCombineSkillContainer;
+            return MstLoader.instance.loadModel("MstCombineLimit");
+        }).then((container: BaseContainer<any>) => {
+            limitCombineData = container as MstCombineLimitContainer;
             return MstLoader.instance.loadModel("MstSkill");
         }).then((container: BaseContainer<any>) => {
             skillData = container as MstSkillContainer;
             return MstLoader.instance.loadGoal();
-        }).then((data: State) => {
+        }).then((data: State.State) => {
             data.appVer = this._appVer;
             data.svtRawData = svtRawData;
             data.svtSkillData = svtSkillData;
             data.skillCombineData = skillCombineData;
+            data.limitCombineData = limitCombineData;
             data.skillData = skillData;
+            data.compareResult = undefined;
             props.actions.updateAll(data);
         });
 
