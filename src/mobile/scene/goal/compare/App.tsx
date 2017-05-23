@@ -333,19 +333,6 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return baseItems;
     }
 
-    getMstSvt(svtId: number): MstSvt {
-        let props = this.props as GoalCompareProps;
-        let result = {} as MstSvt;
-
-        props.SceneGoal.svtRawData.forEach((svt: MstSvt) => {
-            if (svt.id === svtId) {
-                result = svt;
-            }
-        });
-
-        return result;
-    }
-
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* RENDER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -561,9 +548,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle(result.totalLimit, result.totalSkill, result.totalQP)}
-                        {this.renderItems(result.totalLimit, "Limit")}
-                        {this.renderItems(result.totalSkill, "Skill")}
-                        {this.renderServants(result.servants)}
+                        {renderRowCellsOfElements(state.appVer, "灵基再临总需求列表",
+                            ElementType.Item, 5, result.totalLimit, result)}
+                        {renderRowCellsOfElements(state.appVer, "技能升级总需求列表",
+                            ElementType.Item, 5, result.totalSkill, result)}
+                        {renderRowCellsOfElements(state.appVer, "目标列表",
+                            ElementType.Servant, 6, result.servants, result)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
@@ -573,3 +563,173 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 }
 
 export const App = injectIntoComponent(GoalCompare, State.StateName, Action.Actions);
+
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//-* COMMON LOGIC
+//-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+export const getMstSvt = (svtId: number, svtRawData: Array<MstSvt>): MstSvt => {
+    let result = {} as MstSvt;
+
+    svtRawData.forEach((svt: MstSvt) => {
+        if (svt.id === svtId) {
+            result = svt;
+        }
+    });
+
+    return result;
+};
+
+export const goToCompareResServantPage = (svtId: number, result: CompareResult): void => {
+    let found = false;
+    result.servants.forEach((svt: CompareResSvt) => {
+        if (svt.svtId === svtId) {
+            found = true;
+        }
+    });
+    if (!found) {
+        return;
+    }
+
+    //noinspection TypeScriptUnresolvedFunction
+    (Actions as any).goal_compare_svt({svtId: svtId});
+};
+
+export const goToCompareResItemPage = (itemId: number, result: CompareResult): void => {
+    let found = false;
+    result.items.forEach((item: CompareResItem) => {
+        if (item.itemId === itemId) {
+            found = true;
+        }
+    });
+    if (!found) {
+        return;
+    }
+
+    //noinspection TypeScriptUnresolvedFunction
+    (Actions as any).goal_compare_item({itemId: itemId});
+};
+
+export enum ElementType {
+    Item,
+    Servant,
+    SvtItem,
+}
+
+export const renderRowCellsOfElements = (appVer: string,
+                                         title: string,
+                                         type: ElementType,
+                                         cellInRow: number,
+                                         elements: Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>,
+                                         result: CompareResult) => {
+    let data: Array<Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>>
+        = MstUtil.divideArrayIntoParts(elements, cellInRow);
+    let rows = [];
+
+    data.forEach((dataRow: Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>, rowIndex) => {
+        let padding = [];
+        if (dataRow.length < cellInRow) {
+            for (let i = 0; i < cellInRow - dataRow.length; i++) {
+                padding.push(<ColR key={`Item_${type}_${rowIndex}_${i + dataRow.length}`}/>);
+            }
+        }
+
+        let goTo = undefined;
+        if (type === ElementType.Item) {
+            goTo = (element: CompareResSvt | CompareResItemDetail, result: CompareResult) => {
+                goToCompareResItemPage((element as CompareResItemDetail).itemId, result);
+            };
+        } else if (type === ElementType.Servant) {
+            goTo = (element: CompareResSvt | CompareResItemDetail, result: CompareResult) => {
+                goToCompareResServantPage((element as CompareResSvt).svtId, result);
+            };
+        }
+
+        let getImgUrl = undefined;
+        if (type === ElementType.Item) {
+            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return MstUtil.instance.getRemoteItemUrl(appVer, (element as CompareResItemDetail).itemId);
+            };
+        } else if (type === ElementType.Servant) {
+            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return MstUtil.instance.getRemoteFaceUrl(appVer, (element as CompareResSvt).svtId);
+            };
+        } else if (type === ElementType.SvtItem) {
+            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return MstUtil.instance.getRemoteFaceUrl(appVer, (element as CompareResSvtItem).svtId);
+            };
+        }
+
+        let cells = [];
+        dataRow.forEach((element: CompareResSvt | CompareResItemDetail | CompareResSvtItem, cellIndex) => {
+            let count = <View/>;
+            if (type === ElementType.Item) {
+                count = (
+                    <ColR style={Styles.Common.VerticalCentering}>
+                        <TextCentering>{`x${(element as CompareResItemDetail).count}`}</TextCentering>
+                    </ColR>
+                );
+            } else if (type === ElementType.SvtItem) {
+                count = (
+                    <ColR style={Styles.Common.VerticalCentering}>
+                        <TextCentering>{`x${(element as CompareResSvtItem).count}`}</TextCentering>
+                    </ColR>
+                );
+            }
+
+            let rowView = <View/>;
+            if (type === ElementType.Item || type === ElementType.Servant) {
+                // 带点击跳转事件
+                //noinspection TypeScriptValidateTypes
+                rowView = (
+                    <TouchableOpacity onPress={() => goTo(element, result)}>
+                        <Row>
+                            <ColR>
+                                <ThumbnailR small square
+                                            source={{uri: getImgUrl(appVer, element)}}/>
+                            </ColR>
+                            {count}
+                        </Row>
+                    </TouchableOpacity>
+                );
+            } else {
+                // 无点击事件
+                //noinspection TypeScriptValidateTypes
+                rowView = (
+                    <Row>
+                        <ColR>
+                            <ThumbnailR small square
+                                        source={{uri: getImgUrl(appVer, element)}}/>
+                        </ColR>
+                        {count}
+                    </Row>
+                );
+            }
+
+            cells.push(
+                <ColR key={`Item_${type}_${rowIndex}_${cellIndex}`}>
+                    {rowView}
+                </ColR>
+            );
+        });
+
+        rows.push(
+            <Row key={`Item_${type}_${rowIndex}`} style={{paddingBottom: 5}}>
+                {cells}
+                {padding}
+            </Row>
+        );
+    });
+
+    return (
+        <View>
+            <GridLine>
+                <ColCard items={[title]} backgroundColor="#CDE1F9"/>
+            </GridLine>
+            <GridLine>
+                <ColCardWrapper>
+                    {rows}
+                </ColCardWrapper>
+            </GridLine>
+        </View>
+    );
+};
