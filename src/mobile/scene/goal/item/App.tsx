@@ -33,7 +33,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
     componentDidMount() {
         let props = this.props as GoalCompareItemProps;
 
-        MstLoader.instance.loadModel("MstItem").then((container: BaseContainer) => {
+        MstLoader.instance.loadModel("MstItem").then((container: BaseContainer<any>) => {
             this.setState({
                 itemName: (container as MstItemContainer).get(props.itemId).name
             });
