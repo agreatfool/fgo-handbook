@@ -34,6 +34,8 @@ class GoalList extends Component<State.Props, any> {
     constructor(props, context) {
         super(props, context);
         this._service = new MstService.Service();
+
+
     }
 
     componentWillMount() {
@@ -71,6 +73,12 @@ class GoalList extends Component<State.Props, any> {
             data.skillData = skillData;
             data.compareResult = undefined;
             props.actions.updateAll(data);
+
+            if (data.goals && data.goals.length > 0) {
+                this.setState({
+                    compareTargetId: (data.goals[0] as Goal).id,
+                });
+            }
         });
 
         this.setState({
