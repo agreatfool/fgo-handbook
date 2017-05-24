@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View} from "react-native";
+import {Text, View, TouchableOpacity} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -20,6 +20,7 @@ import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title}
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {getMstSvt, ElementType, renderRowCellsOfElements, goToCompareResItemPage} from "../compare/App";
 
 export * from "./State";
 export * from "./Action";
@@ -33,9 +34,84 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
         super(props, context);
     }
 
+    getCompareResSvt(svtId: number): CompareResSvt {
+        let props = this.props as GoalCompareServantProps;
+        let result = props.SceneGoal.compareResult;
+
+        let resSvt = {} as CompareResSvt;
+        result.servants.forEach((svt: CompareResSvt) => {
+            if (svt.svtId === svtId) {
+                resSvt = svt;
+            }
+        });
+
+        return resSvt;
+    }
+
+    renderLimits(appVer: string, limitList: Array<Array<CompareResItemDetail>>) {
+        const CELL_COUNT = 4;
+        let limitListView = [];
+
+        limitList.forEach((limitItems: Array<CompareResItemDetail>, rowIndex) => {
+            if (limitItems === undefined) {
+                return; // 因为使用灵基再临的等级作为索引，数组中可能存在空洞，需要判断
+            }
+
+            let itemsView = [];
+            limitItems.forEach((limitItem: CompareResItemDetail, itemIndex) => {
+                itemsView.push(
+                    <ColR key={`Item_Limit_Cell_${rowIndex}_${itemIndex}`}>
+                        <TouchableOpacity onPress={() => goToCompareResItemPage(limitItem.itemId)}>
+                            <Row style={Styles.Common.Centering}>
+                                <ColR>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, limitItem.itemId)}}/>
+                                </ColR>
+                                <ColR>
+                                    <TextCentering>{`x${limitItem.count}`}</TextCentering>
+                                </ColR>
+                            </Row>
+                        </TouchableOpacity>
+                    </ColR>
+                );
+            });
+            if (itemsView.length < CELL_COUNT) {
+                let appendCount = CELL_COUNT - itemsView.length;
+                for (let loop = 0; loop < appendCount; loop++) {
+                    itemsView.push(<ColR key={`Item_Limit_PH_${rowIndex}_${loop}`}/>);
+                }
+            }
+
+            limitListView.push(
+                <Row key={`Item_Limit_Row_${rowIndex}`}>
+                    <ColCard size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/>
+                    <ColCardWrapper>
+                        {itemsView}
+                    </ColCardWrapper>
+                </Row>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["灵基再临需求列表"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    {limitListView}
+                </GridLine>
+            </View>
+        );
+    }
+
+    renderSkills(skillList: Array<CompareResSkill>) {
+
+    }
+
     render() {
-        let props = this.props as State.Props;
+        let props = this.props as GoalCompareServantProps;
         let state = props.SceneGoal;
+        let resSvt = this.getCompareResSvt(props.svtId);
 
         let result: CompareResult = state.compareResult;
         if (result === undefined) {
@@ -51,13 +127,18 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                    <Title>Compare Servant</Title>
+                        <Title>{`${getMstSvt(props.svtId, state.svtRawData).name}`}</Title>
                     </Body>
                     <Right />
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
-                        <Text>{(this.props as GoalCompareServantProps).svtId}</Text>
+                        {renderRowCellsOfElements(state.appVer, `灵基再临总需求列表 (QP ${resSvt.totalLimitQP / 10000}万)`,
+                            ElementType.Item, 5, resSvt.totalLimit)}
+                        {this.renderLimits(state.appVer, resSvt.limit)}
+                        {renderRowCellsOfElements(state.appVer, `技能升级总需求列表 (QP ${resSvt.totalSkillQP / 10000}万)`,
+                            ElementType.Item, 5, resSvt.totalSkill)}
+                        {this.renderSkills(resSvt.skills)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
