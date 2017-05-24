@@ -1,26 +1,16 @@
 import React, {Component} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
-import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
-import {
-    CompareResItem,
-    CompareResItemDetail,
-    CompareResSkill,
-    CompareResSvt,
-    CompareResSvtItem,
-    CompareResult
-} from "../list/State";
+import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
-import {getMstSvt, ElementType, renderRowCellsOfElements, goToCompareResItemPage} from "../compare/App";
+import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 
 export * from "./State";
 export * from "./Action";
@@ -104,8 +94,84 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
         );
     }
 
-    renderSkills(skillList: Array<CompareResSkill>) {
+    renderSkills(appVer: string, skillList: Array<CompareResSkill>) {
+        let props = this.props as GoalCompareServantProps;
+        let state = props.SceneGoal;
 
+        const CELL_COUNT = 4;
+        let skillListView = [];
+
+        skillList.forEach((resSkill: CompareResSkill) => {
+            if (resSkill.levels.length === 0) {
+                return; // no item info, skip it
+            }
+            let mstSkill = getMstSkill(resSkill.skillId, state.skillData);
+
+            let skillLevelListView = [];
+            resSkill.levels.forEach((items: Array<CompareResItemDetail>, lvIndex) => {
+                if (items === undefined) {
+                    return; // 因为使用技能的等级作为索引，数组中可能存在空洞，需要判断
+                }
+                let cells = [];
+                items.forEach((item: CompareResItemDetail, itemIndex) => {
+                    cells.push(
+                        <ColR key={`Item_Skill_Cell_${lvIndex}_${itemIndex}`}>
+                            <Row style={Styles.Common.Centering}>
+                                <ColR>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
+                                </ColR>
+                                <ColR>
+                                    <TextCentering>{`x${item.count}`}</TextCentering>
+                                </ColR>
+                            </Row>
+                        </ColR>
+                    );
+                });
+                if (cells.length < CELL_COUNT) {
+                    let appendCount = CELL_COUNT - cells.length;
+                    for (let loop = 0; loop < appendCount; loop++) {
+                        cells.push(<ColR key={`Item_Skill_PH_${lvIndex}_${loop}`}/>);
+                    }
+                }
+                skillLevelListView.push(
+                    <Row key={`Item_Skill_Row_${lvIndex}`}>
+                        <ColCard size={.3} items={[`Lv.${lvIndex}\n->\nLv.${lvIndex + 1}`]} rowHeight={36}/>
+                        <ColCardWrapper>
+                            {cells}
+                        </ColCardWrapper>
+                    </Row>
+                );
+            });
+
+            skillListView.push(
+                <GridLine key={`Skill_Title_${resSkill.skillId}`}>
+                    <Row>
+                        <ColCardWrapper>
+                            <Row>
+                                <ColR size={.2}>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, mstSkill.iconId)}}/>
+                                </ColR>
+                                <ColR style={Styles.Common.VerticalCentering}>
+                                    <Text>{mstSkill.name}</Text>
+                                </ColR>
+                            </Row>
+                        </ColCardWrapper>
+                    </Row>
+                    {skillLevelListView}
+                </GridLine>
+            );
+        });
+
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["技能升级需求列表"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                {skillListView}
+            </View>
+        );
     }
 
     render() {
@@ -138,7 +204,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         {this.renderLimits(state.appVer, resSvt.limit)}
                         {renderRowCellsOfElements(state.appVer, `技能升级总需求列表 (QP ${resSvt.totalSkillQP / 10000}万)`,
                             ElementType.Item, 5, resSvt.totalSkill)}
-                        {this.renderSkills(resSvt.skills)}
+                        {this.renderSkills(state.appVer, resSvt.skills)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
