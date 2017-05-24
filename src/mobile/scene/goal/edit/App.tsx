@@ -362,7 +362,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         props.SceneGoal.svtRawData.forEach((data: MstSvt, index) => {
             pickerGoalItems.push(
                 <Picker.Item key={`PickerItem_${header}_${index}`}
-                             label={data.name}
+                             label={`${data.collectionNo} ${data.name}`}
                              value={data.id}/>
             );
         });
