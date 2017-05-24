@@ -335,6 +335,11 @@ class GoalEdit extends Component<GoalEditProps, any> {
             this.updateGoalName(text);
         };
 
+        let nameEditDisabled = false;
+        if (props.isCurrent) {
+            nameEditDisabled = true;
+        }
+
         return (
             <GridColCardWrapper>
                 <Row>
@@ -342,6 +347,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <ColR>
                         <Item underline>
                             <Input style={{height: 24}}
+                                   disabled={nameEditDisabled}
                                    placeholder="输入当前进度名称"
                                    onChange={(event) => updateName(event.nativeEvent.text)}
                                    defaultValue={goalName}
