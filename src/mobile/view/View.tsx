@@ -101,6 +101,7 @@ export class ColCard extends Component<ColCardProps, any> {
 
 interface ColCardWrapperProps extends Props {
     size?: number;
+    backgroundColor?: string;
 }
 
 export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
@@ -112,10 +113,15 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
             colProps = Object.assign(colProps, {size: props.size});
         }
 
+        let cardItemStyle = {};
+        if (props.hasOwnProperty("backgroundColor")) {
+            cardItemStyle = Object.assign(cardItemStyle, {backgroundColor: props.backgroundColor});
+        }
+
         return (
             <ColR {...colProps}>
                 <Card>
-                    <CardItem>
+                    <CardItem style={cardItemStyle}>
                         <Grid>
                             {props.children}
                         </Grid>
