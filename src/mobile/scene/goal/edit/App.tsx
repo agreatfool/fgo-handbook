@@ -28,6 +28,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
+import {getMstSvt} from "../compare/App";
 
 export * from "./State";
 export * from "./Action";
@@ -39,7 +40,6 @@ interface GoalEditProps extends State.Props {
 }
 
 interface GoalEditState {
-    selectedSvtId: number;
     goal: Goal;
 }
 
@@ -64,8 +64,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 break;
         }
 
+        props.actions.updateSvtIdOnEdit(props.SceneGoal.svtRawData[0].id);
         this.setState({
-            selectedSvtId: props.SceneGoal.svtRawData[0].id,
             goal: currentGoal
         });
     }
@@ -207,8 +207,9 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     addSvtIntoGoal(): void {
+        let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
-        let svtId = state.selectedSvtId;
+        let svtId = props.SceneGoal.selectedSvtIdOnEdit;
 
         // 检查目标从者是否已存在
         let alreadyExists = false;
@@ -361,18 +362,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
     renderServantSelect() {
         let props = this.props as GoalEditProps;
-        let state = this.state as GoalEditState;
 
-        let header = "选择目标从者";
-        let pickerGoalItems = [];
-        props.SceneGoal.svtRawData.forEach((data: MstSvt, index) => {
-            pickerGoalItems.push(
-                <Picker.Item key={`PickerItem_${header}_${index}`}
-                             label={`${data.collectionNo} ${data.name}`}
-                             value={data.id}/>
-            );
-        });
-
+        //noinspection TypeScriptUnresolvedFunction
         return (
             <GridColCardWrapper>
                 <Row>
@@ -381,15 +372,11 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     </ColR>
                     <ColR size={1}>
                         <Button outline small info block bordered
-                                style={{marginRight: 5, justifyContent: "center"}}>
-                            <Picker
-                                iosHeader={header}
-                                mode="dropdown"
-                                textStyle={{fontSize: 14}}
-                                selectedValue={state.selectedSvtId}
-                                onValueChange={(value: string) => this.setState({selectedSvtId: parseInt(value)})}>
-                                {pickerGoalItems}
-                            </Picker>
+                                style={{marginRight: 5, justifyContent: "center"}}
+                                onPress={() => (Actions as any).goal_servant_picker()}>
+                            <Text>
+                                {getMstSvt(props.SceneGoal.selectedSvtIdOnEdit, props.SceneGoal.svtRawData).name}
+                            </Text>
                         </Button>
                     </ColR>
                     <ColR size={.3}>
