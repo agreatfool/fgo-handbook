@@ -50,6 +50,7 @@ export interface State extends MstGoal {
     skillCombineData: MstCombineSkillContainer;
     limitCombineData: MstCombineLimitContainer;
     skillData: MstSkillContainer;
+    selectedSvtIdOnEdit: number;
     compareResult: CompareResult;
 }
 

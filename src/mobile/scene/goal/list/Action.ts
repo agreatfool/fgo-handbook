@@ -72,6 +72,20 @@ export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: str
     }
 };
 
+export const ACT_UPDATE_SVTID_ON_EDIT = "ACT_UPDATE_SVTID_ON_EDIT";
+
+export interface ActionUpdateSvtIdOnEdit {
+    type: string;
+    svtId: number;
+}
+
+export const updateSvtIdOnEdit: ActionCreator<ActionUpdateSvtIdOnEdit> = function (svtId: number) {
+    return {
+        type: ACT_UPDATE_SVTID_ON_EDIT,
+        svtId: svtId,
+    }
+};
+
 export const ACT_UPDATE_COMPARE_RESULT = "ACT_UPDATE_COMPARE_RESULT";
 
 export interface ActionUpdateCompareResult {
@@ -92,5 +106,6 @@ export const Actions = {
     addGoal,
     updateGoal,
     deleteGoal,
+    updateSvtIdOnEdit,
     updateCompareResult,
 };
