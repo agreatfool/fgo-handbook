@@ -11,3 +11,5 @@ TODO
 8. i18n
 9. Options部分
 10. 打包，作为真实应用发布
+
+https://facebook.github.io/react-native/docs/running-on-device.html
