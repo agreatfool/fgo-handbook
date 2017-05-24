@@ -14,8 +14,8 @@ import {App as ServantFilter} from "../scene/servant/filter/App";
 import {App as GoalList} from "../scene/goal/list/App";
 import {App as GoalEdit} from "../scene/goal/edit/App";
 import {App as GoalCompare} from "../scene/goal/compare/App";
-import {App as GoalCompareServant} from "../scene/goal/servant/App";
-import {App as GoalCompareItem} from "../scene/goal/item/App";
+import {App as GoalCompareServant} from "../scene/goal/compare_servant/App";
+import {App as GoalCompareItem} from "../scene/goal/compare_item/App";
 import {App as GoalExp} from "../scene/goal/exp/App";
 import {App as Options} from "../scene/options/main/App";
 
