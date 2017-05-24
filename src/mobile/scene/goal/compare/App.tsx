@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -339,44 +339,6 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* RENDER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    goToCompareResServantPage(svtId: number): void {
-        let props = this.props as State.Props;
-        let state = props.SceneGoal;
-        let result: CompareResult = state.compareResult;
-
-        let found = false;
-        result.servants.forEach((svt: CompareResSvt) => {
-            if (svt.svtId === svtId) {
-                found = true;
-            }
-        });
-        if (!found) {
-            return;
-        }
-
-        //noinspection TypeScriptUnresolvedFunction
-        (Actions as any).goal_compare_svt({svtId: svtId});
-    }
-
-    goToCompareResItemPage(itemId: number): void {
-        let props = this.props as State.Props;
-        let state = props.SceneGoal;
-        let result: CompareResult = state.compareResult;
-
-        let found = false;
-        result.items.forEach((item: CompareResItem) => {
-            if (item.itemId === itemId) {
-                found = true;
-            }
-        });
-        if (!found) {
-            return;
-        }
-
-        //noinspection TypeScriptUnresolvedFunction
-        (Actions as any).goal_compare_item({itemId: itemId});
-    }
-
     renderTitle(totalLimit: Array<CompareResItemDetail>,
                 totalSkill: Array<CompareResItemDetail>,
                 totalQP: number) {
@@ -429,7 +391,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                    <Title>Progress Compare</Title>
+                        <Title>Progress Compare</Title>
                     </Body>
                     <Right />
                 </Header>
@@ -465,6 +427,10 @@ export const getMstSvt = (svtId: number, svtRawData: Array<MstSvt>): MstSvt => {
     });
 
     return result;
+};
+
+export const getMstSkill = (skillId: number, skillData: MstSkillContainer) => {
+    return skillData.get(skillId);
 };
 
 export const goToCompareResServantPage = (svtId: number): void => {
