@@ -116,15 +116,17 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 items.forEach((item: CompareResItemDetail, itemIndex) => {
                     cells.push(
                         <ColR key={`Item_Skill_Cell_${lvIndex}_${itemIndex}`}>
-                            <Row style={Styles.Common.Centering}>
-                                <ColR>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
-                                </ColR>
-                                <ColR>
-                                    <TextCentering>{`x${item.count}`}</TextCentering>
-                                </ColR>
-                            </Row>
+                            <TouchableOpacity onPress={() => goToCompareResItemPage(item.itemId)}>
+                                <Row style={Styles.Common.Centering}>
+                                    <ColR>
+                                        <ThumbnailR small square
+                                                    source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
+                                    </ColR>
+                                    <ColR>
+                                        <TextCentering>{`x${item.count}`}</TextCentering>
+                                    </ColR>
+                                </Row>
+                            </TouchableOpacity>
                         </ColR>
                     );
                 });

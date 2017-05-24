@@ -553,11 +553,18 @@ export const renderRowCellsOfElements = (appVer: string,
         );
     });
 
-    return (
-        <View>
+    let titleView = <View/>;
+    if (title) {
+        titleView = (
             <GridLine>
                 <ColCard items={[title]} backgroundColor="#CDE1F9"/>
             </GridLine>
+        );
+    }
+
+    return (
+        <View>
+            {titleView}
             <GridLine>
                 <ColCardWrapper>
                     {rows}
