@@ -6,7 +6,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
-import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSkill, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
@@ -21,7 +21,6 @@ import {
     Input,
     Item,
     Left,
-    Picker,
     Right,
     Row,
     Title
@@ -49,24 +48,24 @@ class GoalEdit extends Component<GoalEditProps, any> {
     componentDidMount() {
         let props = this.props as GoalEditProps;
 
-        let currentGoal = {} as Goal;
+        let goal = {} as Goal;
         switch (props.mode) {
             case "add":
-                currentGoal = this.createNewGoal();
+                goal = this.createNewGoal();
                 break;
             case "edit":
-                currentGoal = this.getGoalFromStore(props.goalId);
+                goal = this.getGoalFromStore(props.goalId);
                 break;
             case "extend":
-                currentGoal = this.getGoalFromStore(props.goalId);
-                currentGoal.id = LibUuid.v4();
-                currentGoal.name = this.defaultProgressGoalName;
+                goal = this.getGoalFromStore(props.goalId);
+                goal.id = LibUuid.v4();
+                goal.name = this.defaultProgressGoalName;
                 break;
         }
 
         props.actions.updateSvtIdOnEdit(props.SceneGoal.svtRawData[0].id);
         this.setState({
-            goal: currentGoal
+            goal: goal
         });
     }
 
@@ -86,13 +85,13 @@ class GoalEdit extends Component<GoalEditProps, any> {
             // 查找目标列表中的内容
             props.SceneGoal.goals.forEach((element: Goal) => {
                 if (element.id === goalId) {
-                    goal = Object.assign({}, element);
+                    goal = MstUtil.deepCopy(element);
                 }
             });
         } else {
             // 获取玩家当前状态
             if (props.SceneGoal.current) {
-                goal = Object.assign({}, props.SceneGoal.current);
+                goal = MstUtil.deepCopy(props.SceneGoal.current);
             } else {
                 goal = this.createNewGoal();
                 goal.id = goal.name = "current";
@@ -111,7 +110,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             lv = 10;
         }
 
-        let goal = Object.assign({}, state.goal);
+        let goal = MstUtil.deepCopy(state.goal);
         goal.servants.forEach((svt: GoalSvt, svtIndex) => {
             if (svt.svtId !== svtId) {
                 return;
@@ -131,7 +130,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     updateSvtLimit(svtId: number, limit: number): void {
         let state = this.state as GoalEditState;
 
-        let goal = Object.assign({}, state.goal);
+        let goal = MstUtil.deepCopy(state.goal);
         goal.servants.forEach((svt: GoalSvt, svtIndex) => {
             if (svt.svtId !== svtId) {
                 return;
@@ -146,7 +145,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     updateGoalName(name: string): void {
         let state = this.state as GoalEditState;
 
-        let goal = Object.assign({}, state.goal);
+        let goal = MstUtil.deepCopy(state.goal);
         goal.name = name;
         this.setState({goal: goal});
     }
@@ -190,7 +189,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             });
 
             if (foundPos !== -1) {
-                let goal = Object.assign({}, state.goal);
+                let goal = MstUtil.deepCopy(state.goal);
                 goal.servants = MstUtil.removeFromArrAtIndex(goal.servants, foundPos);
                 this.setState({goal: goal});
             }
@@ -238,7 +237,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         } as GoalSvt;
 
         // 更新目标
-        let currentGoal = Object.assign({}, state.goal);
+        let currentGoal = MstUtil.deepCopy(state.goal);
         currentGoal.servants.push(goalSvt);
         this.setState({goal: currentGoal});
     }
@@ -256,7 +255,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         let targetIndex = startIndex + delta;
 
         // 更新目标
-        let currentGoal = Object.assign({}, state.goal);
+        let currentGoal = MstUtil.deepCopy(state.goal);
         let tmp = currentGoal.servants[startIndex];
         currentGoal.servants[startIndex] = currentGoal.servants[targetIndex];
         currentGoal.servants[targetIndex] = tmp;
@@ -495,18 +494,14 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </Button>
                     </Right>
                 </Header>
-                <Content scrollEnabled={false}>
+                <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle()}
                         {this.renderServantSelect()}
                         <GridLine key="GoalServantList">
                             <ColCard items={["从者列表"]} backgroundColor="#CDE1F9"/>
                         </GridLine>
-                        <Container>
-                            <Content>
-                                {this.renderServantList()}
-                            </Content>
-                        </Container>
+                        {this.renderServantList()}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>

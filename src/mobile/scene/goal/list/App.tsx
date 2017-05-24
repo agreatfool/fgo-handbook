@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet, Text, View, Alert} from "react-native";
 import {ColCard, ColCardWithRightButton, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
@@ -220,7 +220,16 @@ class GoalList extends Component<State.Props, any> {
                             <ColR size={.9}>
                                 <Button outline small danger block bordered
                                         style={{marginLeft: 5}}
-                                        onPress={() => props.actions.deleteGoal(goal.id)}>
+                                        onPress={() => {
+                                            Alert.alert(
+                                                "确定要删除该进度吗？",
+                                                null,
+                                                [
+                                                    {text: "取消"},
+                                                    {text: "删除", onPress: () => props.actions.deleteGoal(goal.id)},
+                                                ]
+                                            );
+                                        }}>
                                     <Text>删除</Text>
                                 </Button>
                             </ColR>
@@ -252,7 +261,7 @@ class GoalList extends Component<State.Props, any> {
                     </Body>
                     <Right />
                 </Header>
-                <Content scrollEnabled={false}>
+                <Content>
                     <View style={Styles.Box.Wrapper}>
                         <GridLine>
                             <ColCardWithRightButton
@@ -280,11 +289,7 @@ class GoalList extends Component<State.Props, any> {
                         <GridLine key="GoalServantList">
                             <ColCard items={["进度列表"]} backgroundColor="#CDE1F9"/>
                         </GridLine>
-                        <Container>
-                            <Content>
-                                {this.renderGoalList()}
-                            </Content>
-                        </Container>
+                        {this.renderGoalList()}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>

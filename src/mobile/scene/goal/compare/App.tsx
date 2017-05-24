@@ -91,8 +91,6 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             );
         });
 
-        console.log(this._result);
-
         // finally update props data
         props.actions.updateCompareResult(this._result);
     }
@@ -318,7 +316,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             return baseItems;
         }
 
-        let result = MstUtil.arrDeepCopy(baseItems);
+        let result = MstUtil.deepCopy(baseItems);
         appendItems.forEach((appendItem: CompareResItemDetail) => {
             let found = false;
             result.forEach((baseItem: CompareResItemDetail, index) => {

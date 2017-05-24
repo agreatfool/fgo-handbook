@@ -170,8 +170,8 @@ export default class MstUtil {
         return RNFS.writeFile(path, JSON.stringify(obj, null, 4));
     }
 
-    public static arrDeepCopy(arr: Array<any>) {
-        return JSON.parse(JSON.stringify(arr));
+    public static deepCopy(element: Array<any> | Object) {
+        return JSON.parse(JSON.stringify(element));
     }
 
     public static randomString(length = 12, chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
