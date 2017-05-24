@@ -34,8 +34,6 @@ class GoalList extends Component<State.Props, any> {
     constructor(props, context) {
         super(props, context);
         this._service = new MstService.Service();
-
-
     }
 
     componentWillMount() {
@@ -256,6 +254,12 @@ class GoalList extends Component<State.Props, any> {
                 </Header>
                 <Content scrollEnabled={false}>
                     <View style={Styles.Box.Wrapper}>
+                        <GridLine>
+                            <ColCardWithRightButton
+                                title="经验计算器"
+                                button="Go"
+                                onPress={() => (Actions as any).goal_exp()}/>
+                        </GridLine>
                         <GridLine>
                             <ColCardWithRightButton
                                 title="编辑当前进度"
