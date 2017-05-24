@@ -157,11 +157,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 } as CompareResItemDetail;
                 items = this.mergeCompareResItemDetail(items, [itemDetail]);
                 svtResult.totalLimit = this.mergeCompareResItemDetail(svtResult.totalLimit, [itemDetail]);
-                svtResult.totalLimitQP += combineData.qp;
                 this.appendCompareResItem(svtId, itemId, count);
                 this.appendTotalLimitItem([itemDetail]);
-                this.appendTotalQP(combineData.qp);
             });
+
+            svtResult.totalLimitQP += combineData.qp;
+            this.appendTotalQP(combineData.qp);
 
             result[limitIndex] = items;
         }
@@ -211,11 +212,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 } as CompareResItemDetail;
                 result.levels[lvIndex] = this.mergeCompareResItemDetail(result.levels[lvIndex], [itemDetail]);
                 svtResult.totalSkill = this.mergeCompareResItemDetail(svtResult.totalSkill, [itemDetail]);
-                svtResult.totalSkillQP += combineData.qp;
                 this.appendCompareResItem(svtId, itemId, count);
                 this.appendTotalSkillItem([itemDetail]);
-                this.appendTotalQP(combineData.qp);
             });
+
+            svtResult.totalSkillQP += combineData.qp;
+            this.appendTotalQP(combineData.qp);
         }
 
         return result;
@@ -316,21 +318,22 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             return baseItems;
         }
 
+        let result = MstUtil.arrDeepCopy(baseItems);
         appendItems.forEach((appendItem: CompareResItemDetail) => {
             let found = false;
-            baseItems.forEach((baseItem: CompareResItemDetail, index) => {
+            result.forEach((baseItem: CompareResItemDetail, index) => {
                 if (baseItem.itemId === appendItem.itemId) {
                     baseItem.count += appendItem.count;
-                    baseItems[index] = baseItem;
+                    result[index] = baseItem;
                     found = true;
                 }
             });
             if (!found) {
-                baseItems.push(appendItem);
+                result.push(appendItem);
             }
         });
 
-        return baseItems;
+        return result;
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -400,7 +403,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                             <ColR><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></ColR>
                         </Row>
                         <Row>
-                            <ColR><Text>{`QP 需求：${totalQP / 10000}万`}</Text></ColR>
+                            <ColR><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></ColR>
                         </Row>
                     </ColCardWrapper>
                 </GridLine>
@@ -409,7 +412,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     render() {
-        let props = this.props as State.Props;
+        let props = this.props as GoalCompareProps;
         let state = props.SceneGoal;
 
         let result: CompareResult = state.compareResult;
@@ -434,11 +437,11 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle(result.totalLimit, result.totalSkill, result.totalQP)}
                         {renderRowCellsOfElements(state.appVer, "灵基再临总需求列表",
-                            ElementType.Item, 5, result.totalLimit, result)}
+                            ElementType.Item, 5, result.totalLimit)}
                         {renderRowCellsOfElements(state.appVer, "技能升级总需求列表",
-                            ElementType.Item, 5, result.totalSkill, result)}
+                            ElementType.Item, 5, result.totalSkill)}
                         {renderRowCellsOfElements(state.appVer, "目标列表",
-                            ElementType.Servant, 6, result.servants, result)}
+                            ElementType.Servant, 6, result.servants)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
@@ -464,32 +467,12 @@ export const getMstSvt = (svtId: number, svtRawData: Array<MstSvt>): MstSvt => {
     return result;
 };
 
-export const goToCompareResServantPage = (svtId: number, result: CompareResult): void => {
-    let found = false;
-    result.servants.forEach((svt: CompareResSvt) => {
-        if (svt.svtId === svtId) {
-            found = true;
-        }
-    });
-    if (!found) {
-        return;
-    }
-
+export const goToCompareResServantPage = (svtId: number): void => {
     //noinspection TypeScriptUnresolvedFunction
     (Actions as any).goal_compare_svt({svtId: svtId});
 };
 
-export const goToCompareResItemPage = (itemId: number, result: CompareResult): void => {
-    let found = false;
-    result.items.forEach((item: CompareResItem) => {
-        if (item.itemId === itemId) {
-            found = true;
-        }
-    });
-    if (!found) {
-        return;
-    }
-
+export const goToCompareResItemPage = (itemId: number): void => {
     //noinspection TypeScriptUnresolvedFunction
     (Actions as any).goal_compare_item({itemId: itemId});
 };
@@ -504,8 +487,7 @@ export const renderRowCellsOfElements = (appVer: string,
                                          title: string,
                                          type: ElementType,
                                          cellInRow: number,
-                                         elements: Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>,
-                                         result: CompareResult) => {
+                                         elements: Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>) => {
     let data: Array<Array<CompareResSvt | CompareResItemDetail | CompareResSvtItem>>
         = MstUtil.divideArrayIntoParts(elements, cellInRow);
     let rows = [];
@@ -520,12 +502,12 @@ export const renderRowCellsOfElements = (appVer: string,
 
         let goTo = undefined;
         if (type === ElementType.Item) {
-            goTo = (element: CompareResSvt | CompareResItemDetail, result: CompareResult) => {
-                goToCompareResItemPage((element as CompareResItemDetail).itemId, result);
+            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+                goToCompareResItemPage((element as CompareResItemDetail).itemId);
             };
         } else if (type === ElementType.Servant) {
-            goTo = (element: CompareResSvt | CompareResItemDetail, result: CompareResult) => {
-                goToCompareResServantPage((element as CompareResSvt).svtId, result);
+            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+                goToCompareResServantPage((element as CompareResSvt).svtId);
             };
         }
 
@@ -566,7 +548,7 @@ export const renderRowCellsOfElements = (appVer: string,
                 // 带点击跳转事件
                 //noinspection TypeScriptValidateTypes
                 rowView = (
-                    <TouchableOpacity onPress={() => goTo(element, result)}>
+                    <TouchableOpacity onPress={() => goTo(element)}>
                         <Row>
                             <ColR>
                                 <ThumbnailR small square
