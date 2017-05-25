@@ -10,6 +10,13 @@ TODO
 7. 所有页面标题改成中文，不要英文展示
 8. i18n
 9. Options部分
+    * Options也需要制作：
+    * 备份数据到dropbox
+    * 备份数据到icloud
+    * 作者信息
+    * 数据来源
+    * 添加部分友链，类似隐藏数值之类的，可以导向到github数据源那边
+    * 考虑下是否需要植入广告
 10. 打包，作为真实应用发布
 
 https://facebook.github.io/react-native/docs/running-on-device.html
