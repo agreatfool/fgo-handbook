@@ -6,7 +6,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import * as LibUuid from "uuid";
-import {MstSkill, MstSvtSkill} from "../../../../model/master/Master";
+import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {Actions} from "react-native-router-flux";
@@ -75,6 +75,19 @@ class GoalEdit extends Component<GoalEditProps, any> {
             name: this.defaultProgressGoalName,
             servants: [],
         } as Goal;
+    }
+
+    getSvtInfo(svtId: number): MstSvt {
+        let result = {} as MstSvt;
+
+        let props = this.props as GoalEditProps;
+        props.SceneGoal.svtRawData.forEach((svtInfo: MstSvt) => {
+            if (svtInfo.id === svtId) {
+                result = svtInfo;
+            }
+        });
+
+        return result;
     }
 
     getGoalFromStore(goalId: string): Goal {
@@ -230,10 +243,13 @@ class GoalEdit extends Component<GoalEditProps, any> {
             } as GoalSvtSkill
         });
 
+        let info = this.getSvtInfo(svtId);
         let goalSvt = {
             svtId: svtId,
             limit: 0, // 灵基再临 0破
             skills: skillsResult,
+            collectionNo: info.collectionNo,
+            classId: info.classId,
         } as GoalSvt;
 
         // 更新目标
@@ -318,12 +334,22 @@ class GoalEdit extends Component<GoalEditProps, any> {
         );
     }
 
+    sortSvtByClass(svts: Array<GoalSvt>) {
+        let sortByCollectionNo = (elemA: GoalSvt, elemB: GoalSvt) => {
+            return elemB["collectionNo"] - elemA["collectionNo"];
+        };
+        let sortByClass = (elemA: GoalSvt, elemB: GoalSvt) => {
+            return elemA["classId"] - elemB["classId"];
+        };
+        return svts.sort(sortByCollectionNo).sort(sortByClass);
+    }
+
     renderTitle() {
         let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
 
         let goalName = "";
-        if (props.isCurrent) {
+        if (props.mode === "edit" && props.isCurrent) {
             goalName = defaultCurrentGoal.name;
         } else {
             goalName = state.goal.name ? state.goal.name : this.defaultProgressGoalName;
@@ -397,7 +423,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         let view = [];
 
-        state.goal.servants.forEach((goalSvt: GoalSvt, svtIndex: number) => {
+        this.sortSvtByClass(state.goal.servants).forEach((goalSvt: GoalSvt, svtIndex: number) => {
             let skills = this.searchMstSkillArr(goalSvt.svtId);
             let skillElements = [];
             skills.forEach((skill: MstSkill, index) => {

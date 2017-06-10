@@ -14,6 +14,8 @@ export interface GoalSvt {
     svtId: number;
     limit: number; // 灵基再临状态，0 - 4
     skills: Array<GoalSvtSkill>;
+    collectionNo: number; // 排序目的
+    classId: number; // 排序目的
 }
 
 export interface GoalSvtSkill {

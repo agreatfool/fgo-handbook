@@ -278,6 +278,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         });
 
         if (search === undefined) {
+            let info = this.getSvtInfo(svtId);
             let skills = this.getSvtSkills(svtId);
             let skillsFiltered = skills.map((skill: MstSkill) => {
                 return {
@@ -289,10 +290,25 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 svtId: svtId,
                 limit: 0,
                 skills: skillsFiltered,
+                collectionNo: info.collectionNo,
+                classId: info.classId,
             } as GoalSvt;
         }
 
         return search;
+    }
+
+    getSvtInfo(svtId: number): MstSvt {
+        let result = {} as MstSvt;
+
+        let props = this.props as GoalCompareProps;
+        props.SceneGoal.svtRawData.forEach((svtInfo: MstSvt) => {
+            if (svtInfo.id === svtId) {
+                result = svtInfo;
+            }
+        });
+
+        return result;
     }
 
     getSvtSkills(svtId: number): Array<MstSkill> {
