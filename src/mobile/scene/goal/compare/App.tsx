@@ -350,6 +350,10 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return result;
     }
 
+    filterEmptyCompareResSvt(resSvt: CompareResSvt) {
+        return resSvt.totalLimit.length !== 0 || resSvt.totalSkill.length !== 0;
+    }
+
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* RENDER
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -417,7 +421,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                         {renderRowCellsOfElements(state.appVer, "技能升级总需求列表",
                             ElementType.Item, 5, result.totalSkill)}
                         {renderRowCellsOfElements(state.appVer, "目标列表",
-                            ElementType.Servant, 6, result.servants)}
+                            ElementType.Servant, 6, result.servants.filter(this.filterEmptyCompareResSvt))}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
