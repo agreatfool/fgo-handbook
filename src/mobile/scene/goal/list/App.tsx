@@ -270,12 +270,27 @@ class GoalList extends Component<State.Props, any> {
                                 onPress={() => (Actions as any).goal_exp()}/>
                         </GridLine>
                         <GridLine>
-                            <ColCardWithRightButton
-                                title="编辑当前进度"
-                                button="Go"
-                                onPress={() => (Actions as any).goal_edit({
-                                    mode: "edit", isCurrent: true, goalId: undefined
-                                })}/>
+                            <ColCardWrapper>
+                                <Row>
+                                    <ColR style={Styles.Common.VerticalCentering}>
+                                        <Text>编辑当前进度</Text>
+                                    </ColR>
+                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {marginRight: 5, alignItems: "flex-end"}]}>
+                                        <Button outline small block info bordered onPress={() => (Actions as any).goal_edit({
+                                            mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
+                                        })}>
+                                            <Text>Extend</Text>
+                                        </Button>
+                                    </ColR>
+                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
+                                        <Button outline small block info bordered onPress={() => (Actions as any).goal_edit({
+                                            mode: "edit", isCurrent: true, goalId: undefined
+                                        })}>
+                                            <Text>Go</Text>
+                                        </Button>
+                                    </ColR>
+                                </Row>
+                            </ColCardWrapper>
                         </GridLine>
                         <GridLine>
                             <ColCardWithRightButton
