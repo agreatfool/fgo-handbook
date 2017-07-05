@@ -499,7 +499,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     render() {
-        if (!this.state || !this.state.hasOwnProperty("goal") || this.state["goal"] === undefined) {
+        if (!this.state || this.state["goal"] === undefined) {
             return <View />;
         }
 
