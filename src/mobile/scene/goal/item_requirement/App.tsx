@@ -7,7 +7,7 @@ import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
+import {ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -15,6 +15,7 @@ export * from "./State";
 export * from "./Action";
 
 interface GoalItemRequirementProps extends State.Props {
+    itemId: number;
 }
 
 class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
@@ -25,60 +26,8 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
     componentDidMount() {
     }
 
-    selectSvt(svtId: number) {
-        let props = this.props as GoalItemRequirementProps;
-        props.actions.updateSvtIdOnEdit(svtId);
-        Actions.pop();
-    }
-
-    renderServantList() {
-        let props = this.props as GoalItemRequirementProps;
-        const CELL_COUNT = 6;
-
-        let servants: Array<Array<MstSvt>> = MstUtil.divideArrayIntoParts(props.SceneGoal.svtRawData, CELL_COUNT);
-
-        let rows = [];
-        servants.forEach((rowData: Array<MstSvt>, rowIndex) => {
-            let cells = [];
-
-            rowData.forEach((svtData: MstSvt, cellIndex) => {
-                cells.push(
-                    <ColR key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
-                          style={Styles.Common.HorizontalCentering}>
-                        <TouchableOpacity onPress={() => this.selectSvt(svtData.id)}>
-                            <ThumbnailR small square
-                                        source={{
-                                            uri: MstUtil.instance.getRemoteFaceUrl(
-                                                props.SceneGoal.appVer, svtData.id
-                                            )
-                                        }}/>
-                        </TouchableOpacity>
-                    </ColR>
-                );
-            });
-            if (cells.length < CELL_COUNT) {
-                let appendCount = CELL_COUNT - cells.length;
-                for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<ColR key={`Thumb_PH_${rowIndex}_${loop}`}/>);
-                }
-            }
-
-            rows.push(
-                <Row key={`Thumb_Row_${rowIndex}`} style={{marginBottom: 5}}>
-                    {cells}
-                </Row>
-            );
-        });
-
-        return (
-            <View>
-                <GridLine>
-                    <ColCardWrapper>
-                        {rows}
-                    </ColCardWrapper>
-                </GridLine>
-            </View>
-        );
+    renderItemRequirement() {
+        return <View />;
     }
 
     render() {
@@ -97,6 +46,7 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
+                        {this.renderItemRequirement()}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
