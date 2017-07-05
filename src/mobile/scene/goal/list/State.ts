@@ -36,7 +36,8 @@ export interface CompareResSkill {
 
 export interface CompareResItem { // 单个道具的所有需求
     itemId: number;
-    servants: Array<CompareResSvtItem>;
+    limit: Array<CompareResSvtItem>;
+    skill: Array<CompareResSvtItem>;
 }
 
 export interface CompareResSvtItem {

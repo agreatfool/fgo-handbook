@@ -5,12 +5,12 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {MstItemContainer} from "../../../../model/impl/MstContainer";
-import {CompareResItem, CompareResult} from "../list/State";
+import {CompareResItem, CompareResSvtItem, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -23,6 +23,10 @@ interface GoalCompareItemProps extends State.Props {
 }
 interface GoalCompareItemState {
     itemName: string;
+    resItem: CompareResItem;
+    total: number;
+    limitTotal: number;
+    skillTotal: number;
 }
 
 class GoalCompareItem extends Component<GoalCompareItemProps, any> {
@@ -34,14 +38,41 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
         let props = this.props as GoalCompareItemProps;
 
         MstLoader.instance.loadModel("MstItem").then((container: BaseContainer<any>) => {
+            let result: CompareResult = props.SceneGoal.compareResult;
+            let resItem = {} as CompareResItem;
+
+            result.items.forEach((item: CompareResItem) => {
+                if (item.itemId === props.itemId) {
+                    resItem = item;
+                }
+            });
+
+            let total = 0;
+            let limitTotal = 0;
+            let skillTotal = 0;
+            resItem.limit.forEach((limit: CompareResSvtItem) => {
+                total += limit.count;
+                limitTotal += limit.count;
+            });
+            resItem.skill.forEach((skill: CompareResSvtItem) => {
+                total += skill.count;
+                skillTotal += skill.count;
+            });
+
             this.setState({
-                itemName: (container as MstItemContainer).get(props.itemId).name
+                itemName: (container as MstItemContainer).get(props.itemId).name,
+                resItem: resItem,
+                total: total,
+                limitTotal: limitTotal,
+                skillTotal: skillTotal
             });
         });
     }
 
-    renderTitle(itemId: number, itemName: string) {
+    renderTitle() {
         let props = this.props as GoalCompareItemProps;
+        let state = this.state as GoalCompareItemState;
+
         return (
             <GridLine>
                 <ColCardWrapper backgroundColor="#CDE1F9">
@@ -50,12 +81,12 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                             <ThumbnailR small square
                                         source={{
                                             uri: MstUtil.instance.getRemoteItemUrl(
-                                                props.SceneGoal.appVer, itemId
+                                                props.SceneGoal.appVer, props.itemId
                                             )
                                         }}/>
                         </ColR>
                         <ColR style={Styles.Common.VerticalCentering}>
-                            <Text>{itemName}</Text>
+                            <Text>{`${state.itemName}  x${state.total}`}</Text>
                         </ColR>
                     </Row>
                 </ColCardWrapper>
@@ -66,19 +97,15 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
     render() {
         let props = this.props as GoalCompareItemProps;
         let state = this.state as GoalCompareItemState;
-        let result: CompareResult = props.SceneGoal.compareResult;
-        if (result === undefined
-            || !state || !state.hasOwnProperty("itemName")
-            || state.itemName === undefined) {
+
+        if (!state
+            || state["itemName"] === undefined
+            || state["resItem"] === undefined
+            || state["total"] === undefined
+            || state["limitTotal"] === undefined
+            || state["skillTotal"] === undefined) {
             return <View />;
         }
-
-        let resItem = {} as CompareResItem;
-        result.items.forEach((item: CompareResItem) => {
-            if (item.itemId === props.itemId) {
-                resItem = item;
-            }
-        });
 
         return (
             <Container>
@@ -89,15 +116,23 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{state.itemName}</Title>
+                    <Title>{state.itemName}</Title>
                     </Body>
                     <Right />
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
-                        {this.renderTitle(props.itemId, state.itemName)}
+                        {this.renderTitle()}
+                        <GridLine>
+                            <ColCard items={[`灵基再临  x${state.limitTotal}`]} backgroundColor="#CDE1F9"/>
+                        </GridLine>
                         {renderRowCellsOfElements(props.SceneGoal.appVer, "",
-                            ElementType.SvtItem, 5, resItem.servants)}
+                            ElementType.SvtItem, 5, state.resItem.limit)}
+                        <GridLine>
+                            <ColCard items={[`技能升级  x${state.skillTotal}`]} backgroundColor="#CDE1F9"/>
+                        </GridLine>
+                        {renderRowCellsOfElements(props.SceneGoal.appVer, "",
+                            ElementType.SvtItem, 5, state.resItem.skill)}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>

@@ -164,7 +164,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 } as CompareResItemDetail;
                 items = this.mergeCompareResItemDetail(items, [itemDetail]);
                 svtResult.totalLimit = this.mergeCompareResItemDetail(svtResult.totalLimit, [itemDetail]);
-                this.appendCompareResItem(svtId, itemId, count);
+                this.appendCompareResItem(svtId, itemId, count, "limit");
                 this.appendTotalLimitItem([itemDetail]);
             });
 
@@ -231,7 +231,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 } as CompareResItemDetail;
                 result.levels[lvIndex] = this.mergeCompareResItemDetail(result.levels[lvIndex], [itemDetail]);
                 svtResult.totalSkill = this.mergeCompareResItemDetail(svtResult.totalSkill, [itemDetail]);
-                this.appendCompareResItem(svtId, itemId, count);
+                this.appendCompareResItem(svtId, itemId, count, "skill");
                 this.appendTotalSkillItem([itemDetail]);
             });
 
@@ -242,15 +242,16 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return result;
     }
 
-    appendCompareResItem(svtId: number, itemId: number, count: number): void {
+    appendCompareResItem(svtId: number, itemId: number, count: number, type: string): void {
         let itemFound = false;
         let itemIndex = -1;
         let svtFound = false;
         this._result.items.forEach((resItem: CompareResItem, itemsIndex) => {
             if (resItem.itemId === itemId) {
-                resItem.servants.forEach((svt: CompareResSvtItem, svtIndex) => {
+                let data = resItem[type];
+                data.forEach((svt: CompareResSvtItem, svtIndex) => {
                     if (svt.svtId === svtId) {
-                        this._result.items[itemsIndex].servants[svtIndex].count += count;
+                        this._result.items[itemsIndex][type][svtIndex].count += count;
                         svtFound = true;
                     }
                 });
@@ -265,12 +266,16 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         } as CompareResSvtItem;
 
         if (!itemFound) {
-            this._result.items.push({
+            let data = {
                 itemId: itemId,
-                servants: [svt] as Array<CompareResSvtItem>
-            } as CompareResItem);
+                limit: [] as Array<CompareResSvtItem>,
+                skill: [] as Array<CompareResSvtItem>
+            } as CompareResItem;
+            data[type] = [svt];
+
+            this._result.items.push(data);
         } else if (!svtFound) {
-            this._result.items[itemIndex].servants.push(svt);
+            this._result.items[itemIndex][type].push(svt);
         }
     }
 
