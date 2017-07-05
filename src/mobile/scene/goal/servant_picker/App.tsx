@@ -1,18 +1,13 @@
 import React, {Component} from "react";
-import {Text, View, TouchableOpacity} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {MstItemContainer} from "../../../../model/impl/MstContainer";
-import {CompareResItem, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
-import MstLoader from "../../../lib/model/MstLoader";
-import BaseContainer from "../../../../lib/container/base/BaseContainer";
-import {ElementType, renderRowCellsOfElements} from "../compare/App";
+import {ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -20,8 +15,6 @@ export * from "./State";
 export * from "./Action";
 
 interface GoalServantPickerProps extends State.Props {
-}
-interface GoalServantPickerState {
 }
 
 class GoalServantPicker extends Component<GoalServantPickerProps, any> {
@@ -54,9 +47,11 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
                           style={Styles.Common.HorizontalCentering}>
                         <TouchableOpacity onPress={() => this.selectSvt(svtData.id)}>
                             <ThumbnailR small square
-                                        source={{uri: MstUtil.instance.getRemoteFaceUrl(
-                                            props.SceneGoal.appVer, svtData.id
-                                        )}}/>
+                                        source={{
+                                            uri: MstUtil.instance.getRemoteFaceUrl(
+                                                props.SceneGoal.appVer, svtData.id
+                                            )
+                                        }}/>
                         </TouchableOpacity>
                     </ColR>
                 );
