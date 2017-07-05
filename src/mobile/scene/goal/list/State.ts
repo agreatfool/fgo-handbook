@@ -1,5 +1,5 @@
 import InjectedProps from "../../../../lib/react/InjectedProps";
-import {MstSvt} from "../../../../model/master/Master";
+import {MstItem, MstSvt} from "../../../../model/master/Master";
 import {
     MstCombineLimitContainer, MstCombineSkillContainer, MstSkillContainer,
     MstSvtSkillContainer
@@ -50,6 +50,7 @@ export interface State extends MstGoal {
     skillCombineData: MstCombineSkillContainer;
     limitCombineData: MstCombineLimitContainer;
     skillData: MstSkillContainer;
+    visibleItems: Array<MstItem>;
     selectedSvtIdOnEdit: number;
     compareResult: CompareResult;
 }

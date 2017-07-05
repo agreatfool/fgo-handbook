@@ -7,7 +7,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
-import {MstSvt} from "../../../../model/master/Master";
+import {MstItem, MstSvt} from "../../../../model/master/Master";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {
     MstCombineLimitContainer, MstCombineSkillContainer, MstSkillContainer,
@@ -44,6 +44,7 @@ class GoalList extends Component<State.Props, any> {
         let skillCombineData = null;
         let limitCombineData = null;
         let skillData = null;
+        let visibleItems = [];
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
             return this._service.loadSvtRawDataConverted();
@@ -61,6 +62,9 @@ class GoalList extends Component<State.Props, any> {
             return MstLoader.instance.loadModel("MstSkill");
         }).then((container: BaseContainer<any>) => {
             skillData = container as MstSkillContainer;
+            return MstLoader.instance.loadVisibleItemList();
+        }).then((items: Array<MstItem>) => {
+            visibleItems = items;
             return MstLoader.instance.loadGoal();
         }).then((data: State.State) => {
             data.appVer = this._appVer;
@@ -69,6 +73,7 @@ class GoalList extends Component<State.Props, any> {
             data.skillCombineData = skillCombineData;
             data.limitCombineData = limitCombineData;
             data.skillData = skillData;
+            data.visibleItems = visibleItems;
             data.compareResult = undefined;
             props.actions.updateAll(data);
 
