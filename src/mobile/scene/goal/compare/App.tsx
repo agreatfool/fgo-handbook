@@ -5,7 +5,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import {defaultCurrentGoal, Goal, GoalSvt, GoalSvtSkill} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
+import {MstCombineSkill, MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import {
     CompareResItem,
@@ -198,8 +198,24 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
             let combineData = container.get(svtId, lvIndex);
             if (!combineData || !combineData.itemIds) {
-                console.log("Invalid skill combine data: svtId: ", svtId, "lvIndex: ", lvIndex, combineData);
-                continue;
+                console.log(`Invalid skill combine data: svtId: ${svtId}, lvIndex: ${lvIndex}, combineData:`, combineData);
+
+                if (svtId === 401800 && lvIndex === 9 && combineData === undefined) {
+                    // 羽蛇神的9 => 10升级数据缺失，可能是数据污染，在代码里补全
+                    combineData = {
+                        "itemIds": [
+                            6999
+                        ],
+                        "itemNums": [
+                            1
+                        ],
+                        "id": 401800,
+                        "skillLv": 9,
+                        "qp": 20000000
+                    } as MstCombineSkill;
+                } else {
+                    continue;
+                }
             }
 
             combineData.itemIds.forEach((itemId: number, index) => {
