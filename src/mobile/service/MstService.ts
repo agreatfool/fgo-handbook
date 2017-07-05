@@ -1,43 +1,45 @@
-import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
+import {MstFriendship, MstItem, MstSkillLv, MstSvt, MstSvtLimit, MstSvtSkill} from "../../model/master/Master";
 import {SvtListFilter, SvtListOrder} from "../scene/servant/list/State";
-import {SvtOrderChoices, SvtOrderDirections} from "../lib/model/MstInfo";
-import Const from "../lib/const/Const";
 import {
     SvtInfoBase,
+    SvtInfoBaseCardInfo,
     SvtInfoBaseHpAtk,
+    SvtInfoFSReq,
+    SvtInfoMaterial,
+    SvtInfoMaterialDetail,
+    SvtInfoMaterialLimit,
+    SvtInfoMaterialSkill,
+    SvtInfoPassiveSkill,
+    SvtInfoRank,
     SvtInfoSkill,
     SvtInfoSkillDetail,
     SvtInfoSkillEffect,
-    SvtInfoPassiveSkill,
+    SvtInfoStory,
     SvtInfoTreasureDetail,
     SvtInfoTreasureEffect,
-    SvtInfoStory,
-    SvtInfoMaterial,
-    SvtInfoMaterialLimit,
-    SvtInfoMaterialDetail,
-    SvtInfoMaterialSkill,
-    SvtInfoBaseCardInfo,
-    SvtInfoRank,
-    SvtInfoFSReq
+    SvtOrderChoices,
+    SvtOrderDirections
 } from "../lib/model/MstInfo";
+import Const from "../lib/const/Const";
 import MstLoader from "../lib/model/MstLoader";
 import {
-    MstSvtContainer,
     MstClassContainer,
-    MstSvtExpContainer,
-    MstSvtCardContainer,
-    MstSkillLvContainer,
-    MstSvtSkillContainer,
-    MstSkillContainer,
-    MstSvtTreasureDeviceContainer,
-    MstTreasureDeviceContainer,
-    MstFriendshipContainer,
-    MstSvtCommentContainer,
     MstCombineLimitContainer,
-    MstCombineSkillContainer
+    MstCombineSkillContainer,
+    MstFriendshipContainer,
+    MstSkillContainer,
+    MstSkillLvContainer,
+    MstSvtCardContainer,
+    MstSvtCommentContainer,
+    MstSvtContainer,
+    MstSvtExpContainer,
+    MstSvtSkillContainer,
+    MstSvtTreasureDeviceContainer,
+    MstTreasureDeviceContainer
 } from "../../model/impl/MstContainer";
 import MstUtil from "../lib/utility/MstUtil";
 import {TransSvtName} from "../../model/master/EmbeddedCodeConverted";
+import {CompareResItemDetail} from "../scene/goal/list/State";
 
 export class Service {
 
@@ -55,6 +57,35 @@ export class Service {
             && itemId <= 7999;
     }
 
+    public sortCompareResItems(items: Array<CompareResItemDetail>, mstItems: Array<MstItem>): void {
+        let findMstItem = function (item: CompareResItemDetail): MstItem {
+            let result = undefined;
+            mstItems.forEach((mstItem: MstItem) => {
+                if (mstItem.id === item.itemId) {
+                    result = mstItem;
+                }
+            });
+
+            if (result === undefined) {
+                console.log(`Invalid res item sort: itemId: ${item.itemId}, no MstItem conf found.`);
+            }
+
+            return result;
+        };
+
+        items.sort(function(itemA: CompareResItemDetail, itemB: CompareResItemDetail) {
+            if ((itemA.itemId >= 6501 && itemA.itemId <= 6999)
+                && (itemB.itemId >= 6501 && itemB.itemId <= 6999)) {
+                let mstA = findMstItem(itemA);
+                let mstB = findMstItem(itemB);
+
+                return mstA.dropPriority - mstB.dropPriority;
+            } else {
+                return itemA.itemId - itemB.itemId;
+            }
+        });
+    }
+
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -68,7 +99,7 @@ export class Service {
         let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
         let rawData = this._filterSvtRawData(container.getRaw());
 
-        let embeddedNames: {[key: number]: TransSvtName} = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
+        let embeddedNames: { [key: number]: TransSvtName } = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
 
         rawData.forEach((svt: MstSvt, index) => {
             if (!embeddedNames.hasOwnProperty(svt.id)) {
@@ -260,7 +291,8 @@ export class Service {
         let hitCount = 0;
         try {
             hitCount = mstSvtCard.normalDamage.length;
-        } catch (e) { /* Just ignore it */ }
+        } catch (e) { /* Just ignore it */
+        }
 
         return {
             count: cardCount,

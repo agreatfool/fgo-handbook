@@ -20,6 +20,7 @@ import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title}
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {Service} from "../../../service/MstService";
 
 export * from "./State";
 export * from "./Action";
@@ -34,6 +35,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     private _sourceGoal: Goal;
     private _targetGoal: Goal;
 
+    private _service: Service;
+
     constructor(props, context) {
         super(props, context);
 
@@ -47,6 +50,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
         this._sourceGoal = this.getSourceGoal();
         this._targetGoal = this.getTargetGoal();
+
+        this._service = new Service();
     }
 
     componentDidMount() {
@@ -90,6 +95,10 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 this.calcCompareResSvt(targetSvt.svtId, sourceSvt, targetSvt)
             );
         });
+
+        // sort items
+        this._service.sortCompareResItems(this._result.totalLimit, props.SceneGoal.visibleItems);
+        this._service.sortCompareResItems(this._result.totalSkill, props.SceneGoal.visibleItems);
 
         // finally update props data
         props.actions.updateCompareResult(this._result);
@@ -416,6 +425,9 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             return <View />;
         }
 
+        let totalItems = this.mergeCompareResItemDetail(result.totalLimit, result.totalSkill);
+        this._service.sortCompareResItems(totalItems, state.visibleItems);
+
         return (
             <Container>
                 <Header>
@@ -437,7 +449,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                         {renderRowCellsOfElements(state.appVer, "技能材料列表",
                             ElementType.Item, 5, result.totalSkill)}
                         {renderRowCellsOfElements(state.appVer, "总材料列表",
-                            ElementType.Item, 5, this.mergeCompareResItemDetail(result.totalLimit, result.totalSkill))}
+                            ElementType.Item, 5, totalItems)}
                         {renderRowCellsOfElements(state.appVer, "灵基目标列表",
                             ElementType.Servant, 6, result.servants.filter(this.filterEmptyLimitCompareResSvt))}
                         {renderRowCellsOfElements(state.appVer, "技能目标列表",

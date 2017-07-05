@@ -11,6 +11,7 @@ import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
+import {Service} from "../../../service/MstService";
 
 export * from "./State";
 export * from "./Action";
@@ -20,8 +21,12 @@ interface GoalCompareServantProps extends State.Props {
 }
 
 class GoalCompareServant extends Component<GoalCompareServantProps, any> {
+    private _service: Service;
+
     constructor(props, context) {
         super(props, context);
+
+        this._service = new Service();
     }
 
     getCompareResSvt(svtId: number): CompareResSvt {
@@ -185,6 +190,9 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
         if (result === undefined) {
             return <View />;
         }
+
+        this._service.sortCompareResItems(resSvt.totalLimit, state.visibleItems);
+        this._service.sortCompareResItems(resSvt.totalSkill, state.visibleItems);
 
         return (
             <Container>
