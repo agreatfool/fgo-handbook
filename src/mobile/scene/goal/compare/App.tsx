@@ -432,10 +432,12 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle(result.totalLimit, result.totalSkill, result.totalQP)}
-                        {renderRowCellsOfElements(state.appVer, "灵基再临总需求列表",
+                        {renderRowCellsOfElements(state.appVer, "灵基材料列表",
                             ElementType.Item, 5, result.totalLimit)}
-                        {renderRowCellsOfElements(state.appVer, "技能升级总需求列表",
+                        {renderRowCellsOfElements(state.appVer, "技能材料列表",
                             ElementType.Item, 5, result.totalSkill)}
+                        {renderRowCellsOfElements(state.appVer, "总材料列表",
+                            ElementType.Item, 5, this.mergeCompareResItemDetail(result.totalLimit, result.totalSkill))}
                         {renderRowCellsOfElements(state.appVer, "灵基目标列表",
                             ElementType.Servant, 6, result.servants.filter(this.filterEmptyLimitCompareResSvt))}
                         {renderRowCellsOfElements(state.appVer, "技能目标列表",
