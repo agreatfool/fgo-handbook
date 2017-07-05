@@ -1,12 +1,5 @@
-import {MstSvt} from "../../../model/master/Master";
-import {MstSkillContainer, MstSvtSkillContainer, MstCombineSkillContainer} from "../../../model/impl/MstContainer";
-
 export interface MstGoal {
     appVer: string;
-    svtRawData: Array<MstSvt>;
-    svtSkillData: MstSvtSkillContainer;
-    skillCombineData: MstCombineSkillContainer;
-    skillData: MstSkillContainer;
     current: Goal;
     goals: Array<Goal>;
 }
@@ -19,7 +12,10 @@ export interface Goal {
 
 export interface GoalSvt {
     svtId: number;
+    limit: number; // 灵基再临状态，0 - 4
     skills: Array<GoalSvtSkill>;
+    collectionNo: number; // 排序目的
+    classId: number; // 排序目的
 }
 
 export interface GoalSvtSkill {
@@ -27,14 +23,14 @@ export interface GoalSvtSkill {
     level: number;
 }
 
-export const defaultCurrentGoal = {
+export const defaultCurrentGoal = { // Goal
     id: "current",
-    name: "current",
+    name: "当前进度",
     servants: [],
 } as Goal;
 
-export const defaultMstGoal = {
+export const defaultMstGoal = { // MstGoal
     appVer: undefined,
-    current: undefined,
+    current: defaultCurrentGoal,
     goals: [],
 } as MstGoal;

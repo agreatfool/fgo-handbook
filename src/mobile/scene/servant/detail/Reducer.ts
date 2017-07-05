@@ -3,8 +3,8 @@ import {Actions} from "react-native-router-flux";
 
 import {State, defaultState} from "./State";
 import {
-    ACT_UPDATE_PAGE_TITLE, ACT_UPDATE_SVT_INFO, ACT_SWITCH_MODE,
-    ActionUpdatePageTitle, ActionUpdateSvtInfo, ActionSwitchMode,
+    ACT_UPDATE_PAGE_TITLE, ACT_UPDATE_SVT_INFO, ACT_UPDATE_SVT_ID,
+    ActionUpdatePageTitle, ActionUpdateSvtInfo, ActionUpdateSvtId,
 } from "./Action";
 
 export {StateName} from "./State";
@@ -34,10 +34,10 @@ export const updateSvtInfo = {
     }
 } as ReducerInterface<State>;
 
-export const switchMode = {
-    action: ACT_SWITCH_MODE,
-    reducer: function (state: State, action: ActionSwitchMode) {
-        state.editMode = !state.editMode;
+export const updateSvtId = {
+    action: ACT_UPDATE_SVT_ID,
+    reducer: function (state: State, action: ActionUpdateSvtId) {
+        state.svtId = action.svtId;
         return state;
     }
 } as ReducerInterface<State>;
@@ -45,5 +45,5 @@ export const switchMode = {
 export let Reducers = bindComponentReducers([
     updatePageTitle,
     updateSvtInfo,
-    switchMode,
+    updateSvtId,
 ], defaultState);

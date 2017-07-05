@@ -86,9 +86,15 @@ export default class ResourceDownloader {
         let total = this._mstSkill.count();
         Log.instance.info(`[ResourceDownloader] _downloadSkillResources: total count: ${total}`);
 
+        let iconIdList = [];
         let current = 0;
         for (let [id, skill] of this._mstSkill.iterator()) {
             let skillIconId = (skill as MstSkill).iconId;
+            if (iconIdList.indexOf(skillIconId) !== -1) {
+                current++;
+                continue;
+            }
+            iconIdList.push(skillIconId);
             let url = this._genImageSvtSkillUri(skillIconId);
             let urlParts = url.split(".");
             let ext = urlParts[urlParts.length - 1];

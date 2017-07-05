@@ -1,14 +1,15 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity} from "react-native";
+import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Props, TabScene, TabPageScroll} from "../../../view/View";
-import CheckBox from "react-native-checkbox";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
+import {Actions} from "react-native-router-flux";
+import {Body, Button, CheckBox, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
+import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -23,11 +24,6 @@ export class ServantFilter extends Component<State.Props, any> {
         this._service = new MstService.Service();
     }
 
-    componentDidMount() {
-        let props = this.props as State.Props;
-        let state = props.SceneServantList;
-    }
-
     isChecked(id: number, propName: string): boolean {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
@@ -37,174 +33,129 @@ export class ServantFilter extends Component<State.Props, any> {
         return (state.filter[propName] as Array<string>).indexOf(search) !== -1;
     }
 
-    checkItem(id: number, propName: string): void {
-        let props = this.props as State.Props;
-        let filter = Object.assign({}, props.SceneServantList.filter) as SvtListFilter;
-        let prop = filter[propName] as Array<string>;
-        let search = id + "";
-
-        if (prop.indexOf(search) !== -1) {
-            prop = MstUtil.removeValueFromArr(prop, search);
-        } else {
-            prop.push(search);
-        }
-
-        filter[propName] = prop;
-        props.actions.updateFilter(filter);
-    }
-
-    getButtonText(propName: string, dataSet: {[key: number]: string}): string {
-        let props = this.props as State.Props;
-        let state = props.SceneServantList;
-        let stateLength = (state.filter[propName] as Array<string>).length;
-        let filterLength = Object.keys(dataSet).length;
-
-        let text = "";
-        if (stateLength === 0) {
-            text = "全选";
-        } else if (stateLength === filterLength) {
-            text = "反选";
-        } else {
-            text = "反选";
-        }
-
-        return text;
-    }
-
-    touchButton(propName: string, dataSet: {[key: number]: string}): void {
+    onCheck(id: number, propName: string, dataSet: { [key: number]: string }) {
         let props = this.props as State.Props;
         let filter = Object.assign({}, props.SceneServantList.filter) as SvtListFilter;
         let filterSet = filter[propName] as Array<string>;
         let dataIds = Object.keys(dataSet);
 
-        if (filterSet.length === 0) {
+        if (id === 0) {
+            // 全选
             filterSet = dataIds;
-        } else if (filterSet.length === dataIds.length) {
+        } else if (id === -1) {
+            // 清空
             filterSet = [];
         } else {
-            dataIds.forEach((id) => {
-                if (filterSet.indexOf(id) !== -1) {
-                    filterSet = MstUtil.removeValueFromArr(filterSet, id);
-                } else {
-                    filterSet.push(id);
-                }
-            });
+            let idStrVer = id + "";
+            if (filterSet.indexOf(idStrVer) !== -1) {
+                filterSet = MstUtil.removeValueFromArr(filterSet, idStrVer);
+            } else {
+                filterSet.push(idStrVer);
+            }
         }
 
         filter[propName] = filterSet;
         props.actions.updateFilter(filter);
     }
 
-    renderChecks(propName: string, dataSet: {[key: number]: string}) {
-        return Object.keys(dataSet).map((index) => {
-            let id = parseInt(index);
-            let name = dataSet[index];
+    renderCommon(title: string, propName: string, dataSet: { [key: number]: string }) {
+        let props = this.props as State.Props;
+        let state = props.SceneServantList;
 
-            return (
-                <CheckBoxWrapper
-                    key={`CheckBox_Rarity_${id}`}
-                    label={name}
-                    checked={this.isChecked(id, propName)}
-                    onChange={(checked) => this.checkItem(id, propName)}
-                />
+        let checkItems = [];
+        Object.keys(dataSet).forEach((index) => {
+            let id = parseInt(index);
+
+            let display = <TextCentering>{dataSet[index]}</TextCentering>;
+            if (propName === "classId") {
+                display = <ThumbnailR small square
+                                      source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
+            }
+
+            checkItems.push(
+                <ColR key={`CheckItem_${propName}_${id}`}>
+                    <Row style={Styles.Common.Centering}>
+                        <ColR>
+                            {display}
+                        </ColR>
+                        <ColR>
+                            <CheckBox
+                                checked={this.isChecked(id, propName)}
+                                onPress={() => this.onCheck(id, propName, dataSet)}/>
+                        </ColR>
+                    </Row>
+                </ColR>
             );
         });
-    }
 
-    render() {
-        return (
-            <TabScene>
-                <TabPageScroll>
-                    <CheckListTitle>星级</CheckListTitle>
-                    <CheckListBox>
-                        {this.renderChecks("rarity", Const.SERVANT_RARITY_NAMES)}
-                    </CheckListBox>
-                    <CheckListBox>
-                        <CheckBoxButton
-                            onPress={() => this.touchButton.bind(this)("rarity", Const.SERVANT_RARITY_NAMES)}>
-                            {this.getButtonText("rarity", Const.SERVANT_RARITY_NAMES)}
-                        </CheckBoxButton>
-                    </CheckListBox>
-                    <CheckListTitle>职阶</CheckListTitle>
-                    <CheckListBox>
-                        {this.renderChecks("classId", Const.SERVANT_CLASS_NAMES)}
-                    </CheckListBox>
-                    <CheckListBox>
-                        <CheckBoxButton
-                            onPress={() => this.touchButton.bind(this)("classId", Const.SERVANT_CLASS_NAMES)}>
-                            {this.getButtonText("classId", Const.SERVANT_CLASS_NAMES)}
-                        </CheckBoxButton>
-                    </CheckListBox>
-                    <CheckListTitle>性别</CheckListTitle>
-                    <CheckListBox>
-                        {this.renderChecks("genderType", Const.SERVANT_GENDER_TYPES)}
-                    </CheckListBox>
-                    <CheckListBox>
-                        <CheckBoxButton
-                            onPress={() => this.touchButton.bind(this)("genderType", Const.SERVANT_GENDER_TYPES)}>
-                            {this.getButtonText("genderType", Const.SERVANT_GENDER_TYPES)}
-                        </CheckBoxButton>
-                    </CheckListBox>
-                </TabPageScroll>
-            </TabScene>
-        );
-    }
-}
+        let rows = [];
+        let countInRow = 5;
+        if (propName === "classId") {
+            countInRow = 4;
+        }
+        MstUtil.divideArrayIntoParts(checkItems, countInRow).forEach((itemsInRow: Array<any>, index) => {
+            rows.push(
+                <Row key={`CheckRow_${propName}_${index}`}
+                     style={[Styles.Common.Centering, {minHeight: 25}]}>
+                    {itemsInRow}
+                </Row>
+            );
+        });
 
-class CheckListTitle extends Component<Props, any> {
-    render() {
-        let props = this.props as Props;
         return (
-            <View style={Styles.Common.checkListTitle}>
-                <Text>{props.children}</Text>
+            <View>
+                <GridLine>
+                    <ColCard items={[title]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        {rows}
+                    </ColCardWrapper>
+                </GridLine>
+                <GridLine>
+                    <ColCardWrapper>
+                        <Row>
+                            <ColR style={{marginLeft: 10, marginRight: 10}}>
+                                <Button outline block info bordered small
+                                        onPress={() => this.onCheck(0, propName, dataSet)}>
+                                    <Text>全选</Text>
+                                </Button>
+                            </ColR>
+                            <ColR style={{marginLeft: 10, marginRight: 10}}>
+                                <Button outline block info bordered small
+                                        onPress={() => this.onCheck(-1, propName, dataSet)}>
+                                    <Text>清空</Text>
+                                </Button>
+                            </ColR>
+                        </Row>
+                    </ColCardWrapper>
+                </GridLine>
             </View>
         );
     }
-}
 
-class CheckListBox extends Component<Props, any> {
-    render() {
-        let props = this.props as Props;
-        return (
-            <View style={Styles.Common.checkList}>
-                {props.children}
-            </View>
-        );
-    }
-}
-
-interface CheckBoxWrapperProps extends Props {
-    label?: string;
-    checked?: boolean;
-    onChange?: (checked: boolean) => void;
-}
-
-class CheckBoxWrapper extends Component<CheckBoxWrapperProps, any> {
     render() {
         return (
-            <View style={Styles.Common.checkBoxWrapper}>
-                <CheckBox
-                    containerStyle={Styles.Common.checkBoxContainer}
-                    labelStyle={Styles.Common.checkBoxLabel}
-                    checkboxStyle={Styles.Common.checkBoxSelf}
-                    {...this.props}
-                />
-            </View>
-        );
-    }
-}
-
-interface CheckBoxButtonProps extends Props {
-    onPress: () => void;
-}
-
-class CheckBoxButton extends Component<CheckBoxButtonProps, any> {
-    render() {
-        let props = this.props as CheckBoxButtonProps;
-        return (
-            <TouchableOpacity style={Styles.Common.checkBoxButton} onPress={props.onPress}>
-                <Text style={Styles.Common.checkBoxButtonText}>{props.children}</Text>
-            </TouchableOpacity>
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>ServantFilter</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        {this.renderCommon("职阶选择", "classId", Const.SERVANT_CLASS_NAMES)}
+                        {this.renderCommon("星级选择", "rarity", Const.SERVANT_RARITY_NAMES)}
+                        {this.renderCommon("性别选择", "genderType", Const.SERVANT_GENDER_TYPES)}
+                    </View>
+                </Content>
+            </Container>
         );
     }
 }

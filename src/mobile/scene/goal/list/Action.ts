@@ -1,14 +1,15 @@
 import {ActionCreator} from "redux";
 import {Goal, MstGoal} from "../../../lib/model/MstGoal";
+import {CompareResult, State} from "./State";
 
 export const ACT_UPDATE_ALL = "ACT_UPDATE_ALL";
 
 export interface ActionUpdateAll {
     type: string;
-    all: MstGoal;
+    all: State;
 }
 
-export const updateAll: ActionCreator<ActionUpdateAll> = function (all: MstGoal) {
+export const updateAll: ActionCreator<ActionUpdateAll> = function (all: State) {
     return {
         type: ACT_UPDATE_ALL,
         all: all
@@ -71,10 +72,40 @@ export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: str
     }
 };
 
+export const ACT_UPDATE_SVTID_ON_EDIT = "ACT_UPDATE_SVTID_ON_EDIT";
+
+export interface ActionUpdateSvtIdOnEdit {
+    type: string;
+    svtId: number;
+}
+
+export const updateSvtIdOnEdit: ActionCreator<ActionUpdateSvtIdOnEdit> = function (svtId: number) {
+    return {
+        type: ACT_UPDATE_SVTID_ON_EDIT,
+        svtId: svtId,
+    }
+};
+
+export const ACT_UPDATE_COMPARE_RESULT = "ACT_UPDATE_COMPARE_RESULT";
+
+export interface ActionUpdateCompareResult {
+    type: string;
+    result: CompareResult;
+}
+
+export const updateCompareResult: ActionCreator<ActionUpdateCompareResult> = function (result: CompareResult) {
+    return {
+        type: ACT_UPDATE_COMPARE_RESULT,
+        result: result,
+    }
+};
+
 export const Actions = {
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
     deleteGoal,
+    updateSvtIdOnEdit,
+    updateCompareResult,
 };

@@ -1,50 +1,103 @@
-import {MstSvt, MstSvtSkill, MstSkillLv, MstFriendship, MstSvtLimit} from "../../model/master/Master";
+import {MstFriendship, MstItem, MstSkillLv, MstSvt, MstSvtLimit, MstSvtSkill} from "../../model/master/Master";
 import {SvtListFilter, SvtListOrder} from "../scene/servant/list/State";
-import {SvtOrderChoices, SvtOrderDirections} from "../lib/model/MstInfo";
-import Const from "../lib/const/Const";
 import {
     SvtInfoBase,
+    SvtInfoBaseCardInfo,
     SvtInfoBaseHpAtk,
+    SvtInfoFSReq,
+    SvtInfoMaterial,
+    SvtInfoMaterialDetail,
+    SvtInfoMaterialLimit,
+    SvtInfoMaterialSkill,
+    SvtInfoPassiveSkill,
+    SvtInfoRank,
     SvtInfoSkill,
     SvtInfoSkillDetail,
     SvtInfoSkillEffect,
-    SvtInfoPassiveSkill,
+    SvtInfoStory,
     SvtInfoTreasureDetail,
     SvtInfoTreasureEffect,
-    SvtInfoStory,
-    SvtInfoMaterial,
-    SvtInfoMaterialLimit,
-    SvtInfoMaterialDetail,
-    SvtInfoMaterialSkill,
-    SvtInfoBaseCardInfo,
-    SvtInfoRank,
-    SvtInfoFSReq
+    SvtOrderChoices,
+    SvtOrderDirections
 } from "../lib/model/MstInfo";
+import Const from "../lib/const/Const";
 import MstLoader from "../lib/model/MstLoader";
 import {
-    MstSvtContainer,
     MstClassContainer,
-    MstSvtExpContainer,
-    MstSvtCardContainer,
-    MstSkillLvContainer,
-    MstSvtSkillContainer,
-    MstSkillContainer,
-    MstSvtTreasureDeviceContainer,
-    MstTreasureDeviceContainer,
-    MstFriendshipContainer,
-    MstSvtCommentContainer,
     MstCombineLimitContainer,
-    MstCombineSkillContainer
+    MstCombineSkillContainer,
+    MstFriendshipContainer,
+    MstSkillContainer,
+    MstSkillLvContainer,
+    MstSvtCardContainer,
+    MstSvtCommentContainer,
+    MstSvtContainer,
+    MstSvtExpContainer,
+    MstSvtSkillContainer,
+    MstSvtTreasureDeviceContainer,
+    MstTreasureDeviceContainer
 } from "../../model/impl/MstContainer";
 import MstUtil from "../lib/utility/MstUtil";
 import {TransSvtName} from "../../model/master/EmbeddedCodeConverted";
+import {CompareResItemDetail} from "../scene/goal/list/State";
 
 export class Service {
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //-* GOAL SERVICE
+    //-* GLOBAL SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    public isItemVisible(itemId: number): boolean {
+        return itemId >= 6001 // 剣の輝石
+            && itemId !== 6008 // 無の輝石
+            && itemId !== 6108 // 無の魔石
+            && itemId !== 6208 // 無の秘石
+            && itemId !== 6504 // 星の欠片
+            && itemId !== 7008 // エクストラピース
+            && itemId !== 7108 // エクストラモニュメント
+            && itemId <= 7999;
+    }
 
+    public sortCompareResItems(items: Array<CompareResItemDetail | MstItem>, mstItems: Array<MstItem>): void {
+        let getId = function (item: CompareResItemDetail | MstItem) {
+            if (item.hasOwnProperty("itemId")) {
+                return item["itemId"];
+            } else {
+                return item["id"];
+            }
+        };
+
+        let findMstItem = function (item: CompareResItemDetail | MstItem): MstItem {
+            let result = undefined;
+
+            let id = getId(item);
+            mstItems.forEach((mstItem: MstItem) => {
+                if (mstItem.id === id) {
+                    result = mstItem;
+                }
+            });
+
+            if (result === undefined) {
+                console.log(`Invalid res item sort: itemId: ${id}, no MstItem conf found.`);
+            }
+
+            return result;
+        };
+
+        items.sort(function(itemA: CompareResItemDetail | MstItem, itemB: CompareResItemDetail | MstItem) {
+            let idA = getId(itemA);
+            let idB = getId(itemB);
+
+            if ((idA >= 6501 && idA <= 6999)
+                && (idB >= 6501 && idB <= 6999)) {
+                let mstA = findMstItem(itemA);
+                let mstB = findMstItem(itemB);
+
+                return mstA.dropPriority - mstB.dropPriority;
+            } else {
+                return idA - idB;
+            }
+        });
+    }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT SERVICE
@@ -59,7 +112,7 @@ export class Service {
         let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
         let rawData = this._filterSvtRawData(container.getRaw());
 
-        let embeddedNames: {[key: number]: TransSvtName} = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
+        let embeddedNames: { [key: number]: TransSvtName } = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
 
         rawData.forEach((svt: MstSvt, index) => {
             if (!embeddedNames.hasOwnProperty(svt.id)) {
@@ -116,16 +169,6 @@ export class Service {
         }
 
         return data.sort(func);
-    }
-
-    private static _divideSvtDataIntoRows(data: Array<MstSvt>, svtInRow = Const.SERVANT_IN_ROW): Array<Array<MstSvt>> {
-        let result: Array<Array<MstSvt>> = [];
-
-        for (let index = 0, loop = data.length; index < loop; index += svtInRow) {
-            result.push(data.slice(index, index + svtInRow));
-        }
-
-        return result;
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -257,7 +300,12 @@ export class Service {
                 cardCount++;
             }
         });
-        let hitCount = mstSvtCard.normalDamage.length;
+
+        let hitCount = 0;
+        try {
+            hitCount = mstSvtCard.normalDamage.length;
+        } catch (e) { /* Just ignore it */
+        }
 
         return {
             count: cardCount,
@@ -331,6 +379,11 @@ export class Service {
                 case 13553:
                     // 枪大公第一技能
                     embeddedDetail["effect4"] = ["10%", "11%", "12%", "13%", "14%", "15%", "16%", "17%", "18%", "20%"];
+                    break;
+                case 356650:
+                    // PassionLip第三技能
+                    embeddedDetail["effect4"] = ["10%", "12%", "14%", "16%", "18%", "20%", "22%", "24%", "26%", "30%"];
+                    embeddedDetail["effect5"] = [];
                     break;
                 default:
                     break;

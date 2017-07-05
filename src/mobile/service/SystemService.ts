@@ -15,6 +15,7 @@ export class Service {
 
     async init(log: Function): Promise<any> {
         let verCheckResult = await this.checkSysVer(log);
+        console.log(RNFS.DocumentDirectoryPath);
 
         if (verCheckResult.needUpgrade) {
             await this.upgradeApp(verCheckResult, log);
@@ -77,7 +78,7 @@ export class Service {
     async upgradeApp(verCheckResult: VerCheckResult, log: Function): Promise<void> {
         let remoteVer = verCheckResult.remoteVer;
         let dbBaseUrl = MstUtil.instance.getRemoteDbUrl(remoteVer);
-        let dbBasePath = MstUtil.instance.getRemoteDbPath(remoteVer);
+        let dbBasePath = MstUtil.instance.getLocalDbPathSync(remoteVer);
 
         // 创建数据库版本文件夹
         await RNFS.mkdir(dbBasePath);

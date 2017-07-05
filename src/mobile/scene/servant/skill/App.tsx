@@ -1,16 +1,32 @@
 import React, {Component} from "react";
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import * as Renderer from "../../../view/View";
 import {
-    SvtInfoSkill, SvtInfoSkillDetail, SvtInfoSkillEffect, SvtInfoPassiveSkill,
-    SvtInfoTreasureDetail, SvtInfoTreasureEffect
+    SvtInfoPassiveSkill,
+    SvtInfoSkill,
+    SvtInfoSkillDetail,
+    SvtInfoSkillEffect,
+    SvtInfoTreasureDetail,
+    SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
-import {ToolBoxWrapper, TabScene, TabPageScroll, ResImage, Table} from "../../../view/View";
+import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
+import {Actions} from "react-native-router-flux";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import * as Styles from "../../../view/Styles";
+import {
+    ColCard,
+    ColCentering,
+    ColR,
+    GridColCardWrapper,
+    GridLine,
+    RowCentering,
+    TextCentering,
+    ThumbnailR
+} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -33,6 +49,7 @@ class ServantSkill extends Component<State.Props, any> {
             props.actions.updatePageTitle(name);
             return this._service.buildSvtInfoSkill(props.svtId);
         }).then((info) => {
+            props.actions.updateSvtId(props.svtId);
             props.actions.updateSvtInfo({skillInfo: info});
         });
     }
@@ -45,110 +62,183 @@ class ServantSkill extends Component<State.Props, any> {
         return `${hits} Hits`;
     }
 
-    prepareSkillData(skill: SvtInfoSkillDetail) {
-        let column = Renderer.buildColumnData("保有技能", []);
-        column.rows.push([
-            <ResImage
-                appVer={this._appVer}
-                type="skill"
-                id={skill.iconId}
-                size="small"
-            />,
-            skill.name,
-            this.genChargeTurnStr(skill.chargeTurn),
-            skill.condition
-        ]);
-
-        skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-            column.rows.push([effect.description]);
-            if (effect.effects.length > 0) {
-                column.rows.push(effect.effects);
-            }
-        });
-
-        return [column];
+    genTreasureColorCode(cardId: number) {
+        // 1. Art; 2. Buster; 3. Quick;
+        if (cardId === 1) {
+            return "#0000ff";
+        } else if (cardId === 2) {
+            return "#ff0000";
+        } else {
+            return "#00ff00";
+        }
     }
 
-    preparePassiveSkillData(skills: Array<SvtInfoPassiveSkill>) {
-        let column = Renderer.buildColumnData("职阶技能", []);
-
-        skills.forEach((skill: SvtInfoPassiveSkill) => {
-            column.rows.push([
-                <ResImage
-                    appVer={this._appVer}
-                    type="skill"
-                    id={skill.iconId}
-                    size="small"
-                />,
-                skill.name
-            ]);
+    renderSkills(skillInfo: SvtInfoSkill) {
+        let skills = [];
+        skillInfo.skills.forEach((skill: SvtInfoSkillDetail, index) => {
             let effects = [];
-            skill.skillEffects.forEach((effect: SvtInfoSkillEffect) => {
-                effects.push(effect.description + effect.effects.join(""));
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
+                effects.push(
+                    <RowCentering key={`SkillEffectDesc_${index}`}>
+                        <ColR><Text>{effect.description}</Text></ColR>
+                    </RowCentering>
+                );
+                let effectNumbers = [];
+                if (effect.effects.length > 0) {
+                    effect.effects.forEach((effectNumber: string, index) => {
+                        effectNumbers.push(
+                            <ColR key={`SkillEffectNumberDetail_${index}`}>
+                                <Text>{effectNumber}</Text>
+                            </ColR>
+                        );
+                    });
+                    effects.push(<RowCentering key={`SkillEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
+                }
             });
-            column.rows.push([effects.join("\n")]);
+            skills.push(
+                <GridColCardWrapper key={`SkillInfo_${index}`}>
+                    <Row>
+                        <ColR size={.4}>
+                            <ThumbnailR small square
+                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                        </ColR>
+                        <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
+                        <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
+                        <ColCentering><TextCentering>{skill.condition}</TextCentering></ColCentering>
+                    </Row>
+                    {effects}
+                </GridColCardWrapper>
+            );
         });
 
-        return [column];
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["保有技能"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
-    prepareTreasureData(treasure: SvtInfoTreasureDetail) {
-        //FIXME 宝具需要显示类型，否则红蓝绿完全就不知道了
-        let column = Renderer.buildColumnData("宝具", []);
+    renderPassiveSkills(skillInfo: SvtInfoSkill) {
+        let skills = [];
 
-        column.rows.push([
-            treasure.name,
-            treasure.rank,
-            treasure.type,
-            treasure.condition,
-            this.genTreasureHitStr(treasure.hits),
-        ]);
+        skillInfo.passiveSkills.forEach((skill: SvtInfoPassiveSkill, index) => {
+            let effects = [];
+            skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
+                effects.push(<Row key={`PasEffect_${index}`}><Text>{effect.description + effect.effects.join("")}</Text></Row>);
+            });
 
-        treasure.effects.forEach((effect: SvtInfoTreasureEffect) => {
-            column.rows.push([effect.description]);
-            if (effect.effects.length > 0) {
-                column.rows.push(effect.effects);
-            }
+            skills.push(
+                <GridColCardWrapper key={`PasSkill_${index}`}>
+                    <Row>
+                        <ColR size={.4}>
+                            <ThumbnailR small square
+                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                        </ColR>
+                        <ColR size={1}><Text>{skill.name}</Text></ColR>
+                        <ColR size={2}>{effects}</ColR>
+                    </Row>
+                </GridColCardWrapper>
+            );
         });
 
-        return [column];
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["职阶技能"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
-    prepareData(info: SvtInfoSkill) {
-        let data = [];
+    renderTreasures(skillInfo: SvtInfoSkill) {
+        let skills = [];
 
-        info.skills.forEach((skill: SvtInfoSkillDetail) => {
-            data.push(this.prepareSkillData(skill));
+        skillInfo.treasures.forEach((treasure: SvtInfoTreasureDetail, index) => {
+            let effects = [];
+            treasure.effects.forEach((effect: SvtInfoTreasureEffect, index) => {
+                effects.push(
+                    <RowCentering key={`TreEffectDesc_${index}`}>
+                        <ColR><Text>{effect.description}</Text></ColR>
+                    </RowCentering>
+                );
+                let effectNumbers = [];
+                if (effect.effects.length > 0) {
+                    effect.effects.forEach((effectNumber: string, index) => {
+                        effectNumbers.push(
+                            <ColR key={`TreEffectNumberDetail_${index}`}>
+                                <Text>{effectNumber}</Text>
+                            </ColR>
+                        );
+                    });
+                    effects.push(<RowCentering key={`TreEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
+                }
+            });
+            skills.push(
+                <GridColCardWrapper key={`TreSkill_${index}`}>
+                    <Row style={[Styles.Common.VerticalCentering, {marginBottom: 5, height: 20}]}>
+                        <ColR size={2}>
+                            <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
+                                {treasure.name}
+                            </Text>
+                        </ColR>
+                        <ColR size={.5}><Text>{treasure.rank}</Text></ColR>
+                        <ColR size={1}><Text>{treasure.type}</Text></ColR>
+                        <ColR size={1}><Text>{treasure.condition}</Text></ColR>
+                        <ColR size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></ColR>
+                    </Row>
+                    {effects}
+                </GridColCardWrapper>
+            );
         });
-        info.treasures.forEach((treasure: SvtInfoTreasureDetail) => {
-            data.push(this.prepareTreasureData(treasure));
-        });
-        data.push(this.preparePassiveSkillData(info.passiveSkills));
 
-        return data;
+        return (
+            <View>
+                <GridLine>
+                    <ColCard items={["宝具"]} backgroundColor="#CDE1F9"/>
+                </GridLine>
+                {skills}
+            </View>
+        );
     }
 
     render() {
-        let info: SvtInfoSkill = (this.props as State.Props).SceneServantInfo.skillInfo;
+        let props = this.props as State.Props;
+        let state = props.SceneServantInfo;
+        let info: SvtInfoSkill = state.skillInfo;
         if (MstUtil.isObjEmpty(info)) {
-            // 数据未准备好，不要渲染页面
             return <View />;
         }
 
-        let data = this.prepareData(info);
+        let skills = this.renderSkills(info);
+        let passiveSkills = this.renderPassiveSkills(info);
+        let treasures = this.renderTreasures(info);
 
         return (
-            <TabScene>
-                <ToolBoxWrapper
-                    pageName="ServantSkill"
-                    buttons={[
-                        {content: "编辑模式"}
-                    ]}
-                />
-                <TabPageScroll>
-                    <Table pageName="ServantSkill" data={data} />
-                </TabPageScroll>
-            </TabScene>
+            <Container>
+                <Header>
+                    <Left>
+                        <Button transparent onPress={() => (Actions as any).pop()}>
+                            <Icon name="arrow-back"/>
+                        </Button>
+                    </Left>
+                    <Body>
+                        <Title>{state.title}</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content>
+                    <View style={Styles.Box.Wrapper}>
+                        {skills}
+                        {passiveSkills}
+                        {treasures}
+                    </View>
+                </Content>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Skill} svtId={state.svtId}/>
+            </Container>
         );
     }
 }

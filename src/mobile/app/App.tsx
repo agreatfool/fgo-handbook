@@ -11,10 +11,15 @@ import {App as ServantSkill} from "../scene/servant/skill/App";
 import {App as ServantStory} from "../scene/servant/story/App";
 import {App as ServantMaterial} from "../scene/servant/material/App";
 import {App as ServantFilter} from "../scene/servant/filter/App";
-import {App as GoalList} from "../scene/goal/main/App";
+import {App as GoalList} from "../scene/goal/list/App";
 import {App as GoalEdit} from "../scene/goal/edit/App";
+import {App as GoalServantPicker} from "../scene/goal/servant_picker/App";
 import {App as GoalCompare} from "../scene/goal/compare/App";
+import {App as GoalCompareServant} from "../scene/goal/compare_servant/App";
+import {App as GoalCompareItem} from "../scene/goal/compare_item/App";
 import {App as GoalExp} from "../scene/goal/exp/App";
+import {App as GoalItemPicker} from "../scene/goal/item_picker/App";
+import {App as GoalItemRequirement} from "../scene/goal/item_requirement/App";
 import {App as Options} from "../scene/options/main/App";
 
 const store = createStore(
@@ -37,8 +42,13 @@ export class App extends Component<any, any> {
                         <Scene key="servant_filter" component={ServantFilter} title="ServantFilter" />
                         <Scene key="goal_list" component={GoalList} title="GoalList" />
                         <Scene key="goal_edit" component={GoalEdit} title="GoalEdit" />
+                        <Scene key="goal_servant_picker" component={GoalServantPicker} title="GoalServantPicker" />
                         <Scene key="goal_compare" component={GoalCompare} title="GoalCompare" />
+                        <Scene key="goal_compare_svt" component={GoalCompareServant} title="GoalCompareServant" />
+                        <Scene key="goal_compare_item" component={GoalCompareItem} title="GoalCompareItem" />
                         <Scene key="goal_exp" component={GoalExp} title="GoalExp" />
+                        <Scene key="goal_item_picker" component={GoalItemPicker} title="GoalItemPicker" />
+                        <Scene key="goal_item_requirement" component={GoalItemRequirement} title="GoalItemRequirement" />
                         <Scene key="options" component={Options} title="Options" />
                     </Scene>
                 </Router>

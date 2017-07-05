@@ -8,7 +8,6 @@ export interface State {
     skillInfo: SvtInfoSkill;
     storyInfo: SvtInfoStory;
     title: string;
-    editMode: boolean;
 }
 
 export const defaultState = {
@@ -18,7 +17,6 @@ export const defaultState = {
     skillInfo: {},
     storyInfo: {},
     title: "",
-    editMode: false,
 } as State;
 
 export const StateName = "SceneServantInfo";

@@ -2,17 +2,17 @@ import {MstSvt} from "../../../../model/master/Master";
 import InjectedProps from "../../../../lib/react/InjectedProps";
 import Const from "../../../lib/const/Const";
 import {SvtOrderChoices, SvtOrderDirections} from "../../../lib/model/MstInfo";
-import {TransSvtName} from "../../../../model/master/EmbeddedCodeConverted";
 
 export interface State {
+    appVer: string; // 应用版本号
     filter: SvtListFilter; // 过滤器
     rawData: Array<MstSvt>; // 所有从者的原始数组
     displayData: Array<MstSvt>; // 过滤、排序等操作完成后用来显示的数组
-    transSvtName: {[key: number]: TransSvtName}; // 从者名字汉化
     order: SvtListOrder; // 排序方法
 }
 
 export const defaultState = {
+    appVer: "",
     filter: {
         classId: Object.keys(Const.SERVANT_CLASS_NAMES),
         genderType: Object.keys(Const.SERVANT_GENDER_TYPES),

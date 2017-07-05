@@ -472,35 +472,39 @@
     },
     {
         "normalDamage": [
-            9,
-            18,
-            27,
-            46,
-            0
+            6,
+            13,
+            20,
+            26,
+            35
         ],
         "singleDamage": [
-            9,
-            18,
-            27,
-            46
+            6,
+            13,
+            20,
+            26,
+            35
         ],
         "trinityDamage": [
-            9,
-            18,
-            27,
-            46
+            6,
+            13,
+            20,
+            26,
+            35
         ],
         "unisonDamage": [
-            9,
-            18,
-            27,
-            46
+            6,
+            13,
+            20,
+            26,
+            35
         ],
         "grandDamage": [
-            9,
-            18,
-            27,
-            46
+            6,
+            13,
+            20,
+            26,
+            35
         ],
         "svtId": 100600,
         "cardId": 4
@@ -32403,6 +32407,35 @@
     },
     {
         "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "singleDamage": [
+            16,
+            33,
+            51
+        ],
+        "trinityDamage": [
+            16,
+            33,
+            51
+        ],
+        "unisonDamage": [
+            16,
+            33,
+            51
+        ],
+        "grandDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 2300100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
             100
         ],
         "singleDamage": [
@@ -32587,6 +32620,156 @@
             51
         ],
         "svtId": 9939130,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 503000,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 503000,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 503000,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 503000,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 602700,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 602700,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 602700,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 602700,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            0,
+            0
+        ],
+        "svtId": 702700,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            0,
+            0
+        ],
+        "svtId": 702700,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 702700,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 702700,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 402500,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 402500,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0
+        ],
+        "svtId": 402500,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "svtId": 402500,
         "cardId": 4
     }
 ]

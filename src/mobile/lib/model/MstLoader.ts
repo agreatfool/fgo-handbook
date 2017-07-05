@@ -2,15 +2,17 @@ import * as RNFS from "react-native-fs";
 import BaseContainer from "../../../lib/container/base/BaseContainer";
 import * as MstContainers from "../../../model/impl/MstContainer";
 import {
+    MstItemContainer,
     MstSvtLimitContainer,
     MstSvtTreasureDeviceContainer,
     MstTreasureDeviceLvContainer
 } from "../../../model/impl/MstContainer";
 import MstUtil from "../utility/MstUtil";
 import {EmbeddedCodeConverted, TransSvtName} from "../../../model/master/EmbeddedCodeConverted";
-import {MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from "../../../model/master/Master";
-import {MstGoal, defaultMstGoal} from "./MstGoal";
+import {MstItem, MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from "../../../model/master/Master";
+import {defaultMstGoal, MstGoal} from "./MstGoal";
 import Const from "../const/Const";
+import {Service} from "../../service/MstService";
 
 export default class MstLoader {
 
@@ -25,10 +27,12 @@ export default class MstLoader {
 
     private constructor() {
         this._cache = new Map<string, BaseContainer<any>>();
+        this._service = new Service();
     }
 
     private _cache: Map<string, BaseContainer<any>>;
     private _embeddedCode: EmbeddedCodeConverted;
+    private _service: Service;
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* MAIN
@@ -39,7 +43,7 @@ export default class MstLoader {
         }
 
         let rawData = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getDbPath()}/master/${name}.json`
+            `${await MstUtil.instance.getLocalDbPath()}/master/${name}.json`
         );
 
         let containerName = `${name}Container`;
@@ -56,7 +60,7 @@ export default class MstLoader {
         }
 
         let data = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getDbPath()}/embedded_code.json`
+            `${await MstUtil.instance.getLocalDbPath()}/embedded_code.json`
         ) as EmbeddedCodeConverted;
         this._embeddedCode = data;
 
@@ -77,6 +81,21 @@ export default class MstLoader {
 
     public async writeGoal(goal: Object): Promise<any> {
         return MstUtil.instance.writeJson(`${RNFS.DocumentDirectoryPath}/${Const.DB_FILE_PATH}`, goal);
+    }
+
+    public async loadVisibleItemList(): Promise<Array<MstItem>> {
+        let list = [] as Array<MstItem>;
+
+        let container = await MstLoader.instance.loadModel("MstItem") as MstItemContainer;
+        let items = container.getRaw() as Array<MstItem>;
+
+        items.forEach((item: MstItem) => {
+            if (this._service.isItemVisible(item.id)) {
+                list.push(item);
+            }
+        });
+
+        return list;
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

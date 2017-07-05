@@ -29,20 +29,22 @@ export const updateSvtInfo: ActionCreator<ActionUpdateSvtInfo> = function (info:
     }
 };
 
-export const ACT_SWITCH_MODE = "ACT_SWITCH_MODE";
+export const ACT_UPDATE_SVT_ID = "ACT_UPDATE_SVT_ID";
 
-export interface ActionSwitchMode {
+export interface ActionUpdateSvtId {
     type: string;
+    svtId: number;
 }
 
-export const switchMode: ActionCreator<ActionSwitchMode> = function () {
+export const updateSvtId: ActionCreator<ActionUpdateSvtId> = function (svtId: number) {
     return {
-        type: ACT_SWITCH_MODE,
+        type: ACT_UPDATE_SVT_ID,
+        svtId: svtId
     }
 };
 
 export const Actions = {
     updatePageTitle,
     updateSvtInfo,
-    switchMode,
+    updateSvtId,
 };

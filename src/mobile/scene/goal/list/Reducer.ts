@@ -1,13 +1,17 @@
 import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Reducer";
 
-import {State, defaultState} from "./State";
+import {defaultState, State} from "./State";
 import {
-    ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL, ACT_UPDATE_GOAL, ACT_DELETE_GOAL,
-    ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal, ActionUpdateGoal, ActionDeleteGoal,
+    ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL,
+    ACT_UPDATE_GOAL, ACT_DELETE_GOAL,
+    ACT_UPDATE_SVTID_ON_EDIT, ACT_UPDATE_COMPARE_RESULT,
+    ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal,
+    ActionUpdateGoal, ActionDeleteGoal,
+    ActionUpdateSvtIdOnEdit, ActionUpdateCompareResult,
 } from "./Action";
 import MstLoader from "../../../lib/model/MstLoader";
-import {Goal} from "../../../lib/model/MstGoal";
 import MstUtil from "../../../lib/utility/MstUtil";
+import {Goal} from "../../../lib/model/MstGoal";
 
 export {StateName} from "./State";
 
@@ -72,10 +76,28 @@ export const deleteGoal = {
     }
 } as ReducerInterface<State>;
 
+export const updateSvtIdOnEdit = {
+    action: ACT_UPDATE_SVTID_ON_EDIT,
+    reducer: function (state: State, action: ActionUpdateSvtIdOnEdit) {
+        state.selectedSvtIdOnEdit = action.svtId;
+        return state;
+    }
+} as ReducerInterface<State>;
+
+export const updateCompareResult = {
+    action: ACT_UPDATE_COMPARE_RESULT,
+    reducer: function (state: State, action: ActionUpdateCompareResult) {
+        state.compareResult = action.result;
+        return state;
+    }
+} as ReducerInterface<State>;
+
 export let Reducers = bindComponentReducers([
     updateAll,
     updateCurrentStatus,
     addGoal,
     updateGoal,
     deleteGoal,
+    updateSvtIdOnEdit,
+    updateCompareResult,
 ], defaultState);

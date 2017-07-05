@@ -1,37 +1,19 @@
 import React, {Component} from "react";
-import {Image, ListView, ListViewDataSource, Text, TouchableOpacity, View} from "react-native";
+import {ListView, ListViewDataSource, Text} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import * as State from "./State";
-import {SvtListOrder} from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
-import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
-import * as Styles from "../../../view/Styles";
-import {ResImage} from "../../../view/View";
 import {SvtOrderDirections} from "../../../lib/model/MstInfo";
-import {
-    Body,
-    Button,
-    Container,
-    Content,
-    Footer,
-    Header,
-    Icon,
-    Left,
-    List,
-    ListItem,
-    Right,
-    Thumbnail,
-    Title,
-    FooterTab,
-    Grid,
-    Col
-} from "native-base";
+import {Body, Button, Container, Content, Grid, Header, Icon, Left, List, ListItem, Right, Title} from "native-base";
 import MstLoader from "../../../lib/model/MstLoader";
 import {EmbeddedCodeConverted} from "../../../../model/master/EmbeddedCodeConverted";
+import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
+import * as Styles from "../../../view/Styles";
+import {ColR, ThumbnailR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -56,14 +38,12 @@ export class ServantList extends Component<State.Props, any> {
 
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return MstLoader.instance.loadEmbeddedCode();
-        }).then((embeddedCode: EmbeddedCodeConverted) => {
-            props.actions.updateTransName(embeddedCode.transSvtName);
 
-            return this._service.loadSvtRawData();
+            return this._service.loadSvtRawDataConverted();
         }).then((rawData: Array<MstSvt>) => {
             let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
+            props.actions.updateAppVer(this._appVer);
             props.actions.updateRawData(rawData);
             props.actions.updateDisplayData(displayData);
         });
@@ -83,29 +63,8 @@ export class ServantList extends Component<State.Props, any> {
         return orderDirectionIcon;
     }
 
-    genDirectionStr(direction: number) {
-        return direction === SvtOrderDirections.DESC ? "降序" : "升序";
-    }
-
-    genButtonsData(app: ServantList) {
-        let props = app.props as State.Props;
-        let state = props.SceneServantList;
-
-        //noinspection TypeScriptUnresolvedFunction
-        return [
-            {
-                content: app.genDirectionStr(state.order.direction),
-                onPress: () => app.onOrderDirection(app)
-            },
-            {
-                content: "过滤器",
-                onPress: () => (Actions as any).servant_filter()
-            }
-        ];
-    }
-
-    onOrderDirection(app: ServantList) {
-        let props = app.props as State.Props;
+    onOrderDirectionChange() {
+        let props = this.props as State.Props;
         let state = props.SceneServantList;
         let actions = props.actions;
 
@@ -117,26 +76,35 @@ export class ServantList extends Component<State.Props, any> {
         actions.updateOrder({
             order: state.order.order,
             direction: direction,
-        } as SvtListOrder);
+        } as State.SvtListOrder);
     }
 
     renderRow(data: MstSvt) {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
 
+        //noinspection TypeScriptUnresolvedFunction
         return (
-            <ListItem>
-                <Thumbnail square size={50} source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
+            <ListItem onPress={() => (Actions as any).servant_detail({svtId: data.id})}>
+                <ThumbnailR square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
                 <Grid style={{marginLeft: 10}}>
-                    <Col size={1}><Text>{data.collectionNo}</Text></Col>
-                    <Col size={1}><Thumbnail square size={30} source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/></Col>
-                    <Col size={3}><Text>{state.transSvtName[data.id].name}</Text></Col>
+                    <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                        <Text>{data.collectionNo}</Text>
+                    </ColR>
+                    <ColR size={1}>
+                        <ThumbnailR square small
+                                    source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
+                    </ColR>
+                    <ColR size={3} style={Styles.Common.VerticalCentering}>
+                        <Text>{data.name}</Text>
+                    </ColR>
                 </Grid>
             </ListItem>
         );
     }
 
     render() {
+        //noinspection TypeScriptUnresolvedFunction
         return (
             <Container>
                 <Header>
@@ -145,11 +113,11 @@ export class ServantList extends Component<State.Props, any> {
                         <Title>ServantList</Title>
                     </Body>
                     <Right>
-                        <Button transparent>
-                            <Icon name="funnel" />
+                        <Button transparent onPress={() => (Actions as any).servant_filter()}>
+                            <Icon name="funnel"/>
                         </Button>
-                        <Button transparent>
-                            <Icon name={this.genDirectionIconStr()} />
+                        <Button transparent onPress={() => this.onOrderDirectionChange.bind(this)()}>
+                            <Icon name={this.genDirectionIconStr()}/>
                         </Button>
                     </Right>
                 </Header>
@@ -158,6 +126,7 @@ export class ServantList extends Component<State.Props, any> {
                           renderRow={this.renderRow.bind(this)}>
                     </List>
                 </Content>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Servant}/>
             </Container>
         );
     }

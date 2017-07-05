@@ -39,14 +39,14 @@ export default class MstUtil {
         return `${Const.GITHUB_BASE}/master/VERSION`;
     }
 
-    public async getDbPath(): Promise<string> {
+    public async getLocalDbPath(): Promise<string> {
         return Promise.resolve(
             `${RNFS.DocumentDirectoryPath}/database/${await this.getAppVer()}`
         );
     }
 
-    public getRemoteDbPath(remoteVer: string): string {
-        return `${RNFS.DocumentDirectoryPath}/database/${remoteVer}`;
+    public getLocalDbPathSync(appVer: string): string {
+        return `${RNFS.DocumentDirectoryPath}/database/${appVer}`;
     }
 
     public getRemoteDbUrl(remoteVer: string): string {
@@ -69,8 +69,12 @@ export default class MstUtil {
         return `${this.getRemoteDbUrl(remoteVer)}/images/skill/${iconId}.png`;
     }
 
-    public async getLocalImagePath() {
-        return Promise.resolve(`${await this.getDbPath()}/images`);
+    public getLocalImagePath(appVer: string, type: string, id: number): string {
+        return `${this.getLocalDbPathSync(appVer)}/images/${type}/${id}.png`;
+    }
+
+    public getRemoteImageUrl(remoteVer: string, type: string, id: number): string {
+        return `${this.getRemoteDbUrl(remoteVer)}/images/${type}/${id}.png`;
     }
 
     public static isArray(object: any) {
@@ -166,8 +170,8 @@ export default class MstUtil {
         return RNFS.writeFile(path, JSON.stringify(obj, null, 4));
     }
 
-    public static arrDeepCopy(arr: Array<any>) {
-        return JSON.parse(JSON.stringify(arr));
+    public static deepCopy(element: Array<any> | Object) {
+        return JSON.parse(JSON.stringify(element));
     }
 
     public static randomString(length = 12, chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") {
@@ -175,6 +179,16 @@ export default class MstUtil {
 
         for (let i = length; i > 0; --i) {
             result += chars[Math.round(Math.random() * (chars.length - 1))];
+        }
+
+        return result;
+    }
+
+    public static divideArrayIntoParts(data: Array<any>, itemInRow: number): Array<Array<any>> {
+        let result: Array<Array<any>> = [];
+
+        for (let index = 0, loop = data.length; index < loop; index += itemInRow) {
+            result.push(data.slice(index, index + itemInRow));
         }
 
         return result;
