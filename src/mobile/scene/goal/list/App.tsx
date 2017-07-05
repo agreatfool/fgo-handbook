@@ -270,6 +270,12 @@ class GoalList extends Component<State.Props, any> {
                                 onPress={() => (Actions as any).goal_exp()}/>
                         </GridLine>
                         <GridLine>
+                            <ColCardWithRightButton
+                                title="按道具浏览需求"
+                                button="Go"
+                                onPress={() => (Actions as any).goal_item_picker()}/>
+                        </GridLine>
+                        <GridLine>
                             <ColCardWrapper>
                                 <Row>
                                     <ColR style={Styles.Common.VerticalCentering}>

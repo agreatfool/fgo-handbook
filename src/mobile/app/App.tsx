@@ -18,6 +18,8 @@ import {App as GoalCompare} from "../scene/goal/compare/App";
 import {App as GoalCompareServant} from "../scene/goal/compare_servant/App";
 import {App as GoalCompareItem} from "../scene/goal/compare_item/App";
 import {App as GoalExp} from "../scene/goal/exp/App";
+import {App as GoalItemPicker} from "../scene/goal/item_picker/App";
+import {App as GoalItemRequirement} from "../scene/goal/item_requirement/App";
 import {App as Options} from "../scene/options/main/App";
 
 const store = createStore(
@@ -45,6 +47,8 @@ export class App extends Component<any, any> {
                         <Scene key="goal_compare_svt" component={GoalCompareServant} title="GoalCompareServant" />
                         <Scene key="goal_compare_item" component={GoalCompareItem} title="GoalCompareItem" />
                         <Scene key="goal_exp" component={GoalExp} title="GoalExp" />
+                        <Scene key="goal_item_picker" component={GoalItemPicker} title="GoalItemPicker" />
+                        <Scene key="goal_item_requirement" component={GoalItemRequirement} title="GoalItemRequirement" />
                         <Scene key="options" component={Options} title="Options" />
                     </Scene>
                 </Router>
