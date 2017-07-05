@@ -8,7 +8,7 @@ import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title}
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
-import {MstSvt} from "../../../../model/master/Master";
+import {MstItem} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
 export * from "./State";
@@ -25,30 +25,31 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
     componentDidMount() {
     }
 
-    selectSvt(svtId: number) {
-        let props = this.props as GoalItemPickerProps;
-        props.actions.updateSvtIdOnEdit(svtId);
-        Actions.pop();
+    selectItem(itemId: number) {
+        //noinspection TypeScriptUnresolvedFunction
+        (Actions as any).goal_item_requirement({
+            itemId: itemId
+        });
     }
 
-    renderServantList() {
+    renderItemList() {
         let props = this.props as GoalItemPickerProps;
         const CELL_COUNT = 6;
 
-        let servants: Array<Array<MstSvt>> = MstUtil.divideArrayIntoParts(props.SceneGoal.svtRawData, CELL_COUNT);
+        let items: Array<Array<MstItem>> = MstUtil.divideArrayIntoParts(props.SceneGoal.visibleItems, CELL_COUNT);
 
         let rows = [];
-        servants.forEach((rowData: Array<MstSvt>, rowIndex) => {
+        items.forEach((rowData: Array<MstItem>, rowIndex) => {
             let cells = [];
 
-            rowData.forEach((svtData: MstSvt, cellIndex) => {
+            rowData.forEach((svtData: MstItem, cellIndex) => {
                 cells.push(
                     <ColR key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
                           style={Styles.Common.HorizontalCentering}>
-                        <TouchableOpacity onPress={() => this.selectSvt(svtData.id)}>
+                        <TouchableOpacity onPress={() => this.selectItem(svtData.id)}>
                             <ThumbnailR small square
                                         source={{
-                                            uri: MstUtil.instance.getRemoteFaceUrl(
+                                            uri: MstUtil.instance.getRemoteItemUrl(
                                                 props.SceneGoal.appVer, svtData.id
                                             )
                                         }}/>
@@ -97,6 +98,7 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
+                        {this.renderItemList()}
                     </View>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
