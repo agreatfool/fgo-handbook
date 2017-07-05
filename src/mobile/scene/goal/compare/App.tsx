@@ -203,12 +203,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 if (svtId === 401800 && lvIndex === 9 && combineData === undefined) {
                     // 羽蛇神的9 => 10升级数据缺失，可能是数据污染，在代码里补全
                     combineData = {
-                        "itemIds": [
-                            6999
-                        ],
-                        "itemNums": [
-                            1
-                        ],
+                        "itemIds": [6999],
+                        "itemNums": [1],
                         "id": 401800,
                         "skillLv": 9,
                         "qp": 20000000
@@ -425,7 +421,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Progress Compare</Title>
+                    <Title>Progress Compare</Title>
                     </Body>
                     <Right />
                 </Header>
