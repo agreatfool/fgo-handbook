@@ -14516,5 +14516,1696 @@
         "name": "揺籃の夢",
         "maxLv": 1,
         "iconId": 305
+    },
+    {
+        "id": 363551,
+        "type": 1,
+        "name": "鮮血の伝承 A+",
+        "maxLv": 10,
+        "iconId": 400
+    },
+    {
+        "id": 990917,
+        "type": 2,
+        "name": "瓦礫の聖堂",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 990918,
+        "type": 2,
+        "name": "瓦礫の聖堂",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 990919,
+        "type": 2,
+        "name": "まるごしシンジ君",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 990920,
+        "type": 2,
+        "name": "まるごしシンジ君",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 990921,
+        "type": 2,
+        "name": "アトラス院",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 990922,
+        "type": 2,
+        "name": "アトラス院",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 960611,
+        "type": 1,
+        "name": "ノブの閃き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960612,
+        "type": 1,
+        "name": "ターボノッブ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960613,
+        "type": 2,
+        "name": "維新パワー B",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960614,
+        "type": 2,
+        "name": "維新パワー A",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960615,
+        "type": 2,
+        "name": "維新パワー EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960616,
+        "type": 1,
+        "name": "キャトる",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960617,
+        "type": 1,
+        "name": "のびるノッブ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960618,
+        "type": 1,
+        "name": "ノッブブレイク",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960619,
+        "type": 1,
+        "name": "のばすノッブ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960620,
+        "type": 1,
+        "name": "アンチノッブフィールド",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960621,
+        "type": 1,
+        "name": "衛宮丸からの砲撃",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960622,
+        "type": 1,
+        "name": "瞑目",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960623,
+        "type": 1,
+        "name": "黄昏の時来たれり",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960624,
+        "type": 1,
+        "name": "高砂の舞い",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960625,
+        "type": 1,
+        "name": "刀狩り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960626,
+        "type": 1,
+        "name": "不屈の構え",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960627,
+        "type": 1,
+        "name": "燃え盛る聖者の泉",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960628,
+        "type": 1,
+        "name": "赤原猟犬・腕力低下",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960629,
+        "type": 1,
+        "name": "呪相・炎天",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960630,
+        "type": 1,
+        "name": "エヌルタの灰油",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960631,
+        "type": 1,
+        "name": "宝具威力アップ発動",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960632,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960633,
+        "type": 2,
+        "name": "サクラＢパワー A",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960634,
+        "type": 2,
+        "name": "サクラＢパワー EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960635,
+        "type": 1,
+        "name": "セットアップ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960636,
+        "type": 1,
+        "name": "レジューム",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960637,
+        "type": 1,
+        "name": "リブート",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960638,
+        "type": 1,
+        "name": "リセット",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960639,
+        "type": 1,
+        "name": "ミステリー・タイム",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960640,
+        "type": 1,
+        "name": "ホラー・ビジョン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960641,
+        "type": 1,
+        "name": "ゴア・オーメン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960642,
+        "type": 1,
+        "name": "インフェクション",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960643,
+        "type": 1,
+        "name": "ピンク・パトロール",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960644,
+        "type": 1,
+        "name": "リカバリー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960645,
+        "type": 2,
+        "name": "KP・B",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960646,
+        "type": 2,
+        "name": "KP・M",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960647,
+        "type": 2,
+        "name": "信仰の加護 A+++",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960648,
+        "type": 1,
+        "name": "シャーウッドの森 LV10",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960649,
+        "type": 1,
+        "name": "攻撃力アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960650,
+        "type": 1,
+        "name": "クイック性能アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960651,
+        "type": 1,
+        "name": "アーツ性能アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960652,
+        "type": 1,
+        "name": "バスター性能アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960653,
+        "type": 1,
+        "name": "与ダメージプラス+1000",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960654,
+        "type": 1,
+        "name": "クリティカル威力アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960655,
+        "type": 1,
+        "name": "スター発生率アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960656,
+        "type": 1,
+        "name": "毎ターンスター10個獲得",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960657,
+        "type": 1,
+        "name": "宝具威力アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960658,
+        "type": 1,
+        "name": "NP獲得量アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960659,
+        "type": 1,
+        "name": "被NP獲得量アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960660,
+        "type": 1,
+        "name": "毎ターンNP獲得10%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960661,
+        "type": 1,
+        "name": "防御力アップ50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960662,
+        "type": 1,
+        "name": "被ダメージカット-1000",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960663,
+        "type": 1,
+        "name": "回避3回付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960664,
+        "type": 1,
+        "name": "無敵3回付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960665,
+        "type": 1,
+        "name": "ガッツ付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960666,
+        "type": 1,
+        "name": "HP回復量アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960667,
+        "type": 1,
+        "name": "毎ターンHP回復+1000",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960668,
+        "type": 1,
+        "name": "最大HPアップ+10000",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960669,
+        "type": 1,
+        "name": "クイック性能アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960670,
+        "type": 1,
+        "name": "アーツ性能アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960671,
+        "type": 1,
+        "name": "バスター性能アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960672,
+        "type": 1,
+        "name": "スター発生率アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960673,
+        "type": 1,
+        "name": "NP獲得量アップ100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960674,
+        "type": 1,
+        "name": "ガッツ付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960675,
+        "type": 1,
+        "name": "毎ターンHP回復+3000",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960676,
+        "type": 1,
+        "name": "攻撃力ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960677,
+        "type": 1,
+        "name": "クイック性能ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960678,
+        "type": 1,
+        "name": "アーツ性能ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960679,
+        "type": 1,
+        "name": "バスター性能ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960680,
+        "type": 1,
+        "name": "毎ターンNP減少2%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960681,
+        "type": 1,
+        "name": "NP獲得量ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960682,
+        "type": 1,
+        "name": "宝具威力ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960683,
+        "type": 1,
+        "name": "ターゲット集中",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960684,
+        "type": 1,
+        "name": "スター発生率ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960685,
+        "type": 1,
+        "name": "クリティカル威力ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960686,
+        "type": 1,
+        "name": "防御力ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960687,
+        "type": 1,
+        "name": "ダメージプラス300",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960688,
+        "type": 1,
+        "name": "弱体耐性ダウン20%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960689,
+        "type": 1,
+        "name": "強化無効",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960690,
+        "type": 1,
+        "name": "呪い付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960691,
+        "type": 1,
+        "name": "毒付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960692,
+        "type": 1,
+        "name": "やけど付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960693,
+        "type": 1,
+        "name": "宝具封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960694,
+        "type": 1,
+        "name": "スキル封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960695,
+        "type": 1,
+        "name": "スタン付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960696,
+        "type": 1,
+        "name": "魅了付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960697,
+        "type": 1,
+        "name": "攻撃力ダウン30%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960698,
+        "type": 1,
+        "name": "クイック性能ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960699,
+        "type": 1,
+        "name": "アーツ性能ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960700,
+        "type": 1,
+        "name": "バスター性能ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960701,
+        "type": 1,
+        "name": "毎ターンNP減少5%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960702,
+        "type": 1,
+        "name": "NP獲得量ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960703,
+        "type": 1,
+        "name": "宝具威力ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960704,
+        "type": 1,
+        "name": "スター発生率ダウン100%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960705,
+        "type": 1,
+        "name": "クリティカル威力ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960706,
+        "type": 1,
+        "name": "防御力ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960707,
+        "type": 1,
+        "name": "ダメージプラス500",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960708,
+        "type": 1,
+        "name": "弱体耐性ダウン50%",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960709,
+        "type": 1,
+        "name": "強化無効",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960710,
+        "type": 1,
+        "name": "呪い付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960711,
+        "type": 1,
+        "name": "毒付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960712,
+        "type": 1,
+        "name": "やけど付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960713,
+        "type": 1,
+        "name": "宝具封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960714,
+        "type": 1,
+        "name": "スキル封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960715,
+        "type": 1,
+        "name": "スタン付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960716,
+        "type": 1,
+        "name": "魅了付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960717,
+        "type": 2,
+        "name": "激神の猛り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960718,
+        "type": 2,
+        "name": "激神の満干全席",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960719,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960720,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960721,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960722,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960723,
+        "type": 1,
+        "name": "アンコール",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960724,
+        "type": 1,
+        "name": "試験薬",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960725,
+        "type": 2,
+        "name": "SG『神経過敏』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960726,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960727,
+        "type": 1,
+        "name": "SG『被虐体質』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960728,
+        "type": 1,
+        "name": "SG『整理杜撰』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960729,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960730,
+        "type": 1,
+        "name": "SG換装：被虐体質",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960731,
+        "type": 1,
+        "name": "SG換装：整理杜撰",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960732,
+        "type": 1,
+        "name": "虚ろ目",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960733,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960734,
+        "type": 2,
+        "name": "SG『独占願望』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960735,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960736,
+        "type": 1,
+        "name": "SG『料理下手』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960737,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960738,
+        "type": 1,
+        "name": "SG『奉仕体質』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960739,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960740,
+        "type": 1,
+        "name": "SG換装：料理下手",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960741,
+        "type": 1,
+        "name": "SG換装：奉仕体質",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960742,
+        "type": 2,
+        "name": "SG『加虐体質』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960743,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960744,
+        "type": 1,
+        "name": "SG『ドールマニア』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960745,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960746,
+        "type": 1,
+        "name": "SG『共依存』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960747,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960748,
+        "type": 1,
+        "name": "SG換装：ドールマニア",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960749,
+        "type": 1,
+        "name": "SG換装：共依存",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960750,
+        "type": 1,
+        "name": "ＢＢチャンネル",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960751,
+        "type": 1,
+        "name": "保健室のお弁当",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960752,
+        "type": 1,
+        "name": "アンプル使用",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960753,
+        "type": 1,
+        "name": "不破の鉄心",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960754,
+        "type": 1,
+        "name": "ロゴスイーター EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960755,
+        "type": 1,
+        "name": "ロゴスイーター EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960756,
+        "type": 1,
+        "name": "ロゴスイーター EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960757,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960758,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960759,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960760,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960761,
+        "type": 2,
+        "name": "提魔境殺生院",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960762,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960763,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960764,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960765,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960766,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960767,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960768,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960769,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960770,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960771,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960772,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960773,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960774,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960775,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960776,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960777,
+        "type": 1,
+        "name": "キアラパニッシャー『メルトちゃんデスwhip』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960778,
+        "type": 1,
+        "name": "キアラパニッシャー『ダメージ抑制スプレー』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960779,
+        "type": 1,
+        "name": "キアラパニッシャー『化粧落とし・防御力』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960780,
+        "type": 1,
+        "name": "キアラパニッシャー『スーパー賢者カプセル』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960781,
+        "type": 1,
+        "name": "キアラパニッシャー『クリティカル・ノン』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960782,
+        "type": 1,
+        "name": "キアラパニッシャー『化粧落とし・弱耐性』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960783,
+        "type": 1,
+        "name": "キアラパニッシャー『スタン・グッド・スキン』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960784,
+        "type": 1,
+        "name": "キアラパニッシャー『Quickツウジール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960785,
+        "type": 1,
+        "name": "キアラパニッシャー『Artsツウジール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960786,
+        "type": 1,
+        "name": "キアラパニッシャー『Busterツウジール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960787,
+        "type": 1,
+        "name": "キアラパニッシャー『スリップ・バリアー』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960788,
+        "type": 1,
+        "name": "キアラパニッシャー『スター・セーフ』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960789,
+        "type": 1,
+        "name": "キアラパニッシャー『抗エロス剤』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960790,
+        "type": 1,
+        "name": "キアラパニッシャー『賢者カプセルEX』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960791,
+        "type": 1,
+        "name": "キアラパニッシャー『ただ一つの色』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960792,
+        "type": 1,
+        "name": "キアラパニッシャー『人理倫理剣』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960793,
+        "type": 1,
+        "name": "キアラパニッシャー『人魚姫の原文』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960794,
+        "type": 2,
+        "name": "施無畏",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960795,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960796,
+        "type": 1,
+        "name": "傲慢の吐息",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960797,
+        "type": 1,
+        "name": "称賛の吐息",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960798,
+        "type": 1,
+        "name": "動揺の吐息",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960799,
+        "type": 1,
+        "name": "転写・ゲルダの涙",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960800,
+        "type": 1,
+        "name": "転写・カイの欠片",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960801,
+        "type": 1,
+        "name": "万色悠滞 EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960802,
+        "type": 1,
+        "name": "万色悠滞 EX",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960803,
+        "type": 1,
+        "name": "獣の権能 A",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960804,
+        "type": 1,
+        "name": "大頭七野干法",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960805,
+        "type": 1,
+        "name": "下化衆生 観音掌",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960806,
+        "type": 1,
+        "name": "金剛界 智拳印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960807,
+        "type": 1,
+        "name": "胎蔵界 理拳印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960808,
+        "type": 1,
+        "name": "胎蔵界 理拳印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960809,
+        "type": 1,
+        "name": "法体恒有",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960810,
+        "type": 1,
+        "name": "貧瞋癡の三毒",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960811,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960812,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960813,
+        "type": 2,
+        "name": "施無畏",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960814,
+        "type": 1,
+        "name": "ついに正体を明かす時が……！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960815,
+        "type": 2,
+        "name": "ＢＧＯタイタンパー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960816,
+        "type": 2,
+        "name": "二重存在への追憶",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960817,
+        "type": 1,
+        "name": "みこっとサマーターーーイム！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960818,
+        "type": 1,
+        "name": "余は楽しい",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960819,
+        "type": 1,
+        "name": "雪降る街",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960820,
+        "type": 1,
+        "name": "人類に希望は無用です",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960821,
+        "type": 1,
+        "name": "人類に勝利は無用です",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960822,
+        "type": 1,
+        "name": "キアラパニッシャー『Quickヨクアタール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960823,
+        "type": 1,
+        "name": "キアラパニッシャー『Artsヨクアタール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960824,
+        "type": 1,
+        "name": "キアラパニッシャー『Busterヨクアタール』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960825,
+        "type": 1,
+        "name": "キアラパニッシャー『増殖抑制剤アンチセル』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960826,
+        "type": 1,
+        "name": "キアラパニッシャー『宝具封印ガードマスク』",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960827,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960827,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960828,
+        "type": 2,
+        "name": "アーツ耐性",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960829,
+        "type": 2,
+        "name": "クイック耐性",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960830,
+        "type": 2,
+        "name": "バスター耐性",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960833,
+        "type": 1,
+        "name": "鬼太鼓",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960836,
+        "type": 1,
+        "name": "朝家の守護",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 83552,
+        "type": 2,
+        "name": "陣地作成 A++",
+        "maxLv": 10,
+        "iconId": 104
+    },
+    {
+        "id": 990923,
+        "type": 2,
+        "name": "Fate/Apocrypha",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 990924,
+        "type": 2,
+        "name": "FGO THE STAGE",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 35450,
+        "type": 1,
+        "name": "嵐の航海者 B",
+        "iconId": 302
+    },
+    {
+        "id": 98350,
+        "type": 1,
+        "name": "不屈の意志 C",
+        "iconId": 404
+    },
+    {
+        "id": 56450,
+        "type": 1,
+        "name": "皇帝特権 B",
+        "iconId": 600
+    },
+    {
+        "id": 992001,
+        "type": 1,
+        "name": "語り手 EX",
+        "iconId": 513
+    },
+    {
+        "id": 992002,
+        "type": 1,
+        "name": "生存の閨 A+",
+        "iconId": 509
+    },
+    {
+        "id": 992003,
+        "type": 1,
+        "name": "対英雄 A",
+        "iconId": 404
+    },
+    {
+        "id": 992004,
+        "type": 1,
+        "name": "女帝のカリスマ A",
+        "iconId": 300
+    },
+    {
+        "id": 992005,
+        "type": 1,
+        "name": "黄金律（美） A",
+        "iconId": 411
+    },
+    {
+        "id": 992006,
+        "type": 1,
+        "name": "軍神咆哮 A+",
+        "iconId": 306
+    },
+    {
+        "id": 992007,
+        "type": 1,
+        "name": "コンキスタドール EX",
+        "iconId": 306
     }
 ]

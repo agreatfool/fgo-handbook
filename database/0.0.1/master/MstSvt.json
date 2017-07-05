@@ -371,7 +371,8 @@
         "relateQuestIds": [
             91100801,
             91100802,
-            94008006
+            94008006,
+            94012505
         ],
         "individuality": [
             5000,
@@ -1572,7 +1573,9 @@
         "collectionNo": 60
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            94012501
+        ],
         "individuality": [
             5000,
             201000,
@@ -2812,7 +2815,9 @@
         "collectionNo": 87
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            91301201
+        ],
         "individuality": [
             5000,
             301200,
@@ -3472,7 +3477,9 @@
         "collectionNo": 65
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            94012504
+        ],
         "individuality": [
             5000,
             400400,
@@ -3707,7 +3714,8 @@
     {
         "relateQuestIds": [
             91401101,
-            94002506
+            94002506,
+            94012507
         ],
         "individuality": [
             5000,
@@ -3827,7 +3835,8 @@
     },
     {
         "relateQuestIds": [
-            91401301
+            91401301,
+            94012503
         ],
         "individuality": [
             5000,
@@ -5472,7 +5481,9 @@
         "collectionNo": 113
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            91502301
+        ],
         "individuality": [
             5000,
             502300,
@@ -6202,7 +6213,9 @@
         "collectionNo": 139
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            94012506
+        ],
         "individuality": [
             5000,
             600900,
@@ -6380,7 +6393,8 @@
     {
         "relateQuestIds": [
             91601201,
-            94002503
+            94002503,
+            94012502
         ],
         "individuality": [
             5000,
@@ -7313,7 +7327,8 @@
     },
     {
         "relateQuestIds": [
-            91700701
+            91700701,
+            91700702
         ],
         "individuality": [
             5000,
@@ -7896,7 +7911,9 @@
         "collectionNo": 98
     },
     {
-        "relateQuestIds": [],
+        "relateQuestIds": [
+            91702201
+        ],
         "individuality": [
             5000,
             702200,
@@ -8135,7 +8152,8 @@
     },
     {
         "relateQuestIds": [
-            91900101
+            91900101,
+            91900102
         ],
         "individuality": [
             5000,
@@ -23183,7 +23201,7 @@
         "expType": 18,
         "combineMaterialId": 23,
         "cost": 5,
-        "battleSize": 1,
+        "battleSize": 5,
         "starRate": 0,
         "deathRate": 0,
         "attackAttri": 1,
@@ -23265,7 +23283,7 @@
         "expType": 18,
         "combineMaterialId": 23,
         "cost": 5,
-        "battleSize": 1,
+        "battleSize": 5,
         "starRate": 0,
         "deathRate": 0,
         "attackAttri": 1,
@@ -23347,7 +23365,7 @@
         "expType": 18,
         "combineMaterialId": 23,
         "cost": 5,
-        "battleSize": 1,
+        "battleSize": 5,
         "starRate": 0,
         "deathRate": 0,
         "attackAttri": 1,
@@ -53910,5 +53928,432 @@
         "illustratorId": 52,
         "cvId": 72,
         "collectionNo": 168
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "script": {},
+        "id": 9402470,
+        "baseSvtId": 9402470,
+        "name": "瓦礫の聖堂",
+        "ruby": "ガレキノセイドウ",
+        "battleName": "-",
+        "classId": 1001,
+        "type": 6,
+        "limitMax": 4,
+        "rewardLv": 0,
+        "friendshipId": 1000,
+        "maxFriendshipRank": 0,
+        "genderType": 3,
+        "attri": 2,
+        "combineSkillId": 0,
+        "combineLimitId": 0,
+        "sellQp": 500,
+        "sellMana": 1,
+        "sellRarePri": 0,
+        "expType": 18,
+        "combineMaterialId": 23,
+        "cost": 5,
+        "battleSize": 1,
+        "starRate": 0,
+        "deathRate": 0,
+        "attackAttri": 1,
+        "illustratorId": 1,
+        "cvId": 0,
+        "collectionNo": 580
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "script": {},
+        "id": 9402480,
+        "baseSvtId": 9402480,
+        "name": "まるごしシンジ君",
+        "ruby": "マルゴシシンジクン",
+        "battleName": "-",
+        "classId": 1001,
+        "type": 6,
+        "limitMax": 4,
+        "rewardLv": 0,
+        "friendshipId": 1000,
+        "maxFriendshipRank": 0,
+        "genderType": 3,
+        "attri": 2,
+        "combineSkillId": 0,
+        "combineLimitId": 0,
+        "sellQp": 500,
+        "sellMana": 1,
+        "sellRarePri": 0,
+        "expType": 18,
+        "combineMaterialId": 23,
+        "cost": 5,
+        "battleSize": 1,
+        "starRate": 0,
+        "deathRate": 0,
+        "attackAttri": 1,
+        "illustratorId": 1,
+        "cvId": 0,
+        "collectionNo": 581
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "script": {},
+        "id": 9402490,
+        "baseSvtId": 9402490,
+        "name": "アトラス院",
+        "ruby": "アトラスイン",
+        "battleName": "-",
+        "classId": 1001,
+        "type": 6,
+        "limitMax": 4,
+        "rewardLv": 0,
+        "friendshipId": 1000,
+        "maxFriendshipRank": 0,
+        "genderType": 3,
+        "attri": 2,
+        "combineSkillId": 0,
+        "combineLimitId": 0,
+        "sellQp": 500,
+        "sellMana": 1,
+        "sellRarePri": 0,
+        "expType": 18,
+        "combineMaterialId": 23,
+        "cost": 5,
+        "battleSize": 1,
+        "starRate": 0,
+        "deathRate": 0,
+        "attackAttri": 1,
+        "illustratorId": 1,
+        "cvId": 0,
+        "collectionNo": 582
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [
+            5000,
+            503000,
+            2,
+            104,
+            202,
+            300,
+            305,
+            1000,
+            2001,
+            2008
+        ],
+        "classPassive": [
+            83552
+        ],
+        "cardIds": [
+            3,
+            1,
+            1,
+            1,
+            2
+        ],
+        "script": {},
+        "id": 503000,
+        "baseSvtId": 503000,
+        "name": "不夜城のキャスター",
+        "ruby": "",
+        "battleName": "",
+        "classId": 5,
+        "type": 1,
+        "limitMax": 4,
+        "rewardLv": 90,
+        "friendshipId": 1047,
+        "maxFriendshipRank": 10,
+        "genderType": 2,
+        "attri": 1,
+        "combineSkillId": 503000,
+        "combineLimitId": 503000,
+        "sellQp": 5000,
+        "sellMana": 9,
+        "sellRarePri": 5,
+        "expType": 30,
+        "combineMaterialId": 5,
+        "cost": 16,
+        "battleSize": 1,
+        "starRate": 108,
+        "deathRate": 480,
+        "attackAttri": 3,
+        "illustratorId": 169,
+        "cvId": 73,
+        "collectionNo": 169
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [
+            5000,
+            602700,
+            2,
+            105,
+            202,
+            300,
+            304,
+            1000,
+            2001,
+            2008
+        ],
+        "classPassive": [
+            50250
+        ],
+        "cardIds": [
+            3,
+            3,
+            1,
+            2,
+            2
+        ],
+        "script": {},
+        "id": 602700,
+        "baseSvtId": 602700,
+        "name": "不夜城のアサシン",
+        "ruby": "",
+        "battleName": "",
+        "classId": 6,
+        "type": 1,
+        "limitMax": 4,
+        "rewardLv": 80,
+        "friendshipId": 1033,
+        "maxFriendshipRank": 10,
+        "genderType": 2,
+        "attri": 1,
+        "combineSkillId": 602700,
+        "combineLimitId": 602700,
+        "sellQp": 2000,
+        "sellMana": 6,
+        "sellRarePri": 0,
+        "expType": 9,
+        "combineMaterialId": 4,
+        "cost": 12,
+        "battleSize": 1,
+        "starRate": 255,
+        "deathRate": 385,
+        "attackAttri": 1,
+        "illustratorId": 170,
+        "cvId": 74,
+        "collectionNo": 170
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [
+            5000,
+            702700,
+            2,
+            106,
+            201,
+            300,
+            303,
+            1000,
+            2001,
+            2008,
+            2000,
+            2037,
+            2040
+        ],
+        "classPassive": [
+            54650,
+            62450
+        ],
+        "cardIds": [
+            3,
+            1,
+            2,
+            2,
+            2
+        ],
+        "script": {},
+        "id": 702700,
+        "baseSvtId": 702700,
+        "name": "エルドラドのバーサーカー",
+        "ruby": "",
+        "battleName": "",
+        "classId": 7,
+        "type": 1,
+        "limitMax": 4,
+        "rewardLv": 80,
+        "friendshipId": 1038,
+        "maxFriendshipRank": 10,
+        "genderType": 2,
+        "attri": 3,
+        "combineSkillId": 702700,
+        "combineLimitId": 702700,
+        "sellQp": 2000,
+        "sellMana": 6,
+        "sellRarePri": 1,
+        "expType": 4,
+        "combineMaterialId": 4,
+        "cost": 12,
+        "battleSize": 1,
+        "starRate": 49,
+        "deathRate": 390,
+        "attackAttri": 1,
+        "illustratorId": 21,
+        "cvId": 75,
+        "collectionNo": 171
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [
+            5000,
+            402500,
+            1,
+            103,
+            202,
+            302,
+            304,
+            1000,
+            2001,
+            2009,
+            2008
+        ],
+        "classPassive": [
+            34250,
+            88450
+        ],
+        "cardIds": [
+            3,
+            1,
+            1,
+            2,
+            2
+        ],
+        "script": {},
+        "id": 402500,
+        "baseSvtId": 402500,
+        "name": "レジスタンスのライダー",
+        "ruby": "",
+        "battleName": "",
+        "classId": 4,
+        "type": 1,
+        "limitMax": 4,
+        "rewardLv": 70,
+        "friendshipId": 1024,
+        "maxFriendshipRank": 10,
+        "genderType": 1,
+        "attri": 1,
+        "combineSkillId": 402500,
+        "combineLimitId": 402500,
+        "sellQp": 1000,
+        "sellMana": 3,
+        "sellRarePri": 0,
+        "expType": 3,
+        "combineMaterialId": 3,
+        "cost": 7,
+        "battleSize": 2,
+        "starRate": 89,
+        "deathRate": 500,
+        "attackAttri": 1,
+        "illustratorId": 171,
+        "cvId": 76,
+        "collectionNo": 172
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "script": {},
+        "id": 9301790,
+        "baseSvtId": 9301790,
+        "name": "Fate/Apocrypha",
+        "ruby": "フェイト／アポクリファ",
+        "battleName": "-",
+        "classId": 1001,
+        "type": 6,
+        "limitMax": 4,
+        "rewardLv": 0,
+        "friendshipId": 1000,
+        "maxFriendshipRank": 0,
+        "genderType": 3,
+        "attri": 2,
+        "combineSkillId": 0,
+        "combineLimitId": 0,
+        "sellQp": 1000,
+        "sellMana": 3,
+        "sellRarePri": 0,
+        "expType": 19,
+        "combineMaterialId": 39,
+        "cost": 9,
+        "battleSize": 3,
+        "starRate": 0,
+        "deathRate": 0,
+        "attackAttri": 1,
+        "illustratorId": 168,
+        "cvId": 0,
+        "collectionNo": 583
+    },
+    {
+        "relateQuestIds": [],
+        "individuality": [],
+        "classPassive": [],
+        "cardIds": [
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "script": {},
+        "id": 9301800,
+        "baseSvtId": 9301800,
+        "name": "FGO THE STAGE",
+        "ruby": "エフジーオー・ザ・ステージ",
+        "battleName": "-",
+        "classId": 1001,
+        "type": 6,
+        "limitMax": 4,
+        "rewardLv": 0,
+        "friendshipId": 1000,
+        "maxFriendshipRank": 0,
+        "genderType": 3,
+        "attri": 2,
+        "combineSkillId": 0,
+        "combineLimitId": 0,
+        "sellQp": 1000,
+        "sellMana": 3,
+        "sellRarePri": 0,
+        "expType": 19,
+        "combineMaterialId": 39,
+        "cost": 9,
+        "battleSize": 3,
+        "starRate": 0,
+        "deathRate": 0,
+        "attackAttri": 1,
+        "illustratorId": 167,
+        "cvId": 0,
+        "collectionNo": 584
     }
 ]
