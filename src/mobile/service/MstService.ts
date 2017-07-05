@@ -42,9 +42,18 @@ import {TransSvtName} from "../../model/master/EmbeddedCodeConverted";
 export class Service {
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //-* GOAL SERVICE
+    //-* GLOBAL SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
+    public isVisibleItem(itemId: number) {
+        return itemId >= 6001 // 剣の輝石
+            && itemId !== 6008 // 無の輝石
+            && itemId !== 6108 // 無の魔石
+            && itemId !== 6208 // 無の秘石
+            && itemId !== 6504 // 星の欠片
+            && itemId !== 7008 // エクストラピース
+            && itemId !== 7108 // エクストラモニュメント
+            && itemId <= 7999;
+    }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT SERVICE
