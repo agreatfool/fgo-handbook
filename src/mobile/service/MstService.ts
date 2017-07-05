@@ -44,7 +44,7 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* GLOBAL SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public isVisibleItem(itemId: number) {
+    public isItemVisible(itemId: number): boolean {
         return itemId >= 6001 // 剣の輝石
             && itemId !== 6008 // 無の輝石
             && itemId !== 6108 // 無の魔石
