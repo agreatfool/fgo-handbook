@@ -57,31 +57,44 @@ export class Service {
             && itemId <= 7999;
     }
 
-    public sortCompareResItems(items: Array<CompareResItemDetail>, mstItems: Array<MstItem>): void {
-        let findMstItem = function (item: CompareResItemDetail): MstItem {
+    public sortCompareResItems(items: Array<CompareResItemDetail | MstItem>, mstItems: Array<MstItem>): void {
+        let getId = function (item: CompareResItemDetail | MstItem) {
+            if (item.hasOwnProperty("itemId")) {
+                return item["itemId"];
+            } else {
+                return item["id"];
+            }
+        };
+
+        let findMstItem = function (item: CompareResItemDetail | MstItem): MstItem {
             let result = undefined;
+
+            let id = getId(item);
             mstItems.forEach((mstItem: MstItem) => {
-                if (mstItem.id === item.itemId) {
+                if (mstItem.id === id) {
                     result = mstItem;
                 }
             });
 
             if (result === undefined) {
-                console.log(`Invalid res item sort: itemId: ${item.itemId}, no MstItem conf found.`);
+                console.log(`Invalid res item sort: itemId: ${id}, no MstItem conf found.`);
             }
 
             return result;
         };
 
-        items.sort(function(itemA: CompareResItemDetail, itemB: CompareResItemDetail) {
-            if ((itemA.itemId >= 6501 && itemA.itemId <= 6999)
-                && (itemB.itemId >= 6501 && itemB.itemId <= 6999)) {
+        items.sort(function(itemA: CompareResItemDetail | MstItem, itemB: CompareResItemDetail | MstItem) {
+            let idA = getId(itemA);
+            let idB = getId(itemB);
+
+            if ((idA >= 6501 && idA <= 6999)
+                && (idB >= 6501 && idB <= 6999)) {
                 let mstA = findMstItem(itemA);
                 let mstB = findMstItem(itemB);
 
                 return mstA.dropPriority - mstB.dropPriority;
             } else {
-                return itemA.itemId - itemB.itemId;
+                return idA - idB;
             }
         });
     }

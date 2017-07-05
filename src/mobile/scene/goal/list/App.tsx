@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View, Alert} from "react-native";
+import {Alert, StyleSheet, Text, View} from "react-native";
 import {ColCard, ColCardWithRightButton, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
@@ -10,14 +10,16 @@ import * as MstService from "../../../service/MstService";
 import {MstItem, MstSvt} from "../../../../model/master/Master";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {
-    MstCombineLimitContainer, MstCombineSkillContainer, MstSkillContainer,
+    MstCombineLimitContainer,
+    MstCombineSkillContainer,
+    MstSkillContainer,
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {defaultCurrentGoal, Goal, MstGoal} from "../../../lib/model/MstGoal";
+import {defaultCurrentGoal, Goal} from "../../../lib/model/MstGoal";
 
 export * from "./State";
 export * from "./Action";
@@ -64,6 +66,8 @@ class GoalList extends Component<State.Props, any> {
             skillData = container as MstSkillContainer;
             return MstLoader.instance.loadVisibleItemList();
         }).then((items: Array<MstItem>) => {
+            let clonedItems = JSON.parse(JSON.stringify(items));
+            this._service.sortCompareResItems(items, clonedItems);
             visibleItems = items;
             return MstLoader.instance.loadGoal();
         }).then((data: State.State) => {
@@ -262,7 +266,7 @@ class GoalList extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Progress List</Title>
+                    <Title>Progress List</Title>
                     </Body>
                     <Right />
                 </Header>
@@ -286,17 +290,22 @@ class GoalList extends Component<State.Props, any> {
                                     <ColR style={Styles.Common.VerticalCentering}>
                                         <Text>编辑当前进度</Text>
                                     </ColR>
-                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {marginRight: 5, alignItems: "flex-end"}]}>
-                                        <Button outline small block info bordered onPress={() => (Actions as any).goal_edit({
-                                            mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
-                                        })}>
+                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {
+                                        marginRight: 5,
+                                        alignItems: "flex-end"
+                                    }]}>
+                                        <Button outline small block info bordered
+                                                onPress={() => (Actions as any).goal_edit({
+                                                    mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
+                                                })}>
                                             <Text>Extend</Text>
                                         </Button>
                                     </ColR>
                                     <ColR size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
-                                        <Button outline small block info bordered onPress={() => (Actions as any).goal_edit({
-                                            mode: "edit", isCurrent: true, goalId: undefined
-                                        })}>
+                                        <Button outline small block info bordered
+                                                onPress={() => (Actions as any).goal_edit({
+                                                    mode: "edit", isCurrent: true, goalId: undefined
+                                                })}>
                                             <Text>Go</Text>
                                         </Button>
                                     </ColR>
