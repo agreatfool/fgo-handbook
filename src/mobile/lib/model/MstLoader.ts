@@ -104,6 +104,12 @@ export default class MstLoader {
     public async loadSvtDefaultLimitInfo(svtId: number): Promise<MstSvtLimit> {
         let container = await MstLoader.instance.loadModel("MstSvtLimit") as MstSvtLimitContainer;
         let mstSvtLimit = container.get(svtId, 0); // 首位
+        if (!mstSvtLimit) {
+            // 某些从者数据污染，没有对应的信息，直接从group中默认拿第一个
+            console.log(`Invalid svt default limit info: svtId: ${svtId}, limitCount: 0`);
+            let limitGroup = container.getGroup(svtId);
+            mstSvtLimit = limitGroup.values().next().value;
+        }
 
         return Promise.resolve(mstSvtLimit);
     }
@@ -122,7 +128,15 @@ export default class MstLoader {
         let devices = svtTreasureDeviceCon.getGroup(svtId);
         let device = devices.values().next().value;
 
-        return Promise.resolve(svtTreasureDeviceLvCon.get(device.treasureDeviceId, level));
+        let treasureDevice = svtTreasureDeviceLvCon.get(device.treasureDeviceId, level);
+        if (!treasureDevice) {
+            // 某些从者数据污染，没有对应等级的宝具信息，直接从group中默认拿第一个
+            console.log(`Invalid svt treasure device lv info: svtId: ${svtId}, level: ${level}`);
+            let deviceGroup = svtTreasureDeviceLvCon.getGroup(device.treasureDeviceId);
+            treasureDevice = deviceGroup.values().next().value;
+        }
+
+        return Promise.resolve(treasureDevice);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-

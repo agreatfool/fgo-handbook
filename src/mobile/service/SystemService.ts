@@ -15,7 +15,6 @@ export class Service {
 
     async init(log: Function): Promise<any> {
         let verCheckResult = await this.checkSysVer(log);
-        console.log(RNFS.DocumentDirectoryPath);
 
         if (verCheckResult.needUpgrade) {
             await this.upgradeApp(verCheckResult, log);
@@ -61,7 +60,6 @@ export class Service {
         result.needUpgrade = (remoteVer !== localVer);
         result.localVer = localVer;
         result.remoteVer = remoteVer;
-        log(`Need upgrade: ${result.needUpgrade}`);
 
         // 写入本地文件，如果不存在的话
         if (!localVerExists) {
@@ -71,6 +69,7 @@ export class Service {
                 updated: moment().format("YYYY-MM-DD")
             }, null, 4));
         }
+        log(`Need upgrade: ${result.needUpgrade}`);
 
         return Promise.resolve(result);
     }

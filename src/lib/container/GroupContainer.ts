@@ -16,7 +16,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         if (this.hasGroup(groupId)) {
             return this.getGroup(groupId).get(id);
         } else {
-            return {} as T;
+            return undefined;
         }
     }
 
@@ -24,7 +24,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         if (this.hasGroup(groupId)) {
             return this._data.get(groupId);
         } else {
-            return new Map();
+            return undefined;
         }
     }
 
@@ -69,7 +69,7 @@ export default class GroupContainer<T> extends BaseContainer<T> {
         if (this.hasGroup(groupId)) {
             return this.getGroup(groupId);
         } else {
-            return new Map();
+            return undefined;
         }
     }
 

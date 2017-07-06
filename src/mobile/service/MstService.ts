@@ -523,13 +523,13 @@ export class Service {
         if (mstSvt.friendshipId != 1000) { // 需要过滤，理由不明
             infoStory.friendshipRequirements = this._getFriendshipRequirementDisplay(mstSvt, mstFriendshipCon);
         }
-        infoStory.detail = svtComments.get(1).comment;
-        infoStory.friendship1 = svtComments.get(2).comment;
-        infoStory.friendship2 = svtComments.get(3).comment;
-        infoStory.friendship3 = svtComments.get(4).comment;
-        infoStory.friendship4 = svtComments.get(5).comment;
-        infoStory.friendship5 = svtComments.get(6).comment;
-        infoStory.lastStory = svtComments.get(7).comment;
+        infoStory.detail = svtComments ? svtComments.get(1).comment : "";
+        infoStory.friendship1 = svtComments ? svtComments.get(2).comment : "";
+        infoStory.friendship2 = svtComments ? svtComments.get(3).comment : "";
+        infoStory.friendship3 = svtComments ? svtComments.get(4).comment : "";
+        infoStory.friendship4 = svtComments ? svtComments.get(5).comment : "";
+        infoStory.friendship5 = svtComments ? svtComments.get(6).comment : "";
+        infoStory.lastStory = svtComments ? svtComments.get(7).comment : "";
 
         return Promise.resolve(infoStory);
     }

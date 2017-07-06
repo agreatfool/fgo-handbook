@@ -63,6 +63,6 @@ export default class Const {
     public static readonly CMD_CARD_ID_BUSTER: number   = 2;
     public static readonly CMD_CARD_ID_QUICK: number    = 3;
     public static readonly CMD_CARD_ID_EXTRA: number    = 4;
-    public static readonly MAX_VAL_WITH_UPGRADE: number = 990;
+    public static readonly MAX_VAL_WITH_UPGRADE: number = 1000;
 
 }
