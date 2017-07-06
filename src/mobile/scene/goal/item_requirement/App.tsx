@@ -11,7 +11,10 @@ import {ColCard, ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view
 import {MstCombineLimit, MstCombineSkill} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResSvtItem} from "../list/State";
-import {MstItemContainer} from "../../../../model/impl/MstContainer";
+import {
+    MstCombineLimitContainer, MstCombineSkillContainer,
+    MstItemContainer
+} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -40,8 +43,8 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
         let props = this.props as GoalItemRequirementProps;
         let targetId = props.itemId;
 
-        let limits: Array<MstCombineLimit> = props.SceneGoal.limitCombineData.getRaw();
-        let skills: Array<MstCombineSkill> = props.SceneGoal.skillCombineData.getRaw();
+        let limits: Array<MstCombineLimit>;
+        let skills: Array<MstCombineSkill>;
 
         let itemName: string = "";
         let reqLimitTotal: number = 0;
@@ -49,9 +52,19 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
         let reqLimit: Array<CompareResSvtItem> = [];
         let reqSkill: Array<CompareResSvtItem> = [];
 
-        MstLoader.instance.loadModel("MstItem").then((container: BaseContainer<any>) => {
+        MstUtil.instance.getAppVer().then((appVer) => {
+            props.actions.updateAppVer(appVer);
+            return MstLoader.instance.loadModel("MstItem");
+        }).then((container: BaseContainer<any>) => {
             itemName = (container as MstItemContainer).get(targetId).name;
-
+            return MstLoader.instance.loadModel("MstCombineSkill");
+        }).then((container: BaseContainer<any>) => {
+            skills = (container as MstCombineSkillContainer).getRaw();
+            return MstLoader.instance.loadModel("MstCombineLimit");
+        }).then((container: BaseContainer<any>) => {
+            limits = (container as MstCombineLimitContainer).getRaw();
+            return Promise.resolve();
+        }).then(() => {
             limits.forEach((limit: MstCombineLimit) => {
                 let index = limit.itemIds.indexOf(targetId);
                 if (index !== -1) {
@@ -113,7 +126,7 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
                             <ThumbnailR small square
                                         source={{
                                             uri: MstUtil.instance.getRemoteItemUrl(
-                                                props.SceneGoal.appVer, props.itemId
+                                                props.SceneItemRequirement.appVer, props.itemId
                                             )
                                         }}/>
                         </ColR>
@@ -156,12 +169,12 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
                         <GridLine>
                             <ColCard items={[`灵基再临  x${state.limitTotal}`]} backgroundColor="#CDE1F9"/>
                         </GridLine>
-                        {renderRowCellsOfElements(props.SceneGoal.appVer, "",
+                        {renderRowCellsOfElements(props.SceneItemRequirement.appVer, "",
                             ElementType.SvtItem, 5, state.limit)}
                         <GridLine>
                             <ColCard items={[`技能升级  x${state.skillTotal}`]} backgroundColor="#CDE1F9"/>
                         </GridLine>
-                        {renderRowCellsOfElements(props.SceneGoal.appVer, "",
+                        {renderRowCellsOfElements(props.SceneItemRequirement.appVer, "",
                             ElementType.SvtItem, 5, state.skill)}
                     </View>
                 </Content>

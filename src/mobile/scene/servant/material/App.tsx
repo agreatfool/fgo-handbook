@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
@@ -59,6 +59,13 @@ class ServantMaterial extends Component<State.Props, any> {
         return `Lv.${index}\n->\nLv.${index + 1}`;
     }
 
+    selectItem(itemId: number) {
+        //noinspection TypeScriptUnresolvedFunction
+        (Actions as any).goal_item_requirement({
+            itemId: itemId
+        });
+    }
+
     renderCommon(elements: Array<SvtInfoMaterialLimit | SvtInfoMaterialSkill>, title: string, subTitleRender: Function) {
         let result = [];
         const CELL_COUNT = 4;
@@ -77,8 +84,10 @@ class ServantMaterial extends Component<State.Props, any> {
                     <ColR key={`ElementCell_${index}`}>
                         <Row style={Styles.Common.Centering}>
                             <ColR>
-                                <ThumbnailR small square
-                                            source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                                <TouchableOpacity onPress={() => this.selectItem(item.itemId)}>
+                                    <ThumbnailR small square
+                                                source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                                </TouchableOpacity>
                             </ColR>
                             <ColR>
                                 <TextCentering>{this.genItemCountStr(item.count)}</TextCentering>
