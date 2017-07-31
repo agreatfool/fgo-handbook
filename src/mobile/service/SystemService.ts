@@ -14,6 +14,8 @@ export class Service {
     protected _localVerFile = "version.json";
 
     async init(log: Function): Promise<any> {
+        console.log(`Local dir: ${RNFS.DocumentDirectoryPath}`);
+
         let verCheckResult = await this.checkSysVer(log);
 
         if (verCheckResult.needUpgrade) {
