@@ -1,9 +1,9 @@
 import * as LibPath from "path";
 import * as LibAsyncFile from "async-file";
 import * as LibMd5 from "md5";
+import * as phantomJs from "phantomjs-prebuilt";
 
 import Config from "../lib/config/Config";
-import Utility from "../lib/utility/Utility";
 import Log from "../lib/log/Log";
 import SourceConfig from "../model/config/SourceConfig";
 import HttpPromise from "../lib/http/Http";
@@ -28,7 +28,6 @@ export default class Crawler {
 
     private _libHttp: HttpPromise;
 
-    private _masterJson: any;
     private _masterPatternStart: number;
     private _masterPatternEnd: number;
 
@@ -106,16 +105,22 @@ export default class Crawler {
     private async _parseMasterJson(file: string): Promise<any> {
         Log.instance.info("[Crawler] Processing parseMasterJson ...");
         try {
-            let splitFile: string[] = file.split("\n");
-            let firstLine: string = splitFile[0];
-
-            let result = firstLine.substring(this._masterPatternStart, firstLine.length - this._masterPatternEnd);
-
-            let decompressed = Utility.decompressFromHexStr(result);
-            this._masterJson = JSON.parse(decompressed);
-
-            await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(this._masterJson, null, 4));
-            return Promise.resolve(this._masterJson);
+            let downloadMasterJson = () => {
+                return new Promise((resolve, reject) => {
+                    let program = phantomJs.exec(LibPath.join(__dirname, "phantom", "exec.js"));
+                    let writer = LibAsyncFile.createWriteStream(this._masterJsonPath);
+                    program.stdout.pipe(writer);
+                    program.stderr.pipe(process.stderr);
+                    program.on("error", (err) => {
+                        reject(err);
+                    });
+                    program.on("exit", (code) => {
+                        resolve(code);
+                    });
+                });
+            };
+            await downloadMasterJson();
+            return Promise.resolve();
         } catch (err) {
             return Promise.reject(err);
         }
@@ -201,10 +206,6 @@ export default class Crawler {
 
         await LibAsyncFile.writeFile(this._transDataFilePath, JSON.stringify(convertedTrans, null, 4));
         return Promise.resolve(convertedTrans);
-    }
-
-    get masterJson(): any {
-        return this._masterJson;
     }
 
 }
