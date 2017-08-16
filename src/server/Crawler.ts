@@ -1,5 +1,6 @@
 import * as LibPath from "path";
 import * as LibAsyncFile from "async-file";
+import * as LibMd5 from "md5";
 
 import Config from "../lib/config/Config";
 import Utility from "../lib/utility/Utility";
@@ -9,6 +10,8 @@ import HttpPromise from "../lib/http/Http";
 import Const from "../lib/const/Const";
 
 export default class Crawler {
+
+    private _newVersion: string; // from VersionCheck.run
 
     private _sourceConf: SourceConfig;
 
@@ -29,8 +32,10 @@ export default class Crawler {
     private _masterPatternStart: number;
     private _masterPatternEnd: number;
 
-    constructor() {
+    constructor(newVer: string) {
         Log.instance.info("[Crawler] Starting ...");
+
+        this._newVersion = newVer;
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
         this._sourceMasterUrl = `${this._sourceConf.protocol}://${this._sourceConf.originHost}/${this._sourceConf.baseUri}/${this._sourceConf.masterJsonUri}`;
         this._sourceSvtDataUrl = `${this._sourceConf.protocol}://${this._sourceConf.originHost}/${this._sourceConf.baseUri}/${this._sourceConf.svtDataUri}`;
@@ -42,32 +47,45 @@ export default class Crawler {
         this._masterPatternEnd = "'));".length;
     }
 
-    public async run(): Promise<any> {
+    public async run(): Promise<boolean> {
         let masterFile: string;
-        let masterJson: any;
         let transFile: string;
 
         try {
-            let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
-            this._masterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
-            this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.json");
-            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
-            this._transDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "transData.js");
-            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_trans.json");
+            this._masterFilePath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "origin", "master.js");
+            this._masterJsonPath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "origin", "master.json");
+            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "origin", "svtData.js");
+            this._transDataJsPath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "origin", "transData.js");
+            this._transDataFilePath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "embedded_trans.json");
 
-            masterFile = await this.downloadMasterFile();
-            masterJson = await this.parseMasterJson(masterFile);
-            await this.downloadSvtDataFile();
-            transFile = await this.downloadTransDataFile();
-            await this.parseTransData(transFile);
+            masterFile = await this._downloadMasterFile();
+            let needUpgrade = await this._checkNeedUpgrade(masterFile);
+            console.log("needUpgrade?", needUpgrade);
+            if (!needUpgrade) {
+                return Promise.resolve(false);
+            }
+
+            await this._parseMasterJson(masterFile);
+            await this._downloadSvtDataFile();
+            transFile = await this._downloadTransDataFile();
+            await this._parseTransData(transFile);
         } catch (err) {
             return Promise.reject(err);
         }
 
-        return Promise.resolve(masterJson);
+        return Promise.resolve(true);
     }
 
-    public async downloadMasterFile(): Promise<string> {
+    private async _checkNeedUpgrade(newMasterFile: string): Promise<boolean> {
+        let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
+        let oldMasterFilePath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "master.js");
+
+        let oldMasterFile = (await LibAsyncFile.readFile(oldMasterFilePath)).toString();
+
+        return Promise.resolve(LibMd5(oldMasterFile) !== LibMd5(newMasterFile));
+    }
+
+    private async _downloadMasterFile(): Promise<string> {
         Log.instance.info("[Crawler] Processing downloadMasterFile ...");
         try {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceMasterUrl} ...`);
@@ -86,7 +104,7 @@ export default class Crawler {
         }
     }
 
-    public async parseMasterJson(file: string): Promise<any> {
+    private async _parseMasterJson(file: string): Promise<any> {
         Log.instance.info("[Crawler] Processing parseMasterJson ...");
         try {
             let splitFile: string[] = file.split("\n");
@@ -104,7 +122,7 @@ export default class Crawler {
         }
     }
 
-    public async downloadSvtDataFile(): Promise<string> {
+    private async _downloadSvtDataFile(): Promise<string> {
         Log.instance.info("[Crawler] Processing downloadSvtDataFile ...");
         try {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceSvtDataUrl} ...`);
@@ -123,7 +141,7 @@ export default class Crawler {
         }
     }
 
-    public async downloadTransDataFile(): Promise<string> {
+    private async _downloadTransDataFile(): Promise<string> {
         Log.instance.info("[Crawler] Processing downloadTransDataFile ...");
         try {
             Log.instance.info(`[Crawler] Downloading from ${this._sourceTransDataUrl} ...`);
@@ -142,7 +160,7 @@ export default class Crawler {
         }
     }
 
-    public async parseTransData(file: string): Promise<any> {
+    private async _parseTransData(file: string): Promise<any> {
         Log.instance.info("[Crawler] Processing parseTransData ...");
 
         let convertedTrans = {
