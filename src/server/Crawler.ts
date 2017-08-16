@@ -60,7 +60,6 @@ export default class Crawler {
 
             masterFile = await this._downloadMasterFile();
             let needUpgrade = await this._checkNeedUpgrade(masterFile);
-            console.log("needUpgrade?", needUpgrade);
             if (!needUpgrade) {
                 return Promise.resolve(false);
             }
