@@ -21,19 +21,19 @@ async function run() {
     }
 
     // 解析嵌入代码及数据
-    let convertor = new EmbeddedCodeConvertor();
+    let convertor = new EmbeddedCodeConvertor(newVer);
     await convertor.run();
 
     // 将 Master 数据分解成子文件
-    let dumper = new MasterDumper();
+    let dumper = new MasterDumper(newVer);
     await dumper.run();
 
     // 下载 Icon 等资源
-    let downloader = new ResourceDownloader();
+    let downloader = new ResourceDownloader(newVer);
     await downloader.run();
 
     // 构建 resources.json 列表文件
-    let builder = new ResourceListBuilder();
+    let builder = new ResourceListBuilder(newVer);
     await builder.run();
 
     // 更新版本文件里的版本号

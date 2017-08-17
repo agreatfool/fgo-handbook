@@ -35,7 +35,7 @@ export default class VersionCheck {
     }
 
     public async upgradeVer(): Promise<void> {
-        let appVer: VersionConfig = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
+        let appVer: VersionConfig = await Config.instance.loadWholeConfig(Const.CONF_VERSION) as VersionConfig;
         appVer.version = this._newVersion;
         appVer.updated = LibMoment().format("YYYY-MM-DD");
         await LibAsyncFile.writeFile(LibPath.join(Const.PATH_CONFIG, "version.json"), JSON.stringify(appVer, null, 4));
