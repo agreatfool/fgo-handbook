@@ -1,11 +1,11 @@
 import {bindActionCreators} from "redux";
-import {connect, ComponentDecorator} from "react-redux";
+import {connect} from "react-redux";
 
 /**
  * @param Application Application extends Component<any, any>
  * @param StateName
  * @param Actions Object of ActionCreator, e.g { ACTUpdateText }
- * @returns ComponentDecorator
+ * @returns any
  */
 export default function injectIntoComponent(Application: any,
                                             StateName?: string,

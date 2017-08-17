@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "async-file": "^2.0.2",
-    "bluebird": "^3.5.0",
     "md5": "^2.2.1",
     "md5-file": "^3.1.1",
     "moment": "^2.18.1",
@@ -29,7 +28,6 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.8",
     "@types/md5": "^2.1.32",
     "@types/node": "^8.0.22",
     "@types/react": "^16.0.2",
@@ -40,7 +38,6 @@
     "@types/request": "2.0.1",
     "@types/rimraf": "^2.0.1",
     "@types/uuid": "^3.4.0",
-    "@types/whatwg-fetch": "0.0.33",
     "babel-jest": "20.0.3",
     "babel-preset-react-native": "3.0.0",
     "gulp": "^3.9.1",

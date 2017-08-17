@@ -21,8 +21,5 @@
     "exclude": [
         "node_modules"
     ],
-    "files": [
-        "typings/index.d.ts"
-    ],
     "compileOnSave": false
 }

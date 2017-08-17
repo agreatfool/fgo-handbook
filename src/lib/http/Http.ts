@@ -42,43 +42,37 @@ class HttpPromise {
         });
     }
 
-    public downloadWithCheck(url: string, path: string): Promise<boolean> {
-        let fileSizeFromServer = 0;
+    public async downloadWithCheck(url: string, path: string): Promise<boolean> {
 
-        return new Promise((resolve, reject) => {
-            this.head(url).then((response) => {
-                if (response.statusCode != 200) {
-                    return resolve(false); // do nothing with 404
+        try {
+
+            // get head info from url
+            let headResponse: IncomingMessage = await this.head(url);
+            if (headResponse.statusCode != 200) {
+                return Promise.resolve(false); // do nothing with 404
+            }
+
+            // check file exists
+            let fileSizeFromServer = parseInt(headResponse.headers["content-length"] as string);
+            if (fileSizeFromServer <= 0) {
+                return Promise.resolve(false);
+            }
+            let exists = await LibAsyncFile.exists(path);
+            if (!exists) { // file not found, go on downloading
+                await this.download(url, path);
+            } else {
+                let stats: Stats = await LibAsyncFile.stat(path);
+                if (!stats.isFile() || stats.size !== fileSizeFromServer) {
+                    await this.download(url, path);
                 }
-                return Promise.resolve(response);
-            }).then((response) => {
-                fileSizeFromServer = (response as IncomingMessage).headers["content-length"];
-                if (fileSizeFromServer <= 0) {
-                    return resolve(false);
-                }
-                return LibAsyncFile.exists(path);
-            }).then((exists) => {
-                if (!exists) {
-                    return Promise.resolve('goOnDownload');
-                } else {
-                    return LibAsyncFile.stat(path);
-                }
-            }).then((stats) => {
-                if (typeof stats === 'string' && stats === 'goOnDownload') {
-                    // file not found, go on downloading
-                    return this.download(url, path);
-                } else if ((stats as Stats).isFile() && (stats as Stats).size == fileSizeFromServer) {
-                    // already downloaded, size is correct
-                    return resolve(true);
-                } else {
-                    return this.download(url, path);
-                }
-            }).then((downloadResult) => {
-                return resolve(downloadResult);
-            }).catch((err) => {
-                return reject(err);
-            });
-        });
+            }
+
+            return Promise.resolve(true);
+
+        } catch (e) {
+            return Promise.reject(e);
+        }
+
     }
 
 }

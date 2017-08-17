@@ -1,15 +1,15 @@
 import * as LibPath from "path";
 import * as LibAsyncFile from "async-file";
-import * as LibBluebird from "bluebird";
 import * as rimraf from "rimraf";
 import * as LibMoment from "moment";
+import * as LibUtil from "util";
 
 import Config from "../lib/config/Config";
 import Const from "../lib/const/Const";
 import MstUtil from "../lib/model/MstUtil";
 import VersionConfig from "../model/config/VersionConfig";
 
-const rmrf = LibBluebird.promisify<void, string>(rimraf);
+const rmrf = LibUtil.promisify(rimraf);
 
 export default class VersionCheck {
 
