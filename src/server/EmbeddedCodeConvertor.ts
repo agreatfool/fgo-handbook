@@ -15,6 +15,8 @@ import {
 
 export default class EmbeddedCodeConvertor {
 
+    private _newVersion: string; // from VersionCheck.run
+
     private _combined: EmbeddedCodeConverted;
     private _dbJsonPath: string;
 
@@ -53,8 +55,10 @@ export default class EmbeddedCodeConvertor {
     private _transSkillDetailConverted: {[key: number]: TransSkillDetail};
     private _transTreasureDetailConverted: {[key: number]: TransTreasureDetail};
 
-    constructor() {
+    constructor(newVer: string) {
         Log.instance.info("[EmbeddedCodeConvertor] Starting ...");
+
+        this._newVersion = newVer;
         /**
          * EMBEDDED CODE
          */
@@ -122,9 +126,8 @@ export default class EmbeddedCodeConvertor {
 
     public async run(): Promise<any> {
         try {
-            let appVer = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
-            this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, appVer, "embedded_code.json");
-            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, appVer, "origin", "svtData.js");
+            this._dbJsonPath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "embedded_code.json");
+            this._svtDataJsPath = LibPath.join(Const.PATH_DATABASE, this._newVersion, "origin", "svtData.js");
 
             this._svtData = (await LibAsyncFile.readFile(this._svtDataJsPath)).toString();
 

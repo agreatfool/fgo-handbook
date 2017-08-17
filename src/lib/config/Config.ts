@@ -23,12 +23,12 @@ export default class Config {
         this._cache = new Map<string, Object>();
     }
 
-    public async loadDbConfigWithVersion(configName: Array<string> | string, propertyName?: string): Promise<any> {
+    public async loadDbConfigWithVersion(configName: Array<string> | string, propertyName?: string, version?: string): Promise<any> {
         let clonedName = null;
 
         if (Utility.isArray(configName)) {
             clonedName = configName.slice(0);
-            let appVer = await this.loadConfig(Const.CONF_VERSION, 'version');
+            let appVer = version ? version : await this.loadConfig(Const.CONF_VERSION, 'version');
             let dbKeywordIndex = -1;
             clonedName = clonedName as Array<string>;
             //noinspection TypeScriptUnresolvedFunction

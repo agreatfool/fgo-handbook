@@ -13,7 +13,7 @@ export class Service {
 
     protected _localVerFile = "version.json";
 
-    async init(log: Function): Promise<any> {
+    public async init(log: Function): Promise<any> {
         console.log(`Local dir: ${RNFS.DocumentDirectoryPath}`);
 
         let verCheckResult = await this.checkSysVer(log);
@@ -23,7 +23,7 @@ export class Service {
         }
     }
 
-    async checkSysVer(log: Function): Promise<VerCheckResult> {
+    public async checkSysVer(log: Function): Promise<VerCheckResult> {
         let localVerPath = MstUtil.instance.getLocalVerPath();
 
         let result = {
@@ -59,7 +59,7 @@ export class Service {
         log(`Remote ver: ${remoteVer}`);
 
         // 更新结果
-        result.needUpgrade = (remoteVer !== localVer);
+        result.needUpgrade = this._checkUpgrade(localVer, remoteVer);
         result.localVer = localVer;
         result.remoteVer = remoteVer;
 
@@ -76,7 +76,7 @@ export class Service {
         return Promise.resolve(result);
     }
 
-    async upgradeApp(verCheckResult: VerCheckResult, log: Function): Promise<void> {
+    public async upgradeApp(verCheckResult: VerCheckResult, log: Function): Promise<void> {
         let remoteVer = verCheckResult.remoteVer;
         let dbBaseUrl = MstUtil.instance.getRemoteDbUrl(remoteVer);
         let dbBasePath = MstUtil.instance.getLocalDbPathSync(remoteVer);
@@ -125,6 +125,31 @@ export class Service {
         log("Upgrade process finished");
 
         return Promise.resolve();
+    }
+
+    private _checkUpgrade(localVer, remoteVer): boolean {
+        if (localVer === remoteVer) {
+            return false;
+        }
+
+        let localVerSplit: Array<number> = localVer.split(".").map((ver) => {
+            return parseInt(ver);
+        });
+        let remoteVerSplit: Array<number> = remoteVer.split(".").map((ver) => {
+            return parseInt(ver);
+        });
+
+        if (localVerSplit[0] > remoteVerSplit[0]) {
+            return false; // local has higher major ver
+        } else if (localVerSplit[0] === remoteVerSplit[0] && localVerSplit[1] > remoteVerSplit[1]) {
+            return false; // local has higher minor ver
+        } else if (localVerSplit[0] === remoteVerSplit[0]
+            && localVerSplit[1] === remoteVerSplit[1]
+            && localVerSplit[2] > remoteVerSplit[2]) {
+            return false; // local has higher patch ver
+        } else {
+            return true;
+        }
     }
 
 }

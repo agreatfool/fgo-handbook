@@ -10,15 +10,22 @@ import Log from "../lib/log/Log";
 
 export default class MasterDumper {
 
+    private _newVersion: string; // from VersionCheck.run
+
     private _dbMasterDirPath: string;
     private _masterJson: any;
 
-    public async run(): Promise<any> {
+    constructor(newVer: string) {
         Log.instance.info("[MasterDumper] Starting ...");
+
+        this._newVersion = newVer;
+    }
+
+    public async run(): Promise<any> {
         try {
-            let dbPath = await MstUtil.instance.getDbPathWithVer();
+            let dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
             this._dbMasterDirPath = LibPath.join(dbPath, "master");
-            this._masterJson = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_ORIGIN_MASTER);
+            this._masterJson = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_ORIGIN_MASTER, null, this._newVersion);
 
             await MstUtil.instance.ensureDirs([this._dbMasterDirPath]);
 

@@ -2,21 +2,25 @@ import * as LibPath from "path";
 
 import * as LibAsyncFile from "async-file";
 
-import MstUtil from "../lib/model/MstUtil";
+import Const from "../lib/const/Const";
 import Log from "../lib/log/Log";
 
 export default class ResourceListBuilder {
 
+    private _newVersion: string; // from VersionCheck.run
+
     private _embeddedCode: string = "embedded_code.json";
     private _resourceList: Array<string>;
 
-    constructor() {
+    constructor(newVer: string) {
+        Log.instance.info("[ResourceListBuilder] Starting ...");
+
+        this._newVersion = newVer;
         this._resourceList = [];
     }
 
     public async run(): Promise<any> {
-        Log.instance.info("[ResourceListBuilder] Starting ...");
-        let dbPath = await MstUtil.instance.getDbPathWithVer();
+        let dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
 
         let subFiles = await LibAsyncFile.readdir(LibPath.join(dbPath, "master"));
         for (let subFileName of subFiles) {

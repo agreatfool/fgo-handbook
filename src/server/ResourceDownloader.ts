@@ -13,6 +13,8 @@ import Log from "../lib/log/Log";
 
 export default class ResourceDownloader {
 
+    private _newVersion: string; // from VersionCheck.run
+
     private _libHttp: HttpPromise;
 
     private _sourceConf: SourceConfig;
@@ -26,8 +28,10 @@ export default class ResourceDownloader {
     private _imageItemIconPath: string;
     private _imageClassIconPath: string;
 
-    constructor() {
+    constructor(newVer: string) {
         Log.instance.info("[ResourceDownloader] Starting ...");
+
+        this._newVersion = newVer;
         this._libHttp = new HttpPromise();
         this._sourceConf = require(LibPath.join(Const.PATH_CONFIG, "source.json"));
     }
@@ -39,7 +43,7 @@ export default class ResourceDownloader {
             this._mstItem = await MstLoader.instance.loadModel("MstItem") as MstItemContainer;
             this._mstClass = await MstLoader.instance.loadModel("MstClass") as MstClassContainer;
 
-            let dbPath = await MstUtil.instance.getDbPathWithVer();
+            let dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
             this._imageSvtFacePath = LibPath.join(dbPath, "images", "face");
             this._imageSvtSkillPath = LibPath.join(dbPath, "images", "skill");
             this._imageItemIconPath = LibPath.join(dbPath, "images", "item");
