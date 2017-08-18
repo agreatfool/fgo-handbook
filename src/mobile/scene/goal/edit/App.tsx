@@ -302,6 +302,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             {
                 options: buttons,
                 cancelButtonIndex: buttons.length - 1,
+                destructiveButtonIndex:  buttons.length - 1,
                 title: "选择灵基再临阶段"
             },
             (btnIndex) => {
@@ -323,6 +324,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             {
                 options: buttons,
                 cancelButtonIndex: buttons.length - 1,
+                destructiveButtonIndex:  buttons.length - 1,
                 title: "选择技能等级"
             },
             (btnIndex) => {
@@ -396,7 +398,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         <Text>选择目标从者</Text>
                     </ColR>
                     <ColR size={1}>
-                        <Button outline small info block bordered
+                        <Button small info block bordered
                                 style={{marginRight: 5, justifyContent: "center"}}
                                 onPress={() => (Actions as any).goal_servant_picker()}>
                             <Text>
@@ -405,7 +407,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </Button>
                     </ColR>
                     <ColR size={.3}>
-                        <Button outline small info block bordered
+                        <Button small info block bordered
                                 style={StyleSheet.flatten(Styles.Common.VerticalCentering)}
                                 onPress={() => this.addSvtIntoGoal()}>
                             <TextCentering>+</TextCentering>
@@ -473,19 +475,19 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </ColR>
                         {skillElements}
                         <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
-                            <Button outline small danger block bordered
+                            <Button small danger block bordered
                                     onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
                                 <Text>-</Text>
                             </Button>
                         </ColR>
                         <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
-                            <Button outline small danger block bordered
+                            <Button small danger block bordered
                                     onPress={() => this.switchSvtListPosition(svtIndex, -1)}>
                                 <Text>{"<"}</Text>
                             </Button>
                         </ColR>
                         <ColR size={.8} style={Styles.Common.VerticalCentering}>
-                            <Button outline small danger block bordered
+                            <Button small danger block bordered
                                     onPress={() => this.switchSvtListPosition(svtIndex, 1)}>
                                 <Text>{">"}</Text>
                             </Button>

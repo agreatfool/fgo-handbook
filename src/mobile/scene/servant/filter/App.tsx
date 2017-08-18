@@ -116,13 +116,13 @@ export class ServantFilter extends Component<State.Props, any> {
                     <ColCardWrapper>
                         <Row>
                             <ColR style={{marginLeft: 10, marginRight: 10}}>
-                                <Button outline block info bordered small
+                                <Button block info bordered small
                                         onPress={() => this.onCheck(0, propName, dataSet)}>
                                     <Text>全选</Text>
                                 </Button>
                             </ColR>
                             <ColR style={{marginLeft: 10, marginRight: 10}}>
-                                <Button outline block info bordered small
+                                <Button block info bordered small
                                         onPress={() => this.onCheck(-1, propName, dataSet)}>
                                     <Text>清空</Text>
                                 </Button>

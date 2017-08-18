@@ -85,7 +85,7 @@ class GoalExp extends Component<State.Props, any> {
         }
 
         return (
-            <Button outline small info block bordered style={StyleSheet.flatten(Styles.Common.VerticalCentering)}>
+            <Button small info block bordered style={StyleSheet.flatten(Styles.Common.VerticalCentering)}>
                 <Picker
                     iosHeader={header}
                     mode="dropdown"
@@ -123,7 +123,7 @@ class GoalExp extends Component<State.Props, any> {
                                 {this.renderLvPicker("目标等级", state.targetLv,
                                     (value: string) => this.setState({targetLv: value}))}
                             </ColR>
-                            <Button outline small info bordered style={{marginLeft: 5}}
+                            <Button small info bordered style={{marginLeft: 5}}
                                     onPress={() => this.calcExp()}>
                                 <Text>Go</Text>
                             </Button>
@@ -181,7 +181,7 @@ class GoalExp extends Component<State.Props, any> {
                     </Body>
                     <Right />
                 </Header>
-                <Content scrollEnabled={false}>
+                <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderCalc()}
                         {this.renderResult()}

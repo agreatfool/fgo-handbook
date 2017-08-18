@@ -1,4 +1,4 @@
-import {FlexAlignType, FlexJustifyType, StyleSheet} from "react-native";
+import {FlexAlignType, StyleSheet} from "react-native";
 
 export const Common = StyleSheet.create({
     Row: {
@@ -9,13 +9,13 @@ export const Common = StyleSheet.create({
     },
     Centering: {
         alignItems: "center" as FlexAlignType,
-        justifyContent: "center" as FlexJustifyType,
+        justifyContent: "center",
     },
     HorizontalCentering: {
         alignItems: "center" as FlexAlignType,
     },
     VerticalCentering: {
-        justifyContent: "center" as FlexJustifyType,
+        justifyContent: "center",
     },
     Star: {
         color: "#FFD500",

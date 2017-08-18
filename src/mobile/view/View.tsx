@@ -2,7 +2,6 @@ import React, {Component, ReactNode} from "react";
 import {StyleSheet, Text, TextStyle, ViewStyle} from "react-native";
 import {Button, Card, CardItem, Col, Grid, Row, Thumbnail} from "native-base";
 import * as Styles from "./Styles";
-import JSXElement = JSX.JSXElement;
 
 export interface Props {
     children?: ReactNode;
@@ -20,7 +19,7 @@ export class GridLine extends Component<Props, any> {
 }
 
 interface ColCardProps extends Props {
-    items: Array<String | number | JSXElement>;
+    items: Array<String | number | JSX.Element>;
     size?: number;
     rowHeight?: number;             // default 20
     rowStyle?: ViewStyle;
@@ -148,7 +147,7 @@ export class ColCardWithRightButton extends Component<ColCardWithRightButtonProp
                         <Text>{props.title}</Text>
                     </ColR>
                     <ColR size={.3} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
-                        <Button outline small block info bordered onPress={props.onPress}>
+                        <Button small block info bordered onPress={props.onPress}>
                             <Text>{props.button}</Text>
                         </Button>
                     </ColR>
@@ -234,7 +233,7 @@ export class TextCentering extends Component<Props, any> {
 
 interface ColRProps extends Props {
     size?: number;
-    style?: ViewStyle;
+    style?: any;
 }
 
 export class ColR extends Component<ColRProps, any> {
@@ -248,7 +247,7 @@ export class ColR extends Component<ColRProps, any> {
         let colProps = Object.assign({}, props);
 
         return (
-            <Col {...colProps} toString={() => "col"} toLocaleString={() => "col"}>
+            <Col {...colProps}>
                 {props.children}
             </Col>
         );
@@ -258,7 +257,7 @@ export class ColR extends Component<ColRProps, any> {
 interface ThumbnailRProps extends Props {
     square?: boolean;
     small?: boolean;
-    source?: any;
+    source: any;
 }
 
 export class ThumbnailR extends Component<ThumbnailRProps, any> {
@@ -272,7 +271,7 @@ export class ThumbnailR extends Component<ThumbnailRProps, any> {
         let thumbProps = Object.assign({}, props);
 
         return (
-            <Thumbnail {...thumbProps} toString={() => "thumb"} toLocaleString={() => "thumb"}>
+            <Thumbnail {...thumbProps}>
                 {props.children}
             </Thumbnail>
         );

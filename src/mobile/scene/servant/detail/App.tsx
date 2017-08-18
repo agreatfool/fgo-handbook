@@ -49,7 +49,7 @@ class ServantDetail extends Component<State.Props, any> {
         return (
             <View style={Styles.Box.Wrapper}>
                 <GridLine>
-                    <Col size={.6} style={Styles.Common.Centering} toLocaleString={() => "col"} toString={() => "col"}>
+                    <Col size={.6} style={Styles.Common.Centering}>
                         <ThumbnailR square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, info.svtId)}}/>
                     </Col>
                     <ColCard items={["图鉴编号", info.collectionNo]}/>

@@ -111,7 +111,7 @@ class GoalList extends Component<State.Props, any> {
         });
 
         return (
-            <Button outline small info block bordered style={StyleSheet.flatten(Styles.Common.VerticalCentering)}>
+            <Button small info block bordered style={StyleSheet.flatten(Styles.Common.VerticalCentering)}>
                 <Picker
                     iosHeader={header}
                     mode="dropdown"
@@ -160,7 +160,7 @@ class GoalList extends Component<State.Props, any> {
                     </Row>
                     <Row style={{marginTop: 10}}>
                         {buttons}
-                        <Button outline small info bordered style={{marginLeft: 5}}
+                        <Button small info bordered style={{marginLeft: 5}}
                                 onPress={() => {
                                     if (state.compareSourceId === state.compareTargetId) {
                                         Toast.show({
@@ -209,7 +209,7 @@ class GoalList extends Component<State.Props, any> {
                                 <Text>{`从者 ${this.genItemCountStr(goal.servants.length)}`}</Text>
                             </ColR>
                             <ColR size={.9}>
-                                <Button outline small info block bordered
+                                <Button small info block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => (Actions as any).goal_edit({
                                             mode: "edit", isCurrent: false, goalId: goal.id
@@ -218,7 +218,7 @@ class GoalList extends Component<State.Props, any> {
                                 </Button>
                             </ColR>
                             <ColR size={.9}>
-                                <Button outline small success block bordered
+                                <Button small success block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => (Actions as any).goal_edit({
                                             mode: "extend", isCurrent: false, goalId: goal.id
@@ -227,7 +227,7 @@ class GoalList extends Component<State.Props, any> {
                                 </Button>
                             </ColR>
                             <ColR size={.9}>
-                                <Button outline small danger block bordered
+                                <Button small danger block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => {
                                             Alert.alert(
@@ -294,7 +294,7 @@ class GoalList extends Component<State.Props, any> {
                                         marginRight: 5,
                                         alignItems: "flex-end"
                                     }]}>
-                                        <Button outline small block info bordered
+                                        <Button small block info bordered
                                                 onPress={() => (Actions as any).goal_edit({
                                                     mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
                                                 })}>
@@ -302,7 +302,7 @@ class GoalList extends Component<State.Props, any> {
                                         </Button>
                                     </ColR>
                                     <ColR size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
-                                        <Button outline small block info bordered
+                                        <Button small block info bordered
                                                 onPress={() => (Actions as any).goal_edit({
                                                     mode: "edit", isCurrent: true, goalId: undefined
                                                 })}>
