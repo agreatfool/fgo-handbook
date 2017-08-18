@@ -3,17 +3,18 @@ const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const merge = require('merge2');
 
-const tsProject = ts.createProject('tsconfig.json', {
+const rnSource = ['src/**/*.ts', 'src/**/*.tsx', '!src/{server,server/**}'];
+const serverSource = ['src/server/**/*.ts'];
+const phantomSource = 'src/server/phantom/exec.js';
+const tsRnProject = ts.createProject('tsconfig.json', {
+  declaration: false
+});
+const tsServerProject = ts.createProject('server-tsconfig.json', {
   declaration: false
 });
 
-gulp.task('phantom-copy', function () {
-  gulp.src('src/server/phantom/exec.js')
-    .pipe(gulp.dest('server_build/server/phantom'));
-});
-
-gulp.task('typescript', function () {
-  let tsResult = gulp.src('src/**/*.ts').pipe(tsProject());
+gulp.task('tsRn', function () {
+  let tsResult = gulp.src(rnSource).pipe(tsRnProject());
 
   return merge([
     tsResult.dts.pipe(gulp.dest('build')),
@@ -21,8 +22,22 @@ gulp.task('typescript', function () {
   ]);
 });
 
-// gulp.task('watch', ['typescript', 'phantom-copy'], function () {
-gulp.task('watch', ['phantom-copy'], function () {
-  // gulp.watch('src/**/*.ts', ['typescript']);
-  gulp.watch('src/server/phantom/exec.js', ['phantom-copy']);
+gulp.task('tsServer', function () {
+  let tsResult = gulp.src(serverSource).pipe(tsServerProject());
+
+  return merge([
+    tsResult.dts.pipe(gulp.dest('server_build')),
+    tsResult.js.pipe(gulp.dest('server_build'))
+  ]);
+});
+
+gulp.task('phantom-copy', function () {
+  gulp.src(phantomSource)
+    .pipe(gulp.dest('server_build/server/phantom'));
+});
+
+gulp.task('watch', ['tsRn', 'tsServer', 'phantom-copy'], function () {
+  gulp.watch(rnSource, ['tsRn']);
+  gulp.watch(serverSource, ['tsServer']);
+  gulp.watch(phantomSource, ['phantom-copy']);
 });
