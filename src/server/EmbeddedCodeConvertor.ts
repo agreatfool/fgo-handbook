@@ -377,7 +377,7 @@ export default class EmbeddedCodeConvertor {
     private async _convertTransSvtName(): Promise<any> {
         Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransSvtName ...");
         try {
-            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS, null, this._newVersion);
 
             for (let nameInfo of embeddedTransData["name"]) {
                 let svtId: number = parseInt((nameInfo as Array<string>)[0]);
@@ -403,7 +403,7 @@ export default class EmbeddedCodeConvertor {
     private async _convertTransSkillDetail(): Promise<any> {
         Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransSkillDetail ...");
         try {
-            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS, null, this._newVersion);
 
             for (let skillInfo of embeddedTransData["skill"]) {
                 let skillId: number = parseInt((skillInfo as Array<string>)[0]);
@@ -432,7 +432,7 @@ export default class EmbeddedCodeConvertor {
     private async _convertTransTreasureDetail(): Promise<any> {
         Log.instance.info("[EmbeddedCodeConvertor] Processing _convertTransTreasureDetail ...");
         try {
-            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS);
+            let embeddedTransData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_EMBEDDED_TRANS, null, this._newVersion);
 
             for (let treasureInfo of embeddedTransData["treasure"]) {
                 let treasureId: number = parseInt((treasureInfo as Array<string>)[0]);

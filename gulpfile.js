@@ -4,7 +4,7 @@ const ts = require('gulp-typescript');
 const merge = require('merge2');
 
 const rnSource = ['src/**/*.ts', 'src/**/*.tsx', '!src/{server,server/**}'];
-const serverSource = ['src/server/**/*.ts'];
+const serverSource = ['src/**/*.ts', '!src/{mobile,mobile/**}'];
 const phantomSource = 'src/server/phantom/exec.js';
 const tsRnProject = ts.createProject('tsconfig.json', {
   declaration: false

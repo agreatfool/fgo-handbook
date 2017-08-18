@@ -38,10 +38,10 @@ export default class ResourceDownloader {
 
     public async run(): Promise<any> {
         try {
-            this._mstSvt = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
-            this._mstSkill = await MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
-            this._mstItem = await MstLoader.instance.loadModel("MstItem") as MstItemContainer;
-            this._mstClass = await MstLoader.instance.loadModel("MstClass") as MstClassContainer;
+            this._mstSvt = await MstLoader.instance.loadModel("MstSvt", this._newVersion) as MstSvtContainer;
+            this._mstSkill = await MstLoader.instance.loadModel("MstSkill", this._newVersion) as MstSkillContainer;
+            this._mstItem = await MstLoader.instance.loadModel("MstItem", this._newVersion) as MstItemContainer;
+            this._mstClass = await MstLoader.instance.loadModel("MstClass", this._newVersion) as MstClassContainer;
 
             let dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
             this._imageSvtFacePath = LibPath.join(dbPath, "images", "face");

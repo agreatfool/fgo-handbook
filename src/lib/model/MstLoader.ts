@@ -22,12 +22,12 @@ export default class MstLoader {
         this._cache = new Map<string, BaseContainer<any>>();
     }
 
-    public async loadModel(name: string): Promise<BaseContainer<any>> {
+    public async loadModel(name: string, version?: string): Promise<BaseContainer<any>> {
         if (this._cache.has(name)) {
             return Promise.resolve(this._cache.get(name));
         }
 
-        let rawData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_ORIGIN_MASTER, Utility.lcFirst(name));
+        let rawData = await Config.instance.loadDbConfigWithVersion(Const.CONF_DB_ORIGIN_MASTER, Utility.lcFirst(name), version);
 
         let containerName = Utility.ucFirst(name) + "Container";
         let instance = new MstContainers[containerName]();

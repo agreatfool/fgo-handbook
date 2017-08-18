@@ -28,9 +28,6 @@ export default class Crawler {
 
     private _libHttp: HttpPromise;
 
-    private _masterPatternStart: number;
-    private _masterPatternEnd: number;
-
     constructor(newVer: string) {
         Log.instance.info("[Crawler] Starting ...");
 
@@ -41,9 +38,6 @@ export default class Crawler {
         this._sourceTransDataUrl = `${this._sourceConf.protocol}://${this._sourceConf.originHost}/${this._sourceConf.baseUri}/${this._sourceConf.transDataUri}`;
 
         this._libHttp = new HttpPromise();
-
-        this._masterPatternStart = "var mstTxt = LZString.decompress(convert_formated_hex_to_string('".length + 1;
-        this._masterPatternEnd = "'));".length;
     }
 
     public async run(): Promise<boolean> {

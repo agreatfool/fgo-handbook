@@ -16,10 +16,15 @@ export class Service {
     public async init(log: Function): Promise<any> {
         console.log(`Local dir: ${RNFS.DocumentDirectoryPath}`);
 
-        let verCheckResult = await this.checkSysVer(log);
+        try {
+            let verCheckResult = await this.checkSysVer(log);
+            console.log('Upgrade check:', verCheckResult);
 
-        if (verCheckResult.needUpgrade) {
-            await this.upgradeApp(verCheckResult, log);
+            if (verCheckResult.needUpgrade) {
+                await this.upgradeApp(verCheckResult, log);
+            }
+        } catch (e) {
+            console.log(e);
         }
     }
 
