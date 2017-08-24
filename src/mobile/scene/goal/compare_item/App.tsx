@@ -7,10 +7,24 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import {MstItemContainer} from "../../../../model/impl/MstContainer";
 import {CompareResItem, CompareResSvtItem, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper} from "../../../view/View";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -21,6 +35,7 @@ export * from "./Action";
 interface GoalCompareItemProps extends State.Props {
     itemId: number;
 }
+
 interface GoalCompareItemState {
     itemName: string;
     resItem: CompareResItem;
@@ -78,12 +93,12 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                 <ColCardWrapper backgroundColor="#CDE1F9">
                     <Row>
                         <Col size={.2}>
-                            <ThumbnailR small square
-                                        source={{
-                                            uri: MstUtil.instance.getRemoteItemUrl(
-                                                props.SceneGoal.appVer, props.itemId
-                                            )
-                                        }}/>
+                            <Thumbnail small square
+                                       source={{
+                                           uri: MstUtil.instance.getRemoteItemUrl(
+                                               props.SceneGoal.appVer, props.itemId
+                                           )
+                                       }}/>
                         </Col>
                         <Col style={Styles.Common.VerticalCentering}>
                             <Text>{`${state.itemName}  x${state.total}`}</Text>
@@ -104,7 +119,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
             || state["total"] === undefined
             || state["limitTotal"] === undefined
             || state["skillTotal"] === undefined) {
-            return <View />;
+            return <View/>;
         }
 
         return (
@@ -118,7 +133,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                     <Body>
                     <Title>{state.itemName}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

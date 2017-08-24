@@ -218,27 +218,3 @@ export class TextCentering extends Component<Props, any> {
         );
     }
 }
-
-interface ThumbnailRProps extends Props {
-    square?: boolean;
-    small?: boolean;
-    source: any;
-}
-
-export class ThumbnailR extends Component<ThumbnailRProps, any> {
-    /**
-     * 在所有使用 Thumbnail 的地方 tsc 莫名报错找不到 toString 和 toLocalString，
-     * 只能自己封装一个 dummy 组件
-     */
-    render() {
-        let props = this.props as ThumbnailRProps;
-
-        let thumbProps = Object.assign({}, props);
-
-        return (
-            <Thumbnail {...thumbProps}>
-                {props.children}
-            </Thumbnail>
-        );
-    }
-}

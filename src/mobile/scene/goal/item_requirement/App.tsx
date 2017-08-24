@@ -4,15 +4,30 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper} from "../../../view/View";
 import {MstCombineLimit, MstCombineSkill} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResSvtItem} from "../list/State";
 import {
-    MstCombineLimitContainer, MstCombineSkillContainer,
+    MstCombineLimitContainer,
+    MstCombineSkillContainer,
     MstItemContainer
 } from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
@@ -25,6 +40,7 @@ export * from "./Action";
 interface GoalItemRequirementProps extends State.Props {
     itemId: number;
 }
+
 interface GoalItemRequirementState {
     itemName: string;
     total: number;
@@ -123,12 +139,12 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
                 <ColCardWrapper backgroundColor="#CDE1F9">
                     <Row>
                         <Col size={.2}>
-                            <ThumbnailR small square
-                                        source={{
-                                            uri: MstUtil.instance.getRemoteItemUrl(
-                                                props.SceneItemRequirement.appVer, props.itemId
-                                            )
-                                        }}/>
+                            <Thumbnail small square
+                                       source={{
+                                           uri: MstUtil.instance.getRemoteItemUrl(
+                                               props.SceneItemRequirement.appVer, props.itemId
+                                           )
+                                       }}/>
                         </Col>
                         <Col style={Styles.Common.VerticalCentering}>
                             <Text>{`${state.itemName}  x${state.total}`}</Text>
@@ -144,7 +160,7 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
             || this.state["limit"] === undefined
             || this.state["skill"] === undefined
             || this.state["itemName"] === undefined) {
-            return <View />;
+            return <View/>;
         }
 
         let props = this.props as GoalItemRequirementProps;

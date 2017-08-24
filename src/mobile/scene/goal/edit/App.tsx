@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {ColCard, GridColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, GridColCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -25,6 +25,7 @@ import {
     Left,
     Right,
     Row,
+    Thumbnail,
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
@@ -304,7 +305,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             {
                 options: buttons,
                 cancelButtonIndex: buttons.length - 1,
-                destructiveButtonIndex:  buttons.length - 1,
+                destructiveButtonIndex: buttons.length - 1,
                 title: "选择灵基再临阶段"
             },
             (btnIndex) => {
@@ -326,7 +327,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             {
                 options: buttons,
                 cancelButtonIndex: buttons.length - 1,
-                destructiveButtonIndex:  buttons.length - 1,
+                destructiveButtonIndex: buttons.length - 1,
                 title: "选择技能等级"
             },
             (btnIndex) => {
@@ -441,8 +442,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
                             }}>
                             <Grid>
                                 <Row style={Styles.Common.Centering}>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
+                                    <Thumbnail small square
+                                               source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
                                 </Row>
                                 <Row style={Styles.Common.Centering}>
                                     <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
@@ -466,8 +467,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                 }}>
                                 <Grid>
                                     <Row style={Styles.Common.Centering}>
-                                        <ThumbnailR small square
-                                                    source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
+                                        <Thumbnail small square
+                                                   source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
                                     </Row>
                                     <Row style={Styles.Common.Centering}>
                                         <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
@@ -504,7 +505,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
     render() {
         if (!this.state || this.state["goal"] === undefined) {
-            return <View />;
+            return <View/>;
         }
 
         return (
@@ -516,7 +517,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Progress Edit</Title>
+                    <Title>Progress Edit</Title>
                     </Body>
                     <Right>
                         <Button transparent onPress={() => this.saveGoal()}>

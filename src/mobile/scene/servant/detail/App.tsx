@@ -4,12 +4,12 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {ColCard, ThumbnailR} from "../../../view/View";
+import {ColCard} from "../../../view/View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/utility/MstUtil";
 import Const from "../../../lib/const/Const";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Thumbnail, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 
@@ -50,7 +50,7 @@ class ServantDetail extends Component<State.Props, any> {
             <View style={Styles.Box.Wrapper}>
                 <Grid>
                     <Col size={.6} style={Styles.Common.Centering}>
-                        <ThumbnailR square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, info.svtId)}}/>
+                        <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, info.svtId)}}/>
                     </Col>
                     <ColCard items={["图鉴编号", info.collectionNo]}/>
                     <ColCard items={["星级", <Text style={Styles.Common.Star}>{info.rarity}</Text>]}/>
@@ -118,7 +118,7 @@ class ServantDetail extends Component<State.Props, any> {
 
         let info: SvtInfoBase = state.baseInfo;
         if (MstUtil.isObjEmpty(info)) {
-            return <View />;
+            return <View/>;
         }
 
         let detail = this.renderDetail(info);
@@ -132,9 +132,9 @@ class ServantDetail extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{state.title}</Title>
+                    <Title>{state.title}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     {detail}

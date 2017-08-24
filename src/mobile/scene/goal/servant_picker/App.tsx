@@ -4,10 +4,24 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ThumbnailR} from "../../../view/View";
+import {ColCardWrapper} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -44,14 +58,12 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
             rowData.forEach((svtData: MstSvt, cellIndex) => {
                 cells.push(
                     <Col key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
-                          style={Styles.Common.HorizontalCentering}>
+                         style={Styles.Common.HorizontalCentering}>
                         <TouchableOpacity onPress={() => this.selectSvt(svtData.id)}>
-                            <ThumbnailR small square
-                                        source={{
-                                            uri: MstUtil.instance.getRemoteFaceUrl(
-                                                props.SceneGoal.appVer, svtData.id
-                                            )
-                                        }}/>
+                            <Thumbnail small square
+                                       source={{
+                                           uri: MstUtil.instance.getRemoteFaceUrl(props.SceneGoal.appVer, svtData.id)
+                                       }}/>
                         </TouchableOpacity>
                     </Col>
                 );
@@ -91,7 +103,7 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>选择目标从者</Title>
+                    <Title>选择目标从者</Title>
                     </Body>
                     <Right/>
                 </Header>

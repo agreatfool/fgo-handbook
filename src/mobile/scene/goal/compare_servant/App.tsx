@@ -6,10 +6,24 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -59,8 +73,8 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         <TouchableOpacity onPress={() => goToCompareResItemPage(limitItem.itemId)}>
                             <Row style={Styles.Common.Centering}>
                                 <Col>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, limitItem.itemId)}}/>
+                                    <Thumbnail small square
+                                               source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, limitItem.itemId)}}/>
                                 </Col>
                                 <Col>
                                     <TextCentering>{`x${limitItem.count}`}</TextCentering>
@@ -124,8 +138,8 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                             <TouchableOpacity onPress={() => goToCompareResItemPage(item.itemId)}>
                                 <Row style={Styles.Common.Centering}>
                                     <Col>
-                                        <ThumbnailR small square
-                                                    source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
+                                        <Thumbnail small square
+                                                   source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
                                     </Col>
                                     <Col>
                                         <TextCentering>{`x${item.count}`}</TextCentering>
@@ -157,8 +171,8 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         <ColCardWrapper>
                             <Row>
                                 <Col size={.2}>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, mstSkill.iconId)}}/>
+                                    <Thumbnail small square
+                                               source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, mstSkill.iconId)}}/>
                                 </Col>
                                 <Col style={Styles.Common.VerticalCentering}>
                                     <Text>{mstSkill.name}</Text>
@@ -188,7 +202,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
         let result: CompareResult = state.compareResult;
         if (result === undefined) {
-            return <View />;
+            return <View/>;
         }
 
         this._service.sortCompareResItems(resSvt.totalLimit, state.visibleItems);
@@ -203,9 +217,9 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{`${getMstSvt(props.svtId, state.svtRawData).name}`}</Title>
+                    <Title>{`${getMstSvt(props.svtId, state.svtRawData).name}`}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

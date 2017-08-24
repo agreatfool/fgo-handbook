@@ -4,10 +4,24 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ThumbnailR} from "../../../view/View";
+import {ColCardWrapper} from "../../../view/View";
 import {MstItem} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -45,14 +59,14 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
             rowData.forEach((svtData: MstItem, cellIndex) => {
                 cells.push(
                     <Col key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
-                          style={Styles.Common.HorizontalCentering}>
+                         style={Styles.Common.HorizontalCentering}>
                         <TouchableOpacity onPress={() => this.selectItem(svtData.id)}>
-                            <ThumbnailR small square
-                                        source={{
-                                            uri: MstUtil.instance.getRemoteItemUrl(
-                                                props.SceneGoal.appVer, svtData.id
-                                            )
-                                        }}/>
+                            <Thumbnail small square
+                                       source={{
+                                           uri: MstUtil.instance.getRemoteItemUrl(
+                                               props.SceneGoal.appVer, svtData.id
+                                           )
+                                       }}/>
                         </TouchableOpacity>
                     </Col>
                 );

@@ -12,10 +12,24 @@ import {
     SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -85,8 +99,8 @@ class ServantMaterial extends Component<State.Props, any> {
                         <Row style={Styles.Common.Centering}>
                             <Col>
                                 <TouchableOpacity onPress={() => this.selectItem(item.itemId)}>
-                                    <ThumbnailR small square
-                                                source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                                    <Thumbnail small square
+                                               source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
                                 </TouchableOpacity>
                             </Col>
                             <Col>
@@ -143,7 +157,7 @@ class ServantMaterial extends Component<State.Props, any> {
         let state = props.SceneServantInfo;
         let info: SvtInfoMaterial = state.materialInfo;
         if (MstUtil.isObjEmpty(info)) {
-            return <View />;
+            return <View/>;
         }
 
         let limit = this.renderLimit(info.limit);
@@ -158,9 +172,9 @@ class ServantMaterial extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{state.title}</Title>
+                    <Title>{state.title}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

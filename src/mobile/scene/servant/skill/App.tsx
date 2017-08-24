@@ -15,16 +15,23 @@ import {
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
-import * as Styles from "../../../view/Styles";
 import {
-    ColCard,
-    ColCentering,
-    GridColCardWrapper,
-    RowCentering,
-    TextCentering,
-    ThumbnailR
-} from "../../../view/View";
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
+import * as Styles from "../../../view/Styles";
+import {ColCard, ColCentering, GridColCardWrapper, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -97,8 +104,8 @@ class ServantSkill extends Component<State.Props, any> {
                 <GridColCardWrapper key={`SkillInfo_${index}`}>
                     <Row>
                         <Col size={.4}>
-                            <ThumbnailR small square
-                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            <Thumbnail small square
+                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </Col>
                         <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
                         <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
@@ -132,8 +139,8 @@ class ServantSkill extends Component<State.Props, any> {
                 <GridColCardWrapper key={`PasSkill_${index}`}>
                     <Row>
                         <Col size={.4}>
-                            <ThumbnailR small square
-                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            <Thumbnail small square
+                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </Col>
                         <Col size={1}><Text>{skill.name}</Text></Col>
                         <Col size={2}>{effects}</Col>
@@ -208,7 +215,7 @@ class ServantSkill extends Component<State.Props, any> {
         let state = props.SceneServantInfo;
         let info: SvtInfoSkill = state.skillInfo;
         if (MstUtil.isObjEmpty(info)) {
-            return <View />;
+            return <View/>;
         }
 
         let skills = this.renderSkills(info);
@@ -224,9 +231,9 @@ class ServantSkill extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{state.title}</Title>
+                    <Title>{state.title}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

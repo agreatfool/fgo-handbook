@@ -16,10 +16,24 @@ import {
     CompareResult
 } from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
@@ -427,7 +441,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
         let result: CompareResult = state.compareResult;
         if (result === undefined) {
-            return <View />;
+            return <View/>;
         }
 
         let totalItems = this.mergeCompareResItemDetail(result.totalLimit, result.totalSkill);
@@ -444,7 +458,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                     <Body>
                     <Title>Progress Compare</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
@@ -572,8 +586,8 @@ export const renderRowCellsOfElements = (appVer: string,
                     <TouchableOpacity onPress={() => goTo(element)}>
                         <Row>
                             <Col>
-                                <ThumbnailR small square
-                                            source={{uri: getImgUrl(appVer, element)}}/>
+                                <Thumbnail small square
+                                           source={{uri: getImgUrl(appVer, element)}}/>
                             </Col>
                             {count}
                         </Row>
@@ -585,8 +599,8 @@ export const renderRowCellsOfElements = (appVer: string,
                 rowView = (
                     <Row>
                         <Col>
-                            <ThumbnailR small square
-                                        source={{uri: getImgUrl(appVer, element)}}/>
+                            <Thumbnail small square
+                                       source={{uri: getImgUrl(appVer, element)}}/>
                         </Col>
                         {count}
                     </Row>

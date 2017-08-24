@@ -7,9 +7,24 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, CheckBox, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {
+    Body,
+    Button,
+    CheckBox,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Right,
+    Row,
+    Thumbnail,
+    Title
+} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -68,8 +83,8 @@ export class ServantFilter extends Component<State.Props, any> {
 
             let display = <TextCentering>{dataSet[index]}</TextCentering>;
             if (propName === "classId") {
-                display = <ThumbnailR small square
-                                      source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
+                display = <Thumbnail small square
+                                     source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
             }
 
             checkItems.push(
@@ -144,9 +159,9 @@ export class ServantFilter extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>ServantFilter</Title>
+                    <Title>ServantFilter</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
