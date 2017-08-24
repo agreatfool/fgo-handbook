@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {CardWithRows, ColCardWithRightButton, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRButton, CardWithRows, GridCardWrapper, ColCardWithRightButton, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -16,7 +16,7 @@ import {
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
+import {Card, CardItem, Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {defaultCurrentGoal, Goal} from "../../../lib/model/MstGoal";
@@ -151,38 +151,36 @@ class GoalList extends Component<State.Props, any> {
         );
 
         return (
-            <Grid>
-                <ColCardWrapper>
-                    <Row>
-                        <Col size={.5} style={Styles.Common.VerticalCentering}>
-                            <Text>选择进度比较</Text>
-                        </Col>
-                    </Row>
-                    <Row style={{marginTop: 10}}>
-                        {buttons}
-                        <Button small info bordered style={{marginLeft: 5}}
-                                onPress={() => {
-                                    if (state.compareSourceId === state.compareTargetId) {
-                                        Toast.show({
-                                            text: "比对双方不得为同一个进度！",
-                                            position: "bottom",
-                                            buttonText: "OK",
-                                            type: "warning",
-                                            duration: 3000
-                                        });
-                                        return;
-                                    }
-                                    //noinspection TypeScriptUnresolvedFunction
-                                    (Actions as any).goal_compare({
-                                        sourceId: state.compareSourceId,
-                                        targetId: state.compareTargetId
+            <GridCardWrapper>
+                <Row>
+                    <Col size={.5} style={Styles.Common.VerticalCentering}>
+                        <Text>选择进度比较</Text>
+                    </Col>
+                </Row>
+                <Row style={{marginTop: 10}}>
+                    {buttons}
+                    <Button small info bordered style={{marginLeft: 5}}
+                            onPress={() => {
+                                if (state.compareSourceId === state.compareTargetId) {
+                                    Toast.show({
+                                        text: "比对双方不得为同一个进度！",
+                                        position: "bottom",
+                                        buttonText: "OK",
+                                        type: "warning",
+                                        duration: 3000
                                     });
-                                }}>
-                            <Text>Go</Text>
-                        </Button>
-                    </Row>
-                </ColCardWrapper>
-            </Grid>
+                                    return;
+                                }
+                                //noinspection TypeScriptUnresolvedFunction
+                                (Actions as any).goal_compare({
+                                    sourceId: state.compareSourceId,
+                                    targetId: state.compareTargetId
+                                });
+                            }}>
+                        <Text>Go</Text>
+                    </Button>
+                </Row>
+            </GridCardWrapper>
         );
     }
 
@@ -200,7 +198,7 @@ class GoalList extends Component<State.Props, any> {
             //noinspection TypeScriptUnresolvedFunction
             goalList.push(
                 <Row key={`Goal_${index}`}>
-                    <ColCardWrapper>
+                    <GridCardWrapper>
                         <Row>
                             <Col size={1.2} style={Styles.Common.VerticalCentering}>
                                 <Text>{goal.name}</Text>
@@ -243,7 +241,7 @@ class GoalList extends Component<State.Props, any> {
                                 </Button>
                             </Col>
                         </Row>
-                    </ColCardWrapper>
+                    </GridCardWrapper>
                 </Row>
             );
         });
@@ -272,46 +270,40 @@ class GoalList extends Component<State.Props, any> {
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
-                        <Grid>
-                            <ColCardWithRightButton
-                                title="经验计算器"
-                                button="Go"
-                                onPress={() => (Actions as any).goal_exp()}/>
-                        </Grid>
-                        <Grid>
-                            <ColCardWithRightButton
-                                title="按道具浏览需求"
-                                button="Go"
-                                onPress={() => (Actions as any).goal_item_picker()}/>
-                        </Grid>
-                        <Grid>
-                            <ColCardWrapper>
-                                <Row>
-                                    <Col style={Styles.Common.VerticalCentering}>
-                                        <Text>编辑当前进度</Text>
-                                    </Col>
-                                    <Col size={.4} style={[Styles.Common.VerticalCentering, {
-                                        marginRight: 5,
-                                        alignItems: "flex-end"
-                                    }]}>
-                                        <Button small block info bordered
-                                                onPress={() => (Actions as any).goal_edit({
-                                                    mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
-                                                })}>
-                                            <Text>Extend</Text>
-                                        </Button>
-                                    </Col>
-                                    <Col size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
-                                        <Button small block info bordered
-                                                onPress={() => (Actions as any).goal_edit({
-                                                    mode: "edit", isCurrent: true, goalId: undefined
-                                                })}>
-                                            <Text>Go</Text>
-                                        </Button>
-                                    </Col>
-                                </Row>
-                            </ColCardWrapper>
-                        </Grid>
+                        <CardWithRButton
+                            title="经验计算器"
+                            button="Go"
+                            onPress={() => (Actions as any).goal_exp()}/>
+                        <CardWithRButton
+                            title="按道具浏览需求"
+                            button="Go"
+                            onPress={() => (Actions as any).goal_item_picker()}/>
+                        <GridCardWrapper>
+                            <Row>
+                                <Col style={Styles.Common.VerticalCentering}>
+                                    <Text>编辑当前进度</Text>
+                                </Col>
+                                <Col size={.4} style={[Styles.Common.VerticalCentering, {
+                                    marginRight: 5,
+                                    alignItems: "flex-end"
+                                }]}>
+                                    <Button small block info bordered
+                                            onPress={() => (Actions as any).goal_edit({
+                                                mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
+                                            })}>
+                                        <Text>Extend</Text>
+                                    </Button>
+                                </Col>
+                                <Col size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
+                                    <Button small block info bordered
+                                            onPress={() => (Actions as any).goal_edit({
+                                                mode: "edit", isCurrent: true, goalId: undefined
+                                            })}>
+                                        <Text>Go</Text>
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </GridCardWrapper>
                         <Grid>
                             <ColCardWithRightButton
                                 title="添加新进度目标"

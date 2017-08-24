@@ -21,7 +21,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper} from "../../../view/View";
+import {GridCardWrapper} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -84,11 +84,9 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCardWrapper>
-                        {rows}
-                    </ColCardWrapper>
-                </Grid>
+                <GridCardWrapper>
+                    {rows}
+                </GridCardWrapper>
             </View>
         );
     }

@@ -50,20 +50,20 @@ class ServantStory extends Component<State.Props, any> {
                 <CardWithRows items={["羁绊点数"]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <Row>
-                        <CardWithRows items={["Lv.1", this.genFriendshipStr(data[0])]}/>
-                        <CardWithRows items={["Lv.2", this.genFriendshipStr(data[1])]}/>
-                        <CardWithRows items={["Lv.3", this.genFriendshipStr(data[2])]}/>
-                        <CardWithRows items={["Lv.4", this.genFriendshipStr(data[3])]}/>
+                        <CardWithRows items={["羁绊一", this.genFriendshipStr(data[0])]}/>
+                        <CardWithRows items={["羁绊二", this.genFriendshipStr(data[1])]}/>
+                        <CardWithRows items={["羁绊三", this.genFriendshipStr(data[2])]}/>
+                        <CardWithRows items={["羁绊四", this.genFriendshipStr(data[3])]}/>
                     </Row>
                     <Row>
-                        <CardWithRows items={["Lv.5", this.genFriendshipStr(data[4])]}/>
-                        <CardWithRows items={["Lv.6", this.genFriendshipStr(data[5])]}/>
-                        <CardWithRows items={["Lv.7", this.genFriendshipStr(data[6])]}/>
+                        <CardWithRows items={["羁绊五", this.genFriendshipStr(data[4])]}/>
+                        <CardWithRows items={["羁绊六", this.genFriendshipStr(data[5])]}/>
+                        <CardWithRows items={["羁绊七", this.genFriendshipStr(data[6])]}/>
                     </Row>
                     <Row>
-                        <CardWithRows items={["Lv.8", this.genFriendshipStr(data[7])]}/>
-                        <CardWithRows items={["Lv.9", this.genFriendshipStr(data[8])]}/>
-                        <CardWithRows items={["Lv.10", this.genFriendshipStr(data[9])]}/>
+                        <CardWithRows items={["羁绊八", this.genFriendshipStr(data[7])]}/>
+                        <CardWithRows items={["羁绊九", this.genFriendshipStr(data[8])]}/>
+                        <CardWithRows items={["羁绊十", this.genFriendshipStr(data[9])]}/>
                     </Row>
                 </Grid>
             </View>
@@ -77,43 +77,43 @@ class ServantStory extends Component<State.Props, any> {
                 <Grid>
                     <CardWithRows items={["角色故事"]} backgroundColor="#CDE1F9"/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["角色详细"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["角色详细"]} isTextCentered={false}/>
                     <CardWithRows items={[info.detail]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}
                                   isTextCentered={false}/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["羁绊等级1"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["羁绊等级1"]} isTextCentered={false}/>
                     <CardWithRows items={[info.friendship1]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}
                                   isTextCentered={false}/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["羁绊等级2"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["羁绊等级2"]} isTextCentered={false}/>
                     <CardWithRows items={[info.friendship2]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}
                                   isTextCentered={false}/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["羁绊等级3"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["羁绊等级3"]} isTextCentered={false}/>
                     <CardWithRows items={[info.friendship3]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}
                                   isTextCentered={false}/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["羁绊等级4"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["羁绊等级4"]} isTextCentered={false}/>
                     <CardWithRows items={[info.friendship4]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}
                                   isTextCentered={false}/>
                 </Grid>
-                <Grid>
-                    <CardWithRows size={.15} items={["最终故事"]} isTextCentered={false}/>
+                <Grid style={{flex: 1, flexDirection: "column"}}>
+                    <CardWithRows items={["最终故事"]} isTextCentered={false}/>
                     <CardWithRows items={[info.lastStory]}
                                   isHorizontalCentered={false}
                                   isVerticalCentered={false}

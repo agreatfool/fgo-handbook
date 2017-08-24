@@ -33,7 +33,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
@@ -415,19 +415,17 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         return (
             <View>
                 <CardWithRows items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]} backgroundColor="#CDE1F9"/>
-                <Grid>
-                    <ColCardWrapper>
-                        <Row>
-                            <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
-                        </Row>
-                        <Row>
-                            <Col><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></Col>
-                        </Row>
-                        <Row>
-                            <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
-                        </Row>
-                    </ColCardWrapper>
-                </Grid>
+                <GridCardWrapper>
+                    <Row>
+                        <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
+                    </Row>
+                    <Row>
+                        <Col><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></Col>
+                    </Row>
+                    <Row>
+                        <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
+                    </Row>
+                </GridCardWrapper>
             </View>
         );
     }
@@ -629,11 +627,9 @@ export const renderRowCellsOfElements = (appVer: string,
     return (
         <View>
             {titleView}
-            <Grid>
-                <ColCardWrapper>
-                    {rows}
-                </ColCardWrapper>
-            </Grid>
+            <GridCardWrapper>
+                {rows}
+            </GridCardWrapper>
         </View>
     );
 };

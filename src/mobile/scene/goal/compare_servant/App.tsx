@@ -23,7 +23,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -94,9 +94,9 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
             limitListView.push(
                 <Row key={`Item_Limit_Row_${rowIndex}`}>
                     <CardWithRows size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/>
-                    <ColCardWrapper>
+                    <GridCardWrapper>
                         {itemsView}
-                    </ColCardWrapper>
+                    </GridCardWrapper>
                 </Row>
             );
         });
@@ -156,9 +156,9 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 skillLevelListView.push(
                     <Row key={`Item_Skill_Row_${lvIndex}`}>
                         <CardWithRows size={.3} items={[`Lv.${lvIndex}\n->\nLv.${lvIndex + 1}`]} rowHeight={36}/>
-                        <ColCardWrapper>
+                        <GridCardWrapper>
                             {cells}
-                        </ColCardWrapper>
+                        </GridCardWrapper>
                     </Row>
                 );
             });
@@ -166,7 +166,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
             skillListView.push(
                 <Grid key={`Skill_Title_${resSkill.skillId}`}>
                     <Row>
-                        <ColCardWrapper>
+                        <GridCardWrapper>
                             <Row>
                                 <Col size={.2}>
                                     <Thumbnail small square
@@ -176,7 +176,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                                     <Text>{mstSkill.name}</Text>
                                 </Col>
                             </Row>
-                        </ColCardWrapper>
+                        </GridCardWrapper>
                     </Row>
                     {skillLevelListView}
                 </Grid>

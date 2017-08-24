@@ -24,7 +24,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -120,29 +120,25 @@ export class ServantFilter extends Component<State.Props, any> {
         return (
             <View>
                 <CardWithRows items={[title]} backgroundColor="#CDE1F9"/>
-                <Grid>
-                    <ColCardWrapper>
-                        {rows}
-                    </ColCardWrapper>
-                </Grid>
-                <Grid>
-                    <ColCardWrapper>
-                        <Row>
-                            <Col style={{marginLeft: 10, marginRight: 10}}>
-                                <Button block info bordered small
-                                        onPress={() => this.onCheck(0, propName, dataSet)}>
-                                    <Text>全选</Text>
-                                </Button>
-                            </Col>
-                            <Col style={{marginLeft: 10, marginRight: 10}}>
-                                <Button block info bordered small
-                                        onPress={() => this.onCheck(-1, propName, dataSet)}>
-                                    <Text>清空</Text>
-                                </Button>
-                            </Col>
-                        </Row>
-                    </ColCardWrapper>
-                </Grid>
+                <GridCardWrapper>
+                    {rows}
+                </GridCardWrapper>
+                <GridCardWrapper>
+                    <Row>
+                        <Col style={{marginLeft: 10, marginRight: 10}}>
+                            <Button block info bordered small
+                                    onPress={() => this.onCheck(0, propName, dataSet)}>
+                                <Text>全选</Text>
+                            </Button>
+                        </Col>
+                        <Col style={{marginLeft: 10, marginRight: 10}}>
+                            <Button block info bordered small
+                                    onPress={() => this.onCheck(-1, propName, dataSet)}>
+                                <Text>清空</Text>
+                            </Button>
+                        </Col>
+                    </Row>
+                </GridCardWrapper>
             </View>
         );
     }

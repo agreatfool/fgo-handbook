@@ -81,12 +81,12 @@ class ServantDetail extends Component<State.Props, any> {
                 <Grid>
                     <CardWithRows items={["最高血量", this.genHpAtkStr(info.hpAtkMax.hp)]}/>
                     <CardWithRows items={["最高攻击", this.genHpAtkStr(info.hpAtkMax.atk)]}/>
-                    <CardWithRows items={["Lv.80血量", this.genHpAtkStr(info.hpAtk80.hp)]}/>
-                    <CardWithRows items={["Lv.80攻击", this.genHpAtkStr(info.hpAtk80.atk)]}/>
+                    <CardWithRows items={["四星血量", this.genHpAtkStr(info.hpAtk80.hp)]}/>
+                    <CardWithRows items={["四星攻击", this.genHpAtkStr(info.hpAtk80.atk)]}/>
                 </Grid>
                 <Grid>
-                    <CardWithRows items={["Lv.90血量", this.genHpAtkStr(info.hpAtk90.hp)]}/>
-                    <CardWithRows items={["Lv.90攻击", this.genHpAtkStr(info.hpAtk90.atk)]}/>
+                    <CardWithRows items={["五星血量", this.genHpAtkStr(info.hpAtk90.hp)]}/>
+                    <CardWithRows items={["五星攻击", this.genHpAtkStr(info.hpAtk90.atk)]}/>
                     <CardWithRows items={["百级血量", this.genHpAtkStr(info.hpAtk100.hp)]}/>
                     <CardWithRows items={["百级攻击", this.genHpAtkStr(info.hpAtk100.atk)]}/>
                 </Grid>

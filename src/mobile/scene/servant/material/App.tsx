@@ -29,7 +29,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -70,7 +70,7 @@ class ServantMaterial extends Component<State.Props, any> {
     }
 
     genSkillStr(index: number) {
-        return `Lv.${index}\n->\nLv.${index + 1}`;
+        return `Lv.${index} -> Lv.${index + 1}`;
     }
 
     selectItem(itemId: number) {
@@ -95,15 +95,15 @@ class ServantMaterial extends Component<State.Props, any> {
 
             element.items.forEach((item: SvtInfoMaterialDetail, index) => {
                 materials.push(
-                    <Col key={`ElementCell_${index}`}>
+                    <Col key={`ElementCell_${index}`} style={{backgroundColor: "#FFFFFF"}}>
                         <Row style={Styles.Common.Centering}>
-                            <Col>
+                            <Col style={{backgroundColor: "#FFFFFF"}}>
                                 <TouchableOpacity onPress={() => this.selectItem(item.itemId)}>
                                     <Thumbnail small square
                                                source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
                                 </TouchableOpacity>
                             </Col>
-                            <Col>
+                            <Col style={{backgroundColor: "#FFFFFF"}}>
                                 <TextCentering>{this.genItemCountStr(item.count)}</TextCentering>
                             </Col>
                         </Row>
@@ -111,23 +111,25 @@ class ServantMaterial extends Component<State.Props, any> {
                 );
             });
             materials.push(
-                <Col key={`ElementQP_${index}`} style={Styles.Common.Centering}>
+                <Col key={`ElementQP_${index}`} style={[Styles.Common.Centering, {backgroundColor: "#FFFFFF"}]}>
                     <TextCentering>{this.genQpStr(element.qp)}</TextCentering>
                 </Col>
             );
             if (materials.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - materials.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    materials.push(<Col key={`ElementPH_${index}_${loop}`}/>);
+                    materials.push(<Col key={`ElementPH_${index}_${loop}`} style={{backgroundColor: "#FFFFFF"}}/>);
                 }
             }
 
             result.push(
                 <Row key={`Element_${index}`}>
-                    <CardWithRows size={.3} items={[subTitleRender(index + 1)]} rowHeight={36}/>
-                    <ColCardWrapper>
-                        {materials}
-                    </ColCardWrapper>
+                    <Col size={.4}><CardWithRows items={[subTitleRender(index + 1)]} rowHeight={36}/></Col>
+                    <Col size={1}>
+                        <GridCardWrapper>
+                            {materials}
+                        </GridCardWrapper>
+                    </Col>
                 </Row>
             )
         });

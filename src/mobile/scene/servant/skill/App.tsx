@@ -84,7 +84,9 @@ class ServantSkill extends Component<State.Props, any> {
             let effects = [];
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
                 effects.push(
-                    <Row key={`SkillEffectDesc_${index}`}>
+                    <Row key={`SkillEffectDesc_${index}`} style={[Styles.Common.VerticalCentering, {
+                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
+                    }]}>
                         <Col><Text>{effect.description}</Text></Col>
                     </Row>
                 );
@@ -97,12 +99,16 @@ class ServantSkill extends Component<State.Props, any> {
                             </Col>
                         );
                     });
-                    effects.push(<Row key={`SkillEffectNumber_${index}`}>{effectNumbers}</Row>);
+                    effects.push(<Row style={[Styles.Common.VerticalCentering, {
+                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
+                    }]} key={`SkillEffectNumber_${index}`}>{effectNumbers}</Row>);
                 }
             });
             skills.push(
                 <CardGridWrapper key={`SkillInfo_${index}`}>
-                    <Row>
+                    <Row style={[Styles.Common.VerticalCentering, {
+                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
+                    }]}>
                         <Col size={.4}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
@@ -135,12 +141,14 @@ class ServantSkill extends Component<State.Props, any> {
 
             skills.push(
                 <CardGridWrapper key={`PasSkill_${index}`}>
-                    <Row>
+                    <Row style={[Styles.Common.VerticalCentering, {
+                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
+                    }]}>
                         <Col size={.4}>
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </Col>
-                        <Col size={1}><Text>{skill.name}</Text></Col>
+                        <Col size={1}><Row><Text>{skill.name}</Text></Row></Col>
                         <Col size={2}>{effects}</Col>
                     </Row>
                 </CardGridWrapper>
@@ -180,7 +188,9 @@ class ServantSkill extends Component<State.Props, any> {
             });
             skills.push(
                 <CardGridWrapper key={`TreSkill_${index}`}>
-                    <Row style={[Styles.Common.VerticalCentering, {marginBottom: 5, height: 20}]}>
+                    <Row style={[Styles.Common.VerticalCentering, {
+                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10
+                    }]}>
                         <Col size={2}>
                             <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
                                 {treasure.name}
@@ -241,5 +251,7 @@ class ServantSkill extends Component<State.Props, any> {
         );
     }
 }
+
+// class
 
 export const App = injectIntoComponent(ServantSkill, State.StateName, Action.Actions);

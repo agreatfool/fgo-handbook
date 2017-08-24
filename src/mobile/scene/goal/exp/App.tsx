@@ -7,7 +7,7 @@ import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
 import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 import {MstSvtExpContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import {MstSvtExp} from "../../../../model/master/Master";
@@ -104,30 +104,28 @@ class GoalExp extends Component<State.Props, any> {
         return (
             <View>
                 <CardWithRows items={["操作选择"]} backgroundColor="#CDE1F9"/>
-                <Grid>
-                    <ColCardWrapper>
-                        <Row>
-                            <Col size={.5} style={Styles.Common.VerticalCentering}>
-                                <TextCentering>现在</TextCentering>
-                            </Col>
-                            <Col>
-                                {this.renderLvPicker("现在等级", state.sourceLv,
-                                    (value: string) => this.setState({sourceLv: value}))}
-                            </Col>
-                            <Col size={.5} style={Styles.Common.VerticalCentering}>
-                                <TextCentering>目标</TextCentering>
-                            </Col>
-                            <Col>
-                                {this.renderLvPicker("目标等级", state.targetLv,
-                                    (value: string) => this.setState({targetLv: value}))}
-                            </Col>
-                            <Button small info bordered style={{marginLeft: 5}}
-                                    onPress={() => this.calcExp()}>
-                                <Text>Go</Text>
-                            </Button>
-                        </Row>
-                    </ColCardWrapper>
-                </Grid>
+                <GridCardWrapper>
+                    <Row>
+                        <Col size={.5} style={Styles.Common.VerticalCentering}>
+                            <TextCentering>现在</TextCentering>
+                        </Col>
+                        <Col>
+                            {this.renderLvPicker("现在等级", state.sourceLv,
+                                (value: string) => this.setState({sourceLv: value}))}
+                        </Col>
+                        <Col size={.5} style={Styles.Common.VerticalCentering}>
+                            <TextCentering>目标</TextCentering>
+                        </Col>
+                        <Col>
+                            {this.renderLvPicker("目标等级", state.targetLv,
+                                (value: string) => this.setState({targetLv: value}))}
+                        </Col>
+                        <Button small info bordered style={{marginLeft: 5}}
+                                onPress={() => this.calcExp()}>
+                            <Text>Go</Text>
+                        </Button>
+                    </Row>
+                </GridCardWrapper>
             </View>
         );
     }
@@ -138,22 +136,20 @@ class GoalExp extends Component<State.Props, any> {
         return (
             <View>
                 <CardWithRows items={["猛火需求"]} backgroundColor="#CDE1F9"/>
-                <Grid>
-                    <ColCardWrapper>
-                        <Row>
-                            <Col><Text>现在等级</Text></Col>
-                            <Col><Text>{state.sourceLv}</Text></Col>
-                            <Col><Text>目标等级</Text></Col>
-                            <Col><Text>{state.targetLv}</Text></Col>
-                        </Row>
-                        <Row>
-                            <Col><Text>同职阶</Text></Col>
-                            <Col><Text>{state.cardCountBonus}</Text></Col>
-                            <Col><Text>非同职阶</Text></Col>
-                            <Col><Text>{state.cardCount}</Text></Col>
-                        </Row>
-                    </ColCardWrapper>
-                </Grid>
+                <GridCardWrapper>
+                    <Row>
+                        <Col><Text>现在等级</Text></Col>
+                        <Col><Text>{state.sourceLv}</Text></Col>
+                        <Col><Text>目标等级</Text></Col>
+                        <Col><Text>{state.targetLv}</Text></Col>
+                    </Row>
+                    <Row>
+                        <Col><Text>同职阶</Text></Col>
+                        <Col><Text>{state.cardCountBonus}</Text></Col>
+                        <Col><Text>非同职阶</Text></Col>
+                        <Col><Text>{state.cardCount}</Text></Col>
+                    </Row>
+                </GridCardWrapper>
             </View>
         );
     }

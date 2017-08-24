@@ -21,7 +21,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ColCardWrapper} from "../../../view/View";
+import {CardWithRows, GridCardWrapper} from "../../../view/View";
 import {MstCombineLimit, MstCombineSkill} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResSvtItem} from "../list/State";
@@ -135,23 +135,21 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
         let state = this.state as GoalItemRequirementState;
 
         return (
-            <Grid>
-                <ColCardWrapper backgroundColor="#CDE1F9">
-                    <Row>
-                        <Col size={.2}>
-                            <Thumbnail small square
-                                       source={{
-                                           uri: MstUtil.instance.getRemoteItemUrl(
-                                               props.SceneItemRequirement.appVer, props.itemId
-                                           )
-                                       }}/>
-                        </Col>
-                        <Col style={Styles.Common.VerticalCentering}>
-                            <Text>{`${state.itemName}  x${state.total}`}</Text>
-                        </Col>
-                    </Row>
-                </ColCardWrapper>
-            </Grid>
+            <GridCardWrapper backgroundColor="#CDE1F9">
+                <Row>
+                    <Col size={.2}>
+                        <Thumbnail small square
+                                   source={{
+                                       uri: MstUtil.instance.getRemoteItemUrl(
+                                           props.SceneItemRequirement.appVer, props.itemId
+                                       )
+                                   }}/>
+                    </Col>
+                    <Col style={Styles.Common.VerticalCentering}>
+                        <Text>{`${state.itemName}  x${state.total}`}</Text>
+                    </Col>
+                </Row>
+            </GridCardWrapper>
         );
     }
 
