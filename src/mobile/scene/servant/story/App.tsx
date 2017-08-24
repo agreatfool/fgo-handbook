@@ -5,7 +5,7 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {ColCard} from "../../../view/View";
+import {CardWithRows} from "../../../view/View";
 import * as Styles from "../../../view/Styles";
 import {SvtInfoFSReq, SvtInfoStory} from "../../../lib/model/MstInfo";
 import {Actions} from "react-native-router-flux";
@@ -47,25 +47,23 @@ class ServantStory extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["羁绊点数"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["羁绊点数"]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <Row>
-                        <ColCard items={["Lv.1", this.genFriendshipStr(data[0])]}/>
-                        <ColCard items={["Lv.2", this.genFriendshipStr(data[1])]}/>
-                        <ColCard items={["Lv.3", this.genFriendshipStr(data[2])]}/>
-                        <ColCard items={["Lv.4", this.genFriendshipStr(data[3])]}/>
+                        <CardWithRows items={["Lv.1", this.genFriendshipStr(data[0])]}/>
+                        <CardWithRows items={["Lv.2", this.genFriendshipStr(data[1])]}/>
+                        <CardWithRows items={["Lv.3", this.genFriendshipStr(data[2])]}/>
+                        <CardWithRows items={["Lv.4", this.genFriendshipStr(data[3])]}/>
                     </Row>
                     <Row>
-                        <ColCard items={["Lv.5", this.genFriendshipStr(data[4])]}/>
-                        <ColCard items={["Lv.6", this.genFriendshipStr(data[5])]}/>
-                        <ColCard items={["Lv.7", this.genFriendshipStr(data[6])]}/>
+                        <CardWithRows items={["Lv.5", this.genFriendshipStr(data[4])]}/>
+                        <CardWithRows items={["Lv.6", this.genFriendshipStr(data[5])]}/>
+                        <CardWithRows items={["Lv.7", this.genFriendshipStr(data[6])]}/>
                     </Row>
                     <Row>
-                        <ColCard items={["Lv.8", this.genFriendshipStr(data[7])]}/>
-                        <ColCard items={["Lv.9", this.genFriendshipStr(data[8])]}/>
-                        <ColCard items={["Lv.10", this.genFriendshipStr(data[9])]}/>
+                        <CardWithRows items={["Lv.8", this.genFriendshipStr(data[7])]}/>
+                        <CardWithRows items={["Lv.9", this.genFriendshipStr(data[8])]}/>
+                        <CardWithRows items={["Lv.10", this.genFriendshipStr(data[9])]}/>
                     </Row>
                 </Grid>
             </View>
@@ -77,49 +75,49 @@ class ServantStory extends Component<State.Props, any> {
         return (
             <View>
                 <Grid>
-                    <ColCard items={["角色故事"]} backgroundColor="#CDE1F9"/>
+                    <CardWithRows items={["角色故事"]} backgroundColor="#CDE1F9"/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["角色详细"]} isTextCentered={false}/>
-                    <ColCard items={[info.detail]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["角色详细"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.detail]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["羁绊等级1"]} isTextCentered={false}/>
-                    <ColCard items={[info.friendship1]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["羁绊等级1"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.friendship1]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["羁绊等级2"]} isTextCentered={false}/>
-                    <ColCard items={[info.friendship2]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["羁绊等级2"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.friendship2]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["羁绊等级3"]} isTextCentered={false}/>
-                    <ColCard items={[info.friendship3]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["羁绊等级3"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.friendship3]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["羁绊等级4"]} isTextCentered={false}/>
-                    <ColCard items={[info.friendship4]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["羁绊等级4"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.friendship4]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
                 <Grid>
-                    <ColCard size={.15} items={["最终故事"]} isTextCentered={false}/>
-                    <ColCard items={[info.lastStory]}
-                             isHorizontalCentered={false}
-                             isVerticalCentered={false}
-                             isTextCentered={false}/>
+                    <CardWithRows size={.15} items={["最终故事"]} isTextCentered={false}/>
+                    <CardWithRows items={[info.lastStory]}
+                                  isHorizontalCentered={false}
+                                  isVerticalCentered={false}
+                                  isTextCentered={false}/>
                 </Grid>
             </View>
         );
@@ -130,7 +128,7 @@ class ServantStory extends Component<State.Props, any> {
         let state = props.SceneServantInfo;
         let info: SvtInfoStory = state.storyInfo;
         if (MstUtil.isObjEmpty(info)) {
-            return <View />;
+            return <View/>;
         }
 
         let friendship = this.renderFriendship(info);
@@ -145,9 +143,9 @@ class ServantStory extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>{state.title}</Title>
+                    <Title>{state.title}</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

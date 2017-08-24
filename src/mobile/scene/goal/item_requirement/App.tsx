@@ -21,7 +21,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper} from "../../../view/View";
+import {CardWithRows, ColCardWrapper} from "../../../view/View";
 import {MstCombineLimit, MstCombineSkill} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResSvtItem} from "../list/State";
@@ -182,14 +182,10 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
                 <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle()}
-                        <Grid>
-                            <ColCard items={[`灵基再临  x${state.limitTotal}`]} backgroundColor="#CDE1F9"/>
-                        </Grid>
+                        <CardWithRows items={[`灵基再临  x${state.limitTotal}`]} backgroundColor="#CDE1F9"/>
                         {renderRowCellsOfElements(props.SceneItemRequirement.appVer, "",
                             ElementType.SvtItem, 5, state.limit)}
-                        <Grid>
-                            <ColCard items={[`技能升级  x${state.skillTotal}`]} backgroundColor="#CDE1F9"/>
-                        </Grid>
+                        <CardWithRows items={[`技能升级  x${state.skillTotal}`]} backgroundColor="#CDE1F9"/>
                         {renderRowCellsOfElements(props.SceneItemRequirement.appVer, "",
                             ElementType.SvtItem, 5, state.skill)}
                     </View>

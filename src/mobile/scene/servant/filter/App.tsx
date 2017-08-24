@@ -24,7 +24,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -119,9 +119,7 @@ export class ServantFilter extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={[title]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <ColCardWrapper>
                         {rows}

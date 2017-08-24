@@ -7,7 +7,7 @@ import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
 import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
 import {MstSvtExpContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import {MstSvtExp} from "../../../../model/master/Master";
@@ -103,9 +103,7 @@ class GoalExp extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["操作选择"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["操作选择"]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <ColCardWrapper>
                         <Row>
@@ -139,9 +137,7 @@ class GoalExp extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["猛火需求"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["猛火需求"]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <ColCardWrapper>
                         <Row>
@@ -177,9 +173,9 @@ class GoalExp extends Component<State.Props, any> {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Exp Calc</Title>
+                    <Title>Exp Calc</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

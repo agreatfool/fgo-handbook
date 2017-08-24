@@ -33,7 +33,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
@@ -414,10 +414,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]}
-                             backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     <ColCardWrapper>
                         <Row>
@@ -625,9 +622,7 @@ export const renderRowCellsOfElements = (appVer: string,
     let titleView = <View/>;
     if (title) {
         titleView = (
-            <Grid>
-                <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-            </Grid>
+            <CardWithRows items={[title]} backgroundColor="#CDE1F9"/>
         );
     }
 

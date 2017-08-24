@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {ColCard, GridColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, GridColCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -529,9 +529,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle()}
                         {this.renderServantSelect()}
-                        <Grid key="GoalServantList">
-                            <ColCard items={["从者列表"]} backgroundColor="#CDE1F9"/>
-                        </Grid>
+                        <CardWithRows key="GoalServantList" items={["从者列表"]} backgroundColor="#CDE1F9"/>
                         {this.renderServantList()}
                     </View>
                 </Content>

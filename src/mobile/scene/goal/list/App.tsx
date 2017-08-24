@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {ColCard, ColCardWithRightButton, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWithRightButton, ColCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -321,9 +321,7 @@ class GoalList extends Component<State.Props, any> {
                                 })}/>
                         </Grid>
                         {this.renderCompareButton()}
-                        <Grid key="GoalServantList">
-                            <ColCard items={["进度列表"]} backgroundColor="#CDE1F9"/>
-                        </Grid>
+                        <CardWithRows key="GoalServantList" items={["进度列表"]} backgroundColor="#CDE1F9"/>
                         {this.renderGoalList()}
                     </View>
                 </Content>

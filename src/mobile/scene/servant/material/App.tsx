@@ -29,7 +29,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -124,7 +124,7 @@ class ServantMaterial extends Component<State.Props, any> {
 
             result.push(
                 <Row key={`Element_${index}`}>
-                    <ColCard size={.3} items={[subTitleRender(index + 1)]} rowHeight={36}/>
+                    <CardWithRows size={.3} items={[subTitleRender(index + 1)]} rowHeight={36}/>
                     <ColCardWrapper>
                         {materials}
                     </ColCardWrapper>
@@ -134,9 +134,7 @@ class ServantMaterial extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={[title]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     {result}
                 </Grid>

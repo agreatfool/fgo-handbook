@@ -31,7 +31,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCentering, GridColCardWrapper, RowCentering, TextCentering} from "../../../view/View";
+import {CardWithRows, GridColCardWrapper, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -84,9 +84,9 @@ class ServantSkill extends Component<State.Props, any> {
             let effects = [];
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
                 effects.push(
-                    <RowCentering key={`SkillEffectDesc_${index}`}>
+                    <Row key={`SkillEffectDesc_${index}`}>
                         <Col><Text>{effect.description}</Text></Col>
-                    </RowCentering>
+                    </Row>
                 );
                 let effectNumbers = [];
                 if (effect.effects.length > 0) {
@@ -97,7 +97,7 @@ class ServantSkill extends Component<State.Props, any> {
                             </Col>
                         );
                     });
-                    effects.push(<RowCentering key={`SkillEffectNumber_${index}`}>{effectNumbers}</RowCentering>);
+                    effects.push(<Row key={`SkillEffectNumber_${index}`}>{effectNumbers}</Row>);
                 }
             });
             skills.push(
@@ -107,9 +107,9 @@ class ServantSkill extends Component<State.Props, any> {
                             <Thumbnail small square
                                        source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
                         </Col>
-                        <ColCentering><TextCentering>{skill.name}</TextCentering></ColCentering>
-                        <ColCentering><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></ColCentering>
-                        <ColCentering><TextCentering>{skill.condition}</TextCentering></ColCentering>
+                        <Col><TextCentering>{skill.name}</TextCentering></Col>
+                        <Col><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></Col>
+                        <Col><TextCentering>{skill.condition}</TextCentering></Col>
                     </Row>
                     {effects}
                 </GridColCardWrapper>
@@ -118,9 +118,7 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["保有技能"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["保有技能"]} backgroundColor="#CDE1F9"/>
                 {skills}
             </View>
         );
@@ -151,9 +149,7 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["职阶技能"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["职阶技能"]} backgroundColor="#CDE1F9"/>
                 {skills}
             </View>
         );
@@ -202,9 +198,7 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["宝具"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["宝具"]} backgroundColor="#CDE1F9"/>
                 {skills}
             </View>
         );

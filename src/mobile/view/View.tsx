@@ -7,7 +7,7 @@ export interface Props {
     children?: ReactNode;
 }
 
-interface ColCardProps extends Props {
+interface CardWithRowsProps extends Props {
     items: Array<String | number | JSX.Element>;
     size?: number;
     rowHeight?: number;             // default 20
@@ -19,15 +19,10 @@ interface ColCardProps extends Props {
     backgroundColor?: string;
 }
 
-export class ColCard extends Component<ColCardProps, any> {
+export class CardWithRows extends Component<CardWithRowsProps, any> {
     render() {
-        let props = this.props as ColCardProps;
+        let props = this.props as CardWithRowsProps;
         let rows = [];
-
-        let colProps = {};
-        if (props.hasOwnProperty("size")) {
-            colProps = Object.assign(colProps, {size: props.size});
-        }
 
         let rowStyle = {};
         rowStyle = Object.assign(rowStyle, {minHeight: 20});
@@ -55,9 +50,9 @@ export class ColCard extends Component<ColCardProps, any> {
             textStyle = Object.assign(textStyle, props.textStyle);
         }
 
-        let cardItemStyle = {};
+        let cardStyle = {};
         if (props.hasOwnProperty("backgroundColor")) {
-            cardItemStyle = Object.assign(cardItemStyle, {backgroundColor: props.backgroundColor});
+            cardStyle = Object.assign(cardStyle, {backgroundColor: props.backgroundColor});
         }
 
         props.items.forEach((item, index) => {
@@ -77,11 +72,9 @@ export class ColCard extends Component<ColCardProps, any> {
         });
 
         return (
-            <Col {...colProps}>
-                <Card style={cardItemStyle}>
-                    {rows}
-                </Card>
-            </Col>
+            <Card style={cardStyle}>
+                {rows}
+            </Card>
         );
     }
 }

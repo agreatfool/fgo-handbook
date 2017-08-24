@@ -23,7 +23,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ColCardWrapper, TextCentering} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -93,7 +93,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
             limitListView.push(
                 <Row key={`Item_Limit_Row_${rowIndex}`}>
-                    <ColCard size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/>
+                    <CardWithRows size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/>
                     <ColCardWrapper>
                         {itemsView}
                     </ColCardWrapper>
@@ -103,9 +103,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["灵基再临需求列表"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["灵基再临需求列表"]} backgroundColor="#CDE1F9"/>
                 <Grid>
                     {limitListView}
                 </Grid>
@@ -157,7 +155,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 }
                 skillLevelListView.push(
                     <Row key={`Item_Skill_Row_${lvIndex}`}>
-                        <ColCard size={.3} items={[`Lv.${lvIndex}\n->\nLv.${lvIndex + 1}`]} rowHeight={36}/>
+                        <CardWithRows size={.3} items={[`Lv.${lvIndex}\n->\nLv.${lvIndex + 1}`]} rowHeight={36}/>
                         <ColCardWrapper>
                             {cells}
                         </ColCardWrapper>
@@ -187,9 +185,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
         return (
             <View>
-                <Grid>
-                    <ColCard items={["技能升级需求列表"]} backgroundColor="#CDE1F9"/>
-                </Grid>
+                <CardWithRows items={["技能升级需求列表"]} backgroundColor="#CDE1F9"/>
                 {skillListView}
             </View>
         );
