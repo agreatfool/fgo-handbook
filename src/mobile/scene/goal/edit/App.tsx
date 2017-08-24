@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {CardWithRows, GridColCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, CardGridWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -372,7 +372,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         }
 
         return (
-            <GridColCardWrapper>
+            <CardGridWrapper>
                 <Row>
                     <Col size={.5} style={Styles.Common.VerticalCentering}><Text>编辑名称</Text></Col>
                     <Col>
@@ -386,7 +386,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </Item>
                     </Col>
                 </Row>
-            </GridColCardWrapper>
+            </CardGridWrapper>
         );
     }
 
@@ -395,7 +395,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         //noinspection TypeScriptUnresolvedFunction
         return (
-            <GridColCardWrapper>
+            <CardGridWrapper>
                 <Row>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>选择目标从者</Text>
@@ -417,7 +417,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         </Button>
                     </Col>
                 </Row>
-            </GridColCardWrapper>
+            </CardGridWrapper>
         );
     }
 
@@ -455,7 +455,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             });
 
             view.push(
-                <GridColCardWrapper key={`GoalSvt_${goalSvt.svtId}`}>
+                <CardGridWrapper key={`GoalSvt_${goalSvt.svtId}`}>
                     <Row>
                         <Col>
                             <TouchableOpacity
@@ -496,7 +496,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                             </Button>
                         </Col>
                     </Row>
-                </GridColCardWrapper>
+                </CardGridWrapper>
             );
         });
 

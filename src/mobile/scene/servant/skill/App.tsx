@@ -31,7 +31,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardWithRows, GridColCardWrapper, RowCentering, TextCentering} from "../../../view/View";
+import {CardWithRows, CardGridWrapper, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -101,7 +101,7 @@ class ServantSkill extends Component<State.Props, any> {
                 }
             });
             skills.push(
-                <GridColCardWrapper key={`SkillInfo_${index}`}>
+                <CardGridWrapper key={`SkillInfo_${index}`}>
                     <Row>
                         <Col size={.4}>
                             <Thumbnail small square
@@ -112,7 +112,7 @@ class ServantSkill extends Component<State.Props, any> {
                         <Col><TextCentering>{skill.condition}</TextCentering></Col>
                     </Row>
                     {effects}
-                </GridColCardWrapper>
+                </CardGridWrapper>
             );
         });
 
@@ -134,7 +134,7 @@ class ServantSkill extends Component<State.Props, any> {
             });
 
             skills.push(
-                <GridColCardWrapper key={`PasSkill_${index}`}>
+                <CardGridWrapper key={`PasSkill_${index}`}>
                     <Row>
                         <Col size={.4}>
                             <Thumbnail small square
@@ -143,7 +143,7 @@ class ServantSkill extends Component<State.Props, any> {
                         <Col size={1}><Text>{skill.name}</Text></Col>
                         <Col size={2}>{effects}</Col>
                     </Row>
-                </GridColCardWrapper>
+                </CardGridWrapper>
             );
         });
 
@@ -179,7 +179,7 @@ class ServantSkill extends Component<State.Props, any> {
                 }
             });
             skills.push(
-                <GridColCardWrapper key={`TreSkill_${index}`}>
+                <CardGridWrapper key={`TreSkill_${index}`}>
                     <Row style={[Styles.Common.VerticalCentering, {marginBottom: 5, height: 20}]}>
                         <Col size={2}>
                             <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
@@ -192,7 +192,7 @@ class ServantSkill extends Component<State.Props, any> {
                         <Col size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></Col>
                     </Row>
                     {effects}
-                </GridColCardWrapper>
+                </CardGridWrapper>
             );
         });
 

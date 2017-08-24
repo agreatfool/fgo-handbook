@@ -138,7 +138,7 @@ export class ColCardWithRightButton extends Component<ColCardWithRightButtonProp
     }
 }
 
-export class GridColCardWrapper extends Component<Props, any> {
+export class CardGridWrapper extends Component<Props, any> {
     render() {
         let props = this.props as Props;
         return (
