@@ -7,10 +7,10 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import {MstItemContainer} from "../../../../model/impl/MstContainer";
 import {CompareResItem, CompareResSvtItem, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, ThumbnailR} from "../../../view/View";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -77,17 +77,17 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
             <GridLine>
                 <ColCardWrapper backgroundColor="#CDE1F9">
                     <Row>
-                        <ColR size={.2}>
+                        <Col size={.2}>
                             <ThumbnailR small square
                                         source={{
                                             uri: MstUtil.instance.getRemoteItemUrl(
                                                 props.SceneGoal.appVer, props.itemId
                                             )
                                         }}/>
-                        </ColR>
-                        <ColR style={Styles.Common.VerticalCentering}>
+                        </Col>
+                        <Col style={Styles.Common.VerticalCentering}>
                             <Text>{`${state.itemName}  x${state.total}`}</Text>
-                        </ColR>
+                        </Col>
                     </Row>
                 </ColCardWrapper>
             </GridLine>

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {ColCard, ColCardWithRightButton, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
+import {ColCard, ColCardWithRightButton, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -16,7 +16,7 @@ import {
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {defaultCurrentGoal, Goal} from "../../../lib/model/MstGoal";
@@ -131,32 +131,32 @@ class GoalList extends Component<State.Props, any> {
         let goals: Array<Goal> = props.SceneGoal.goals;
         let buttons = [];
         buttons.push(
-            <ColR key="CompareSource">
+            <Col key="CompareSource">
                 {this.renderGoalsPicker(
                     "选择比对源", goals, state.compareSourceId,
                     (value: string) => this.setState({compareSourceId: value}))}
-            </ColR>
+            </Col>
         );
         buttons.push(
-            <ColR key="CompareVS" size={.2} style={Styles.Common.VerticalCentering}>
+            <Col key="CompareVS" size={.2} style={Styles.Common.VerticalCentering}>
                 <TextCentering>VS</TextCentering>
-            </ColR>
+            </Col>
         );
         buttons.push(
-            <ColR key="CompareTarget">
+            <Col key="CompareTarget">
                 {this.renderGoalsPicker(
                     "选择比对目标", goals, state.compareTargetId,
                     (value: string) => this.setState({compareTargetId: value}))}
-            </ColR>
+            </Col>
         );
 
         return (
             <GridLine>
                 <ColCardWrapper>
                     <Row>
-                        <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                        <Col size={.5} style={Styles.Common.VerticalCentering}>
                             <Text>选择进度比较</Text>
-                        </ColR>
+                        </Col>
                     </Row>
                     <Row style={{marginTop: 10}}>
                         {buttons}
@@ -202,13 +202,13 @@ class GoalList extends Component<State.Props, any> {
                 <Row key={`Goal_${index}`}>
                     <ColCardWrapper>
                         <Row>
-                            <ColR size={1.2} style={Styles.Common.VerticalCentering}>
+                            <Col size={1.2} style={Styles.Common.VerticalCentering}>
                                 <Text>{goal.name}</Text>
-                            </ColR>
-                            <ColR size={.8} style={Styles.Common.VerticalCentering}>
+                            </Col>
+                            <Col size={.8} style={Styles.Common.VerticalCentering}>
                                 <Text>{`从者 ${this.genItemCountStr(goal.servants.length)}`}</Text>
-                            </ColR>
-                            <ColR size={.9}>
+                            </Col>
+                            <Col size={.9}>
                                 <Button small info block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => (Actions as any).goal_edit({
@@ -216,8 +216,8 @@ class GoalList extends Component<State.Props, any> {
                                         })}>
                                     <Text>编辑</Text>
                                 </Button>
-                            </ColR>
-                            <ColR size={.9}>
+                            </Col>
+                            <Col size={.9}>
                                 <Button small success block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => (Actions as any).goal_edit({
@@ -225,8 +225,8 @@ class GoalList extends Component<State.Props, any> {
                                         })}>
                                     <Text>扩展</Text>
                                 </Button>
-                            </ColR>
-                            <ColR size={.9}>
+                            </Col>
+                            <Col size={.9}>
                                 <Button small danger block bordered
                                         style={{marginLeft: 5}}
                                         onPress={() => {
@@ -241,7 +241,7 @@ class GoalList extends Component<State.Props, any> {
                                         }}>
                                     <Text>删除</Text>
                                 </Button>
-                            </ColR>
+                            </Col>
                         </Row>
                     </ColCardWrapper>
                 </Row>
@@ -287,10 +287,10 @@ class GoalList extends Component<State.Props, any> {
                         <GridLine>
                             <ColCardWrapper>
                                 <Row>
-                                    <ColR style={Styles.Common.VerticalCentering}>
+                                    <Col style={Styles.Common.VerticalCentering}>
                                         <Text>编辑当前进度</Text>
-                                    </ColR>
-                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {
+                                    </Col>
+                                    <Col size={.4} style={[Styles.Common.VerticalCentering, {
                                         marginRight: 5,
                                         alignItems: "flex-end"
                                     }]}>
@@ -300,15 +300,15 @@ class GoalList extends Component<State.Props, any> {
                                                 })}>
                                             <Text>Extend</Text>
                                         </Button>
-                                    </ColR>
-                                    <ColR size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
+                                    </Col>
+                                    <Col size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
                                         <Button small block info bordered
                                                 onPress={() => (Actions as any).goal_edit({
                                                     mode: "edit", isCurrent: true, goalId: undefined
                                                 })}>
                                             <Text>Go</Text>
                                         </Button>
-                                    </ColR>
+                                    </Col>
                                 </Row>
                             </ColCardWrapper>
                         </GridLine>

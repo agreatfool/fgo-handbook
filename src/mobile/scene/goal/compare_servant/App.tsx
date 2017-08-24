@@ -6,10 +6,10 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -55,25 +55,25 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
             let itemsView = [];
             limitItems.forEach((limitItem: CompareResItemDetail, itemIndex) => {
                 itemsView.push(
-                    <ColR key={`Item_Limit_Cell_${rowIndex}_${itemIndex}`}>
+                    <Col key={`Item_Limit_Cell_${rowIndex}_${itemIndex}`}>
                         <TouchableOpacity onPress={() => goToCompareResItemPage(limitItem.itemId)}>
                             <Row style={Styles.Common.Centering}>
-                                <ColR>
+                                <Col>
                                     <ThumbnailR small square
                                                 source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, limitItem.itemId)}}/>
-                                </ColR>
-                                <ColR>
+                                </Col>
+                                <Col>
                                     <TextCentering>{`x${limitItem.count}`}</TextCentering>
-                                </ColR>
+                                </Col>
                             </Row>
                         </TouchableOpacity>
-                    </ColR>
+                    </Col>
                 );
             });
             if (itemsView.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - itemsView.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    itemsView.push(<ColR key={`Item_Limit_PH_${rowIndex}_${loop}`}/>);
+                    itemsView.push(<Col key={`Item_Limit_PH_${rowIndex}_${loop}`}/>);
                 }
             }
 
@@ -120,25 +120,25 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 let cells = [];
                 items.forEach((item: CompareResItemDetail, itemIndex) => {
                     cells.push(
-                        <ColR key={`Item_Skill_Cell_${lvIndex}_${itemIndex}`}>
+                        <Col key={`Item_Skill_Cell_${lvIndex}_${itemIndex}`}>
                             <TouchableOpacity onPress={() => goToCompareResItemPage(item.itemId)}>
                                 <Row style={Styles.Common.Centering}>
-                                    <ColR>
+                                    <Col>
                                         <ThumbnailR small square
                                                     source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
-                                    </ColR>
-                                    <ColR>
+                                    </Col>
+                                    <Col>
                                         <TextCentering>{`x${item.count}`}</TextCentering>
-                                    </ColR>
+                                    </Col>
                                 </Row>
                             </TouchableOpacity>
-                        </ColR>
+                        </Col>
                     );
                 });
                 if (cells.length < CELL_COUNT) {
                     let appendCount = CELL_COUNT - cells.length;
                     for (let loop = 0; loop < appendCount; loop++) {
-                        cells.push(<ColR key={`Item_Skill_PH_${lvIndex}_${loop}`}/>);
+                        cells.push(<Col key={`Item_Skill_PH_${lvIndex}_${loop}`}/>);
                     }
                 }
                 skillLevelListView.push(
@@ -156,13 +156,13 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                     <Row>
                         <ColCardWrapper>
                             <Row>
-                                <ColR size={.2}>
+                                <Col size={.2}>
                                     <ThumbnailR small square
                                                 source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, mstSkill.iconId)}}/>
-                                </ColR>
-                                <ColR style={Styles.Common.VerticalCentering}>
+                                </Col>
+                                <Col style={Styles.Common.VerticalCentering}>
                                     <Text>{mstSkill.name}</Text>
-                                </ColR>
+                                </Col>
                             </Row>
                         </ColCardWrapper>
                     </Row>

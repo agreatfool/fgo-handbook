@@ -88,11 +88,11 @@ export class ColCard extends Component<ColCardProps, any> {
         });
 
         return (
-            <ColR {...colProps}>
+            <Col {...colProps}>
                 <Card style={cardItemStyle}>
                     {rows}
                 </Card>
-            </ColR>
+            </Col>
         );
     }
 }
@@ -117,7 +117,7 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
         }
 
         return (
-            <ColR {...colProps}>
+            <Col {...colProps}>
                 <Card>
                     <CardItem style={cardItemStyle}>
                         <Grid>
@@ -125,7 +125,7 @@ export class ColCardWrapper extends Component<ColCardWrapperProps, any> {
                         </Grid>
                     </CardItem>
                 </Card>
-            </ColR>
+            </Col>
         );
     }
 }
@@ -142,14 +142,14 @@ export class ColCardWithRightButton extends Component<ColCardWithRightButtonProp
         return (
             <ColCardWrapper>
                 <Row>
-                    <ColR style={Styles.Common.VerticalCentering}>
+                    <Col style={Styles.Common.VerticalCentering}>
                         <Text>{props.title}</Text>
-                    </ColR>
-                    <ColR size={.3} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
+                    </Col>
+                    <Col size={.3} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
                         <Button small block info bordered onPress={props.onPress}>
                             <Text>{props.button}</Text>
                         </Button>
-                    </ColR>
+                    </Col>
                 </Row>
             </ColCardWrapper>
         );
@@ -161,7 +161,7 @@ export class GridColCardWrapper extends Component<Props, any> {
         let props = this.props as Props;
         return (
             <GridLine>
-                <ColR>
+                <Col>
                     <Card>
                         <CardItem>
                             <Grid>
@@ -169,7 +169,7 @@ export class GridColCardWrapper extends Component<Props, any> {
                             </Grid>
                         </CardItem>
                     </Card>
-                </ColR>
+                </Col>
             </GridLine>
         );
     }
@@ -212,9 +212,9 @@ export class ColCentering extends Component<ColCenteringProps, any> {
         }
 
         return (
-            <ColR {...colProps} style={Styles.Common.Centering}>
+            <Col {...colProps} style={Styles.Common.Centering}>
                 {props.children}
-            </ColR>
+            </Col>
         );
     }
 }
@@ -226,29 +226,6 @@ export class TextCentering extends Component<Props, any> {
             <Text style={Styles.Common.TextCentering}>
                 {props.children}
             </Text>
-        );
-    }
-}
-
-interface ColRProps extends Props {
-    size?: number;
-    style?: any;
-}
-
-export class ColR extends Component<ColRProps, any> {
-    /**
-     * 在所有使用 Col 的地方 tsc 莫名报错找不到 toString 和 toLocalString，
-     * 只能自己封装一个 dummy 组件
-     */
-    render() {
-        let props = this.props as ColRProps;
-
-        let colProps = Object.assign({}, props);
-
-        return (
-            <Col {...colProps}>
-                {props.children}
-            </Col>
         );
     }
 }

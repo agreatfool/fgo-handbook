@@ -5,9 +5,9 @@ import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
-import {Body, Button, Container, Content, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering} from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
 import {MstSvtExpContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import {MstSvtExp} from "../../../../model/master/Master";
@@ -109,20 +109,20 @@ class GoalExp extends Component<State.Props, any> {
                 <GridLine>
                     <ColCardWrapper>
                         <Row>
-                            <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                            <Col size={.5} style={Styles.Common.VerticalCentering}>
                                 <TextCentering>现在</TextCentering>
-                            </ColR>
-                            <ColR>
+                            </Col>
+                            <Col>
                                 {this.renderLvPicker("现在等级", state.sourceLv,
                                     (value: string) => this.setState({sourceLv: value}))}
-                            </ColR>
-                            <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                            </Col>
+                            <Col size={.5} style={Styles.Common.VerticalCentering}>
                                 <TextCentering>目标</TextCentering>
-                            </ColR>
-                            <ColR>
+                            </Col>
+                            <Col>
                                 {this.renderLvPicker("目标等级", state.targetLv,
                                     (value: string) => this.setState({targetLv: value}))}
-                            </ColR>
+                            </Col>
                             <Button small info bordered style={{marginLeft: 5}}
                                     onPress={() => this.calcExp()}>
                                 <Text>Go</Text>
@@ -145,16 +145,16 @@ class GoalExp extends Component<State.Props, any> {
                 <GridLine>
                     <ColCardWrapper>
                         <Row>
-                            <ColR><Text>现在等级</Text></ColR>
-                            <ColR><Text>{state.sourceLv}</Text></ColR>
-                            <ColR><Text>目标等级</Text></ColR>
-                            <ColR><Text>{state.targetLv}</Text></ColR>
+                            <Col><Text>现在等级</Text></Col>
+                            <Col><Text>{state.sourceLv}</Text></Col>
+                            <Col><Text>目标等级</Text></Col>
+                            <Col><Text>{state.targetLv}</Text></Col>
                         </Row>
                         <Row>
-                            <ColR><Text>同职阶</Text></ColR>
-                            <ColR><Text>{state.cardCountBonus}</Text></ColR>
-                            <ColR><Text>非同职阶</Text></ColR>
-                            <ColR><Text>{state.cardCount}</Text></ColR>
+                            <Col><Text>同职阶</Text></Col>
+                            <Col><Text>{state.cardCountBonus}</Text></Col>
+                            <Col><Text>非同职阶</Text></Col>
+                            <Col><Text>{state.cardCount}</Text></Col>
                         </Row>
                     </ColCardWrapper>
                 </GridLine>

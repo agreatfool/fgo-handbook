@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {ColCard, ColR, GridColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, GridColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -14,6 +14,7 @@ import {
     ActionSheet,
     Body,
     Button,
+    Col,
     Container,
     Content,
     Header,
@@ -371,8 +372,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
         return (
             <GridColCardWrapper>
                 <Row>
-                    <ColR size={.5} style={Styles.Common.VerticalCentering}><Text>编辑名称</Text></ColR>
-                    <ColR>
+                    <Col size={.5} style={Styles.Common.VerticalCentering}><Text>编辑名称</Text></Col>
+                    <Col>
                         <Item underline>
                             <Input style={{height: 24}}
                                    disabled={nameEditDisabled}
@@ -381,7 +382,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                    defaultValue={goalName}
                             />
                         </Item>
-                    </ColR>
+                    </Col>
                 </Row>
             </GridColCardWrapper>
         );
@@ -394,10 +395,10 @@ class GoalEdit extends Component<GoalEditProps, any> {
         return (
             <GridColCardWrapper>
                 <Row>
-                    <ColR size={.5} style={Styles.Common.VerticalCentering}>
+                    <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>选择目标从者</Text>
-                    </ColR>
-                    <ColR size={1}>
+                    </Col>
+                    <Col size={1}>
                         <Button small info block bordered
                                 style={{marginRight: 5, justifyContent: "center"}}
                                 onPress={() => (Actions as any).goal_servant_picker()}>
@@ -405,14 +406,14 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                 {getMstSvt(props.SceneGoal.selectedSvtIdOnEdit, props.SceneGoal.svtRawData).name}
                             </Text>
                         </Button>
-                    </ColR>
-                    <ColR size={.3}>
+                    </Col>
+                    <Col size={.3}>
                         <Button small info block bordered
                                 style={StyleSheet.flatten(Styles.Common.VerticalCentering)}
                                 onPress={() => this.addSvtIntoGoal()}>
                             <TextCentering>+</TextCentering>
                         </Button>
-                    </ColR>
+                    </Col>
                 </Row>
             </GridColCardWrapper>
         );
@@ -430,7 +431,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
             let skillElements = [];
             skills.forEach((skill: MstSkill, index) => {
                 skillElements.push(
-                    <ColR key={`GoalSvt_${goalSvt.svtId}_Skill_${index}`}>
+                    <Col key={`GoalSvt_${goalSvt.svtId}_Skill_${index}`}>
                         <TouchableOpacity
                             onPress={() => {
                                 this.showSkillLvActionSheet((btnIndex) => {
@@ -447,14 +448,14 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                 </Row>
                             </GridLine>
                         </TouchableOpacity>
-                    </ColR>
+                    </Col>
                 );
             });
 
             view.push(
                 <GridColCardWrapper key={`GoalSvt_${goalSvt.svtId}`}>
                     <Row>
-                        <ColR>
+                        <Col>
                             <TouchableOpacity
                                 style={Styles.Common.VerticalCentering}
                                 onPress={() => {
@@ -472,26 +473,26 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                     </Row>
                                 </GridLine>
                             </TouchableOpacity>
-                        </ColR>
+                        </Col>
                         {skillElements}
-                        <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
+                        <Col size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
                             <Button small danger block bordered
                                     onPress={() => this.removeSvtFromGoal(goalSvt.svtId)}>
                                 <Text>-</Text>
                             </Button>
-                        </ColR>
-                        <ColR size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
+                        </Col>
+                        <Col size={.8} style={[Styles.Common.VerticalCentering, {marginRight: 5}]}>
                             <Button small danger block bordered
                                     onPress={() => this.switchSvtListPosition(svtIndex, -1)}>
                                 <Text>{"<"}</Text>
                             </Button>
-                        </ColR>
-                        <ColR size={.8} style={Styles.Common.VerticalCentering}>
+                        </Col>
+                        <Col size={.8} style={Styles.Common.VerticalCentering}>
                             <Button small danger block bordered
                                     onPress={() => this.switchSvtListPosition(svtIndex, 1)}>
                                 <Text>{">"}</Text>
                             </Button>
-                        </ColR>
+                        </Col>
                     </Row>
                 </GridColCardWrapper>
             );

@@ -4,10 +4,10 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, ColR, GridLine, ThumbnailR} from "../../../view/View";
+import {ColCardWrapper, GridLine, ThumbnailR} from "../../../view/View";
 import {MstItem} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -44,7 +44,7 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
 
             rowData.forEach((svtData: MstItem, cellIndex) => {
                 cells.push(
-                    <ColR key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
+                    <Col key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
                           style={Styles.Common.HorizontalCentering}>
                         <TouchableOpacity onPress={() => this.selectItem(svtData.id)}>
                             <ThumbnailR small square
@@ -54,13 +54,13 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
                                             )
                                         }}/>
                         </TouchableOpacity>
-                    </ColR>
+                    </Col>
                 );
             });
             if (cells.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - cells.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    cells.push(<ColR key={`Thumb_PH_${rowIndex}_${loop}`}/>);
+                    cells.push(<Col key={`Thumb_PH_${rowIndex}_${loop}`}/>);
                 }
             }
 

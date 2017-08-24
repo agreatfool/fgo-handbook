@@ -7,9 +7,9 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, CheckBox, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, CheckBox, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -73,18 +73,18 @@ export class ServantFilter extends Component<State.Props, any> {
             }
 
             checkItems.push(
-                <ColR key={`CheckItem_${propName}_${id}`}>
+                <Col key={`CheckItem_${propName}_${id}`}>
                     <Row style={Styles.Common.Centering}>
-                        <ColR>
+                        <Col>
                             {display}
-                        </ColR>
-                        <ColR>
+                        </Col>
+                        <Col>
                             <CheckBox
                                 checked={this.isChecked(id, propName)}
                                 onPress={() => this.onCheck(id, propName, dataSet)}/>
-                        </ColR>
+                        </Col>
                     </Row>
-                </ColR>
+                </Col>
             );
         });
 
@@ -115,18 +115,18 @@ export class ServantFilter extends Component<State.Props, any> {
                 <GridLine>
                     <ColCardWrapper>
                         <Row>
-                            <ColR style={{marginLeft: 10, marginRight: 10}}>
+                            <Col style={{marginLeft: 10, marginRight: 10}}>
                                 <Button block info bordered small
                                         onPress={() => this.onCheck(0, propName, dataSet)}>
                                     <Text>全选</Text>
                                 </Button>
-                            </ColR>
-                            <ColR style={{marginLeft: 10, marginRight: 10}}>
+                            </Col>
+                            <Col style={{marginLeft: 10, marginRight: 10}}>
                                 <Button block info bordered small
                                         onPress={() => this.onCheck(-1, propName, dataSet)}>
                                     <Text>清空</Text>
                                 </Button>
-                            </ColR>
+                            </Col>
                         </Row>
                     </ColCardWrapper>
                 </GridLine>

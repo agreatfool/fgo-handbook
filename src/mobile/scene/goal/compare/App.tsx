@@ -16,10 +16,10 @@ import {
     CompareResult
 } from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, ColR, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
@@ -407,13 +407,13 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 <GridLine>
                     <ColCardWrapper>
                         <Row>
-                            <ColR><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></ColR>
+                            <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
                         </Row>
                         <Row>
-                            <ColR><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></ColR>
+                            <Col><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></Col>
                         </Row>
                         <Row>
-                            <ColR><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></ColR>
+                            <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
                         </Row>
                     </ColCardWrapper>
                 </GridLine>
@@ -517,7 +517,7 @@ export const renderRowCellsOfElements = (appVer: string,
         let padding = [];
         if (dataRow.length < cellInRow) {
             for (let i = 0; i < cellInRow - dataRow.length; i++) {
-                padding.push(<ColR key={`Item_${type}_${rowIndex}_${i + dataRow.length}`}/>);
+                padding.push(<Col key={`Item_${type}_${rowIndex}_${i + dataRow.length}`}/>);
             }
         }
 
@@ -552,15 +552,15 @@ export const renderRowCellsOfElements = (appVer: string,
             let count = <View/>;
             if (type === ElementType.Item) {
                 count = (
-                    <ColR style={Styles.Common.VerticalCentering}>
+                    <Col style={Styles.Common.VerticalCentering}>
                         <TextCentering>{`x${(element as CompareResItemDetail).count}`}</TextCentering>
-                    </ColR>
+                    </Col>
                 );
             } else if (type === ElementType.SvtItem) {
                 count = (
-                    <ColR style={Styles.Common.VerticalCentering}>
+                    <Col style={Styles.Common.VerticalCentering}>
                         <TextCentering>{`x${(element as CompareResSvtItem).count}`}</TextCentering>
-                    </ColR>
+                    </Col>
                 );
             }
 
@@ -571,10 +571,10 @@ export const renderRowCellsOfElements = (appVer: string,
                 rowView = (
                     <TouchableOpacity onPress={() => goTo(element)}>
                         <Row>
-                            <ColR>
+                            <Col>
                                 <ThumbnailR small square
                                             source={{uri: getImgUrl(appVer, element)}}/>
-                            </ColR>
+                            </Col>
                             {count}
                         </Row>
                     </TouchableOpacity>
@@ -584,19 +584,19 @@ export const renderRowCellsOfElements = (appVer: string,
                 //noinspection TypeScriptValidateTypes
                 rowView = (
                     <Row>
-                        <ColR>
+                        <Col>
                             <ThumbnailR small square
                                         source={{uri: getImgUrl(appVer, element)}}/>
-                        </ColR>
+                        </Col>
                         {count}
                     </Row>
                 );
             }
 
             cells.push(
-                <ColR key={`Item_${type}_${rowIndex}_${cellIndex}`}>
+                <Col key={`Item_${type}_${rowIndex}_${cellIndex}`}>
                     {rowView}
-                </ColR>
+                </Col>
             );
         });
 
