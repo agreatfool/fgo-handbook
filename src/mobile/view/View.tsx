@@ -142,17 +142,13 @@ export class GridColCardWrapper extends Component<Props, any> {
     render() {
         let props = this.props as Props;
         return (
-            <Grid>
-                <Col>
-                    <Card>
-                        <CardItem>
-                            <Grid>
-                                {props.children}
-                            </Grid>
-                        </CardItem>
-                    </Card>
-                </Col>
-            </Grid>
+            <Card>
+                <CardItem>
+                    <Grid>
+                        {props.children}
+                    </Grid>
+                </CardItem>
+            </Card>
         );
     }
 }
