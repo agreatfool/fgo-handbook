@@ -166,25 +166,35 @@ export class ColCardWithRightButton extends Component<ColCardWithRightButtonProp
 
 interface CardWithRButtonProps extends Props {
     title: string;
-    button: string;
-    onPress: () => void;
+    buttons: Array<string>;
+    onPress: Array<() => void>;
 }
 
 export class CardWithRButton extends Component<CardWithRButtonProps, any> {
     render() {
         let props = this.props as CardWithRButtonProps;
+
+        let buttons = [];
+        props.buttons.forEach((button: string, index: number) => {
+            let event = props.onPress[index];
+            buttons.push(
+                <Col key={`CardWithRButton_${button}_${index}`} size={.5} style={{backgroundColor: "#FFFFFF"}}>
+                    <Button small block info bordered onPress={event}
+                            style={{marginRight: 10, marginTop: 3, marginBottom: 3}}>
+                        <Text>{button}</Text>
+                    </Button>
+                </Col>
+            );
+        });
+
         return (
             <CardFix>
-                <CardItem>
-                    <Left>
-                        <Text>{props.title}</Text>
-                    </Left>
-                    <Right>
-                        <Button small block info bordered onPress={props.onPress}>
-                            <Text>{props.button}</Text>
-                        </Button>
-                    </Right>
-                </CardItem>
+                <Grid>
+                    <Col style={[Styles.Common.VerticalCentering, {backgroundColor: "#FFFFFF"}]}>
+                        <Text style={{marginLeft: 10}}>{props.title}</Text>
+                    </Col>
+                    {buttons}
+                </Grid>
             </CardFix>
         );
     }

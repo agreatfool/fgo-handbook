@@ -272,46 +272,29 @@ class GoalList extends Component<State.Props, any> {
                     <View style={Styles.Box.Wrapper}>
                         <CardWithRButton
                             title="经验计算器"
-                            button="Go"
-                            onPress={() => (Actions as any).goal_exp()}/>
+                            buttons={["Go"]}
+                            onPress={[() => (Actions as any).goal_exp()]}/>
                         <CardWithRButton
                             title="按道具浏览需求"
-                            button="Go"
-                            onPress={() => (Actions as any).goal_item_picker()}/>
-                        <GridCardWrapper>
-                            <Row>
-                                <Col style={Styles.Common.VerticalCentering}>
-                                    <Text>编辑当前进度</Text>
-                                </Col>
-                                <Col size={.4} style={[Styles.Common.VerticalCentering, {
-                                    marginRight: 5,
-                                    alignItems: "flex-end"
-                                }]}>
-                                    <Button small block info bordered
-                                            onPress={() => (Actions as any).goal_edit({
-                                                mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
-                                            })}>
-                                        <Text>Extend</Text>
-                                    </Button>
-                                </Col>
-                                <Col size={.4} style={[Styles.Common.VerticalCentering, {alignItems: "flex-end"}]}>
-                                    <Button small block info bordered
-                                            onPress={() => (Actions as any).goal_edit({
-                                                mode: "edit", isCurrent: true, goalId: undefined
-                                            })}>
-                                        <Text>Go</Text>
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </GridCardWrapper>
-                        <Grid>
-                            <ColCardWithRightButton
-                                title="添加新进度目标"
-                                button="Go"
-                                onPress={() => (Actions as any).goal_edit({
-                                    mode: "add", isCurrent: false, goalId: undefined
-                                })}/>
-                        </Grid>
+                            buttons={["Go"]}
+                            onPress={[() => (Actions as any).goal_item_picker()]}/>
+                        <CardWithRButton
+                            title="编辑当前进度"
+                            buttons={["Extend", "Go"]}
+                            onPress={[
+                                () => (Actions as any).goal_edit({
+                                    mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
+                                }),
+                                () => (Actions as any).goal_edit({
+                                    mode: "edit", isCurrent: true, goalId: undefined
+                                })
+                            ]}/>
+                        <CardWithRButton
+                            title="添加新进度目标"
+                            buttons={["Go"]}
+                            onPress={[() => (Actions as any).goal_edit({
+                                mode: "add", isCurrent: false, goalId: undefined
+                            })]}/>
                         {this.renderCompareButton()}
                         <CardWithRows key="GoalServantList" items={["进度列表"]} backgroundColor="#CDE1F9"/>
                         {this.renderGoalList()}
