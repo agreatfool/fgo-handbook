@@ -15,13 +15,12 @@ import {
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {
     ColCard,
     ColCentering,
     GridColCardWrapper,
-    GridLine,
     RowCentering,
     TextCentering,
     ThumbnailR
@@ -112,9 +111,9 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["保有技能"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
+                </Grid>
                 {skills}
             </View>
         );
@@ -145,9 +144,9 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["职阶技能"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
+                </Grid>
                 {skills}
             </View>
         );
@@ -196,9 +195,9 @@ class ServantSkill extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["宝具"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
+                </Grid>
                 {skills}
             </View>
         );

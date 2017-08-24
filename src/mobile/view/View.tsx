@@ -7,17 +7,6 @@ export interface Props {
     children?: ReactNode;
 }
 
-export class GridLine extends Component<Props, any> {
-    render() {
-        let props = this.props as Props;
-        return (
-            <Grid>
-                {props.children}
-            </Grid>
-        );
-    }
-}
-
 interface ColCardProps extends Props {
     items: Array<String | number | JSX.Element>;
     size?: number;
@@ -160,7 +149,7 @@ export class GridColCardWrapper extends Component<Props, any> {
     render() {
         let props = this.props as Props;
         return (
-            <GridLine>
+            <Grid>
                 <Col>
                     <Card>
                         <CardItem>
@@ -170,7 +159,7 @@ export class GridColCardWrapper extends Component<Props, any> {
                         </CardItem>
                     </Card>
                 </Col>
-            </GridLine>
+            </Grid>
         );
     }
 }

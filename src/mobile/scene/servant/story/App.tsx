@@ -5,11 +5,11 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {ColCard, GridLine} from "../../../view/View";
+import {ColCard} from "../../../view/View";
 import * as Styles from "../../../view/Styles";
 import {SvtInfoFSReq, SvtInfoStory} from "../../../lib/model/MstInfo";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 
 export * from "./State";
@@ -47,10 +47,10 @@ class ServantStory extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["羁绊点数"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <Row>
                         <ColCard items={["Lv.1", this.genFriendshipStr(data[0])]}/>
                         <ColCard items={["Lv.2", this.genFriendshipStr(data[1])]}/>
@@ -67,7 +67,7 @@ class ServantStory extends Component<State.Props, any> {
                         <ColCard items={["Lv.9", this.genFriendshipStr(data[8])]}/>
                         <ColCard items={["Lv.10", this.genFriendshipStr(data[9])]}/>
                     </Row>
-                </GridLine>
+                </Grid>
             </View>
         );
     }
@@ -76,51 +76,51 @@ class ServantStory extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["角色故事"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["角色详细"]} isTextCentered={false}/>
                     <ColCard items={[info.detail]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["羁绊等级1"]} isTextCentered={false}/>
                     <ColCard items={[info.friendship1]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["羁绊等级2"]} isTextCentered={false}/>
                     <ColCard items={[info.friendship2]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["羁绊等级3"]} isTextCentered={false}/>
                     <ColCard items={[info.friendship3]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["羁绊等级4"]} isTextCentered={false}/>
                     <ColCard items={[info.friendship4]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCard size={.15} items={["最终故事"]} isTextCentered={false}/>
                     <ColCard items={[info.lastStory]}
                              isHorizontalCentered={false}
                              isVerticalCentered={false}
                              isTextCentered={false}/>
-                </GridLine>
+                </Grid>
             </View>
         );
     }

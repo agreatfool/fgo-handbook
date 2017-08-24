@@ -4,10 +4,10 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCardWrapper, GridLine, ThumbnailR} from "../../../view/View";
+import {ColCardWrapper, ThumbnailR} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -72,11 +72,11 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCardWrapper>
                         {rows}
                     </ColCardWrapper>
-                </GridLine>
+                </Grid>
             </View>
         );
     }

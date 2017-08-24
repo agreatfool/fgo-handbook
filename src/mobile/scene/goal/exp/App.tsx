@@ -5,9 +5,9 @@ import * as State from "./State";
 import * as Action from "./Action";
 import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering} from "../../../view/View";
 import {MstSvtExpContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import {MstSvtExp} from "../../../../model/master/Master";
@@ -103,10 +103,10 @@ class GoalExp extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["操作选择"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCardWrapper>
                         <Row>
                             <Col size={.5} style={Styles.Common.VerticalCentering}>
@@ -129,7 +129,7 @@ class GoalExp extends Component<State.Props, any> {
                             </Button>
                         </Row>
                     </ColCardWrapper>
-                </GridLine>
+                </Grid>
             </View>
         );
     }
@@ -139,10 +139,10 @@ class GoalExp extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["猛火需求"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCardWrapper>
                         <Row>
                             <Col><Text>现在等级</Text></Col>
@@ -157,7 +157,7 @@ class GoalExp extends Component<State.Props, any> {
                             <Col><Text>{state.cardCount}</Text></Col>
                         </Row>
                     </ColCardWrapper>
-                </GridLine>
+                </Grid>
             </View>
         );
     }

@@ -7,9 +7,9 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, CheckBox, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, CheckBox, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -104,15 +104,15 @@ export class ServantFilter extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCardWrapper>
                         {rows}
                     </ColCardWrapper>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCardWrapper>
                         <Row>
                             <Col style={{marginLeft: 10, marginRight: 10}}>
@@ -129,7 +129,7 @@ export class ServantFilter extends Component<State.Props, any> {
                             </Col>
                         </Row>
                     </ColCardWrapper>
-                </GridLine>
+                </Grid>
             </View>
         );
     }

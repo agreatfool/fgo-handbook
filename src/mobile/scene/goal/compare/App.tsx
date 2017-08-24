@@ -16,10 +16,10 @@ import {
     CompareResult
 } from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
@@ -400,11 +400,11 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]}
                              backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     <ColCardWrapper>
                         <Row>
                             <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
@@ -416,7 +416,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                             <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
                         </Row>
                     </ColCardWrapper>
-                </GridLine>
+                </Grid>
             </View>
         );
     }
@@ -611,20 +611,20 @@ export const renderRowCellsOfElements = (appVer: string,
     let titleView = <View/>;
     if (title) {
         titleView = (
-            <GridLine>
+            <Grid>
                 <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-            </GridLine>
+            </Grid>
         );
     }
 
     return (
         <View>
             {titleView}
-            <GridLine>
+            <Grid>
                 <ColCardWrapper>
                     {rows}
                 </ColCardWrapper>
-            </GridLine>
+            </Grid>
         </View>
     );
 };

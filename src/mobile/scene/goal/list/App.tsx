@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {ColCard, ColCardWithRightButton, ColCardWrapper, GridLine, TextCentering} from "../../../view/View";
+import {ColCard, ColCardWithRightButton, ColCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -16,7 +16,7 @@ import {
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {defaultCurrentGoal, Goal} from "../../../lib/model/MstGoal";
@@ -151,7 +151,7 @@ class GoalList extends Component<State.Props, any> {
         );
 
         return (
-            <GridLine>
+            <Grid>
                 <ColCardWrapper>
                     <Row>
                         <Col size={.5} style={Styles.Common.VerticalCentering}>
@@ -182,7 +182,7 @@ class GoalList extends Component<State.Props, any> {
                         </Button>
                     </Row>
                 </ColCardWrapper>
-            </GridLine>
+            </Grid>
         );
     }
 
@@ -249,9 +249,9 @@ class GoalList extends Component<State.Props, any> {
         });
 
         return (
-            <GridLine>
+            <Grid>
                 {goalList}
-            </GridLine>
+            </Grid>
         );
     }
 
@@ -272,19 +272,19 @@ class GoalList extends Component<State.Props, any> {
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
-                        <GridLine>
+                        <Grid>
                             <ColCardWithRightButton
                                 title="经验计算器"
                                 button="Go"
                                 onPress={() => (Actions as any).goal_exp()}/>
-                        </GridLine>
-                        <GridLine>
+                        </Grid>
+                        <Grid>
                             <ColCardWithRightButton
                                 title="按道具浏览需求"
                                 button="Go"
                                 onPress={() => (Actions as any).goal_item_picker()}/>
-                        </GridLine>
-                        <GridLine>
+                        </Grid>
+                        <Grid>
                             <ColCardWrapper>
                                 <Row>
                                     <Col style={Styles.Common.VerticalCentering}>
@@ -311,19 +311,19 @@ class GoalList extends Component<State.Props, any> {
                                     </Col>
                                 </Row>
                             </ColCardWrapper>
-                        </GridLine>
-                        <GridLine>
+                        </Grid>
+                        <Grid>
                             <ColCardWithRightButton
                                 title="添加新进度目标"
                                 button="Go"
                                 onPress={() => (Actions as any).goal_edit({
                                     mode: "add", isCurrent: false, goalId: undefined
                                 })}/>
-                        </GridLine>
+                        </Grid>
                         {this.renderCompareButton()}
-                        <GridLine key="GoalServantList">
+                        <Grid key="GoalServantList">
                             <ColCard items={["进度列表"]} backgroundColor="#CDE1F9"/>
-                        </GridLine>
+                        </Grid>
                         {this.renderGoalList()}
                     </View>
                 </Content>

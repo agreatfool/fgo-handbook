@@ -12,10 +12,10 @@ import {
     SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -120,12 +120,12 @@ class ServantMaterial extends Component<State.Props, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={[title]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     {result}
-                </GridLine>
+                </Grid>
             </View>
         );
     }

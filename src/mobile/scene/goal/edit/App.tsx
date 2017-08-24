@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {ColCard, GridColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, GridColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -17,6 +17,7 @@ import {
     Col,
     Container,
     Content,
+    Grid,
     Header,
     Icon,
     Input,
@@ -438,7 +439,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                     this.updateSkillLv(goalSvt.svtId, skill.id, btnIndex + 1)
                                 });
                             }}>
-                            <GridLine>
+                            <Grid>
                                 <Row style={Styles.Common.Centering}>
                                     <ThumbnailR small square
                                                 source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
@@ -446,7 +447,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                 <Row style={Styles.Common.Centering}>
                                     <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
                                 </Row>
-                            </GridLine>
+                            </Grid>
                         </TouchableOpacity>
                     </Col>
                 );
@@ -463,7 +464,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                         this.updateSvtLimit(goalSvt.svtId, btnIndex)
                                     });
                                 }}>
-                                <GridLine>
+                                <Grid>
                                     <Row style={Styles.Common.Centering}>
                                         <ThumbnailR small square
                                                     source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
@@ -471,7 +472,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                                     <Row style={Styles.Common.Centering}>
                                         <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>
                                     </Row>
-                                </GridLine>
+                                </Grid>
                             </TouchableOpacity>
                         </Col>
                         {skillElements}
@@ -527,9 +528,9 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle()}
                         {this.renderServantSelect()}
-                        <GridLine key="GoalServantList">
+                        <Grid key="GoalServantList">
                             <ColCard items={["从者列表"]} backgroundColor="#CDE1F9"/>
-                        </GridLine>
+                        </Grid>
                         {this.renderServantList()}
                     </View>
                 </Content>

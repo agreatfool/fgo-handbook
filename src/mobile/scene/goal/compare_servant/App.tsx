@@ -6,10 +6,10 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
 import {Actions} from "react-native-router-flux";
-import {Body, Button, Col, Container, Content, Header, Icon, Left, Right, Row, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ColCard, ColCardWrapper, GridLine, TextCentering, ThumbnailR} from "../../../view/View";
+import {ColCard, ColCardWrapper, TextCentering, ThumbnailR} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -89,12 +89,12 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["灵基再临需求列表"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
-                <GridLine>
+                </Grid>
+                <Grid>
                     {limitListView}
-                </GridLine>
+                </Grid>
             </View>
         );
     }
@@ -152,7 +152,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
             });
 
             skillListView.push(
-                <GridLine key={`Skill_Title_${resSkill.skillId}`}>
+                <Grid key={`Skill_Title_${resSkill.skillId}`}>
                     <Row>
                         <ColCardWrapper>
                             <Row>
@@ -167,15 +167,15 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                         </ColCardWrapper>
                     </Row>
                     {skillLevelListView}
-                </GridLine>
+                </Grid>
             );
         });
 
         return (
             <View>
-                <GridLine>
+                <Grid>
                     <ColCard items={["技能升级需求列表"]} backgroundColor="#CDE1F9"/>
-                </GridLine>
+                </Grid>
                 {skillListView}
             </View>
         );
