@@ -54,6 +54,9 @@ export class ColCard extends Component<ColCardProps, any> {
         if (props.hasOwnProperty("rowStyle")) {
             rowStyle = Object.assign(rowStyle, props.rowStyle);
         }
+        if (props.hasOwnProperty("backgroundColor")) {
+            rowStyle = Object.assign(rowStyle, {backgroundColor: props.backgroundColor});
+        }
 
         let textStyle = {};
         if (!(props.hasOwnProperty("isTextCentered") && !props.isTextCentered)) {
@@ -71,27 +74,23 @@ export class ColCard extends Component<ColCardProps, any> {
         props.items.forEach((item, index) => {
             if (typeof item === "string" || typeof item === "number") {
                 rows.push(
-                    <Row key={`ColCard${index}`} style={rowStyle}>
+                    <CardItem key={`ColCard${index}`} style={rowStyle}>
                         <Text style={textStyle}>{item}</Text>
-                    </Row>
+                    </CardItem>
                 );
             } else {
                 rows.push(
-                    <Row key={`ColCard${index}`} style={rowStyle}>
+                    <CardItem key={`ColCard${index}`} style={rowStyle}>
                         {item}
-                    </Row>
+                    </CardItem>
                 );
             }
         });
 
         return (
             <ColR {...colProps}>
-                <Card>
-                    <CardItem style={cardItemStyle}>
-                        <Grid>
-                            {rows}
-                        </Grid>
-                    </CardItem>
+                <Card style={cardItemStyle}>
+                    {rows}
                 </Card>
             </ColR>
         );
