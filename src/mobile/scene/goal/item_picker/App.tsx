@@ -79,7 +79,7 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
             }
 
             rows.push(
-                <Row key={`Thumb_Row_${rowIndex}`} style={{marginBottom: 5}}>
+                <Row key={`Thumb_Row_${rowIndex}`} style={{marginBottom: 5, marginRight: 10, marginLeft: 10}}>
                     {cells}
                 </Row>
             );
@@ -88,7 +88,9 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
         return (
             <View>
                 <GridCardWrapper>
-                    {rows}
+                    <Col style={{paddingTop: 5}}>
+                        {rows}
+                    </Col>
                 </GridCardWrapper>
             </View>
         );

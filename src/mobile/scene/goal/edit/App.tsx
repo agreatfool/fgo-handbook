@@ -373,7 +373,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
         return (
             <CardGridWrapper>
-                <Row>
+                <Row style={{marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}><Text>编辑名称</Text></Col>
                     <Col>
                         <Item underline>
@@ -396,7 +396,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         //noinspection TypeScriptUnresolvedFunction
         return (
             <CardGridWrapper>
-                <Row>
+                <Row style={{marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>选择目标从者</Text>
                     </Col>
@@ -456,7 +456,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
             view.push(
                 <CardGridWrapper key={`GoalSvt_${goalSvt.svtId}`}>
-                    <Row>
+                    <Row style={{marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10}}>
                         <Col>
                             <TouchableOpacity
                                 style={Styles.Common.VerticalCentering}

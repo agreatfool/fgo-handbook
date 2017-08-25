@@ -416,15 +416,17 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             <View>
                 <CardWithRows items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]} backgroundColor="#CDE1F9"/>
                 <GridCardWrapper>
-                    <Row>
-                        <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
-                    </Row>
-                    <Row>
-                        <Col><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></Col>
-                    </Row>
-                    <Row>
-                        <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
-                    </Row>
+                    <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                        <Row style={{marginBottom: 5}}>
+                            <Col><Text>{`灵基再临 道具需求：${totalLimit.length}种 ${sigma(totalLimit)}个`}</Text></Col>
+                        </Row>
+                        <Row style={{marginBottom: 5}}>
+                            <Col><Text>{`技能升级 道具需求：${totalSkill.length}种 ${sigma(totalSkill)}个`}</Text></Col>
+                        </Row>
+                        <Row style={{marginBottom: 5}}>
+                            <Col><Text>{`QP 总需求：${totalQP / 10000}万`}</Text></Col>
+                        </Row>
+                    </Col>
                 </GridCardWrapper>
             </View>
         );
@@ -610,7 +612,7 @@ export const renderRowCellsOfElements = (appVer: string,
         });
 
         rows.push(
-            <Row key={`Item_${type}_${rowIndex}`} style={{paddingBottom: 5}}>
+            <Row key={`Item_${type}_${rowIndex}`} style={{marginBottom: 5}}>
                 {cells}
                 {padding}
             </Row>
@@ -628,7 +630,9 @@ export const renderRowCellsOfElements = (appVer: string,
         <View>
             {titleView}
             <GridCardWrapper>
-                {rows}
+                <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                    {rows}
+                </Col>
             </GridCardWrapper>
         </View>
     );

@@ -32,7 +32,7 @@ export class CardWithRows extends Component<CardWithRowsProps, any> {
             paddingBottom: 5,
             paddingLeft: 5,
             paddingRight: 5,
-            backgroundColor: "#FFFFFF"
+            backgroundColor: "#FFF"
         };
         if (!(props.hasOwnProperty("isVerticalCentered") && !props.isVerticalCentered)) {
             rowStyle = Object.assign(rowStyle, StyleSheet.flatten(Styles.Common.VerticalCentering));
@@ -99,7 +99,7 @@ export class GridCardWrapper extends Component<GridCardWrapperProps, any> {
         let props = this.props as GridCardWrapperProps;
         return (
             <Grid>
-                <ColCardWrapper {...props}>
+                <ColCardWrapper {...props} backgroundColor="#FFF">
                     {props.children}
                 </ColCardWrapper>
             </Grid>
@@ -178,7 +178,7 @@ export class CardWithRButton extends Component<CardWithRButtonProps, any> {
         props.buttons.forEach((button: string, index: number) => {
             let event = props.onPress[index];
             buttons.push(
-                <Col key={`CardWithRButton_${button}_${index}`} size={.5} style={{backgroundColor: "#FFFFFF"}}>
+                <Col key={`CardWithRButton_${button}_${index}`} size={.5} style={{backgroundColor: "#FFF"}}>
                     <Button small block info bordered onPress={event}
                             style={{marginRight: 10, marginTop: 3, marginBottom: 3}}>
                         <Text>{button}</Text>
@@ -190,7 +190,7 @@ export class CardWithRButton extends Component<CardWithRButtonProps, any> {
         return (
             <CardFix>
                 <Grid>
-                    <Col style={[Styles.Common.VerticalCentering, {backgroundColor: "#FFFFFF"}]}>
+                    <Col style={[Styles.Common.VerticalCentering, {backgroundColor: "#FFF"}]}>
                         <Text style={{marginLeft: 10}}>{props.title}</Text>
                     </Col>
                     {buttons}
@@ -232,7 +232,7 @@ export class CardGridWrapper extends Component<Props, any> {
         let props = this.props as Props;
         return (
             <CardFix>
-                <Grid>
+                <Grid style={{backgroundColor: "#FFF"}}>
                     {props.children}
                 </Grid>
             </CardFix>
@@ -249,7 +249,7 @@ export class RowCentering extends Component<RowCenteringProps, any> {
         let props = this.props as RowCenteringProps;
 
         let rowStyle = {
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#FFF",
             paddingTop: 5,
             paddingBottom: 5,
             paddingLeft: 10,
@@ -265,27 +265,6 @@ export class RowCentering extends Component<RowCenteringProps, any> {
             <Row style={rowStyle}>
                 {props.children}
             </Row>
-        );
-    }
-}
-
-interface ColCenteringProps extends Props {
-    size?: number;
-}
-
-export class ColCentering extends Component<ColCenteringProps, any> {
-    render() {
-        let props = this.props as ColCenteringProps;
-
-        let colProps = {};
-        if (props.hasOwnProperty("size")) {
-            colProps = Object.assign(colProps, {size: props.size});
-        }
-
-        return (
-            <Col {...colProps} style={Styles.Common.Centering}>
-                {props.children}
-            </Col>
         );
     }
 }

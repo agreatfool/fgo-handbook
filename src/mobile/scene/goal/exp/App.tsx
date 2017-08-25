@@ -105,7 +105,7 @@ class GoalExp extends Component<State.Props, any> {
             <View>
                 <CardWithRows items={["操作选择"]} backgroundColor="#CDE1F9"/>
                 <GridCardWrapper>
-                    <Row>
+                    <Row style={{marginLeft: 10, marginRight: 10, marginTop: 5, marginBottom: 5}}>
                         <Col size={.5} style={Styles.Common.VerticalCentering}>
                             <TextCentering>现在</TextCentering>
                         </Col>
@@ -137,18 +137,20 @@ class GoalExp extends Component<State.Props, any> {
             <View>
                 <CardWithRows items={["猛火需求"]} backgroundColor="#CDE1F9"/>
                 <GridCardWrapper>
-                    <Row>
-                        <Col><Text>现在等级</Text></Col>
-                        <Col><Text>{state.sourceLv}</Text></Col>
-                        <Col><Text>目标等级</Text></Col>
-                        <Col><Text>{state.targetLv}</Text></Col>
-                    </Row>
-                    <Row>
-                        <Col><Text>同职阶</Text></Col>
-                        <Col><Text>{state.cardCountBonus}</Text></Col>
-                        <Col><Text>非同职阶</Text></Col>
-                        <Col><Text>{state.cardCount}</Text></Col>
-                    </Row>
+                    <Col style={{marginLeft: 10, marginRight: 10, marginTop: 5, marginBottom: 5}}>
+                        <Row>
+                            <Col><Text>现在等级</Text></Col>
+                            <Col><Text>{state.sourceLv}</Text></Col>
+                            <Col><Text>目标等级</Text></Col>
+                            <Col><Text>{state.targetLv}</Text></Col>
+                        </Row>
+                        <Row>
+                            <Col><Text>同职阶</Text></Col>
+                            <Col><Text>{state.cardCountBonus}</Text></Col>
+                            <Col><Text>非同职阶</Text></Col>
+                            <Col><Text>{state.cardCount}</Text></Col>
+                        </Row>
+                    </Col>
                 </GridCardWrapper>
             </View>
         );

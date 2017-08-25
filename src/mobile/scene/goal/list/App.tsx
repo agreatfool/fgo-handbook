@@ -151,13 +151,13 @@ class GoalList extends Component<State.Props, any> {
         );
 
         return (
-            <GridCardWrapper>
-                <Row>
+            <GridCardWrapper backgroundColor="#FFFFFF">
+                <Row style={{marginTop: 10, marginLeft: 10, marginRight: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>选择进度比较</Text>
                     </Col>
                 </Row>
-                <Row style={{marginTop: 10}}>
+                <Row style={{marginTop: 10, marginBottom: 10, marginLeft: 10, marginRight: 10}}>
                     {buttons}
                     <Button small info bordered style={{marginLeft: 5}}
                             onPress={() => {
@@ -198,8 +198,8 @@ class GoalList extends Component<State.Props, any> {
             //noinspection TypeScriptUnresolvedFunction
             goalList.push(
                 <Row key={`Goal_${index}`}>
-                    <GridCardWrapper>
-                        <Row>
+                    <GridCardWrapper backgroundColor="#FFFFFF">
+                        <Row style={{marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10}}>
                             <Col size={1.2} style={Styles.Common.VerticalCentering}>
                                 <Text>{goal.name}</Text>
                             </Col>

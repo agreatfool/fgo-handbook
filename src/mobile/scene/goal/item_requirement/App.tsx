@@ -136,7 +136,7 @@ class GoalItemRequirement extends Component<GoalItemRequirementProps, any> {
 
         return (
             <GridCardWrapper backgroundColor="#CDE1F9">
-                <Row>
+                <Row style={{marginLeft: 10, marginRight: 10}}>
                     <Col size={.2}>
                         <Thumbnail small square
                                    source={{
