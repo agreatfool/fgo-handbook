@@ -93,10 +93,12 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
 
             limitListView.push(
                 <Row key={`Item_Limit_Row_${rowIndex}`}>
-                    <CardWithRows size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/>
-                    <GridCardWrapper>
-                        {itemsView}
-                    </GridCardWrapper>
+                    <Col size={.4}><CardWithRows size={.3} items={[`第${rowIndex + 1}阶段`]} rowHeight={36}/></Col>
+                    <Col size={1}>
+                        <GridCardWrapper>
+                            {itemsView}
+                        </GridCardWrapper>
+                    </Col>
                 </Row>
             );
         });
@@ -155,10 +157,13 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 }
                 skillLevelListView.push(
                     <Row key={`Item_Skill_Row_${lvIndex}`}>
-                        <CardWithRows size={.3} items={[`Lv.${lvIndex}\n->\nLv.${lvIndex + 1}`]} rowHeight={36}/>
-                        <GridCardWrapper>
-                            {cells}
-                        </GridCardWrapper>
+                        <Col size={.4}><CardWithRows size={.3} items={[`Lv.${lvIndex} -> Lv.${lvIndex + 1}`]}
+                                                     rowHeight={36}/></Col>
+                        <Col size={1}>
+                            <GridCardWrapper>
+                                {cells}
+                            </GridCardWrapper>
+                        </Col>
                     </Row>
                 );
             });

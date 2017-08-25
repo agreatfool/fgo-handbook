@@ -414,7 +414,8 @@ class GoalCompare extends Component<GoalCompareProps, any> {
 
         return (
             <View>
-                <CardWithRows items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]} backgroundColor="#CDE1F9"/>
+                <CardWithRows items={[`${this._sourceGoal.name}  VS  ${this._targetGoal.name}`]}
+                              backgroundColor="#CDE1F9"/>
                 <GridCardWrapper>
                     <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
                         <Row style={{marginBottom: 5}}>
