@@ -31,7 +31,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardWithRows, CardGridWrapper, RowCentering, TextCentering} from "../../../view/View";
+import {CardGridWrapper, CardWithRows, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -84,9 +84,7 @@ class ServantSkill extends Component<State.Props, any> {
             let effects = [];
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
                 effects.push(
-                    <Row key={`SkillEffectDesc_${index}`} style={[Styles.Common.VerticalCentering, {
-                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
-                    }]}>
+                    <Row key={`SkillEffectDesc_${index}`} style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
                         <Col><Text>{effect.description}</Text></Col>
                     </Row>
                 );
@@ -99,25 +97,28 @@ class ServantSkill extends Component<State.Props, any> {
                             </Col>
                         );
                     });
-                    effects.push(<Row style={[Styles.Common.VerticalCentering, {
-                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
-                    }]} key={`SkillEffectNumber_${index}`}>{effectNumbers}</Row>);
+                    effects.push(
+                        <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}
+                             key={`SkillEffectNumber_${index}`}>
+                            {effectNumbers}
+                        </Row>
+                    );
                 }
             });
             skills.push(
                 <CardGridWrapper key={`SkillInfo_${index}`}>
-                    <Row style={[Styles.Common.VerticalCentering, {
-                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
-                    }]}>
-                        <Col size={.4}>
-                            <Thumbnail small square
-                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
-                        </Col>
-                        <Col><TextCentering>{skill.name}</TextCentering></Col>
-                        <Col><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></Col>
-                        <Col><TextCentering>{skill.condition}</TextCentering></Col>
-                    </Row>
-                    {effects}
+                    <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                        <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
+                            <Col size={.4}>
+                                <Thumbnail small square
+                                           source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            </Col>
+                            <Col><TextCentering>{skill.name}</TextCentering></Col>
+                            <Col><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></Col>
+                            <Col><TextCentering>{skill.condition}</TextCentering></Col>
+                        </Row>
+                        {effects}
+                    </Col>
                 </CardGridWrapper>
             );
         });
@@ -136,21 +137,29 @@ class ServantSkill extends Component<State.Props, any> {
         skillInfo.passiveSkills.forEach((skill: SvtInfoPassiveSkill, index) => {
             let effects = [];
             skill.skillEffects.forEach((effect: SvtInfoSkillEffect, index) => {
-                effects.push(<Row key={`PasEffect_${index}`}><Text>{effect.description + effect.effects.join("")}</Text></Row>);
+                effects.push(
+                    <Row key={`PasEffect_${index}`}>
+                        <Text>{effect.description + effect.effects.join("")}</Text>
+                    </Row>
+                );
             });
 
             skills.push(
                 <CardGridWrapper key={`PasSkill_${index}`}>
-                    <Row style={[Styles.Common.VerticalCentering, {
-                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10, backgroundColor: "#FFFFFF"
-                    }]}>
-                        <Col size={.4}>
-                            <Thumbnail small square
-                                       source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
-                        </Col>
-                        <Col size={1}><Row><Text>{skill.name}</Text></Row></Col>
-                        <Col size={2}>{effects}</Col>
-                    </Row>
+                    <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                        <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
+                            <Col size={.4}>
+                                <Thumbnail small square
+                                           source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                            </Col>
+                            <Col size={1}>
+                                <Row>
+                                    <Text>{skill.name}</Text>
+                                </Row>
+                            </Col>
+                            <Col size={2}>{effects}</Col>
+                        </Row>
+                    </Col>
                 </CardGridWrapper>
             );
         });
@@ -188,20 +197,20 @@ class ServantSkill extends Component<State.Props, any> {
             });
             skills.push(
                 <CardGridWrapper key={`TreSkill_${index}`}>
-                    <Row style={[Styles.Common.VerticalCentering, {
-                        paddingTop: 5, paddingBottom: 5, paddingLeft: 10, paddingRight: 10
-                    }]}>
-                        <Col size={2}>
-                            <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
-                                {treasure.name}
-                            </Text>
-                        </Col>
-                        <Col size={.5}><Text>{treasure.rank}</Text></Col>
-                        <Col size={1}><Text>{treasure.type}</Text></Col>
-                        <Col size={1}><Text>{treasure.condition}</Text></Col>
-                        <Col size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></Col>
-                    </Row>
-                    {effects}
+                    <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                        <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
+                            <Col size={2}>
+                                <Text style={{color: this.genTreasureColorCode(treasure.cardId)}}>
+                                    {treasure.name}
+                                </Text>
+                            </Col>
+                            <Col size={.5}><Text>{treasure.rank}</Text></Col>
+                            <Col size={1}><Text>{treasure.type}</Text></Col>
+                            <Col size={1}><Text>{treasure.condition}</Text></Col>
+                            <Col size={.8}><Text>{this.genTreasureHitStr(treasure.hits)}</Text></Col>
+                        </Row>
+                        {effects}
+                    </Col>
                 </CardGridWrapper>
             );
         });

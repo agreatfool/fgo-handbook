@@ -248,13 +248,7 @@ export class RowCentering extends Component<RowCenteringProps, any> {
     render() {
         let props = this.props as RowCenteringProps;
 
-        let rowStyle = {
-            backgroundColor: "#FFF",
-            paddingTop: 5,
-            paddingBottom: 5,
-            paddingLeft: 10,
-            paddingRight: 10,
-        };
+        let rowStyle = {};
         rowStyle = Object.assign(rowStyle, StyleSheet.flatten(Styles.Common.Centering));
         rowStyle = Object.assign(rowStyle, {minHeight: 20});
         if (props.hasOwnProperty("height")) {

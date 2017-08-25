@@ -95,9 +95,9 @@ class ServantMaterial extends Component<State.Props, any> {
 
             element.items.forEach((item: SvtInfoMaterialDetail, index) => {
                 materials.push(
-                    <Col key={`ElementCell_${index}`} style={{backgroundColor: "#FFFFFF"}}>
+                    <Col key={`ElementCell_${index}`}>
                         <Row style={Styles.Common.Centering}>
-                            <Col style={{backgroundColor: "#FFFFFF"}}>
+                            <Col>
                                 <TouchableOpacity onPress={() => this.selectItem(item.itemId)}>
                                     <Thumbnail small square
                                                source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
@@ -111,14 +111,14 @@ class ServantMaterial extends Component<State.Props, any> {
                 );
             });
             materials.push(
-                <Col key={`ElementQP_${index}`} style={[Styles.Common.Centering, {backgroundColor: "#FFFFFF"}]}>
+                <Col key={`ElementQP_${index}`} style={[Styles.Common.Centering]}>
                     <TextCentering>{this.genQpStr(element.qp)}</TextCentering>
                 </Col>
             );
             if (materials.length < CELL_COUNT) {
                 let appendCount = CELL_COUNT - materials.length;
                 for (let loop = 0; loop < appendCount; loop++) {
-                    materials.push(<Col key={`ElementPH_${index}_${loop}`} style={{backgroundColor: "#FFFFFF"}}/>);
+                    materials.push(<Col key={`ElementPH_${index}_${loop}`}/>);
                 }
             }
 
