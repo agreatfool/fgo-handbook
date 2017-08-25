@@ -111,7 +111,7 @@ export class ServantFilter extends Component<State.Props, any> {
         MstUtil.divideArrayIntoParts(checkItems, countInRow).forEach((itemsInRow: Array<any>, index) => {
             rows.push(
                 <Row key={`CheckRow_${propName}_${index}`}
-                     style={[Styles.Common.Centering, {minHeight: 25}]}>
+                     style={[Styles.Common.Centering, {minHeight: 25, marginBottom: 5}]}>
                     {itemsInRow}
                 </Row>
             );
@@ -121,10 +121,12 @@ export class ServantFilter extends Component<State.Props, any> {
             <View>
                 <CardWithRows items={[title]} backgroundColor="#CDE1F9"/>
                 <GridCardWrapper>
-                    {rows}
+                    <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
+                        {rows}
+                    </Col>
                 </GridCardWrapper>
                 <GridCardWrapper>
-                    <Row>
+                    <Row style={{paddingTop: 5, paddingBottom: 5}}>
                         <Col style={{marginLeft: 10, marginRight: 10}}>
                             <Button block info bordered small
                                     onPress={() => this.onCheck(0, propName, dataSet)}>
