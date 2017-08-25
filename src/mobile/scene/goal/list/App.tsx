@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {CardWithRButton, CardWithRows, GridCardWrapper, ColCardWithRightButton, TextCentering} from "../../../view/View";
+import {CardWithRButton, CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -16,7 +16,24 @@ import {
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
 import {Actions} from "react-native-router-flux";
-import {Card, CardItem, Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title, Toast} from "native-base";
+import {
+    Body,
+    Button,
+    Card,
+    CardItem,
+    Col,
+    Container,
+    Content,
+    Grid,
+    Header,
+    Icon,
+    Left,
+    Picker,
+    Right,
+    Row,
+    Title,
+    Toast
+} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import {defaultCurrentGoal, Goal} from "../../../lib/model/MstGoal";
@@ -151,7 +168,7 @@ class GoalList extends Component<State.Props, any> {
         );
 
         return (
-            <GridCardWrapper backgroundColor="#FFFFFF">
+            <GridCardWrapper>
                 <Row style={{marginTop: 10, marginLeft: 10, marginRight: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>选择进度比较</Text>
@@ -190,7 +207,7 @@ class GoalList extends Component<State.Props, any> {
 
         let goals: Array<Goal> = state.goals;
         if (!goals || goals.length === 0) {
-            return <View />;
+            return <View/>;
         }
 
         let goalList = [];
@@ -198,7 +215,7 @@ class GoalList extends Component<State.Props, any> {
             //noinspection TypeScriptUnresolvedFunction
             goalList.push(
                 <Row key={`Goal_${index}`}>
-                    <GridCardWrapper backgroundColor="#FFFFFF">
+                    <GridCardWrapper>
                         <Row style={{marginTop: 5, marginBottom: 5, marginLeft: 10, marginRight: 10}}>
                             <Col size={1.2} style={Styles.Common.VerticalCentering}>
                                 <Text>{goal.name}</Text>
@@ -266,7 +283,7 @@ class GoalList extends Component<State.Props, any> {
                     <Body>
                     <Title>Progress List</Title>
                     </Body>
-                    <Right />
+                    <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>

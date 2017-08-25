@@ -85,7 +85,9 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
         return (
             <View>
                 <GridCardWrapper>
-                    {rows}
+                    <Col style={{paddingTop: 5}}>
+                        {rows}
+                    </Col>
                 </GridCardWrapper>
             </View>
         );
