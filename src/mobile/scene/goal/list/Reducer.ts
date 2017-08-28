@@ -4,10 +4,10 @@ import {defaultState, State} from "./State";
 import {
     ACT_UPDATE_ALL, ACT_UPDATE_CURRENT_STATUS, ACT_ADD_GOAL,
     ACT_UPDATE_GOAL, ACT_DELETE_GOAL,
-    ACT_UPDATE_SVTID_ON_EDIT, ACT_UPDATE_COMPARE_RESULT,
+    ACT_UPDATE_SVTIDS_ON_EDIT, ACT_UPDATE_COMPARE_RESULT,
     ActionUpdateAll, ActionUpdateCurrentStatus, ActionAddGoal,
     ActionUpdateGoal, ActionDeleteGoal,
-    ActionUpdateSvtIdOnEdit, ActionUpdateCompareResult,
+    ActionUpdateSvtIdsOnEdit, ActionUpdateCompareResult,
 } from "./Action";
 import MstLoader from "../../../lib/model/MstLoader";
 import MstUtil from "../../../lib/utility/MstUtil";
@@ -77,9 +77,9 @@ export const deleteGoal = {
 } as ReducerInterface<State>;
 
 export const updateSvtIdOnEdit = {
-    action: ACT_UPDATE_SVTID_ON_EDIT,
-    reducer: function (state: State, action: ActionUpdateSvtIdOnEdit) {
-        state.selectedSvtIdOnEdit = action.svtId;
+    action: ACT_UPDATE_SVTIDS_ON_EDIT,
+    reducer: function (state: State, action: ActionUpdateSvtIdsOnEdit) {
+        state.selectedSvtIdsOnEdit = action.svtIds;
         return state;
     }
 } as ReducerInterface<State>;

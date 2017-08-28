@@ -72,17 +72,17 @@ export const deleteGoal: ActionCreator<ActionDeleteGoal> = function (goalId: str
     }
 };
 
-export const ACT_UPDATE_SVTID_ON_EDIT = "ACT_UPDATE_SVTID_ON_EDIT";
+export const ACT_UPDATE_SVTIDS_ON_EDIT = "ACT_UPDATE_SVTIDS_ON_EDIT";
 
-export interface ActionUpdateSvtIdOnEdit {
+export interface ActionUpdateSvtIdsOnEdit {
     type: string;
-    svtId: number;
+    svtIds: Array<number>;
 }
 
-export const updateSvtIdOnEdit: ActionCreator<ActionUpdateSvtIdOnEdit> = function (svtId: number) {
+export const updateSvtIdsOnEdit: ActionCreator<ActionUpdateSvtIdsOnEdit> = function (svtIds: Array<number>) {
     return {
-        type: ACT_UPDATE_SVTID_ON_EDIT,
-        svtId: svtId,
+        type: ACT_UPDATE_SVTIDS_ON_EDIT,
+        svtIds: svtIds,
     }
 };
 
@@ -106,6 +106,6 @@ export const Actions = {
     addGoal,
     updateGoal,
     deleteGoal,
-    updateSvtIdOnEdit,
+    updateSvtIdsOnEdit,
     updateCompareResult,
 };

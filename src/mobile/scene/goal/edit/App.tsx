@@ -66,7 +66,6 @@ class GoalEdit extends Component<GoalEditProps, any> {
                 break;
         }
 
-        props.actions.updateSvtIdOnEdit(props.SceneGoal.svtRawData[0].id);
         this.setState({
             goal: goal
         });
@@ -221,10 +220,25 @@ class GoalEdit extends Component<GoalEditProps, any> {
         );
     }
 
-    addSvtIntoGoal(): void {
+    addSvtsIntoGoal(): void {
         let props = this.props as GoalEditProps;
         let state = this.state as GoalEditState;
-        let svtId = props.SceneGoal.selectedSvtIdOnEdit;
+
+        if (props.SceneGoal.selectedSvtIdsOnEdit.length <= 0) {
+            return;
+        }
+
+        let currentGoal = MstUtil.deepCopy(state.goal);
+        props.SceneGoal.selectedSvtIdsOnEdit.forEach((svtId: number) => {
+            this.addSvtIntoGoal(svtId, currentGoal);
+        });
+        this.setState({goal: currentGoal});
+
+        props.actions.updateSvtIdsOnEdit([]);
+    }
+
+    addSvtIntoGoal(svtId: number, currentGoal: Goal): void {
+        let state = this.state as GoalEditState;
 
         // 检查目标从者是否已存在
         let alreadyExists = false;
@@ -256,9 +270,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         } as GoalSvt;
 
         // 更新目标
-        let currentGoal = MstUtil.deepCopy(state.goal);
         currentGoal.servants.push(goalSvt);
-        this.setState({goal: currentGoal});
     }
 
     switchSvtListPosition(startIndex: number, delta: number) {
@@ -392,6 +404,15 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
     renderServantSelect() {
         let props = this.props as GoalEditProps;
+        let state = this.state as GoalEditState;
+
+        let goalSvtIds = [];
+        let goal = state.goal;
+        goal.servants.forEach((svt: GoalSvt) => {
+            goalSvtIds.push(svt.svtId);
+        });
+
+        let selectedCount = props.SceneGoal.selectedSvtIdsOnEdit.length;
 
         //noinspection TypeScriptUnresolvedFunction
         return (
@@ -403,16 +424,16 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <Col size={1}>
                         <Button small info block bordered
                                 style={{marginRight: 5, justifyContent: "center"}}
-                                onPress={() => (Actions as any).goal_servant_picker()}>
+                                onPress={() => (Actions as any).goal_servant_picker({selectedIds: goalSvtIds})}>
                             <Text>
-                                {getMstSvt(props.SceneGoal.selectedSvtIdOnEdit, props.SceneGoal.svtRawData).name}
+                                {selectedCount <= 0 ? "选择从者" : `已选择${selectedCount}名，点击+添加`}
                             </Text>
                         </Button>
                     </Col>
                     <Col size={.3}>
                         <Button small info block bordered
                                 style={StyleSheet.flatten(Styles.Common.VerticalCentering)}
-                                onPress={() => this.addSvtIntoGoal()}>
+                                onPress={() => this.addSvtsIntoGoal()}>
                             <TextCentering>+</TextCentering>
                         </Button>
                     </Col>

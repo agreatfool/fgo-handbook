@@ -95,6 +95,7 @@ class GoalList extends Component<State.Props, any> {
             data.limitCombineData = limitCombineData;
             data.skillData = skillData;
             data.visibleItems = visibleItems;
+            data.selectedSvtIdsOnEdit = [];
             data.compareResult = undefined;
             props.actions.updateAll(data);
 

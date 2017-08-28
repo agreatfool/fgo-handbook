@@ -29,6 +29,11 @@ export * from "./State";
 export * from "./Action";
 
 interface GoalServantPickerProps extends State.Props {
+    selectedIds: Array<number>;
+}
+
+interface GoalServantPickerState {
+    selected: Array<number>;
 }
 
 class GoalServantPicker extends Component<GoalServantPickerProps, any> {
@@ -37,12 +42,55 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     componentDidMount() {
+        this.setState({selected: []});
+    }
+
+    isSelected(svtId: number): boolean {
+        let props = this.props as GoalServantPickerProps;
+        let state = this.state as GoalServantPickerState;
+
+        if (props.selectedIds.indexOf(svtId) !== -1 || state.selected.indexOf(svtId) !== -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     selectSvt(svtId: number) {
+        let selected = MstUtil.deepCopy((this.state as GoalServantPickerState).selected);
+        let index = selected.indexOf(svtId);
+        if (index === -1) {
+            selected.push(svtId);
+        } else {
+            selected = MstUtil.removeFromArrAtIndex(selected, index);
+        }
+
+        this.setState({selected: selected});
+    }
+
+    finishSelect() {
         let props = this.props as GoalServantPickerProps;
-        props.actions.updateSvtIdOnEdit(svtId);
+        let state = this.state as GoalServantPickerState;
+
+        props.actions.updateSvtIdsOnEdit(state.selected);
         Actions.pop();
+    }
+
+    renderCell(svtId: number) {
+        let view = undefined;
+
+        let props = this.props as GoalServantPickerProps;
+
+        if (this.isSelected(svtId)) {
+            view = <Icon key={`servant_icon_${svtId}`} name="md-checkmark"/>;
+        } else {
+            view = <Thumbnail key={`servant_thumb_${svtId}`} small square
+                              source={{
+                                  uri: MstUtil.instance.getRemoteFaceUrl(props.SceneGoal.appVer, svtId)
+                              }}/>;
+        }
+
+        return view;
     }
 
     renderServantList() {
@@ -58,12 +106,9 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
             rowData.forEach((svtData: MstSvt, cellIndex) => {
                 cells.push(
                     <Col key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
-                         style={Styles.Common.HorizontalCentering}>
+                         style={[Styles.Common.HorizontalCentering, Styles.Common.VerticalCentering]}>
                         <TouchableOpacity onPress={() => this.selectSvt(svtData.id)}>
-                            <Thumbnail small square
-                                       source={{
-                                           uri: MstUtil.instance.getRemoteFaceUrl(props.SceneGoal.appVer, svtData.id)
-                                       }}/>
+                            {this.renderCell(svtData.id)}
                         </TouchableOpacity>
                     </Col>
                 );
@@ -94,6 +139,11 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     render() {
+        let state = this.state as GoalServantPickerState;
+        if (state === undefined || state === null || !state.hasOwnProperty("selected") || !state.selected) {
+            return <View/>;
+        }
+
         return (
             <Container>
                 <Header>
@@ -105,7 +155,11 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
                     <Body>
                     <Title>选择目标从者</Title>
                     </Body>
-                    <Right/>
+                    <Right>
+                        <Button transparent onPress={() => this.finishSelect()}>
+                            <Icon name="md-checkmark"/>
+                        </Button>
+                    </Right>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
