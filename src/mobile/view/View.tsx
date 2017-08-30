@@ -1,10 +1,21 @@
 import React, {Component, ReactNode} from "react";
-import {StyleSheet, Text, TextStyle, ViewStyle, View} from "react-native";
-import {Button, Card, CardItem, Col, Grid, Row, Right, Thumbnail, Left, Body} from "native-base";
+import {StyleSheet, Text, TextStyle, View, ViewStyle} from "react-native";
+import {Button, Card, CardItem, Col, Container, Grid, Left, Right, Row, Thumbnail} from "native-base";
 import * as Styles from "./Styles";
 
 export interface Props {
     children?: ReactNode;
+}
+
+export class ContainerWhite extends Component<Props, any> {
+    render() {
+        let props = this.props as Props;
+        return (
+            <Container style={{backgroundColor: "#FFF"}}>
+                {props.children}
+            </Container>
+        );
+    }
 }
 
 interface CardWithRowsProps extends Props {

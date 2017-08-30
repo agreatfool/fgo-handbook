@@ -6,7 +6,6 @@ import {MstSvt} from "../../../../model/master/Master";
 import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {Actions} from "react-native-router-flux";
 import {SvtOrderDirections} from "../../../lib/model/MstInfo";
 import {
     Body,
@@ -26,6 +25,7 @@ import {
 } from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import * as Styles from "../../../view/Styles";
+import {ContainerWhite} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -93,11 +93,10 @@ export class ServantList extends Component<State.Props, any> {
 
     renderRow(data: MstSvt) {
         let props = this.props as State.Props;
-        let state = props.SceneServantList;
 
         //noinspection TypeScriptUnresolvedFunction
         return (
-            <ListItem onPress={() => (Actions as any).servant_detail({svtId: data.id})}>
+            <ListItem onPress={() => props.navigation.navigate("ServantDetail", {svtId: data.id})}>
                 <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
                 <Grid style={{marginLeft: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
@@ -116,16 +115,19 @@ export class ServantList extends Component<State.Props, any> {
     }
 
     render() {
+        let props = this.props as State.Props;
+        let state = props.SceneServantList as State.State;
+
         //noinspection TypeScriptUnresolvedFunction
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left/>
                     <Body>
                     <Title>ServantList</Title>
                     </Body>
                     <Right>
-                        <Button transparent onPress={() => (Actions as any).servant_filter()}>
+                        <Button transparent onPress={() => props.navigation.navigate("ServantFilter")}>
                             <Icon name="funnel"/>
                         </Button>
                         <Button transparent onPress={() => this.onOrderDirectionChange.bind(this)()}>
@@ -134,12 +136,12 @@ export class ServantList extends Component<State.Props, any> {
                     </Right>
                 </Header>
                 <Content>
-                    <List dataArray={(this.props as State.Props).SceneServantList.displayData}
+                    <List dataArray={state.displayData}
                           renderRow={this.renderRow.bind(this)}>
                     </List>
                 </Content>
                 <AppFooterTab activeIndex={AppFooterTabIndex.Servant}/>
-            </Container>
+            </ContainerWhite>
         );
     }
 }

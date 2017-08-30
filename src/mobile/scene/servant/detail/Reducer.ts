@@ -12,7 +12,6 @@ export {StateName} from "./State";
 export const updatePageTitle = {
     action: ACT_UPDATE_PAGE_TITLE,
     reducer: function (state: State, action: ActionUpdatePageTitle) {
-        Actions.refresh({title: action.title});
         state.title = action.title;
         return state;
     }

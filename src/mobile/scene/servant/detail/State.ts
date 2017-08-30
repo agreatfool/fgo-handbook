@@ -22,6 +22,9 @@ export const defaultState = {
 export const StateName = "SceneServantInfo";
 
 export interface Props extends InjectedProps {
-    svtId: number;
     SceneServantInfo: State;
+}
+
+export interface NavState {
+    svtId: number;
 }
