@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Text} from "react-native";
-import {Footer, FooterTab, Button} from "native-base";
-import {Actions} from "react-native-router-flux";
+import {Button, Footer, FooterTab} from "native-base";
+import {NavigationScreenProp} from "react-navigation";
 
 export enum AppFooterTabIndex {
     Servant,
@@ -10,6 +10,7 @@ export enum AppFooterTabIndex {
 }
 
 interface AppFooterTabProps {
+    navigation: NavigationScreenProp<any, any>;
     activeIndex: number; // 0 - 2
 }
 
@@ -27,8 +28,7 @@ export class AppFooterTab extends Component<AppFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_list();
+            props.navigation.navigate("ServantList");
         };
 
         if (isActive) {
@@ -46,8 +46,7 @@ export class AppFooterTab extends Component<AppFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).goal_list();
+            props.navigation.navigate("GoalList");
         };
 
         if (isActive) {
@@ -65,8 +64,7 @@ export class AppFooterTab extends Component<AppFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).options();
+            props.navigation.navigate("Options");
         };
 
         if (isActive) {

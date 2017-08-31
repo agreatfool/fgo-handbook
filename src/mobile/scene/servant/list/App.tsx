@@ -140,7 +140,7 @@ export class ServantList extends Component<State.Props, any> {
                           renderRow={this.renderRow.bind(this)}>
                     </List>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Servant}/>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Servant} navigation={props.navigation}/>
             </ContainerWhite>
         );
     }

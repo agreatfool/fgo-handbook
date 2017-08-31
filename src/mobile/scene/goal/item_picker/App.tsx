@@ -3,7 +3,6 @@ import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -21,17 +20,14 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {GridCardWrapper} from "../../../view/View";
+import {ContainerWhite, GridCardWrapper} from "../../../view/View";
 import {MstItem} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
 export * from "./State";
 export * from "./Action";
 
-interface GoalItemPickerProps extends State.Props {
-}
-
-class GoalItemPicker extends Component<GoalItemPickerProps, any> {
+class GoalItemPicker extends Component<State.Props, any> {
     constructor(props, context) {
         super(props, context);
     }
@@ -40,14 +36,15 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
     }
 
     selectItem(itemId: number) {
-        //noinspection TypeScriptUnresolvedFunction
-        (Actions as any).goal_item_requirement({
+        let props = this.props as State.Props;
+
+        props.navigation.navigate("GoalItemRequirement", {
             itemId: itemId
         });
     }
 
     renderItemList() {
-        let props = this.props as GoalItemPickerProps;
+        let props = this.props as State.Props;
         const CELL_COUNT = 6;
 
         let items: Array<Array<MstItem>> = MstUtil.divideArrayIntoParts(props.SceneGoal.visibleItems, CELL_COUNT);
@@ -97,11 +94,13 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
     }
 
     render() {
+        let props = this.props as State.Props;
+
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => Actions.pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -115,8 +114,8 @@ class GoalItemPicker extends Component<GoalItemPickerProps, any> {
                         {this.renderItemList()}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

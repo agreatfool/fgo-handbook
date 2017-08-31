@@ -5,7 +5,6 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -23,18 +22,18 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
 export * from "./State";
 export * from "./Action";
 
-interface GoalCompareServantProps extends State.Props {
+interface NavState {
     svtId: number;
 }
 
-class GoalCompareServant extends Component<GoalCompareServantProps, any> {
+class GoalCompareServant extends Component<State.Props, any> {
     private _service: Service;
 
     constructor(props, context) {
@@ -44,7 +43,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
     }
 
     getCompareResSvt(svtId: number): CompareResSvt {
-        let props = this.props as GoalCompareServantProps;
+        let props = this.props as State.Props;
         let result = props.SceneGoal.compareResult;
 
         let resSvt = {} as CompareResSvt;
@@ -58,6 +57,8 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
     }
 
     renderLimits(appVer: string, limitList: Array<Array<CompareResItemDetail>>) {
+        let props = this.props as State.Props;
+
         const CELL_COUNT = 4;
         let limitListView = [];
 
@@ -70,7 +71,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
             limitItems.forEach((limitItem: CompareResItemDetail, itemIndex) => {
                 itemsView.push(
                     <Col key={`Item_Limit_Cell_${rowIndex}_${itemIndex}`}>
-                        <TouchableOpacity onPress={() => goToCompareResItemPage(limitItem.itemId)}>
+                        <TouchableOpacity onPress={() => goToCompareResItemPage(props.navigation, limitItem.itemId)}>
                             <Row style={Styles.Common.Centering}>
                                 <Col>
                                     <Thumbnail small square
@@ -114,7 +115,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
     }
 
     renderSkills(appVer: string, skillList: Array<CompareResSkill>) {
-        let props = this.props as GoalCompareServantProps;
+        let props = this.props as State.Props;
         let state = props.SceneGoal;
 
         const CELL_COUNT = 4;
@@ -135,7 +136,7 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
                 items.forEach((item: CompareResItemDetail, itemIndex) => {
                     cells.push(
                         <Col key={`Item_Skill_Cell_${lvIndex}_${itemIndex}`}>
-                            <TouchableOpacity onPress={() => goToCompareResItemPage(item.itemId)}>
+                            <TouchableOpacity onPress={() => goToCompareResItemPage(props.navigation, item.itemId)}>
                                 <Row style={Styles.Common.Centering}>
                                     <Col>
                                         <Thumbnail small square
@@ -197,9 +198,10 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
     }
 
     render() {
-        let props = this.props as GoalCompareServantProps;
+        let props = this.props as State.Props;
         let state = props.SceneGoal;
-        let resSvt = this.getCompareResSvt(props.svtId);
+        let navState = props.navigation.state.params as NavState;
+        let resSvt = this.getCompareResSvt(navState.svtId);
 
         let result: CompareResult = state.compareResult;
         if (result === undefined) {
@@ -210,30 +212,32 @@ class GoalCompareServant extends Component<GoalCompareServantProps, any> {
         this._service.sortCompareResItems(resSvt.totalSkill, state.visibleItems);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
                     <Body>
-                    <Title>{`${getMstSvt(props.svtId, state.svtRawData).name}`}</Title>
+                    <Title>{`${getMstSvt(navState.svtId, state.svtRawData).name}`}</Title>
                     </Body>
                     <Right/>
                 </Header>
                 <Content>
                     <View style={Styles.Box.Wrapper}>
-                        {renderRowCellsOfElements(state.appVer, `灵基再临总需求列表 (QP ${resSvt.totalLimitQP / 10000}万)`,
+                        {renderRowCellsOfElements(props.navigation, state.appVer,
+                            `灵基再临总需求列表 (QP ${resSvt.totalLimitQP / 10000}万)`,
                             ElementType.Item, 5, resSvt.totalLimit)}
                         {this.renderLimits(state.appVer, resSvt.limit)}
-                        {renderRowCellsOfElements(state.appVer, `技能升级总需求列表 (QP ${resSvt.totalSkillQP / 10000}万)`,
+                        {renderRowCellsOfElements(props.navigation, state.appVer,
+                            `技能升级总需求列表 (QP ${resSvt.totalSkillQP / 10000}万)`,
                             ElementType.Item, 5, resSvt.totalSkill)}
                         {this.renderSkills(state.appVer, resSvt.skills)}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

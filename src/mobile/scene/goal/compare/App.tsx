@@ -15,7 +15,6 @@ import {
     CompareResSvtItem,
     CompareResult
 } from "../list/State";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -33,18 +32,19 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 import {Service} from "../../../service/MstService";
+import {NavigationScreenProp} from "react-navigation";
 
 export * from "./State";
 export * from "./Action";
 
-interface GoalCompareProps extends State.Props {
+interface NavState {
     sourceId: string;
     targetId: string;
 }
 
-class GoalCompare extends Component<GoalCompareProps, any> {
+class GoalCompare extends Component<State.Props, any> {
     private _result: CompareResult;
     private _sourceGoal: Goal;
     private _targetGoal: Goal;
@@ -73,7 +73,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     getGoal(goalId: string): Goal {
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         let goal = {} as Goal;
 
         if (goalId === defaultCurrentGoal.id) {
@@ -90,18 +90,24 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     getSourceGoal(): Goal {
-        return this.getGoal((this.props as GoalCompareProps).sourceId);
+        let props = this.props as State.Props;
+        let navState = props.navigation.state.params as NavState;
+
+        return this.getGoal(navState.sourceId);
     }
 
     getTargetGoal(): Goal {
-        return this.getGoal((this.props as GoalCompareProps).targetId);
+        let props = this.props as State.Props;
+        let navState = props.navigation.state.params as NavState;
+
+        return this.getGoal(navState.targetId);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* CALC LOGIC
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     calcCompareResult(): void {
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
 
         this._targetGoal.servants.forEach((targetSvt: GoalSvt) => {
             let sourceSvt = this.getSvtFromGoal(this._sourceGoal, targetSvt.svtId);
@@ -159,7 +165,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             return result;
         }
 
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         let container = props.SceneGoal.limitCombineData;
 
         for (let limitIndex = sourceLimit; limitIndex < targetLimit; limitIndex++) {
@@ -206,7 +212,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
             return result;
         }
 
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         let container = props.SceneGoal.skillCombineData;
 
         /**
@@ -341,7 +347,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     getSvtInfo(svtId: number): MstSvt {
         let result = {} as MstSvt;
 
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         props.SceneGoal.svtRawData.forEach((svtInfo: MstSvt) => {
             if (svtInfo.id === svtId) {
                 result = svtInfo;
@@ -354,7 +360,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     getSvtSkills(svtId: number): Array<MstSkill> {
         let result = [] as Array<MstSkill>;
 
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         let svtSkillData: MstSvtSkillContainer = props.SceneGoal.svtSkillData;
         let skillData: MstSkillContainer = props.SceneGoal.skillData;
 
@@ -434,7 +440,7 @@ class GoalCompare extends Component<GoalCompareProps, any> {
     }
 
     render() {
-        let props = this.props as GoalCompareProps;
+        let props = this.props as State.Props;
         let state = props.SceneGoal;
 
         let result: CompareResult = state.compareResult;
@@ -446,10 +452,10 @@ class GoalCompare extends Component<GoalCompareProps, any> {
         this._service.sortCompareResItems(totalItems, state.visibleItems);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -461,20 +467,20 @@ class GoalCompare extends Component<GoalCompareProps, any> {
                 <Content>
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle(result.totalLimit, result.totalSkill, result.totalQP)}
-                        {renderRowCellsOfElements(state.appVer, "灵基材料列表",
+                        {renderRowCellsOfElements(props.navigation, state.appVer, "灵基材料列表",
                             ElementType.Item, 5, result.totalLimit)}
-                        {renderRowCellsOfElements(state.appVer, "技能材料列表",
+                        {renderRowCellsOfElements(props.navigation, state.appVer, "技能材料列表",
                             ElementType.Item, 5, result.totalSkill)}
-                        {renderRowCellsOfElements(state.appVer, "总材料列表",
+                        {renderRowCellsOfElements(props.navigation, state.appVer, "总材料列表",
                             ElementType.Item, 5, totalItems)}
-                        {renderRowCellsOfElements(state.appVer, "灵基目标列表",
+                        {renderRowCellsOfElements(props.navigation, state.appVer, "灵基目标列表",
                             ElementType.Servant, 6, result.servants.filter(this.filterEmptyLimitCompareResSvt))}
-                        {renderRowCellsOfElements(state.appVer, "技能目标列表",
+                        {renderRowCellsOfElements(props.navigation, state.appVer, "技能目标列表",
                             ElementType.Servant, 6, result.servants.filter(this.filterEmptySkillCompareResSvt))}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }
@@ -500,14 +506,12 @@ export const getMstSkill = (skillId: number, skillData: MstSkillContainer) => {
     return skillData.get(skillId);
 };
 
-export const goToCompareResServantPage = (svtId: number): void => {
-    //noinspection TypeScriptUnresolvedFunction
-    (Actions as any).goal_compare_svt({svtId: svtId});
+export const goToCompareResServantPage = (navigation: NavigationScreenProp<any, any>, svtId: number): void => {
+    navigation.navigate("GoalCompareServant", {svtId: svtId})
 };
 
-export const goToCompareResItemPage = (itemId: number): void => {
-    //noinspection TypeScriptUnresolvedFunction
-    (Actions as any).goal_compare_item({itemId: itemId});
+export const goToCompareResItemPage = (navigation: NavigationScreenProp<any, any>, itemId: number): void => {
+    navigation.navigate("GoalCompareItem", {itemId: itemId})
 };
 
 export enum ElementType {
@@ -516,7 +520,8 @@ export enum ElementType {
     SvtItem,
 }
 
-export const renderRowCellsOfElements = (appVer: string,
+export const renderRowCellsOfElements = (navigation: NavigationScreenProp<any, any>,
+                                         appVer: string,
                                          title: string,
                                          type: ElementType,
                                          cellInRow: number,
@@ -536,11 +541,11 @@ export const renderRowCellsOfElements = (appVer: string,
         let goTo = undefined;
         if (type === ElementType.Item) {
             goTo = (element: CompareResSvt | CompareResItemDetail) => {
-                goToCompareResItemPage((element as CompareResItemDetail).itemId);
+                goToCompareResItemPage(navigation, (element as CompareResItemDetail).itemId);
             };
         } else if (type === ElementType.Servant) {
             goTo = (element: CompareResSvt | CompareResItemDetail) => {
-                goToCompareResServantPage((element as CompareResSvt).svtId);
+                goToCompareResServantPage(navigation, (element as CompareResSvt).svtId);
             };
         }
 

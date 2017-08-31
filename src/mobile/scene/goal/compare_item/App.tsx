@@ -6,7 +6,6 @@ import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {MstItemContainer} from "../../../../model/impl/MstContainer";
 import {CompareResItem, CompareResSvtItem, CompareResult} from "../list/State";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -24,7 +23,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, GridCardWrapper} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper} from "../../../view/View";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -32,7 +31,7 @@ import {ElementType, renderRowCellsOfElements} from "../compare/App";
 export * from "./State";
 export * from "./Action";
 
-interface GoalCompareItemProps extends State.Props {
+interface NavState {
     itemId: number;
 }
 
@@ -44,20 +43,21 @@ interface GoalCompareItemState {
     skillTotal: number;
 }
 
-class GoalCompareItem extends Component<GoalCompareItemProps, any> {
+class GoalCompareItem extends Component<State.Props, any> {
     constructor(props, context) {
         super(props, context);
     }
 
     componentDidMount() {
-        let props = this.props as GoalCompareItemProps;
+        let props = this.props as State.Props;
+        let navState = props.navigation.state.params as NavState;
 
         MstLoader.instance.loadModel("MstItem").then((container: BaseContainer<any>) => {
             let result: CompareResult = props.SceneGoal.compareResult;
             let resItem = {} as CompareResItem;
 
             result.items.forEach((item: CompareResItem) => {
-                if (item.itemId === props.itemId) {
+                if (item.itemId === navState.itemId) {
                     resItem = item;
                 }
             });
@@ -75,7 +75,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
             });
 
             this.setState({
-                itemName: (container as MstItemContainer).get(props.itemId).name,
+                itemName: (container as MstItemContainer).get(navState.itemId).name,
                 resItem: resItem,
                 total: total,
                 limitTotal: limitTotal,
@@ -85,8 +85,9 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
     }
 
     renderTitle() {
-        let props = this.props as GoalCompareItemProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalCompareItemState;
+        let navState = props.navigation.state.params as NavState;
 
         return (
             <GridCardWrapper backgroundColor="#CDE1F9">
@@ -95,7 +96,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                         <Thumbnail small square
                                    source={{
                                        uri: MstUtil.instance.getRemoteItemUrl(
-                                           props.SceneGoal.appVer, props.itemId
+                                           props.SceneGoal.appVer, navState.itemId
                                        )
                                    }}/>
                     </Col>
@@ -108,7 +109,7 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
     }
 
     render() {
-        let props = this.props as GoalCompareItemProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalCompareItemState;
 
         if (!state
@@ -121,10 +122,10 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
         }
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -137,15 +138,15 @@ class GoalCompareItem extends Component<GoalCompareItemProps, any> {
                     <View style={Styles.Box.Wrapper}>
                         {this.renderTitle()}
                         <CardWithRows items={[`灵基再临  x${state.limitTotal}`]} backgroundColor="#CDE1F9"/>
-                        {renderRowCellsOfElements(props.SceneGoal.appVer, "",
+                        {renderRowCellsOfElements(props.navigation, props.SceneGoal.appVer, "",
                             ElementType.SvtItem, 5, state.resItem.limit)}
                         <CardWithRows items={[`技能升级  x${state.skillTotal}`]} backgroundColor="#CDE1F9"/>
-                        {renderRowCellsOfElements(props.SceneGoal.appVer, "",
+                        {renderRowCellsOfElements(props.navigation, props.SceneGoal.appVer, "",
                             ElementType.SvtItem, 5, state.resItem.skill)}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

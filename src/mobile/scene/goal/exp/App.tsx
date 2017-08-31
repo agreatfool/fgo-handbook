@@ -3,11 +3,10 @@ import {StyleSheet, Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Actions} from "react-native-router-flux";
 import * as Styles from "../../../view/Styles";
 import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Picker, Right, Row, Title} from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 import {MstSvtExpContainer} from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
 import {MstSvtExp} from "../../../../model/master/Master";
@@ -157,16 +156,17 @@ class GoalExp extends Component<State.Props, any> {
     }
 
     render() {
+        let props = this.props as State.Props;
         let state = this.state as GoalExpState;
         if (!state || !state.hasOwnProperty("exp") || !state.exp) {
             return <View/>;
         }
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -181,8 +181,8 @@ class GoalExp extends Component<State.Props, any> {
                         {this.renderResult()}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }
