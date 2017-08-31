@@ -1,5 +1,4 @@
 import {ReducerInterface, bindComponentReducers} from "../../../../lib/react/Reducer";
-import {Actions} from "react-native-router-flux";
 
 import {State, defaultState} from "./State";
 import {
