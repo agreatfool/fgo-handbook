@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {CardGridWrapper, CardWithRows, TextCentering} from "../../../view/View";
+import {CardGridWrapper, CardWithRows, ContainerWhite, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -9,7 +9,6 @@ import * as LibUuid from "uuid";
 import {MstSkill, MstSvt, MstSvtSkill} from "../../../../model/master/Master";
 import {MstSkillContainer, MstSvtSkillContainer} from "../../../../model/impl/MstContainer";
 import MstUtil from "../../../lib/utility/MstUtil";
-import {Actions} from "react-native-router-flux";
 import {
     ActionSheet,
     Body,
@@ -30,12 +29,11 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {getMstSvt} from "../compare/App";
 
 export * from "./State";
 export * from "./Action";
 
-interface GoalEditProps extends State.Props {
+interface NavState {
     mode: string;
     goalId: string;
     isCurrent: boolean;
@@ -45,22 +43,23 @@ interface GoalEditState {
     goal: Goal;
 }
 
-class GoalEdit extends Component<GoalEditProps, any> {
+class GoalEdit extends Component<State.Props, any> {
     private defaultProgressGoalName: string = "目标进度";
 
     componentDidMount() {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
+        let navState = props.navigation.state.params as NavState;
 
         let goal = {} as Goal;
-        switch (props.mode) {
+        switch (navState.mode) {
             case "add":
                 goal = this.createNewGoal();
                 break;
             case "edit":
-                goal = this.getGoalFromStore(props.goalId);
+                goal = this.getGoalFromStore(navState.goalId);
                 break;
             case "extend":
-                goal = this.getGoalFromStore(props.goalId);
+                goal = this.getGoalFromStore(navState.goalId);
                 goal.id = LibUuid.v4();
                 goal.name = this.defaultProgressGoalName;
                 break;
@@ -82,7 +81,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     getSvtInfo(svtId: number): MstSvt {
         let result = {} as MstSvt;
 
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         props.SceneGoal.svtRawData.forEach((svtInfo: MstSvt) => {
             if (svtInfo.id === svtId) {
                 result = svtInfo;
@@ -94,9 +93,10 @@ class GoalEdit extends Component<GoalEditProps, any> {
 
     getGoalFromStore(goalId: string): Goal {
         let goal = {} as Goal;
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
+        let navState = props.navigation.state.params as NavState;
 
-        if (props.isCurrent === false) {
+        if (navState.isCurrent === false) {
             // 查找目标列表中的内容
             props.SceneGoal.goals.forEach((element: Goal) => {
                 if (element.id === goalId) {
@@ -166,27 +166,30 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     saveGoal(): void {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
+        let navState = props.navigation.state.params as NavState;
 
-        if (props.mode === "add" || props.mode === "extend") {
+        if (navState.mode === "add" || navState.mode === "extend") {
             props.actions.addGoal(state.goal);
         } else {
-            if (props.isCurrent) {
+            if (navState.isCurrent) {
                 props.actions.updateCurrentStatus(state.goal);
             } else {
                 props.actions.updateGoal(state.goal);
             }
         }
-        Actions.pop();
+        props.navigation.goBack(null);
     }
 
     leaveEdit(): void {
+        let props = this.props as State.Props;
+
         Alert.alert(
             "需要在离开之前保存吗？",
             null,
             [
-                {text: "离开", onPress: () => Actions.pop()},
+                {text: "离开", onPress: () => props.navigation.goBack(null)},
                 {text: "保存", onPress: () => this.saveGoal()},
             ]
         );
@@ -221,7 +224,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     addSvtsIntoGoal(): void {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
 
         if (props.SceneGoal.selectedSvtIdsOnEdit.length <= 0) {
@@ -296,7 +299,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     searchMstSkillArr(svtId: number): Array<MstSkill> {
         let result = [] as Array<MstSkill>;
 
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let svtSkillData: MstSvtSkillContainer = props.SceneGoal.svtSkillData;
         let skillData: MstSkillContainer = props.SceneGoal.skillData;
 
@@ -362,11 +365,12 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     renderTitle() {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
+        let navState = props.navigation.state.params as NavState;
 
         let goalName = "";
-        if (props.mode === "edit" && props.isCurrent) {
+        if (navState.mode === "edit" && navState.isCurrent) {
             goalName = defaultCurrentGoal.name;
         } else {
             goalName = state.goal.name ? state.goal.name : this.defaultProgressGoalName;
@@ -379,7 +383,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
         };
 
         let nameEditDisabled = false;
-        if (props.isCurrent) {
+        if (navState.isCurrent) {
             nameEditDisabled = true;
         }
 
@@ -403,7 +407,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     renderServantSelect() {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
 
         let goalSvtIds = [];
@@ -424,7 +428,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
                     <Col size={1}>
                         <Button small info block bordered
                                 style={{marginRight: 5, justifyContent: "center"}}
-                                onPress={() => (Actions as any).goal_servant_picker({selectedIds: goalSvtIds})}>
+                                onPress={() => props.navigation.navigate("GoalServantPicker", {selectedIds: goalSvtIds})}>
                             <Text>
                                 {selectedCount <= 0 ? "选择从者" : `已选择${selectedCount}名，点击+添加`}
                             </Text>
@@ -443,7 +447,7 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     renderServantList() {
-        let props = this.props as GoalEditProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
         let appVer = props.SceneGoal.appVer;
 
@@ -525,12 +529,14 @@ class GoalEdit extends Component<GoalEditProps, any> {
     }
 
     render() {
-        if (!this.state || this.state["goal"] === undefined) {
+        let props = this.props as State.Props;
+        let state = this.state as GoalEditState;
+        if (!this.state || !state.hasOwnProperty("goal") || !state.goal) {
             return <View/>;
         }
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
                         <Button transparent onPress={() => this.leaveEdit()}>
@@ -554,8 +560,8 @@ class GoalEdit extends Component<GoalEditProps, any> {
                         {this.renderServantList()}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

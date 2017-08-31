@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Router, Scene} from "react-native-router-flux";
 import thunk from "redux-thunk";
-import {createStore, applyMiddleware, combineReducers} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import {StackNavigator} from "react-navigation";
 import {Provider} from "react-redux";
 import {Root} from "native-base";
 import Reducers from "../app/Reducers";
@@ -23,6 +23,31 @@ import {App as GoalItemPicker} from "../scene/goal/item_picker/App";
 import {App as GoalItemRequirement} from "../scene/goal/item_requirement/App";
 import {App as Options} from "../scene/options/main/App";
 
+(console as any).ignoredYellowBox = ["Remote debugger"];
+
+const AppNavigator = StackNavigator({
+    Init: {screen: Initialization},
+    ServantList: {screen: ServantList},
+    ServantDetail: {screen: ServantDetail},
+    ServantSkill: {screen: ServantSkill},
+    ServantStory: {screen: ServantStory},
+    ServantMaterial: {screen: ServantMaterial},
+    ServantFilter: {screen: ServantFilter},
+    GoalList: {screen: GoalList},
+    GoalEdit: {screen: GoalEdit},
+    GoalServantPicker: {screen: GoalServantPicker},
+    GoalCompare: {screen: GoalCompare},
+    GoalCompareServant: {screen: GoalCompareServant},
+    GoalCompareItem: {screen: GoalCompareItem},
+    GoalExp: {screen: GoalExp},
+    GoalItemPicker: {screen: GoalItemPicker},
+    GoalItemRequirement: {screen: GoalItemRequirement},
+    Options: {screen: Options},
+}, {
+    initialRouteName: "Init",
+    headerMode: "none"
+});
+
 const store = createStore(
     combineReducers(Reducers),
     applyMiddleware(thunk)
@@ -33,27 +58,7 @@ export class App extends Component<any, any> {
         return (
             <Root>
                 <Provider store={store}>
-                    <Router hideNavBar={true}>
-                        <Scene key="root">
-                            <Scene key="init" component={Initialization} title="Initialization" initial={true} />
-                            <Scene key="servant_list" component={ServantList} title="ServantList" />
-                            <Scene key="servant_detail" component={ServantDetail} title="Detail" />
-                            <Scene key="servant_skill" component={ServantSkill} title="Skill" />
-                            <Scene key="servant_story" component={ServantStory} title="Story" />
-                            <Scene key="servant_material" component={ServantMaterial} title="Material" />
-                            <Scene key="servant_filter" component={ServantFilter} title="ServantFilter" />
-                            <Scene key="goal_list" component={GoalList} title="GoalList" />
-                            <Scene key="goal_edit" component={GoalEdit} title="GoalEdit" />
-                            <Scene key="goal_servant_picker" component={GoalServantPicker} title="GoalServantPicker" />
-                            <Scene key="goal_compare" component={GoalCompare} title="GoalCompare" />
-                            <Scene key="goal_compare_svt" component={GoalCompareServant} title="GoalCompareServant" />
-                            <Scene key="goal_compare_item" component={GoalCompareItem} title="GoalCompareItem" />
-                            <Scene key="goal_exp" component={GoalExp} title="GoalExp" />
-                            <Scene key="goal_item_picker" component={GoalItemPicker} title="GoalItemPicker" />
-                            <Scene key="goal_item_requirement" component={GoalItemRequirement} title="GoalItemRequirement" />
-                            <Scene key="options" component={Options} title="Options" />
-                        </Scene>
-                    </Router>
+                    <AppNavigator/>
                 </Provider>
             </Root>
         );

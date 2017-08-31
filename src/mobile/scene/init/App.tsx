@@ -1,51 +1,54 @@
 import React, {Component} from "react";
-import {View, Text, ActivityIndicator} from "react-native";
-import {Actions} from "react-native-router-flux";
+import {Text} from "react-native";
 import injectIntoComponent from "../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
 import * as SystemService from "../../service/SystemService";
 import InjectedProps from "../../../lib/react/InjectedProps";
-import * as Styles from "../../view/Styles";
-import {Container, Content, Footer, Grid, Row, Col, Spinner, Body} from "native-base";
+import {Body, Col, Container, Content, Footer, Grid, Row, Spinner} from "native-base";
+import {ContainerWhite} from "../../view/View";
 
 export * from "./State";
 export * from "./Action";
 
-interface Props extends InjectedProps {
+interface InitializationProps extends InjectedProps {
     SceneInitialization: State.State;
 }
 
-class Initialization extends Component<Props, {}> {
+class Initialization extends Component<InitializationProps, {}> {
 
     private _system: SystemService.Service;
 
-    constructor(props: Props, context) {
+    constructor(props: InitializationProps, context) {
         super(props, context);
         this.props = props;
         this._system = new SystemService.Service();
     }
 
     componentDidMount() {
-        this._system.init((this.props as Props).actions.updateLoading).then(() => {
+        let props = this.props as InitializationProps;
+
+        this._system.init(props.actions.updateLoading).then(() => {
             //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_list();
+            // (Actions as any).servant_list();
+            props.navigation.navigate("ServantList");
         });
     }
 
     render() {
-        let state: State.State = (this.props as Props).SceneInitialization;
+        let state: State.State = (this.props as InitializationProps).SceneInitialization;
+
         return (
-            <Container>
+            <ContainerWhite>
                 <Grid>
-                    <Row size={1} />
+                    <Row size={1}/>
                     <Row style={{height: 50}}>
                         <Body><Text>{state.loading}</Text></Body>
                     </Row>
                     <Row size={1}>
-                        <Body><Spinner /></Body>
+                        <Body><Spinner/></Body>
                     </Row>
-                    <Row size={1} />
+                    <Row size={1}/>
                     <Row style={{height: 50}}>
                         <Grid>
                             <Row><Body><Text>Copyright Jonathan</Text></Body></Row>
@@ -53,7 +56,7 @@ class Initialization extends Component<Props, {}> {
                         </Grid>
                     </Row>
                 </Grid>
-            </Container>
+            </ContainerWhite>
         );
     }
 }

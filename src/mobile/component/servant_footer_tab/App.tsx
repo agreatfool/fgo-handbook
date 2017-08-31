@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Text} from "react-native";
-import {Footer, FooterTab, Button} from "native-base";
-import {Actions} from "react-native-router-flux";
+import {Button, Footer, FooterTab} from "native-base";
+import {NavigationScreenProp} from "react-navigation";
 
 export enum SvtFooterTabIndex {
     Detail,
@@ -13,6 +13,7 @@ export enum SvtFooterTabIndex {
 interface SvtFooterTabProps {
     svtId: number;
     activeIndex: number; // 0 - 2
+    navigation: NavigationScreenProp<any, any>;
 }
 
 export class SvtFooterTab extends Component<SvtFooterTabProps, any> {
@@ -29,8 +30,7 @@ export class SvtFooterTab extends Component<SvtFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_detail({svtId: props.svtId});
+            props.navigation.navigate("ServantDetail", {svtId: props.svtId});
         };
 
         if (isActive) {
@@ -48,8 +48,7 @@ export class SvtFooterTab extends Component<SvtFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_skill({svtId: props.svtId});
+            props.navigation.navigate("ServantSkill", {svtId: props.svtId});
         };
 
         if (isActive) {
@@ -67,8 +66,7 @@ export class SvtFooterTab extends Component<SvtFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_story({svtId: props.svtId});
+            props.navigation.navigate("ServantStory", {svtId: props.svtId});
         };
 
         if (isActive) {
@@ -86,8 +84,7 @@ export class SvtFooterTab extends Component<SvtFooterTabProps, any> {
             if (isActive) {
                 return;
             }
-            //noinspection TypeScriptUnresolvedFunction
-            (Actions as any).servant_material({svtId: props.svtId});
+            props.navigation.navigate("ServantMaterial", {svtId: props.svtId});
         };
 
         if (isActive) {

@@ -5,10 +5,9 @@ import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {CardWithRows} from "../../../view/View";
+import {CardWithRows, ContainerWhite} from "../../../view/View";
 import * as Styles from "../../../view/Styles";
 import {SvtInfoFSReq, SvtInfoStory} from "../../../lib/model/MstInfo";
-import {Actions} from "react-native-router-flux";
 import {Body, Button, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 
@@ -26,14 +25,16 @@ class ServantStory extends Component<State.Props, any> {
 
     componentWillMount() {
         let props = this.props as State.Props;
+        let state = props.navigation.state.params as State.NavState;
+
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return this._service.getServantName(props.svtId);
+            return this._service.getServantName(state.svtId);
         }).then((name) => {
             props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoStory(props.svtId);
+            return this._service.buildSvtInfoStory(state.svtId);
         }).then((info) => {
-            props.actions.updateSvtId(props.svtId);
+            props.actions.updateSvtId(state.svtId);
             props.actions.updateSvtInfo({storyInfo: info});
         });
     }
@@ -135,10 +136,10 @@ class ServantStory extends Component<State.Props, any> {
         let story = this.renderStory(info);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -153,8 +154,8 @@ class ServantStory extends Component<State.Props, any> {
                         {story}
                     </View>
                 </Content>
-                <SvtFooterTab activeIndex={SvtFooterTabIndex.Story} svtId={state.svtId}/>
-            </Container>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Story} svtId={state.svtId} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

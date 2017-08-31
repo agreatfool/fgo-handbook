@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, View} from "react-native";
-import {CardWithRButton, CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRButton, CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import MstLoader from "../../../lib/model/MstLoader";
 import * as State from "./State";
@@ -15,7 +15,6 @@ import {
     MstSkillContainer,
     MstSvtSkillContainer
 } from "../../../../model/impl/MstContainer";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -83,7 +82,7 @@ class GoalList extends Component<State.Props, any> {
             skillData = container as MstSkillContainer;
             return MstLoader.instance.loadVisibleItemList();
         }).then((items: Array<MstItem>) => {
-            let clonedItems = JSON.parse(JSON.stringify(items));
+            let clonedItems = MstUtil.deepCopy(items);
             this._service.sortCompareResItems(items, clonedItems);
             visibleItems = items;
             return MstLoader.instance.loadGoal();
@@ -189,8 +188,7 @@ class GoalList extends Component<State.Props, any> {
                                     });
                                     return;
                                 }
-                                //noinspection TypeScriptUnresolvedFunction
-                                (Actions as any).goal_compare({
+                                props.navigation.navigate("GoalCompare", {
                                     sourceId: state.compareSourceId,
                                     targetId: state.compareTargetId
                                 });
@@ -227,7 +225,7 @@ class GoalList extends Component<State.Props, any> {
                             <Col size={.9}>
                                 <Button small info block bordered
                                         style={{marginLeft: 5}}
-                                        onPress={() => (Actions as any).goal_edit({
+                                        onPress={() => props.navigation.navigate("GoalEdit", {
                                             mode: "edit", isCurrent: false, goalId: goal.id
                                         })}>
                                     <Text>编辑</Text>
@@ -236,7 +234,7 @@ class GoalList extends Component<State.Props, any> {
                             <Col size={.9}>
                                 <Button small success block bordered
                                         style={{marginLeft: 5}}
-                                        onPress={() => (Actions as any).goal_edit({
+                                        onPress={() => props.navigation.navigate("GoalEdit", {
                                             mode: "extend", isCurrent: false, goalId: goal.id
                                         })}>
                                     <Text>扩展</Text>
@@ -272,12 +270,13 @@ class GoalList extends Component<State.Props, any> {
     }
 
     render() {
-        //noinspection TypeScriptUnresolvedFunction
+        let props = this.props as State.Props;
+
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -291,26 +290,26 @@ class GoalList extends Component<State.Props, any> {
                         <CardWithRButton
                             title="经验计算器"
                             buttons={["Go"]}
-                            onPress={[() => (Actions as any).goal_exp()]}/>
+                            onPress={[() => props.navigation.navigate("GoalExp")]}/>
                         <CardWithRButton
                             title="按道具浏览需求"
                             buttons={["Go"]}
-                            onPress={[() => (Actions as any).goal_item_picker()]}/>
+                            onPress={[() => props.navigation.navigate("GoalItemPicker")]}/>
                         <CardWithRButton
                             title="编辑当前进度"
                             buttons={["Extend", "Go"]}
                             onPress={[
-                                () => (Actions as any).goal_edit({
+                                () => props.navigation.navigate("GoalEdit", {
                                     mode: "extend", isCurrent: true, goalId: defaultCurrentGoal.id
                                 }),
-                                () => (Actions as any).goal_edit({
+                                () => props.navigation.navigate("GoalEdit", {
                                     mode: "edit", isCurrent: true, goalId: undefined
                                 })
                             ]}/>
                         <CardWithRButton
                             title="添加新进度目标"
                             buttons={["Go"]}
-                            onPress={[() => (Actions as any).goal_edit({
+                            onPress={[() => props.navigation.navigate("GoalEdit", {
                                 mode: "add", isCurrent: false, goalId: undefined
                             })]}/>
                         {this.renderCompareButton()}
@@ -318,8 +317,8 @@ class GoalList extends Component<State.Props, any> {
                         {this.renderGoalList()}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

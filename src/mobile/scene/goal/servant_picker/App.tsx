@@ -3,7 +3,6 @@ import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -21,14 +20,14 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {GridCardWrapper} from "../../../view/View";
+import {ContainerWhite, GridCardWrapper} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
 export * from "./State";
 export * from "./Action";
 
-interface GoalServantPickerProps extends State.Props {
+interface NavState {
     selectedIds: Array<number>;
 }
 
@@ -36,7 +35,7 @@ interface GoalServantPickerState {
     selected: Array<number>;
 }
 
-class GoalServantPicker extends Component<GoalServantPickerProps, any> {
+class GoalServantPicker extends Component<State.Props, any> {
     constructor(props, context) {
         super(props, context);
     }
@@ -46,10 +45,12 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     isSelected(svtId: number): boolean {
-        let props = this.props as GoalServantPickerProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalServantPickerState;
 
-        if (props.selectedIds.indexOf(svtId) !== -1 || state.selected.indexOf(svtId) !== -1) {
+        let navState = props.navigation.state.params as NavState;
+
+        if (navState.selectedIds.indexOf(svtId) !== -1 || state.selected.indexOf(svtId) !== -1) {
             return true;
         } else {
             return false;
@@ -69,17 +70,17 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     finishSelect() {
-        let props = this.props as GoalServantPickerProps;
+        let props = this.props as State.Props;
         let state = this.state as GoalServantPickerState;
 
         props.actions.updateSvtIdsOnEdit(state.selected);
-        Actions.pop();
+        props.navigation.goBack(null);
     }
 
     renderCell(svtId: number) {
         let view = undefined;
 
-        let props = this.props as GoalServantPickerProps;
+        let props = this.props as State.Props;
 
         if (this.isSelected(svtId)) {
             view = <Icon key={`servant_icon_${svtId}`} name="md-checkmark"/>;
@@ -94,7 +95,7 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     renderServantList() {
-        let props = this.props as GoalServantPickerProps;
+        let props = this.props as State.Props;
         const CELL_COUNT = 6;
 
         let servants: Array<Array<MstSvt>> = MstUtil.divideArrayIntoParts(props.SceneGoal.svtRawData, CELL_COUNT);
@@ -139,16 +140,17 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
     }
 
     render() {
+        let props = this.props as State.Props;
         let state = this.state as GoalServantPickerState;
         if (state === undefined || state === null || !state.hasOwnProperty("selected") || !state.selected) {
             return <View/>;
         }
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => Actions.pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -166,8 +168,8 @@ class GoalServantPicker extends Component<GoalServantPickerProps, any> {
                         {this.renderServantList()}
                     </View>
                 </Content>
-                <AppFooterTab activeIndex={AppFooterTabIndex.Progress}/>
-            </Container>
+                <AppFooterTab activeIndex={AppFooterTabIndex.Progress} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

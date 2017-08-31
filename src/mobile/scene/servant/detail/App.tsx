@@ -4,11 +4,10 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {CardWithRows} from "../../../view/View";
+import {CardWithRows, ContainerWhite} from "../../../view/View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/utility/MstUtil";
 import Const from "../../../lib/const/Const";
-import {Actions} from "react-native-router-flux";
 import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Thumbnail, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
@@ -27,11 +26,13 @@ class ServantDetail extends Component<State.Props, any> {
 
     componentWillMount() {
         let props = this.props as State.Props;
+        let state = props.navigation.state.params as State.NavState;
+
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return this._service.buildSvtInfoBase(props.svtId);
+            return this._service.buildSvtInfoBase(state.svtId);
         }).then((info: SvtInfoBase) => {
-            props.actions.updateSvtId(props.svtId);
+            props.actions.updateSvtId(state.svtId);
             props.actions.updatePageTitle(info.name);
             props.actions.updateSvtInfo({baseInfo: info});
         });
@@ -114,7 +115,7 @@ class ServantDetail extends Component<State.Props, any> {
 
     render() {
         let props = this.props as State.Props;
-        let state = props.SceneServantInfo;
+        let state = props.SceneServantInfo as State.State;
 
         let info: SvtInfoBase = state.baseInfo;
         if (MstUtil.isObjEmpty(info)) {
@@ -124,10 +125,10 @@ class ServantDetail extends Component<State.Props, any> {
         let detail = this.renderDetail(info);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -139,8 +140,8 @@ class ServantDetail extends Component<State.Props, any> {
                 <Content>
                     {detail}
                 </Content>
-                <SvtFooterTab activeIndex={SvtFooterTabIndex.Detail} svtId={state.svtId}/>
-            </Container>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Detail} svtId={state.svtId} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

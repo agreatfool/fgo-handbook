@@ -6,7 +6,6 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtListFilter} from "../list/State";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -24,7 +23,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -146,11 +145,13 @@ export class ServantFilter extends Component<State.Props, any> {
     }
 
     render() {
+        let props = this.props as State.Props;
+
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -166,7 +167,7 @@ export class ServantFilter extends Component<State.Props, any> {
                         {this.renderCommon("性别选择", "genderType", Const.SERVANT_GENDER_TYPES)}
                     </View>
                 </Content>
-            </Container>
+            </ContainerWhite>
         );
     }
 }

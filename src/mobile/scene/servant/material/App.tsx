@@ -11,7 +11,6 @@ import {
     SvtInfoMaterialLimit,
     SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -29,7 +28,7 @@ import {
 } from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {CardWithRows, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -45,14 +44,16 @@ class ServantMaterial extends Component<State.Props, any> {
 
     componentWillMount() {
         let props = this.props as State.Props;
+        let state = props.navigation.state.params as State.NavState;
+
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return this._service.getServantName(props.svtId);
+            return this._service.getServantName(state.svtId);
         }).then((name) => {
             props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoMaterial(props.svtId);
+            return this._service.buildSvtInfoMaterial(state.svtId);
         }).then((info) => {
-            props.actions.updateSvtId(props.svtId);
+            props.actions.updateSvtId(state.svtId);
             props.actions.updateSvtInfo({materialInfo: info});
         });
     }
@@ -74,10 +75,9 @@ class ServantMaterial extends Component<State.Props, any> {
     }
 
     selectItem(itemId: number) {
-        //noinspection TypeScriptUnresolvedFunction
-        (Actions as any).goal_item_requirement({
-            itemId: itemId
-        });
+        let props = this.props as State.Props;
+
+        props.navigation.navigate("GoalItemRequirement", {itemId: itemId});
     }
 
     renderCommon(elements: Array<SvtInfoMaterialLimit | SvtInfoMaterialSkill>, title: string, subTitleRender: Function) {
@@ -164,10 +164,10 @@ class ServantMaterial extends Component<State.Props, any> {
         let skill = this.renderSkill(info.skill);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -182,8 +182,9 @@ class ServantMaterial extends Component<State.Props, any> {
                         {skill}
                     </View>
                 </Content>
-                <SvtFooterTab activeIndex={SvtFooterTabIndex.Material} svtId={state.svtId}/>
-            </Container>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Material} svtId={state.svtId}
+                              navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }

@@ -14,7 +14,6 @@ import {
     SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {Actions} from "react-native-router-flux";
 import {
     Body,
     Button,
@@ -31,7 +30,7 @@ import {
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardGridWrapper, CardWithRows, RowCentering, TextCentering} from "../../../view/View";
+import {CardGridWrapper, CardWithRows, ContainerWhite, RowCentering, TextCentering} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
@@ -47,14 +46,16 @@ class ServantSkill extends Component<State.Props, any> {
 
     componentWillMount() {
         let props = this.props as State.Props;
+        let state = props.navigation.state.params as State.NavState;
+
         MstUtil.instance.getAppVer().then((appVer) => {
             this._appVer = appVer;
-            return this._service.getServantName(props.svtId);
+            return this._service.getServantName(state.svtId);
         }).then((name) => {
             props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoSkill(props.svtId);
+            return this._service.buildSvtInfoSkill(state.svtId);
         }).then((info) => {
-            props.actions.updateSvtId(props.svtId);
+            props.actions.updateSvtId(state.svtId);
             props.actions.updateSvtInfo({skillInfo: info});
         });
     }
@@ -236,10 +237,10 @@ class ServantSkill extends Component<State.Props, any> {
         let treasures = this.renderTreasures(info);
 
         return (
-            <Container>
+            <ContainerWhite>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => (Actions as any).pop()}>
+                        <Button transparent onPress={() => props.navigation.goBack(null)}>
                             <Icon name="arrow-back"/>
                         </Button>
                     </Left>
@@ -255,8 +256,8 @@ class ServantSkill extends Component<State.Props, any> {
                         {treasures}
                     </View>
                 </Content>
-                <SvtFooterTab activeIndex={SvtFooterTabIndex.Skill} svtId={state.svtId}/>
-            </Container>
+                <SvtFooterTab activeIndex={SvtFooterTabIndex.Skill} svtId={state.svtId} navigation={props.navigation}/>
+            </ContainerWhite>
         );
     }
 }
