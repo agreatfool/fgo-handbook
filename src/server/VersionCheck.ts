@@ -9,7 +9,7 @@ import Const from "../lib/const/Const";
 import MstUtil from "../lib/model/MstUtil";
 import VersionConfig from "../model/config/VersionConfig";
 
-const rmrf = LibUtil.promisify(rimraf);
+const rmrf = LibUtil.promisify(rimraf) as (path: string, options?: rimraf.Options) => Promise<void>;
 
 export default class VersionCheck {
 

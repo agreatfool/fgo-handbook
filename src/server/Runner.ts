@@ -28,11 +28,11 @@ async function run() {
     let dumper = new MasterDumper(newVer);
     await dumper.run();
 
-    // 下载 Icon 等资源
+    // 下载网络图片等资源
     let downloader = new ResourceDownloader(newVer);
     await downloader.run();
 
-    // 构建 resources.json 列表文件
+    // 构建 resource 文件夹下资源
     let builder = new ResourceListBuilder(newVer);
     await builder.run();
 
