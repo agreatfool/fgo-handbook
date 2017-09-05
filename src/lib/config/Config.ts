@@ -55,7 +55,7 @@ export default class Config {
             let json = await this.loadWholeConfig(configName) as Object;
             if (!json.hasOwnProperty(propertyName)) {
                 return Promise.reject(new Error(
-                    `[Config] loadConfig: Config "${MstUtil.isArray(configName) ?
+                    `[Config] loadConfig: Config "${Utility.isArray(configName) ?
                         (configName as Array<string>).join("/") : configName}" has no property: ${propertyName}!`
                 ));
             }
