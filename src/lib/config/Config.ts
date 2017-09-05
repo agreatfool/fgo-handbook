@@ -5,6 +5,7 @@ import * as LibAsyncFile from "async-file";
 import Utility from "../utility/Utility";
 import Const from "../const/Const";
 import Log from "../log/Log";
+import MstUtil from "../model/MstUtil";
 
 export default class Config {
 
@@ -53,7 +54,10 @@ export default class Config {
         try {
             let json = await this.loadWholeConfig(configName) as Object;
             if (!json.hasOwnProperty(propertyName)) {
-                return Promise.reject(new Error(`[Config] loadConfig: Config "${configName}" has no property: ${propertyName}!`));
+                return Promise.reject(new Error(
+                    `[Config] loadConfig: Config "${MstUtil.isArray(configName) ?
+                        (configName as Array<string>).join("/") : configName}" has no property: ${propertyName}!`
+                ));
             }
             return Promise.resolve(json[propertyName]);
         } catch (err) {

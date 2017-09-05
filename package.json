@@ -14,8 +14,8 @@
     "moment": "^2.18.1",
     "native-base": "2.3.1",
     "ncp": "^2.0.0",
-    "phantomjs-prebuilt": "^2.1.15",
     "punycode": "^2.0.1",
+    "puppeteer": "^0.10.2",
     "react": "16.0.0-alpha.12",
     "react-native": "0.47.1",
     "react-native-fetch-blob": "^0.10.2",
@@ -49,6 +49,7 @@
     "gulp-typescript": "^3.2.1",
     "jest": "20.0.4",
     "merge2": "^1.1.0",
+    "puppeteer-tsd": "0.0.2",
     "react-test-renderer": "16.0.0-alpha.12",
     "typescript": "^2.4.2"
   },
