@@ -6,7 +6,7 @@ export default class Const {
 
     public static readonly PATH_CONFIG: string = LibPath.join(Const.PATH_BASE, "config");
     public static readonly PATH_DATABASE: string = LibPath.join(Const.PATH_BASE, "database");
-    public static readonly PATH_RESOURCE: string = LibPath.join(Const.PATH_BASE, "resource");
+    public static readonly PATH_RESOURCE: string = LibPath.join(Const.PATH_BASE, "src", "resource");
 
     public static readonly FONT_STAR: string = "\u2605"; // ★
 
