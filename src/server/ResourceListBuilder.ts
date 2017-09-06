@@ -19,6 +19,7 @@ export default class ResourceListBuilder {
 
     private _dbPath: string;
     private _imagePath: string;
+    private _masterPath: string;
     private _images: { [key: string]: Array<number> }; // {"face": [0, 1, 2, 3]} => require("../../face/0.png")
 
     constructor(newVer: string) {
@@ -28,6 +29,7 @@ export default class ResourceListBuilder {
 
         this._dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
         this._imagePath = LibPath.join(this._dbPath, "images");
+        this._masterPath = LibPath.join(this._dbPath, "master");
         this._images = {};
     }
 
@@ -50,6 +52,23 @@ export default class ResourceListBuilder {
         await ncp(this._dbPath, Const.PATH_RESOURCE);
     }
 
+    private async _processMasterPool(): Promise<any> {
+        Log.instance.info("[ResourceListBuilder] Processing _processMasterPool ...");
+
+        let masterNames = [] as Array<string>;
+        let subFiles = await LibAsyncFile.readdir(LibPath.join(this._masterPath));
+        for (let subFileName of subFiles) {
+            masterNames.push(LibPath.basename(subFileName, ".json"));
+        }
+
+        let content = TplEngine.render("MasterPool", {
+            names: masterNames
+        });
+        await LibAsyncFile.writeFile(LibPath.join(Const.PATH_RESOURCE, "MasterPool.ts"), content);
+
+        return Promise.resolve();
+    }
+
     private async _processImagePool(): Promise<any> {
         Log.instance.info("[ResourceListBuilder] Processing _processImagePool ...");
 
@@ -61,10 +80,10 @@ export default class ResourceListBuilder {
         TplEngine.registerHelper("toUpperCase", function (str) {
             return str.toUpperCase();
         });
-        let imagePoolContent = TplEngine.render("ImagePool", {
+        let content = TplEngine.render("ImagePool", {
             images: this._images
         });
-        await LibAsyncFile.writeFile(LibPath.join(Const.PATH_RESOURCE, "ImagePool.ts"), imagePoolContent);
+        await LibAsyncFile.writeFile(LibPath.join(Const.PATH_RESOURCE, "ImagePool.ts"), content);
 
         return Promise.resolve();
     }

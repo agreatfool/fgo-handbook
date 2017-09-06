@@ -13,6 +13,12 @@ import {MstItem, MstSvtLimit, MstSvtTreasureDevice, MstTreasureDeviceLv} from ".
 import {defaultMstGoal, MstGoal} from "./MstGoal";
 import Const from "../const/Const";
 import {Service} from "../../service/MstService";
+import {ImagePool} from "../../../resource/ImagePool";
+import {MasterPool} from "../../../resource/MasterPool";
+import VersionConfig from "../../../model/config/VersionConfig";
+
+const VersionInfo = require("../../../../config/version.json") as VersionConfig;
+const EmbeddedCode = require("../../../resource/embedded_code.json") as EmbeddedCodeConverted;
 
 export default class MstLoader {
 
@@ -26,47 +32,54 @@ export default class MstLoader {
     }
 
     private constructor() {
-        this._cache = new Map<string, BaseContainer<any>>();
+        this._modelCache = new Map<string, BaseContainer<any>>();
         this._service = new Service();
+        this._basePath = "../../../..";
+        this._resourcePath = "../../../resource";
     }
 
-    private _cache: Map<string, BaseContainer<any>>;
-    private _embeddedCode: EmbeddedCodeConverted;
+    private _modelCache: Map<string, BaseContainer<any>>;
     private _service: Service;
 
+    private _basePath: string;
+    private _resourcePath: string;
+
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //-* MAIN
+    //-* RESOURCE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public async loadModel(name: string): Promise<BaseContainer<any>> {
-        if (this._cache.has(name)) {
-            return Promise.resolve(this._cache.get(name));
+    public getAppVer(): string {
+        return VersionInfo.version;
+    }
+
+    public loadImage(type: string, id: number): any {
+        let key = `${type.toUpperCase()}${id}`;
+        if (!ImagePool.hasOwnProperty(key)) {
+            return ImagePool.SKILL0; // default unknown image
+        } else {
+            return ImagePool[key];
+        }
+    }
+
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* MODEL
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    public loadModel(name: string): BaseContainer<any> {
+        if (this._modelCache.has(name)) {
+            return this._modelCache.get(name);
         }
 
-        let rawData = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getLocalDbPath()}/master/${name}.json`
-        );
-
+        let rawData = MasterPool[name];
         let containerName = `${name}Container`;
         let instance = new MstContainers[containerName]();
         instance.parse(rawData);
-        this._cache.set(name, instance);
+        this._modelCache.set(name, instance);
 
-        return Promise.resolve(instance);
+        return instance;
     }
 
-    public async loadEmbeddedCode(): Promise<EmbeddedCodeConverted> {
-        if (this._embeddedCode) {
-            return Promise.resolve(this._embeddedCode);
-        }
-
-        let data = await MstUtil.instance.loadJson(
-            `${await MstUtil.instance.getLocalDbPath()}/embedded_code.json`
-        ) as EmbeddedCodeConverted;
-        this._embeddedCode = data;
-
-        return Promise.resolve(data);
-    }
-
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* GOAL
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     public async loadGoal(): Promise<MstGoal> {
         let goal = defaultMstGoal;
         let path = `${RNFS.DocumentDirectoryPath}/${Const.DB_FILE_PATH}`;
@@ -83,26 +96,11 @@ export default class MstLoader {
         return MstUtil.instance.writeJson(`${RNFS.DocumentDirectoryPath}/${Const.DB_FILE_PATH}`, goal);
     }
 
-    public async loadVisibleItemList(): Promise<Array<MstItem>> {
-        let list = [] as Array<MstItem>;
-
-        let container = await MstLoader.instance.loadModel("MstItem") as MstItemContainer;
-        let items = container.getRaw() as Array<MstItem>;
-
-        items.forEach((item: MstItem) => {
-            if (this._service.isItemVisible(item.id)) {
-                list.push(item);
-            }
-        });
-
-        return list;
-    }
-
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //-* MASTER
+    //-* MASTER DATA
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public async loadSvtDefaultLimitInfo(svtId: number): Promise<MstSvtLimit> {
-        let container = await MstLoader.instance.loadModel("MstSvtLimit") as MstSvtLimitContainer;
+    public loadSvtDefaultLimitInfo(svtId: number): MstSvtLimit {
+        let container = MstLoader.instance.loadModel("MstSvtLimit") as MstSvtLimitContainer;
         let mstSvtLimit = container.get(svtId, 0); // 首位
         if (!mstSvtLimit) {
             // 某些从者数据污染，没有对应的信息，直接从group中默认拿第一个
@@ -111,10 +109,10 @@ export default class MstLoader {
             mstSvtLimit = limitGroup.values().next().value;
         }
 
-        return Promise.resolve(mstSvtLimit);
+        return mstSvtLimit;
     }
 
-    public async loadSvtDefaultTreasureDeviceWithLv(svtId: number, level: number): Promise<MstTreasureDeviceLv> {
+    public loadSvtDefaultTreasureDeviceWithLv(svtId: number, level: number): MstTreasureDeviceLv {
         // ensure level secure
         if (level < 0) {
             level = 1;
@@ -122,8 +120,8 @@ export default class MstLoader {
             level = 5;
         }
 
-        let svtTreasureDeviceCon = await this.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
-        let svtTreasureDeviceLvCon = await this.loadModel("MstTreasureDeviceLv") as MstTreasureDeviceLvContainer;
+        let svtTreasureDeviceCon = this.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
+        let svtTreasureDeviceLvCon = this.loadModel("MstTreasureDeviceLv") as MstTreasureDeviceLvContainer;
 
         let devices = svtTreasureDeviceCon.getGroup(svtId);
         let device = devices.values().next().value;
@@ -136,29 +134,51 @@ export default class MstLoader {
             treasureDevice = deviceGroup.values().next().value;
         }
 
-        return Promise.resolve(treasureDevice);
+        return treasureDevice;
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* EMBEDDED CODE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public async loadEmbeddedGender(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).gender[id]);
+    public loadEmbeddedCode(): EmbeddedCodeConverted {
+        return EmbeddedCode;
     }
 
-    public async loadEmbeddedPolicy(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).policy[id]);
+    public loadEmbeddedGender(id: number): string {
+        return this.loadEmbeddedCode().gender[id];
     }
 
-    public async loadEmbeddedPersonality(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).personality[id]);
+    public loadEmbeddedPolicy(id: number): string {
+        return this.loadEmbeddedCode().policy[id];
     }
 
-    public async loadEmbeddedAttribute(id: number): Promise<string> {
-        return Promise.resolve((await this.loadEmbeddedCode()).attri[id]);
+    public loadEmbeddedPersonality(id: number): string {
+        return this.loadEmbeddedCode().personality[id];
     }
 
-    public async loadEmbeddedSvtName(id: number): Promise<TransSvtName> {
-        return Promise.resolve((await this.loadEmbeddedCode()).transSvtName[id]);
+    public loadEmbeddedAttribute(id: number): string {
+        return this.loadEmbeddedCode().attri[id];
+    }
+
+    public loadEmbeddedSvtName(id: number): TransSvtName {
+        return this.loadEmbeddedCode().transSvtName[id];
+    }
+
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //-* OTHERS
+    //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    public loadVisibleItemList(): Array<MstItem> {
+        let list = [] as Array<MstItem>;
+
+        let container = MstLoader.instance.loadModel("MstItem") as MstItemContainer;
+        let items = container.getRaw() as Array<MstItem>;
+
+        items.forEach((item: MstItem) => {
+            if (this._service.isItemVisible(item.id)) {
+                list.push(item);
+            }
+        });
+
+        return list;
     }
 }

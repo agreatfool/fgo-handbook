@@ -3,24 +3,10 @@ import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ContainerWhite, GridCardWrapper} from "../../../view/View";
+import {ContainerWhite, GridCardWrapper, Thumbnail} from "../../../view/View";
 import {MstSvt} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -85,10 +71,7 @@ class GoalServantPicker extends Component<State.Props, any> {
         if (this.isSelected(svtId)) {
             view = <Icon key={`servant_icon_${svtId}`} name="md-checkmark"/>;
         } else {
-            view = <Thumbnail key={`servant_thumb_${svtId}`} small square
-                              source={{
-                                  uri: MstUtil.instance.getRemoteFaceUrl(props.SceneGoal.appVer, svtId)
-                              }}/>;
+            view = <Thumbnail key={`servant_thumb_${svtId}`} type="face" id={svtId}/>;
         }
 
         return view;

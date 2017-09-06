@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {CardGridWrapper, CardWithRows, ContainerWhite, TextCentering} from "../../../view/View";
+import {CardGridWrapper, CardWithRows, ContainerWhite, TextCentering, Thumbnail} from "../../../view/View";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
@@ -24,7 +24,6 @@ import {
     Left,
     Right,
     Row,
-    Thumbnail,
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
@@ -447,9 +446,7 @@ class GoalEdit extends Component<State.Props, any> {
     }
 
     renderServantList() {
-        let props = this.props as State.Props;
         let state = this.state as GoalEditState;
-        let appVer = props.SceneGoal.appVer;
 
         let view = [];
 
@@ -467,8 +464,7 @@ class GoalEdit extends Component<State.Props, any> {
                             }}>
                             <Grid>
                                 <Row style={Styles.Common.Centering}>
-                                    <Thumbnail small square
-                                               source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, skill.iconId)}}/>
+                                    <Thumbnail type="skill" id={skill.iconId}/>
                                 </Row>
                                 <Row style={Styles.Common.Centering}>
                                     <TextCentering>{`Lv.${goalSvt.skills[index].level}`}</TextCentering>
@@ -492,8 +488,7 @@ class GoalEdit extends Component<State.Props, any> {
                                 }}>
                                 <Grid>
                                     <Row style={Styles.Common.Centering}>
-                                        <Thumbnail small square
-                                                   source={{uri: MstUtil.instance.getRemoteFaceUrl(appVer, goalSvt.svtId)}}/>
+                                        <Thumbnail type="face" id={goalSvt.svtId}/>
                                     </Row>
                                     <Row style={Styles.Common.Centering}>
                                         <TextCentering>{`灵.${goalSvt.limit}`}</TextCentering>

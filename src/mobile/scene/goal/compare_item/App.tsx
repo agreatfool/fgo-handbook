@@ -3,27 +3,12 @@ import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import MstUtil from "../../../lib/utility/MstUtil";
 import {MstItemContainer} from "../../../../model/impl/MstContainer";
 import {CompareResItem, CompareResSvtItem, CompareResult} from "../list/State";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ContainerWhite, GridCardWrapper} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, Thumbnail} from "../../../view/View";
 import MstLoader from "../../../lib/model/MstLoader";
 import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
@@ -52,35 +37,34 @@ class GoalCompareItem extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let navState = props.navigation.state.params as NavState;
 
-        MstLoader.instance.loadModel("MstItem").then((container: BaseContainer<any>) => {
-            let result: CompareResult = props.SceneGoal.compareResult;
-            let resItem = {} as CompareResItem;
+        let container: BaseContainer<any> = MstLoader.instance.loadModel("MstItem");
+        let result: CompareResult = props.SceneGoal.compareResult;
+        let resItem = {} as CompareResItem;
 
-            result.items.forEach((item: CompareResItem) => {
-                if (item.itemId === navState.itemId) {
-                    resItem = item;
-                }
-            });
+        result.items.forEach((item: CompareResItem) => {
+            if (item.itemId === navState.itemId) {
+                resItem = item;
+            }
+        });
 
-            let total = 0;
-            let limitTotal = 0;
-            let skillTotal = 0;
-            resItem.limit.forEach((limit: CompareResSvtItem) => {
-                total += limit.count;
-                limitTotal += limit.count;
-            });
-            resItem.skill.forEach((skill: CompareResSvtItem) => {
-                total += skill.count;
-                skillTotal += skill.count;
-            });
+        let total = 0;
+        let limitTotal = 0;
+        let skillTotal = 0;
+        resItem.limit.forEach((limit: CompareResSvtItem) => {
+            total += limit.count;
+            limitTotal += limit.count;
+        });
+        resItem.skill.forEach((skill: CompareResSvtItem) => {
+            total += skill.count;
+            skillTotal += skill.count;
+        });
 
-            this.setState({
-                itemName: (container as MstItemContainer).get(navState.itemId).name,
-                resItem: resItem,
-                total: total,
-                limitTotal: limitTotal,
-                skillTotal: skillTotal
-            });
+        this.setState({
+            itemName: (container as MstItemContainer).get(navState.itemId).name,
+            resItem: resItem,
+            total: total,
+            limitTotal: limitTotal,
+            skillTotal: skillTotal
         });
     }
 
@@ -93,12 +77,7 @@ class GoalCompareItem extends Component<State.Props, any> {
             <GridCardWrapper backgroundColor="#CDE1F9">
                 <Row>
                     <Col size={.2}>
-                        <Thumbnail small square
-                                   source={{
-                                       uri: MstUtil.instance.getRemoteItemUrl(
-                                           props.SceneGoal.appVer, navState.itemId
-                                       )
-                                   }}/>
+                        <Thumbnail type="item" id={navState.itemId}/>
                     </Col>
                     <Col style={Styles.Common.VerticalCentering}>
                         <Text>{`${state.itemName}  x${state.total}`}</Text>

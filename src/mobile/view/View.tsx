@@ -1,10 +1,36 @@
 import React, {Component, ReactNode} from "react";
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from "react-native";
-import {Button, Card, CardItem, Col, Container, Grid, Left, Right, Row, Thumbnail} from "native-base";
+import {Image, StyleSheet, Text, TextStyle, View, ViewStyle} from "react-native";
+import {Button, Card, CardItem, Col, Container, Grid, Left, Right, Row} from "native-base";
 import * as Styles from "./Styles";
+import MstLoader from "../lib/model/MstLoader";
 
 export interface Props {
     children?: ReactNode;
+}
+
+interface ThumbnailProps extends Props {
+    type: string;
+    id: number;
+    big?: boolean;
+}
+
+export class Thumbnail extends Component<ThumbnailProps, any> {
+    render() {
+        let props = this.props as ThumbnailProps;
+
+        let source = MstLoader.instance.loadImage(props.type, props.id);
+
+        let style;
+        if (props.hasOwnProperty("big") && props.big) {
+            style = Styles.Common.ThumbBig;
+        } else {
+            style = Styles.Common.ThumbIcon;
+        }
+
+        return (
+            <Image source={source} style={style}/>
+        );
+    }
 }
 
 export class ContainerWhite extends Component<Props, any> {

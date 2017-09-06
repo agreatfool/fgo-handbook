@@ -102,17 +102,17 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT SERVICE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    public async loadSvtRawData(): Promise<Array<MstSvt>> {
-        let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
+    public loadSvtRawData(): Array<MstSvt> {
+        let container = MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
 
-        return Promise.resolve(this._filterSvtRawData(container.getRaw()));
+        return this._filterSvtRawData(container.getRaw());
     }
 
-    public async loadSvtRawDataConverted(): Promise<Array<MstSvt>> {
-        let container = await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
+    public loadSvtRawDataConverted(): Array<MstSvt> {
+        let container = MstLoader.instance.loadModel("MstSvt") as MstSvtContainer;
         let rawData = this._filterSvtRawData(container.getRaw());
 
-        let embeddedNames: { [key: number]: TransSvtName } = (await MstLoader.instance.loadEmbeddedCode()).transSvtName;
+        let embeddedNames: { [key: number]: TransSvtName } = MstLoader.instance.loadEmbeddedCode().transSvtName;
 
         rawData.forEach((svt: MstSvt, index) => {
             if (!embeddedNames.hasOwnProperty(svt.id)) {
@@ -124,10 +124,10 @@ export class Service {
             rawData[index] = svt;
         });
 
-        return Promise.resolve(Service._sortSvtData(rawData, {
+        return Service._sortSvtData(rawData, {
             order: SvtOrderChoices.collectionNo,
             direction: SvtOrderDirections.DESC,
-        } as SvtListOrder));
+        } as SvtListOrder);
     }
 
     public static buildSvtDisplayData(rawData: Array<MstSvt>, filter: SvtListFilter, order: SvtListOrder): Array<MstSvt> {
@@ -177,42 +177,42 @@ export class Service {
     // FIXME 剥离显示数值和显示文本，这部分的service应该做成纯粹的数据提供
     // FIXME State里的数据模型应该剥离出来，State里可以export，不过代码不应该放在那里；所有的State如果是用来显示的最好带上View的名字
     // FIXME 提高当前Service的复用度，很多函数尽量做的简单，提供纯粹的数据
-    public async getServantName(svtId: number): Promise<string> {
-        return Promise.resolve((await MstLoader.instance.loadEmbeddedSvtName(svtId) as TransSvtName).name);
+    public getServantName(svtId: number): string {
+        return (MstLoader.instance.loadEmbeddedSvtName(svtId) as TransSvtName).name;
     }
 
-    public async buildSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
-        return await this._getSvtInfoBase(svtId);
+    public buildSvtInfoBase(svtId: number): SvtInfoBase {
+        return this._getSvtInfoBase(svtId);
     }
 
-    public async buildSvtInfoSkill(svtId: number): Promise<SvtInfoSkill> {
-        return await this._getSvtInfoSkill(svtId);
+    public buildSvtInfoSkill(svtId: number): SvtInfoSkill {
+        return this._getSvtInfoSkill(svtId);
     }
 
-    public async buildSvtInfoStory(svtId: number): Promise<SvtInfoStory> {
-        return await this._getSvtInfoStory(svtId);
+    public buildSvtInfoStory(svtId: number): SvtInfoStory {
+        return this._getSvtInfoStory(svtId);
     }
 
-    public async buildSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
-        return await this._getSvtInfoMaterial(svtId);
+    public buildSvtInfoMaterial(svtId: number): SvtInfoMaterial {
+        return this._getSvtInfoMaterial(svtId);
     }
 
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: BASE
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    private async _getSvtInfoBase(svtId: number): Promise<SvtInfoBase> {
+    private _getSvtInfoBase(svtId: number): SvtInfoBase {
         let infoBase = {} as SvtInfoBase;
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let mstSvtLimitDefault = await MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
-        let mstDefaultTreasure = await MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
-        let mstClass = (await MstLoader.instance.loadModel("MstClass") as MstClassContainer).get(mstSvt.classId);
-        let mstSvtExpCon = await MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
-        let mstSvtCardCon = await MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
+        let mstSvt = (MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        let mstSvtLimitDefault = MstLoader.instance.loadSvtDefaultLimitInfo(svtId);
+        let mstDefaultTreasure = MstLoader.instance.loadSvtDefaultTreasureDeviceWithLv(svtId, 5);
+        let mstClass = (MstLoader.instance.loadModel("MstClass") as MstClassContainer).get(mstSvt.classId);
+        let mstSvtExpCon = MstLoader.instance.loadModel("MstSvtExp") as MstSvtExpContainer;
+        let mstSvtCardCon = MstLoader.instance.loadModel("MstSvtCard") as MstSvtCardContainer;
 
-        let embeddedCode = await MstLoader.instance.loadEmbeddedCode();
-        let embeddedGender = await MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
-        let embeddedAttri = await MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
-        let embeddedTransName = await MstLoader.instance.loadEmbeddedSvtName(svtId);
+        let embeddedCode = MstLoader.instance.loadEmbeddedCode();
+        let embeddedGender = MstLoader.instance.loadEmbeddedGender(mstSvt.genderType);
+        let embeddedAttri = MstLoader.instance.loadEmbeddedAttribute(mstSvt.attri);
+        let embeddedTransName = MstLoader.instance.loadEmbeddedSvtName(svtId);
         let embeddedRankFont = embeddedCode.rankFont;
         let embeddedRandSymbol = embeddedCode.rankSymbol;
 
@@ -221,7 +221,7 @@ export class Service {
         infoBase.name = embeddedTransName.name;
         infoBase.className = Const.SERVANT_CLASS_NAMES[mstSvt.classId];
         infoBase.classification = embeddedAttri;
-        infoBase.policy = await this._getSvtPolicyDisplay(mstSvtLimitDefault);
+        infoBase.policy = this._getSvtPolicyDisplay(mstSvtLimitDefault);
         infoBase.attackRate = (mstClass === null) ? 100 : mstClass.attackRate / 10; // 某些特殊职阶可能无数据，默认给100
         infoBase.rarityNum = mstSvtLimitDefault.rarity;
         infoBase.rarity = this._getSvtRarityDisplay(mstSvtLimitDefault);
@@ -239,7 +239,7 @@ export class Service {
         infoBase.cardQuick = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_QUICK, mstSvt, mstSvtCardCon);
         infoBase.cardExtra = this._getSvtCmdCardDisplay(svtId, Const.CMD_CARD_ID_EXTRA, mstSvt, mstSvtCardCon);
         infoBase.starRate = mstSvt.starRate / 10;
-        infoBase.individuality = await this._getSvtIndividualityDisplay(mstSvt);
+        infoBase.individuality = this._getSvtIndividualityDisplay(mstSvt);
         infoBase.deathRate = mstSvt.deathRate / 10;
         infoBase.criticalWeight = mstSvtLimitDefault.criticalWeight;
         infoBase.npArt = mstDefaultTreasure.tdPointA / 100;
@@ -255,7 +255,7 @@ export class Service {
         infoBase.luckRank = this._getRankDisplay(mstSvtLimitDefault.luck, embeddedRankFont, embeddedRandSymbol);
         infoBase.treasureRank = this._getRankDisplay(mstSvtLimitDefault.treasureDevice, embeddedRankFont, embeddedRandSymbol);
 
-        return Promise.resolve(infoBase);
+        return infoBase;
     }
 
     private _getSvtRarityDisplay(limit: MstSvtLimit): string {
@@ -267,11 +267,11 @@ export class Service {
         return display;
     }
 
-    private async _getSvtPolicyDisplay(limit: MstSvtLimit): Promise<string> {
-        let policyName = await MstLoader.instance.loadEmbeddedPolicy(limit.policy);
-        let personalityName = await MstLoader.instance.loadEmbeddedPersonality(limit.personality);
+    private _getSvtPolicyDisplay(limit: MstSvtLimit): string {
+        let policyName = MstLoader.instance.loadEmbeddedPolicy(limit.policy);
+        let personalityName = MstLoader.instance.loadEmbeddedPersonality(limit.personality);
 
-        return Promise.resolve(`${policyName}・${personalityName}`);
+        return `${policyName}・${personalityName}`;
     }
 
     private _getSvtHpAtkViaLv(expType: number, level: number, limit: MstSvtLimit, expCon: MstSvtExpContainer): SvtInfoBaseHpAtk {
@@ -313,8 +313,8 @@ export class Service {
         } as SvtInfoBaseCardInfo;
     }
 
-    private async _getSvtIndividualityDisplay(svt: MstSvt): Promise<Array<string>> {
-        let individuality = (await MstLoader.instance.loadEmbeddedCode()).individuality;
+    private _getSvtIndividualityDisplay(svt: MstSvt): Array<string> {
+        let individuality = MstLoader.instance.loadEmbeddedCode().individuality;
         let individualityIds = Array.from(Object.keys(individuality));
 
         let display = [];
@@ -324,7 +324,7 @@ export class Service {
             }
         });
 
-        return Promise.resolve(display);
+        return display;
     }
 
     private _getRankDisplay(value: number, rankFont: Object, rankSymbol: Object): SvtInfoRank {
@@ -337,25 +337,25 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: SKILL
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    private async _getSvtInfoSkill(svtId: number): Promise<SvtInfoSkill> {
+    private _getSvtInfoSkill(svtId: number): SvtInfoSkill {
         let infoSkill = {} as SvtInfoSkill;
 
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let skillCon = await MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
-        let svtSkillCon = await MstLoader.instance.loadModel("MstSvtSkill") as MstSvtSkillContainer;
-        let skillLvCon = await MstLoader.instance.loadModel("MstSkillLv") as MstSkillLvContainer;
-        let embeddedSkillDetails = (await MstLoader.instance.loadEmbeddedCode()).transSkillDetail;
+        let mstSvt = (MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        let skillCon = MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
+        let svtSkillCon = MstLoader.instance.loadModel("MstSvtSkill") as MstSvtSkillContainer;
+        let skillLvCon = MstLoader.instance.loadModel("MstSkillLv") as MstSkillLvContainer;
+        let embeddedSkillDetails = MstLoader.instance.loadEmbeddedCode().transSkillDetail;
 
-        let treasureDeviceCon = await MstLoader.instance.loadModel("MstTreasureDevice") as MstTreasureDeviceContainer;
-        let svtTreasureDeviceCon = await MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
-        let embeddedTreasureDetail = (await MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
+        let treasureDeviceCon = MstLoader.instance.loadModel("MstTreasureDevice") as MstTreasureDeviceContainer;
+        let svtTreasureDeviceCon = MstLoader.instance.loadModel("MstSvtTreasureDevice") as MstSvtTreasureDeviceContainer;
+        let embeddedTreasureDetail = (MstLoader.instance.loadEmbeddedCode()).transTreasureDetail;
 
         infoSkill.svtId = svtId;
         infoSkill.skills = this._getSvtSkillsDisplay(svtId, skillCon, svtSkillCon, skillLvCon, embeddedSkillDetails);
         infoSkill.passiveSkills = this._getSvtPassiveSkillsDisplay(mstSvt, skillCon, embeddedSkillDetails);
         infoSkill.treasures = this._getSvtTreasuresDisplay(svtId, treasureDeviceCon, svtTreasureDeviceCon, embeddedTreasureDetail);
 
-        return Promise.resolve(infoSkill);
+        return infoSkill;
     }
 
     private _getSvtSkillsDisplay(svtId: number,
@@ -511,12 +511,12 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: STORY
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    private async _getSvtInfoStory(svtId: number): Promise<SvtInfoStory> {
+    private _getSvtInfoStory(svtId: number): SvtInfoStory {
         let infoStory = {} as SvtInfoStory;
 
-        let mstSvt = (await MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
-        let svtComments = (await MstLoader.instance.loadModel("MstSvtComment") as MstSvtCommentContainer).getGroup(svtId);
-        let mstFriendshipCon = await MstLoader.instance.loadModel("MstFriendship") as MstFriendshipContainer;
+        let mstSvt = (MstLoader.instance.loadModel("MstSvt") as MstSvtContainer).get(svtId);
+        let svtComments = (MstLoader.instance.loadModel("MstSvtComment") as MstSvtCommentContainer).getGroup(svtId);
+        let mstFriendshipCon = MstLoader.instance.loadModel("MstFriendship") as MstFriendshipContainer;
 
         infoStory.svtId = svtId;
         infoStory.friendshipRequirements = [];
@@ -531,7 +531,7 @@ export class Service {
         infoStory.friendship5 = svtComments ? svtComments.get(6).comment : "";
         infoStory.lastStory = svtComments ? svtComments.get(7).comment : "";
 
-        return Promise.resolve(infoStory);
+        return infoStory;
     }
 
     private _getFriendshipRequirementDisplay(mstSvt: MstSvt,
@@ -557,15 +557,15 @@ export class Service {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* SERVANT INFO: MATERIAL
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    private async _getSvtInfoMaterial(svtId: number): Promise<SvtInfoMaterial> {
+    private _getSvtInfoMaterial(svtId: number): SvtInfoMaterial {
         let infoMaterial = {} as SvtInfoMaterial;
 
         infoMaterial.svtId = svtId;
         infoMaterial.limit = [] as Array<SvtInfoMaterialLimit>;
         infoMaterial.skill = [] as Array<SvtInfoMaterialSkill>;
 
-        let svtCombineLimits = Array.from((await MstLoader.instance.loadModel("MstCombineLimit") as MstCombineLimitContainer).getGroup(svtId).values());
-        let svtCombineSkills = Array.from((await MstLoader.instance.loadModel("MstCombineSkill") as MstCombineSkillContainer).getGroup(svtId).values());
+        let svtCombineLimits = Array.from((MstLoader.instance.loadModel("MstCombineLimit") as MstCombineLimitContainer).getGroup(svtId).values());
+        let svtCombineSkills = Array.from((MstLoader.instance.loadModel("MstCombineSkill") as MstCombineSkillContainer).getGroup(svtId).values());
 
         svtCombineLimits.forEach((limit) => {
             let data = {} as SvtInfoMaterialLimit;
@@ -594,6 +594,6 @@ export class Service {
             infoMaterial.skill.push(data);
         });
 
-        return Promise.resolve(infoMaterial);
+        return infoMaterial;
     }
 }

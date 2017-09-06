@@ -3,26 +3,11 @@ import {Text, TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResItemDetail, CompareResSkill, CompareResSvt, CompareResult} from "../list/State";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering, Thumbnail} from "../../../view/View";
 import {ElementType, getMstSkill, getMstSvt, goToCompareResItemPage, renderRowCellsOfElements} from "../compare/App";
 import {Service} from "../../../service/MstService";
 
@@ -74,8 +59,7 @@ class GoalCompareServant extends Component<State.Props, any> {
                         <TouchableOpacity onPress={() => goToCompareResItemPage(props.navigation, limitItem.itemId)}>
                             <Row style={Styles.Common.Centering}>
                                 <Col>
-                                    <Thumbnail small square
-                                               source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, limitItem.itemId)}}/>
+                                    <Thumbnail type="item" id={limitItem.itemId}/>
                                 </Col>
                                 <Col>
                                     <TextCentering>{`x${limitItem.count}`}</TextCentering>
@@ -139,8 +123,7 @@ class GoalCompareServant extends Component<State.Props, any> {
                             <TouchableOpacity onPress={() => goToCompareResItemPage(props.navigation, item.itemId)}>
                                 <Row style={Styles.Common.Centering}>
                                     <Col>
-                                        <Thumbnail small square
-                                                   source={{uri: MstUtil.instance.getRemoteItemUrl(appVer, item.itemId)}}/>
+                                        <Thumbnail type="item" id={item.itemId}/>
                                     </Col>
                                     <Col>
                                         <TextCentering>{`x${item.count}`}</TextCentering>
@@ -175,8 +158,7 @@ class GoalCompareServant extends Component<State.Props, any> {
                         <GridCardWrapper>
                             <Row>
                                 <Col size={.2}>
-                                    <Thumbnail small square
-                                               source={{uri: MstUtil.instance.getRemoteSkillUrl(appVer, mstSkill.iconId)}}/>
+                                    <Thumbnail type="skill" id={mstSkill.iconId}/>
                                 </Col>
                                 <Col style={Styles.Common.VerticalCentering}>
                                     <Text>{mstSkill.name}</Text>

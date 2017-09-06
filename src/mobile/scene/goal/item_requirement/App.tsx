@@ -3,26 +3,11 @@ import {Text, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ContainerWhite, GridCardWrapper} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, Thumbnail} from "../../../view/View";
 import {MstCombineLimit, MstCombineSkill} from "../../../../model/master/Master";
-import MstUtil from "../../../lib/utility/MstUtil";
 import {CompareResSvtItem} from "../list/State";
 import {
     MstCombineLimitContainer,
@@ -30,7 +15,6 @@ import {
     MstItemContainer
 } from "../../../../model/impl/MstContainer";
 import MstLoader from "../../../lib/model/MstLoader";
-import BaseContainer from "../../../../lib/container/base/BaseContainer";
 import {ElementType, renderRowCellsOfElements} from "../compare/App";
 
 export * from "./State";
@@ -60,56 +44,44 @@ class GoalItemRequirement extends Component<State.Props, any> {
 
         let targetId = navState.itemId;
 
-        let limits: Array<MstCombineLimit>;
-        let skills: Array<MstCombineSkill>;
+        let limits: Array<MstCombineLimit> = (MstLoader.instance.loadModel("MstCombineLimit") as MstCombineLimitContainer).getRaw();
+        let skills: Array<MstCombineSkill> = (MstLoader.instance.loadModel("MstCombineSkill") as MstCombineSkillContainer).getRaw();
 
-        let itemName: string = "";
+        let itemName: string = (MstLoader.instance.loadModel("MstItem") as MstItemContainer).get(targetId).name;
         let reqLimitTotal: number = 0;
         let reqSkillTotal: number = 0;
         let reqLimit: Array<CompareResSvtItem> = [];
         let reqSkill: Array<CompareResSvtItem> = [];
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            props.actions.updateAppVer(appVer);
-            return MstLoader.instance.loadModel("MstItem");
-        }).then((container: BaseContainer<any>) => {
-            itemName = (container as MstItemContainer).get(targetId).name;
-            return MstLoader.instance.loadModel("MstCombineSkill");
-        }).then((container: BaseContainer<any>) => {
-            skills = (container as MstCombineSkillContainer).getRaw();
-            return MstLoader.instance.loadModel("MstCombineLimit");
-        }).then((container: BaseContainer<any>) => {
-            limits = (container as MstCombineLimitContainer).getRaw();
-            return Promise.resolve();
-        }).then(() => {
-            limits.forEach((limit: MstCombineLimit) => {
-                let index = limit.itemIds.indexOf(targetId);
-                if (index !== -1) {
-                    let svtId = limit.id;
-                    let reqCount = limit.itemNums[index];
-                    reqLimitTotal += reqCount;
-                    this.updateCompareResSvtItem(reqLimit, svtId, reqCount);
-                }
-            });
+        props.actions.updateAppVer(MstLoader.instance.getAppVer());
 
-            skills.forEach((skill: MstCombineSkill) => {
-                let index = skill.itemIds.indexOf(targetId);
-                if (index !== -1) {
-                    let svtId = skill.id;
-                    let reqCount = skill.itemNums[index] * 3; // 三个技能
-                    reqSkillTotal += reqCount;
-                    this.updateCompareResSvtItem(reqSkill, svtId, reqCount);
-                }
-            });
+        limits.forEach((limit: MstCombineLimit) => {
+            let index = limit.itemIds.indexOf(targetId);
+            if (index !== -1) {
+                let svtId = limit.id;
+                let reqCount = limit.itemNums[index];
+                reqLimitTotal += reqCount;
+                this.updateCompareResSvtItem(reqLimit, svtId, reqCount);
+            }
+        });
 
-            this.setState({
-                itemName: itemName,
-                total: reqLimitTotal + reqSkillTotal,
-                limitTotal: reqLimitTotal,
-                skillTotal: reqSkillTotal,
-                limit: reqLimit,
-                skill: reqSkill
-            });
+        skills.forEach((skill: MstCombineSkill) => {
+            let index = skill.itemIds.indexOf(targetId);
+            if (index !== -1) {
+                let svtId = skill.id;
+                let reqCount = skill.itemNums[index] * 3; // 三个技能
+                reqSkillTotal += reqCount;
+                this.updateCompareResSvtItem(reqSkill, svtId, reqCount);
+            }
+        });
+
+        this.setState({
+            itemName: itemName,
+            total: reqLimitTotal + reqSkillTotal,
+            limitTotal: reqLimitTotal,
+            skillTotal: reqSkillTotal,
+            limit: reqLimit,
+            skill: reqSkill
         });
     }
 
@@ -140,12 +112,7 @@ class GoalItemRequirement extends Component<State.Props, any> {
             <GridCardWrapper backgroundColor="#CDE1F9">
                 <Row style={{marginLeft: 10, marginRight: 10}}>
                     <Col size={.2}>
-                        <Thumbnail small square
-                                   source={{
-                                       uri: MstUtil.instance.getRemoteItemUrl(
-                                           props.SceneItemRequirement.appVer, navState.itemId
-                                       )
-                                   }}/>
+                        <Thumbnail type="item" id={navState.itemId}/>
                     </Col>
                     <Col style={Styles.Common.VerticalCentering}>
                         <Text>{`${state.itemName}  x${state.total}`}</Text>

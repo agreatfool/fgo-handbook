@@ -5,7 +5,6 @@ import * as MstService from "../../../service/MstService";
 import {MstSvt} from "../../../../model/master/Master";
 import * as State from "./State";
 import * as Action from "./Action";
-import MstUtil from "../../../lib/utility/MstUtil";
 import {SvtOrderDirections} from "../../../lib/model/MstInfo";
 import {
     Body,
@@ -20,18 +19,17 @@ import {
     List,
     ListItem,
     Right,
-    Thumbnail,
     Title
 } from "native-base";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
 import * as Styles from "../../../view/Styles";
-import {ContainerWhite} from "../../../view/View";
+import {ContainerWhite, Thumbnail} from "../../../view/View";
+import MstLoader from "../../../lib/model/MstLoader";
 
 export * from "./State";
 export * from "./Action";
 
 export class ServantList extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
     private _dataSource: ListViewDataSource;
 
@@ -48,17 +46,12 @@ export class ServantList extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let state = props.SceneServantList;
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
+        let rawData: Array<MstSvt> = this._service.loadSvtRawDataConverted();
+        let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
 
-            return this._service.loadSvtRawDataConverted();
-        }).then((rawData: Array<MstSvt>) => {
-            let displayData = MstService.Service.buildSvtDisplayData(rawData, state.filter, state.order);
-
-            props.actions.updateAppVer(this._appVer);
-            props.actions.updateRawData(rawData);
-            props.actions.updateDisplayData(displayData);
-        });
+        props.actions.updateAppVer(MstLoader.instance.getAppVer());
+        props.actions.updateRawData(rawData);
+        props.actions.updateDisplayData(displayData);
     }
 
     genDirectionIconStr(): string {
@@ -97,14 +90,13 @@ export class ServantList extends Component<State.Props, any> {
         //noinspection TypeScriptUnresolvedFunction
         return (
             <ListItem onPress={() => props.navigation.navigate("ServantDetail", {svtId: data.id})}>
-                <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, data.id)}}/>
+                <Thumbnail big type="face" id={data.id}/>
                 <Grid style={{marginLeft: 10}}>
                     <Col size={.5} style={Styles.Common.VerticalCentering}>
                         <Text>{data.collectionNo}</Text>
                     </Col>
                     <Col size={1}>
-                        <Thumbnail square small
-                                   source={{uri: MstUtil.instance.getRemoteClassUrl(this._appVer, data.classId)}}/>
+                        <Thumbnail type="class" id={data.classId}/>
                     </Col>
                     <Col size={3} style={Styles.Common.VerticalCentering}>
                         <Text>{data.name}</Text>

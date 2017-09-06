@@ -3,24 +3,10 @@ import {TouchableOpacity, View} from "react-native";
 import injectIntoComponent from "../../../../lib/react/Connect";
 import * as State from "./State";
 import * as Action from "./Action";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {ContainerWhite, GridCardWrapper} from "../../../view/View";
+import {ContainerWhite, GridCardWrapper, Thumbnail} from "../../../view/View";
 import {MstItem} from "../../../../model/master/Master";
 import MstUtil from "../../../lib/utility/MstUtil";
 
@@ -58,12 +44,7 @@ class GoalItemPicker extends Component<State.Props, any> {
                     <Col key={`Thumb_Cell_${rowIndex}_${cellIndex}`}
                          style={Styles.Common.HorizontalCentering}>
                         <TouchableOpacity onPress={() => this.selectItem(svtData.id)}>
-                            <Thumbnail small square
-                                       source={{
-                                           uri: MstUtil.instance.getRemoteItemUrl(
-                                               props.SceneGoal.appVer, svtData.id
-                                           )
-                                       }}/>
+                            <Thumbnail type="item" id={svtData.id}/>
                         </TouchableOpacity>
                     </Col>
                 );
