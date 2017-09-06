@@ -5,7 +5,6 @@ import * as LibAsyncFile from "async-file";
 import Utility from "../utility/Utility";
 import Const from "../const/Const";
 import Log from "../log/Log";
-import MstUtil from "../model/MstUtil";
 
 export default class Config {
 
