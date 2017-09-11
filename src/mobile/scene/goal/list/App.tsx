@@ -81,7 +81,7 @@ class GoalList extends Component<State.Props, any> {
 
             if (data.goals && data.goals.length > 0) {
                 this.setState({
-                    compareTargetId: (data.goals[0] as Goal).id,
+                    compareTargetId: (data.goals[data.goals.length - 1] as Goal).id,
                 });
             }
         });
