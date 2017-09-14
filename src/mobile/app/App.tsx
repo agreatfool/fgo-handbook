@@ -22,7 +22,7 @@ import {App as GoalItemPicker} from "../scene/goal/item_picker/App";
 import {App as GoalItemRequirement} from "../scene/goal/item_requirement/App";
 import {App as Options} from "../scene/options/main/App";
 
-(console as any).ignoredYellowBox = ["Remote debugger"];
+(console as any).ignoredYellowBox = ["Remote debugger", "Task orphaned for request"];
 
 const AppNavigator = StackNavigator({
     ServantList: {screen: ServantList},

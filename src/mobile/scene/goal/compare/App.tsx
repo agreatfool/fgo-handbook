@@ -500,6 +500,10 @@ export const goToCompareResItemPage = (navigation: NavigationScreenProp<any, any
     navigation.navigate("GoalCompareItem", {itemId: itemId})
 };
 
+export const goToServantPage = (navigation: NavigationScreenProp<any, any>, svtId: number): void => {
+    navigation.navigate("ServantMaterial", {svtId: svtId});
+};
+
 export enum ElementType {
     Item,
     Servant,
@@ -526,12 +530,16 @@ export const renderRowCellsOfElements = (navigation: NavigationScreenProp<any, a
 
         let goTo = undefined;
         if (type === ElementType.Item) {
-            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
                 goToCompareResItemPage(navigation, (element as CompareResItemDetail).itemId);
             };
         } else if (type === ElementType.Servant) {
-            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
                 goToCompareResServantPage(navigation, (element as CompareResSvt).svtId);
+            };
+        } else if (type === ElementType.SvtItem) {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                goToServantPage(navigation, (element as CompareResSvtItem).svtId);
             };
         }
 
@@ -571,32 +579,17 @@ export const renderRowCellsOfElements = (navigation: NavigationScreenProp<any, a
                 );
             }
 
-            let rowView = <View/>;
-            if (type === ElementType.Item || type === ElementType.Servant) {
-                // 带点击跳转事件
-                //noinspection TypeScriptValidateTypes
-                rowView = (
-                    <TouchableOpacity onPress={() => goTo(element)}>
-                        <Row>
-                            <Col>
-                                <Thumbnail type={imageType} id={getImageId(element)}/>
-                            </Col>
-                            {count}
-                        </Row>
-                    </TouchableOpacity>
-                );
-            } else {
-                // 无点击事件
-                //noinspection TypeScriptValidateTypes
-                rowView = (
+            //noinspection TypeScriptValidateTypes
+            let rowView = (
+                <TouchableOpacity onPress={() => goTo(element)}>
                     <Row>
                         <Col>
                             <Thumbnail type={imageType} id={getImageId(element)}/>
                         </Col>
                         {count}
                     </Row>
-                );
-            }
+                </TouchableOpacity>
+            );
 
             cells.push(
                 <Col key={`Item_${type}_${rowIndex}_${cellIndex}`}>
