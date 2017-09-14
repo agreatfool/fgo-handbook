@@ -19,11 +19,10 @@ import {
     Left,
     Right,
     Row,
-    Thumbnail,
     Title
 } from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering, Thumbnail} from "../../../view/View";
 import Const from "../../../lib/const/Const";
 
 export * from "./State";
@@ -82,8 +81,7 @@ export class ServantFilter extends Component<State.Props, any> {
 
             let display = <TextCentering>{dataSet[index]}</TextCentering>;
             if (propName === "classId") {
-                display = <Thumbnail small square
-                                     source={{uri: MstUtil.instance.getRemoteClassUrl(state.appVer, id)}}/>;
+                display = <Thumbnail type="class" id={id}/>;
             }
 
             checkItems.push(

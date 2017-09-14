@@ -4,11 +4,11 @@ import injectIntoComponent from "../../../../lib/react/Connect";
 import * as MstService from "../../../service/MstService";
 import * as State from "./State";
 import * as Action from "./Action";
-import {CardWithRows, ContainerWhite} from "../../../view/View";
+import {CardWithRows, ContainerWhite, Thumbnail} from "../../../view/View";
 import {SvtInfoBase, SvtInfoBaseCardInfo} from "../../../lib/model/MstInfo";
 import MstUtil from "../../../lib/utility/MstUtil";
 import Const from "../../../lib/const/Const";
-import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Thumbnail, Title} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
 
@@ -16,7 +16,6 @@ export * from "./State";
 export * from "./Action";
 
 class ServantDetail extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
 
     constructor(props, context) {
@@ -28,14 +27,10 @@ class ServantDetail extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let state = props.navigation.state.params as State.NavState;
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
-            return this._service.buildSvtInfoBase(state.svtId);
-        }).then((info: SvtInfoBase) => {
-            props.actions.updateSvtId(state.svtId);
-            props.actions.updatePageTitle(info.name);
-            props.actions.updateSvtInfo({baseInfo: info});
-        });
+        let info: SvtInfoBase = this._service.buildSvtInfoBase(state.svtId);
+        props.actions.updateSvtId(state.svtId);
+        props.actions.updatePageTitle(info.name);
+        props.actions.updateSvtInfo({baseInfo: info});
     }
 
     genHpAtkStr(value: number) {
@@ -51,7 +46,7 @@ class ServantDetail extends Component<State.Props, any> {
             <View style={Styles.Box.Wrapper}>
                 <Grid>
                     <Col size={.6} style={Styles.Common.Centering}>
-                        <Thumbnail square source={{uri: MstUtil.instance.getRemoteFaceUrl(this._appVer, info.svtId)}}/>
+                        <Thumbnail big type="face" id={info.svtId}/>
                     </Col>
                     <CardWithRows items={["图鉴编号", info.collectionNo]}/>
                     <CardWithRows items={["星级", <Text style={Styles.Common.Star}>{info.rarity}</Text>]}/>

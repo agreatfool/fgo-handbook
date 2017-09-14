@@ -1,0 +1,7 @@
+export const ImagePool = {
+{{#each images}}
+{{#each this}}
+    "{{toUpperCase @../key}}{{{this}}}": require("./images/{{@../key}}/{{{this}}}.png"),
+{{/each}}
+{{/each}}
+};

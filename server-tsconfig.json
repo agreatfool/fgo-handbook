@@ -12,7 +12,8 @@
     "src/lib/**/*.ts",
     "src/model/**/*.ts",
     "src/server/**/*.ts",
-    "typings/**/*.d.ts"
+    "typings/**/*.d.ts",
+    "node_modules/puppeteer-tsd/src/grpc.d.ts"
   ],
   "exclude": [
     "node_modules"

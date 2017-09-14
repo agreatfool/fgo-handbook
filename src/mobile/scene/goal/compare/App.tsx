@@ -15,24 +15,10 @@ import {
     CompareResSvtItem,
     CompareResult
 } from "../list/State";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {AppFooterTab, AppFooterTabIndex} from "../../../component/app_footer_tab/App";
-import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering, Thumbnail} from "../../../view/View";
 import {Service} from "../../../service/MstService";
 import {NavigationScreenProp} from "react-navigation";
 
@@ -514,6 +500,10 @@ export const goToCompareResItemPage = (navigation: NavigationScreenProp<any, any
     navigation.navigate("GoalCompareItem", {itemId: itemId})
 };
 
+export const goToServantPage = (navigation: NavigationScreenProp<any, any>, svtId: number): void => {
+    navigation.navigate("ServantMaterial", {svtId: svtId});
+};
+
 export enum ElementType {
     Item,
     Servant,
@@ -540,27 +530,35 @@ export const renderRowCellsOfElements = (navigation: NavigationScreenProp<any, a
 
         let goTo = undefined;
         if (type === ElementType.Item) {
-            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
                 goToCompareResItemPage(navigation, (element as CompareResItemDetail).itemId);
             };
         } else if (type === ElementType.Servant) {
-            goTo = (element: CompareResSvt | CompareResItemDetail) => {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
                 goToCompareResServantPage(navigation, (element as CompareResSvt).svtId);
+            };
+        } else if (type === ElementType.SvtItem) {
+            goTo = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                goToServantPage(navigation, (element as CompareResSvtItem).svtId);
             };
         }
 
-        let getImgUrl = undefined;
+        let imageType = undefined;
+        let getImageId = undefined;
         if (type === ElementType.Item) {
-            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
-                return MstUtil.instance.getRemoteItemUrl(appVer, (element as CompareResItemDetail).itemId);
+            imageType = "item";
+            getImageId = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return (element as CompareResItemDetail).itemId;
             };
         } else if (type === ElementType.Servant) {
-            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
-                return MstUtil.instance.getRemoteFaceUrl(appVer, (element as CompareResSvt).svtId);
+            imageType = "face";
+            getImageId = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return (element as CompareResSvt).svtId;
             };
         } else if (type === ElementType.SvtItem) {
-            getImgUrl = (appVer, element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
-                return MstUtil.instance.getRemoteFaceUrl(appVer, (element as CompareResSvtItem).svtId);
+            imageType = "face";
+            getImageId = (element: CompareResSvt | CompareResItemDetail | CompareResSvtItem) => {
+                return (element as CompareResSvtItem).svtId;
             };
         }
 
@@ -581,34 +579,17 @@ export const renderRowCellsOfElements = (navigation: NavigationScreenProp<any, a
                 );
             }
 
-            let rowView = <View/>;
-            if (type === ElementType.Item || type === ElementType.Servant) {
-                // 带点击跳转事件
-                //noinspection TypeScriptValidateTypes
-                rowView = (
-                    <TouchableOpacity onPress={() => goTo(element)}>
-                        <Row>
-                            <Col>
-                                <Thumbnail small square
-                                           source={{uri: getImgUrl(appVer, element)}}/>
-                            </Col>
-                            {count}
-                        </Row>
-                    </TouchableOpacity>
-                );
-            } else {
-                // 无点击事件
-                //noinspection TypeScriptValidateTypes
-                rowView = (
+            //noinspection TypeScriptValidateTypes
+            let rowView = (
+                <TouchableOpacity onPress={() => goTo(element)}>
                     <Row>
                         <Col>
-                            <Thumbnail small square
-                                       source={{uri: getImgUrl(appVer, element)}}/>
+                            <Thumbnail type={imageType} id={getImageId(element)}/>
                         </Col>
                         {count}
                     </Row>
-                );
-            }
+                </TouchableOpacity>
+            );
 
             cells.push(
                 <Col key={`Item_${type}_${rowIndex}_${cellIndex}`}>

@@ -1,0 +1,5 @@
+export const MasterPool = {
+{{#each names}}
+    "{{{this}}}": require("./master/{{{this}}}.json"),
+{{/each}}
+};

@@ -11,30 +11,15 @@ import {
     SvtInfoMaterialLimit,
     SvtInfoMaterialSkill
 } from "../../../lib/model/MstInfo";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering} from "../../../view/View";
+import {CardWithRows, ContainerWhite, GridCardWrapper, TextCentering, Thumbnail} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
 
 class ServantMaterial extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
 
     constructor(props, context) {
@@ -46,16 +31,10 @@ class ServantMaterial extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let state = props.navigation.state.params as State.NavState;
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
-            return this._service.getServantName(state.svtId);
-        }).then((name) => {
-            props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoMaterial(state.svtId);
-        }).then((info) => {
-            props.actions.updateSvtId(state.svtId);
-            props.actions.updateSvtInfo({materialInfo: info});
-        });
+        let info = this._service.buildSvtInfoMaterial(state.svtId);
+        props.actions.updatePageTitle(this._service.getServantName(state.svtId));
+        props.actions.updateSvtId(state.svtId);
+        props.actions.updateSvtInfo({materialInfo: info});
     }
 
     genLimitStr(index: number) {
@@ -99,8 +78,7 @@ class ServantMaterial extends Component<State.Props, any> {
                         <Row style={Styles.Common.Centering}>
                             <Col>
                                 <TouchableOpacity onPress={() => this.selectItem(item.itemId)}>
-                                    <Thumbnail small square
-                                               source={{uri: MstUtil.instance.getRemoteItemUrl(this._appVer, item.itemId)}}/>
+                                    <Thumbnail type="item" id={item.itemId}/>
                                 </TouchableOpacity>
                             </Col>
                             <Col style={{backgroundColor: "#FFFFFF"}}>

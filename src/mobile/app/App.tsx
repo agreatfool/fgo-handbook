@@ -5,7 +5,6 @@ import {StackNavigator} from "react-navigation";
 import {Provider} from "react-redux";
 import {Root} from "native-base";
 import Reducers from "../app/Reducers";
-import {App as Initialization} from "../scene/init/App";
 import {App as ServantList} from "../scene/servant/list/App";
 import {App as ServantDetail} from "../scene/servant/detail/App";
 import {App as ServantSkill} from "../scene/servant/skill/App";
@@ -23,10 +22,9 @@ import {App as GoalItemPicker} from "../scene/goal/item_picker/App";
 import {App as GoalItemRequirement} from "../scene/goal/item_requirement/App";
 import {App as Options} from "../scene/options/main/App";
 
-(console as any).ignoredYellowBox = ["Remote debugger"];
+(console as any).ignoredYellowBox = ["Remote debugger", "Task orphaned for request"];
 
 const AppNavigator = StackNavigator({
-    Init: {screen: Initialization},
     ServantList: {screen: ServantList},
     ServantDetail: {screen: ServantDetail},
     ServantSkill: {screen: ServantSkill},
@@ -44,7 +42,7 @@ const AppNavigator = StackNavigator({
     GoalItemRequirement: {screen: GoalItemRequirement},
     Options: {screen: Options},
 }, {
-    initialRouteName: "Init",
+    initialRouteName: "ServantList",
     headerMode: "none"
 });
 

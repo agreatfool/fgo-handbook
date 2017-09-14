@@ -33,10 +33,10 @@ class GoalExp extends Component<State.Props, any> {
     }
 
     componentDidMount() {
-        MstLoader.instance.loadModel("MstSvtExp").then((container: BaseContainer<any>) => {
-            this.setState({
-                exp: (container as MstSvtExpContainer).getGroup(this._expType),
-            });
+        let container: BaseContainer<any> = MstLoader.instance.loadModel("MstSvtExp");
+
+        this.setState({
+            exp: (container as MstSvtExpContainer).getGroup(this._expType),
         });
 
         this.setState({

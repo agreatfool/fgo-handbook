@@ -41,6 +41,14 @@ export const Common = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 1.5,
         elevation: 3,
+    },
+    ThumbBig: {
+        width: 56,
+        height: 56,
+    },
+    ThumbIcon: {
+        width: 36,
+        height: 36,
     }
 });
 

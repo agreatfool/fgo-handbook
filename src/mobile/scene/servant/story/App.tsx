@@ -15,7 +15,6 @@ export * from "./State";
 export * from "./Action";
 
 class ServantStory extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
 
     constructor(props, context) {
@@ -27,16 +26,10 @@ class ServantStory extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let state = props.navigation.state.params as State.NavState;
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
-            return this._service.getServantName(state.svtId);
-        }).then((name) => {
-            props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoStory(state.svtId);
-        }).then((info) => {
-            props.actions.updateSvtId(state.svtId);
-            props.actions.updateSvtInfo({storyInfo: info});
-        });
+        let info = this._service.buildSvtInfoStory(state.svtId);
+        props.actions.updatePageTitle(this._service.getServantName(state.svtId));
+        props.actions.updateSvtId(state.svtId);
+        props.actions.updateSvtInfo({storyInfo: info});
     }
 
     genFriendshipStr(value: SvtInfoFSReq) {

@@ -7,8 +7,7 @@ import * as State from "./State";
 import * as Action from "./Action";
 import MstUtil from "../../../lib/utility/MstUtil";
 import * as MstService from "../../../service/MstService";
-import {MstItem, MstSvt} from "../../../../model/master/Master";
-import BaseContainer from "../../../../lib/container/base/BaseContainer";
+import {MstSvt} from "../../../../model/master/Master";
 import {
     MstCombineLimitContainer,
     MstCombineSkillContainer,
@@ -46,7 +45,6 @@ interface GoalListState {
 }
 
 class GoalList extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
 
     constructor(props, context) {
@@ -57,37 +55,20 @@ class GoalList extends Component<State.Props, any> {
     componentWillMount() {
         let props = this.props as State.Props;
 
-        let svtRawData = [];
-        let svtSkillData = null;
-        let skillCombineData = null;
-        let limitCombineData = null;
-        let skillData = null;
+        let svtRawData: Array<MstSvt> = this._service.loadSvtRawDataConverted();
+        let svtSkillData = MstLoader.instance.loadModel("MstSvtSkill") as MstSvtSkillContainer;
+        let skillCombineData = MstLoader.instance.loadModel("MstCombineSkill") as MstCombineSkillContainer;
+        let limitCombineData = MstLoader.instance.loadModel("MstCombineLimit") as MstCombineLimitContainer;
+        let skillData = MstLoader.instance.loadModel("MstSkill") as MstSkillContainer;
         let visibleItems = [];
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
-            return this._service.loadSvtRawDataConverted();
-        }).then((rawData: Array<MstSvt>) => {
-            svtRawData = rawData;
-            return MstLoader.instance.loadModel("MstSvtSkill");
-        }).then((container: BaseContainer<any>) => {
-            svtSkillData = container as MstSvtSkillContainer;
-            return MstLoader.instance.loadModel("MstCombineSkill");
-        }).then((container: BaseContainer<any>) => {
-            skillCombineData = container as MstCombineSkillContainer;
-            return MstLoader.instance.loadModel("MstCombineLimit");
-        }).then((container: BaseContainer<any>) => {
-            limitCombineData = container as MstCombineLimitContainer;
-            return MstLoader.instance.loadModel("MstSkill");
-        }).then((container: BaseContainer<any>) => {
-            skillData = container as MstSkillContainer;
-            return MstLoader.instance.loadVisibleItemList();
-        }).then((items: Array<MstItem>) => {
-            let clonedItems = MstUtil.deepCopy(items);
-            this._service.sortCompareResItems(items, clonedItems);
-            visibleItems = items;
-            return MstLoader.instance.loadGoal();
-        }).then((data: State.State) => {
-            data.appVer = this._appVer;
+
+        let items = MstLoader.instance.loadVisibleItemList();
+        let clonedItems = MstUtil.deepCopy(items);
+        this._service.sortCompareResItems(items, clonedItems);
+        visibleItems = items;
+
+        MstLoader.instance.loadGoal().then((data: State.State) => {
+            data.appVer = MstLoader.instance.getAppVer();
             data.svtRawData = svtRawData;
             data.svtSkillData = svtSkillData;
             data.skillCombineData = skillCombineData;
@@ -100,7 +81,7 @@ class GoalList extends Component<State.Props, any> {
 
             if (data.goals && data.goals.length > 0) {
                 this.setState({
-                    compareTargetId: (data.goals[0] as Goal).id,
+                    compareTargetId: (data.goals[data.goals.length - 1] as Goal).id,
                 });
             }
         });

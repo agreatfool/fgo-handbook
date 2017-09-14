@@ -1,4 +1,8 @@
 import * as LibPath from "path";
+import * as LibUtil from "util";
+
+import * as LibAsyncFile from "async-file";
+import * as LibNcp from "ncp";
 
 import HttpPromise from "../lib/http/Http";
 import SourceConfig from "../model/config/SourceConfig";
@@ -10,10 +14,17 @@ import MstLoader from "../lib/model/MstLoader";
 import {MstSvt, MstSkill, MstItem, MstClass} from "../model/master/Master";
 import MstUtil from "../lib/model/MstUtil";
 import Log from "../lib/log/Log";
+import Config from "../lib/config/Config";
+
+const ncp = LibUtil.promisify(LibNcp.ncp) as (source: string, destination: string, options?: LibNcp.Options) => Promise<void>;
 
 export default class ResourceDownloader {
 
+    private _lastVersion: string;
+    private _lastDbPath: string;
+
     private _newVersion: string; // from VersionCheck.run
+    private _dbPath: string;
 
     private _libHttp: HttpPromise;
 
@@ -38,19 +49,22 @@ export default class ResourceDownloader {
 
     public async run(): Promise<any> {
         try {
+            this._lastVersion = await Config.instance.loadConfig(Const.CONF_VERSION, "version");
+            this._lastDbPath = LibPath.join(Const.PATH_DATABASE, this._lastVersion);
+
             this._mstSvt = await MstLoader.instance.loadModel("MstSvt", this._newVersion) as MstSvtContainer;
             this._mstSkill = await MstLoader.instance.loadModel("MstSkill", this._newVersion) as MstSkillContainer;
             this._mstItem = await MstLoader.instance.loadModel("MstItem", this._newVersion) as MstItemContainer;
             this._mstClass = await MstLoader.instance.loadModel("MstClass", this._newVersion) as MstClassContainer;
 
-            let dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
-            this._imageSvtFacePath = LibPath.join(dbPath, "images", "face");
-            this._imageSvtSkillPath = LibPath.join(dbPath, "images", "skill");
-            this._imageItemIconPath = LibPath.join(dbPath, "images", "item");
-            this._imageClassIconPath = LibPath.join(dbPath, "images", "class");
+            this._dbPath = LibPath.join(Const.PATH_DATABASE, this._newVersion);
+            this._imageSvtFacePath = LibPath.join(this._dbPath, "images", "face");
+            this._imageSvtSkillPath = LibPath.join(this._dbPath, "images", "skill");
+            this._imageItemIconPath = LibPath.join(this._dbPath, "images", "item");
+            this._imageClassIconPath = LibPath.join(this._dbPath, "images", "class");
 
             await MstUtil.instance.ensureDirs([
-                LibPath.join(dbPath, "images"),
+                LibPath.join(this._dbPath, "images"),
                 this._imageSvtFacePath,
                 this._imageSvtSkillPath,
                 this._imageItemIconPath,
@@ -67,6 +81,18 @@ export default class ResourceDownloader {
         return Promise.resolve();
     }
 
+    private async _checkLastVersionResource(type: string, id: number): Promise<boolean> {
+        let lastPath = LibPath.join(this._lastDbPath, "images", type, `${id}.png`);
+        let currPath = LibPath.join(this._dbPath, "images", type, `${id}.png`);
+
+        if (await LibAsyncFile.exists(lastPath)) {
+            await ncp(lastPath, currPath);
+            return Promise.resolve(true);
+        } else {
+            return Promise.resolve(false);
+        }
+    }
+
     private async _downloadServantResources(): Promise<any> {
         let total = this._mstSvt.count();
         Log.instance.info(`[ResourceDownloader] _downloadServantResources: total count: ${total}`);
@@ -80,9 +106,14 @@ export default class ResourceDownloader {
             let filename = svtId + "." + ext;
             let filePath = LibPath.join(this._imageSvtFacePath, filename);
 
-            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            let result: boolean | string;
+            if (!(await this._checkLastVersionResource("face", svtId))) {
+                result = await this._libHttp.downloadWithCheck(url, filePath);
+            } else {
+                result = "copied";
+            }
             current++;
-            Log.instance.info(`[ResourceDownloader] _downloadServantResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
+            Log.instance.info(`[ResourceDownloader] _downloadServantResources: Downloaded ${current}/${total}: ${result}, url: ${url}, file: ${filePath}`);
         }
     }
 
@@ -105,7 +136,12 @@ export default class ResourceDownloader {
             let filename = skill.iconId + "." + ext;
             let filePath = LibPath.join(this._imageSvtSkillPath, filename);
 
-            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            let result: boolean | string;
+            if (!(await this._checkLastVersionResource("skill", skill.iconId))) {
+                result = await this._libHttp.downloadWithCheck(url, filePath);
+            } else {
+                result = "copied";
+            }
             current++;
             Log.instance.info(`[ResourceDownloader] _downloadSkillResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
         }
@@ -124,7 +160,12 @@ export default class ResourceDownloader {
             let filename = itemId + "." + ext;
             let filePath = LibPath.join(this._imageItemIconPath, filename);
 
-            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            let result: boolean | string;
+            if (!(await this._checkLastVersionResource("item", itemId))) {
+                result = await this._libHttp.downloadWithCheck(url, filePath);
+            } else {
+                result = "copied";
+            }
             current++;
             Log.instance.info(`[ResourceDownloader] _downloadItemResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
         }
@@ -143,7 +184,12 @@ export default class ResourceDownloader {
             let filename = classId + "." + ext;
             let filePath = LibPath.join(this._imageClassIconPath, filename);
 
-            let result = await this._libHttp.downloadWithCheck(url, filePath);
+            let result: boolean | string;
+            if (!(await this._checkLastVersionResource("class", classId))) {
+                result = await this._libHttp.downloadWithCheck(url, filePath);
+            } else {
+                result = "copied";
+            }
             current++;
             Log.instance.info(`[ResourceDownloader] _downloadClassResources: Downloaded ${current}/${total}: ${result}; url: ${url}, file: ${filePath}`);
         }

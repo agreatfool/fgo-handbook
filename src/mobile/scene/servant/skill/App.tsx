@@ -14,29 +14,21 @@ import {
     SvtInfoTreasureEffect
 } from "../../../lib/model/MstInfo";
 import {SvtFooterTab, SvtFooterTabIndex} from "../../../component/servant_footer_tab/App";
-import {
-    Body,
-    Button,
-    Col,
-    Container,
-    Content,
-    Grid,
-    Header,
-    Icon,
-    Left,
-    Right,
-    Row,
-    Thumbnail,
-    Title
-} from "native-base";
+import {Body, Button, Col, Container, Content, Grid, Header, Icon, Left, Right, Row, Title} from "native-base";
 import * as Styles from "../../../view/Styles";
-import {CardGridWrapper, CardWithRows, ContainerWhite, RowCentering, TextCentering} from "../../../view/View";
+import {
+    CardGridWrapper,
+    CardWithRows,
+    ContainerWhite,
+    RowCentering,
+    TextCentering,
+    Thumbnail
+} from "../../../view/View";
 
 export * from "./State";
 export * from "./Action";
 
 class ServantSkill extends Component<State.Props, any> {
-    private _appVer: string;
     private _service: MstService.Service;
 
     constructor(props, context) {
@@ -48,16 +40,10 @@ class ServantSkill extends Component<State.Props, any> {
         let props = this.props as State.Props;
         let state = props.navigation.state.params as State.NavState;
 
-        MstUtil.instance.getAppVer().then((appVer) => {
-            this._appVer = appVer;
-            return this._service.getServantName(state.svtId);
-        }).then((name) => {
-            props.actions.updatePageTitle(name);
-            return this._service.buildSvtInfoSkill(state.svtId);
-        }).then((info) => {
-            props.actions.updateSvtId(state.svtId);
-            props.actions.updateSvtInfo({skillInfo: info});
-        });
+        let info = this._service.buildSvtInfoSkill(state.svtId);
+        props.actions.updatePageTitle(this._service.getServantName(state.svtId));
+        props.actions.updateSvtId(state.svtId);
+        props.actions.updateSvtInfo({skillInfo: info});
     }
 
     genChargeTurnStr(chargeTurn: number) {
@@ -111,8 +97,7 @@ class ServantSkill extends Component<State.Props, any> {
                     <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
                         <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
                             <Col size={.4}>
-                                <Thumbnail small square
-                                           source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                                <Thumbnail type="skill" id={skill.iconId}/>
                             </Col>
                             <Col><TextCentering>{skill.name}</TextCentering></Col>
                             <Col><TextCentering>{this.genChargeTurnStr(skill.chargeTurn)}</TextCentering></Col>
@@ -150,8 +135,7 @@ class ServantSkill extends Component<State.Props, any> {
                     <Col style={{paddingTop: 5, paddingLeft: 10, paddingRight: 10}}>
                         <Row style={[Styles.Common.VerticalCentering, {paddingBottom: 5}]}>
                             <Col size={.4}>
-                                <Thumbnail small square
-                                           source={{uri: MstUtil.instance.getRemoteSkillUrl(this._appVer, skill.iconId)}}/>
+                                <Thumbnail type="skill" id={skill.iconId}/>
                             </Col>
                             <Col size={1}>
                                 <Row>

@@ -1,7 +1,7 @@
 import * as LibPath from "path";
 import * as LibAsyncFile from "async-file";
 import * as LibMd5 from "md5";
-import * as phantomJs from "phantomjs-prebuilt";
+import * as puppeteer from "puppeteer";
 
 import Config from "../lib/config/Config";
 import Log from "../lib/log/Log";
@@ -57,7 +57,7 @@ export default class Crawler {
                 return Promise.resolve(false);
             }
 
-            await this._parseMasterJson(masterFile);
+            await this._parseMasterJson();
             await this._downloadSvtDataFile();
             transFile = await this._downloadTransDataFile();
             await this._parseTransData(transFile);
@@ -96,28 +96,39 @@ export default class Crawler {
         }
     }
 
-    private async _parseMasterJson(file: string): Promise<any> {
+    private async _parseMasterJson(): Promise<any> {
         Log.instance.info("[Crawler] Processing parseMasterJson ...");
-        try {
-            let downloadMasterJson = () => {
-                return new Promise((resolve, reject) => {
-                    let program = phantomJs.exec(LibPath.join(__dirname, "phantom", "exec.js"));
-                    let writer = LibAsyncFile.createWriteStream(this._masterJsonPath);
-                    program.stdout.pipe(writer);
-                    program.stderr.pipe(process.stderr);
-                    program.on("error", (err) => {
-                        reject(err);
-                    });
-                    program.on("exit", (code) => {
-                        resolve(code);
-                    });
-                });
-            };
-            await downloadMasterJson();
-            return Promise.resolve();
-        } catch (err) {
-            return Promise.reject(err);
+
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto("https://kazemai.github.io/fgo-vz/servant.html");
+
+        const loadPageParam = async function (paramName: string) {
+            return page.evaluate((name: string) => {
+                return (window as any)[name];
+            }, paramName);
+        };
+
+        let masterJson = await loadPageParam("master");
+
+        // check master json keys
+        const keys = [
+            "mstClass", "mstCombineLimit", "mstCombineSkill", "mstFriendship",
+            "mstItem", "mstSkill", "mstSkillDetail", "mstSkillLv", "mstSvt",
+            "mstSvtCard", "mstSvtComment", "mstSvtExp", "mstSvtLimit", "mstSvtSkill",
+            "mstSvtTreasureDevice", "mstTreasureDevice", "mstTreasureDeviceLv"
+        ];
+        for (let key of keys) {
+            if (!masterJson.hasOwnProperty(key)) {
+                Log.instance.warn(`[Crawler] master.json, key not found: ${key}`);
+                masterJson[key] = await loadPageParam(key);
+            }
         }
+        browser.close();
+
+        await LibAsyncFile.writeFile(this._masterJsonPath, JSON.stringify(masterJson, null, 4));
+
+        return Promise.resolve();
     }
 
     private async _downloadSvtDataFile(): Promise<string> {

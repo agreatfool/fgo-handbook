@@ -15,66 +15,6 @@ export default class MstUtil {
     }
 
     private constructor() {
-        this._localVerPath = `${RNFS.DocumentDirectoryPath}/${this._localVerFile}`;
-    }
-
-    private _localVerFile = "version.json";
-
-    private _appVer: string;
-    private _localVerPath: string;
-
-    public async getAppVer(): Promise<string> {
-        if (!this._appVer) {
-            this._appVer = (await this.loadJson(this._localVerPath) as VersionConfig).version;
-        }
-
-        return Promise.resolve(this._appVer);
-    }
-
-    public getLocalVerPath(): string {
-        return this._localVerPath;
-    }
-
-    public getRemoteVerUrl(): string {
-        return `${Const.GITHUB_BASE}/master/VERSION`;
-    }
-
-    public async getLocalDbPath(): Promise<string> {
-        return Promise.resolve(
-            `${RNFS.DocumentDirectoryPath}/database/${await this.getAppVer()}`
-        );
-    }
-
-    public getLocalDbPathSync(appVer: string): string {
-        return `${RNFS.DocumentDirectoryPath}/database/${appVer}`;
-    }
-
-    public getRemoteDbUrl(remoteVer: string): string {
-        return `${Const.GITHUB_BASE}/${remoteVer}/database/${remoteVer}`;
-    }
-
-    public getRemoteFaceUrl(remoteVer: string, svtId: number): string {
-        return `${this.getRemoteDbUrl(remoteVer)}/images/face/${svtId}.png`;
-    }
-
-    public getRemoteItemUrl(remoteVer: string, itemId: number): string {
-        return `${this.getRemoteDbUrl(remoteVer)}/images/item/${itemId}.png`;
-    }
-
-    public getRemoteClassUrl(remoteVer: string, classId: number): string {
-        return `${this.getRemoteDbUrl(remoteVer)}/images/class/${classId}.png`;
-    }
-
-    public getRemoteSkillUrl(remoteVer: string, iconId: number): string {
-        return `${this.getRemoteDbUrl(remoteVer)}/images/skill/${iconId}.png`;
-    }
-
-    public getLocalImagePath(appVer: string, type: string, id: number): string {
-        return `${this.getLocalDbPathSync(appVer)}/images/${type}/${id}.png`;
-    }
-
-    public getRemoteImageUrl(remoteVer: string, type: string, id: number): string {
-        return `${this.getRemoteDbUrl(remoteVer)}/images/${type}/${id}.png`;
     }
 
     public static isArray(object: any) {
