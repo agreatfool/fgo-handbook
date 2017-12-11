@@ -56,6 +56,13 @@
         "iconId": 300
     },
     {
+        "id": 5449,
+        "type": 1,
+        "name": "カリスマ B-",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
         "id": 5450,
         "type": 1,
         "name": "カリスマ B",
@@ -493,6 +500,13 @@
         "id": 34250,
         "type": 2,
         "name": "対魔力 D",
+        "maxLv": 10,
+        "iconId": 100
+    },
+    {
+        "id": 34251,
+        "type": 2,
+        "name": "対魔力 D+",
         "maxLv": 10,
         "iconId": 100
     },
@@ -2779,6 +2793,13 @@
         "iconId": 509
     },
     {
+        "id": 220450,
+        "type": 1,
+        "name": "鬼種の魔 B",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
         "id": 220550,
         "type": 1,
         "name": "鬼種の魔 A",
@@ -2826,6 +2847,13 @@
         "name": "千里疾走 A",
         "maxLv": 10,
         "iconId": 304
+    },
+    {
+        "id": 227550,
+        "type": 1,
+        "name": "忍術 A",
+        "maxLv": 10,
+        "iconId": 402
     },
     {
         "id": 227553,
@@ -3307,6 +3335,13 @@
         "id": 292450,
         "type": 1,
         "name": "キス魔 B",
+        "maxLv": 10,
+        "iconId": 601
+    },
+    {
+        "id": 292452,
+        "type": 1,
+        "name": "キス魔 B++",
         "maxLv": 10,
         "iconId": 601
     },
@@ -4109,6 +4144,244 @@
         "iconId": 300
     },
     {
+        "id": 407650,
+        "type": 1,
+        "name": "カーマの灰 EX",
+        "maxLv": 10,
+        "iconId": 300
+    },
+    {
+        "id": 408650,
+        "type": 1,
+        "name": "イマジナリ・アラウンド EX",
+        "maxLv": 10,
+        "iconId": 304
+    },
+    {
+        "id": 409551,
+        "type": 1,
+        "name": "女神の恩恵 A+",
+        "maxLv": 10,
+        "iconId": 601
+    },
+    {
+        "id": 410352,
+        "type": 1,
+        "name": "毒の刃 C++",
+        "maxLv": 10,
+        "iconId": 510
+    },
+    {
+        "id": 411552,
+        "type": 1,
+        "name": "新陰流 A++",
+        "maxLv": 10,
+        "iconId": 305
+    },
+    {
+        "id": 412450,
+        "type": 1,
+        "name": "水月 B",
+        "maxLv": 10,
+        "iconId": 402
+    },
+    {
+        "id": 413550,
+        "type": 1,
+        "name": "無刀取り A",
+        "maxLv": 10,
+        "iconId": 503
+    },
+    {
+        "id": 414450,
+        "type": 1,
+        "name": "乱戦の心得 B",
+        "maxLv": 10,
+        "iconId": 311
+    },
+    {
+        "id": 415550,
+        "type": 1,
+        "name": "血脈励起 A",
+        "maxLv": 10,
+        "iconId": 404
+    },
+    {
+        "id": 416450,
+        "type": 1,
+        "name": "おろちの呪 B",
+        "maxLv": 10,
+        "iconId": 305
+    },
+    {
+        "id": 417550,
+        "type": 1,
+        "name": "甲賀流 A",
+        "maxLv": 10,
+        "iconId": 402
+    },
+    {
+        "id": 418552,
+        "type": 1,
+        "name": "人造四肢（絡繰） A++",
+        "maxLv": 10,
+        "iconId": 316
+    },
+    {
+        "id": 419451,
+        "type": 1,
+        "name": "絡繰幻法 B+",
+        "maxLv": 10,
+        "iconId": 403
+    },
+    {
+        "id": 420450,
+        "type": 1,
+        "name": "武の求道 B",
+        "maxLv": 10,
+        "iconId": 304
+    },
+    {
+        "id": 421451,
+        "type": 1,
+        "name": "先の先 B+",
+        "maxLv": 10,
+        "iconId": 512
+    },
+    {
+        "id": 422350,
+        "type": 1,
+        "name": "呪術(巫) C",
+        "maxLv": 10,
+        "iconId": 512
+    },
+    {
+        "id": 423650,
+        "type": 1,
+        "name": "千代紙操法 EX",
+        "maxLv": 10,
+        "iconId": 601
+    },
+    {
+        "id": 424552,
+        "type": 1,
+        "name": "城化物 A++",
+        "maxLv": 10,
+        "iconId": 504
+    },
+    {
+        "id": 425650,
+        "type": 1,
+        "name": "無辜の怪獣 EX",
+        "maxLv": 10,
+        "iconId": 605
+    },
+    {
+        "id": 426350,
+        "type": 1,
+        "name": "オーバーロード改 C",
+        "maxLv": 10,
+        "iconId": 601
+    },
+    {
+        "id": 427350,
+        "type": 1,
+        "name": "ファイナルエリチャン C",
+        "maxLv": 10,
+        "iconId": 302
+    },
+    {
+        "id": 428450,
+        "type": 2,
+        "name": "気配遮断(陰) B",
+        "maxLv": 10,
+        "iconId": 105
+    },
+    {
+        "id": 434650,
+        "type": 2,
+        "name": "領域外の生命 EX",
+        "maxLv": 10,
+        "iconId": 110
+    },
+    {
+        "id": 435350,
+        "type": 1,
+        "name": "信仰の祈り C",
+        "maxLv": 10,
+        "iconId": 607
+    },
+    {
+        "id": 436450,
+        "type": 1,
+        "name": "正気喪失 B",
+        "maxLv": 10,
+        "iconId": 508
+    },
+    {
+        "id": 437551,
+        "type": 1,
+        "name": "魔女裁判 A+",
+        "maxLv": 10,
+        "iconId": 513
+    },
+    {
+        "id": 438550,
+        "type": 1,
+        "name": "道術 A",
+        "maxLv": 10,
+        "iconId": 316
+    },
+    {
+        "id": 439550,
+        "type": 1,
+        "name": "霊珠子 A",
+        "maxLv": 10,
+        "iconId": 404
+    },
+    {
+        "id": 440450,
+        "type": 1,
+        "name": "如来の加護  B",
+        "maxLv": 10,
+        "iconId": 311
+    },
+    {
+        "id": 441550,
+        "type": 1,
+        "name": "毒の食饌 A",
+        "maxLv": 10,
+        "iconId": 510
+    },
+    {
+        "id": 442550,
+        "type": 1,
+        "name": "出航の助言 A",
+        "maxLv": 10,
+        "iconId": 604
+    },
+    {
+        "id": 443550,
+        "type": 1,
+        "name": "精霊の目 A",
+        "maxLv": 10,
+        "iconId": 303
+    },
+    {
+        "id": 444550,
+        "type": 1,
+        "name": "魔神の叡智 A",
+        "maxLv": 10,
+        "iconId": 315
+    },
+    {
+        "id": 445450,
+        "type": 2,
+        "name": "狂気 B",
+        "maxLv": 10,
+        "iconId": 306
+    },
+    {
         "id": 930001,
         "type": 1,
         "name": "支援砲撃着弾",
@@ -4569,6 +4842,20 @@
         "name": "フルーツケーキパーティー",
         "maxLv": 1,
         "iconId": 200
+    },
+    {
+        "id": 940060,
+        "type": 2,
+        "name": "キャッスルクライマー B",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 940061,
+        "type": 2,
+        "name": "キャッスルクライマー A",
+        "maxLv": 1,
+        "iconId": 301
     },
     {
         "id": 950001,
@@ -11102,6 +11389,2015 @@
         "iconId": 0
     },
     {
+        "id": 960945,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 960946,
+        "type": 1,
+        "name": "全体持続回復",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960947,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 960948,
+        "type": 1,
+        "name": "全体クリティカル発生率アップ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960949,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 960950,
+        "type": 1,
+        "name": "全体ガッツ付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960951,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 960952,
+        "type": 1,
+        "name": "全体防御力アップ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960953,
+        "type": 2,
+        "name": "被虐の悦び",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 960954,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960955,
+        "type": 1,
+        "name": "不屈の意志 A",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960956,
+        "type": 1,
+        "name": "剣闘の雄叫び",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960957,
+        "type": 1,
+        "name": "克己、即ち不敗なり",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960958,
+        "type": 1,
+        "name": "克己、即ち不敗なり",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960959,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960960,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960961,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960962,
+        "type": 2,
+        "name": "膨張超蠕動",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 960963,
+        "type": 2,
+        "name": "膨張超蠕動",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 960964,
+        "type": 2,
+        "name": "膨張超蠕動",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 960965,
+        "type": 2,
+        "name": "膨張超蠕動",
+        "maxLv": 1,
+        "iconId": 606
+    },
+    {
+        "id": 960966,
+        "type": 1,
+        "name": "一条の光",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960967,
+        "type": 1,
+        "name": "収束",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960968,
+        "type": 2,
+        "name": "回折干渉",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960969,
+        "type": 1,
+        "name": "変幻自在　花の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960970,
+        "type": 1,
+        "name": "変幻自在　花の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960971,
+        "type": 1,
+        "name": "変幻自在　花の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960972,
+        "type": 1,
+        "name": "変幻自在　獣の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960973,
+        "type": 1,
+        "name": "変幻自在　獣の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960974,
+        "type": 1,
+        "name": "変幻自在　獣の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960975,
+        "type": 1,
+        "name": "変幻自在　獣の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960976,
+        "type": 1,
+        "name": "変幻自在　風の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960977,
+        "type": 1,
+        "name": "変幻自在　風の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960978,
+        "type": 1,
+        "name": "変幻自在　風の如し",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960979,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960980,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960981,
+        "type": 1,
+        "name": "ロックオン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960982,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960983,
+        "type": 1,
+        "name": "戦いに臨む",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960984,
+        "type": 2,
+        "name": "無冠の武芸",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960985,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960986,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960987,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960988,
+        "type": 2,
+        "name": "黒闇の衣",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960989,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960990,
+        "type": 1,
+        "name": "オレに任せるがいい",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960991,
+        "type": 1,
+        "name": "炎天の渇き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960992,
+        "type": 1,
+        "name": "梵天焦熱",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960993,
+        "type": 1,
+        "name": "実に、不快だ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960994,
+        "type": 1,
+        "name": "晴天の霹靂",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960995,
+        "type": 1,
+        "name": "天帝雷霆",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960996,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960997,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 960998,
+        "type": 1,
+        "name": "ターゲットジャマー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 960999,
+        "type": 1,
+        "name": "経験こそ立派な先生さ☆",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961000,
+        "type": 1,
+        "name": "クロックアップ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961001,
+        "type": 1,
+        "name": "ダ・ヴィンチ式加速装置",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961002,
+        "type": 1,
+        "name": "ダ・ヴィンチ式内燃機関",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961003,
+        "type": 1,
+        "name": "トラップセット：スキル封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961004,
+        "type": 1,
+        "name": "トラップセット：呪い付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961005,
+        "type": 1,
+        "name": "トラップセット：強化解除",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961006,
+        "type": 1,
+        "name": "トラップセット：宝具威力ダウン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961007,
+        "type": 1,
+        "name": "トラップセット：NP獲得ダウン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961008,
+        "type": 1,
+        "name": "トラップセット：宝具封印",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961009,
+        "type": 1,
+        "name": "トラップセット：防御力ダウン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961010,
+        "type": 1,
+        "name": "トラップセット：NP減少",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961011,
+        "type": 1,
+        "name": "トラップセット：最大HPダウン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961012,
+        "type": 1,
+        "name": "トラップセット：スタン付与",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961015,
+        "type": 2,
+        "name": "最後の晩餐",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961016,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961017,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961018,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961019,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961020,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961021,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961022,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961023,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961024,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961025,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961028,
+        "type": 1,
+        "name": "最後の晩餐",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961029,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961030,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961031,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961032,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961033,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961034,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961035,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961036,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961037,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961038,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961041,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961042,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961043,
+        "type": 1,
+        "name": "ダ・ヴィンチ式加速装置・改",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961044,
+        "type": 1,
+        "name": "ダ・ヴィンチ式内燃機関・改",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961045,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961046,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961047,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961048,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961049,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961050,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961051,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961052,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961053,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961054,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961055,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961056,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961057,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961058,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961059,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961060,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961061,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961062,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961063,
+        "type": 1,
+        "name": "去なしの外套",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961064,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961065,
+        "type": 2,
+        "name": "断罪の楔",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961066,
+        "type": 2,
+        "name": "断罪の楔",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961067,
+        "type": 2,
+        "name": "断罪の楔",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961071,
+        "type": 1,
+        "name": "惑わしの罠",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961072,
+        "type": 1,
+        "name": "挫きの罠",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961073,
+        "type": 1,
+        "name": "縛りの罠",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961074,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961075,
+        "type": 1,
+        "name": "見定める",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961076,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961077,
+        "type": 1,
+        "name": "開幕は優雅たれ、ですよ？",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961078,
+        "type": 1,
+        "name": "この武器はキミ向きだよ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961079,
+        "type": 1,
+        "name": "たまには本気見せなさい",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961080,
+        "type": 1,
+        "name": "炎の恋、素敵だと思います！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961081,
+        "type": 1,
+        "name": "しっかりしな嬢ちゃん",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961082,
+        "type": 1,
+        "name": "エイシェントキングブリゲイト",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961083,
+        "type": 1,
+        "name": "英雄への期待",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961084,
+        "type": 1,
+        "name": "お宝、どぱぱーっ！ だっ！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961085,
+        "type": 1,
+        "name": "大鉄甲竜、うてーーー！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961086,
+        "type": 1,
+        "name": "マッサージをたのむ！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961087,
+        "type": 1,
+        "name": "まさに針の嵐よな！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961088,
+        "type": 1,
+        "name": "ニンジャ！？ 貴様ニンジャ！？",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961089,
+        "type": 1,
+        "name": "まさに炎の愛！ 相手は死ぬ。",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961090,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961091,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961092,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961093,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961094,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961095,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961096,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961097,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961098,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961099,
+        "type": 1,
+        "name": "魂の昇華",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961100,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961101,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961102,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961103,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961104,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961105,
+        "type": 2,
+        "name": "祝祭の闘気",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961106,
+        "type": 1,
+        "name": "余は楽しい",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961107,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961108,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961109,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961110,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961111,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961112,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961113,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961114,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961115,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961116,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961117,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961118,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961119,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961120,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961121,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961122,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961123,
+        "type": 1,
+        "name": "ライブ開始ね！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961124,
+        "type": 1,
+        "name": "次はポップナンバーね♡",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961125,
+        "type": 1,
+        "name": "ラストー！ 飛ばしていくわよー！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961150,
+        "type": 1,
+        "name": "慢心",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961151,
+        "type": 2,
+        "name": "不夜",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961152,
+        "type": 2,
+        "name": "凄烈",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961153,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961154,
+        "type": 2,
+        "name": "真剣勝負",
+        "maxLv": 1,
+        "iconId": 205
+    },
+    {
+        "id": 961155,
+        "type": 1,
+        "name": "活殺自在",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961156,
+        "type": 1,
+        "name": "劫濁",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961157,
+        "type": 1,
+        "name": "大威迫",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961158,
+        "type": 1,
+        "name": "邪気を纏う",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961159,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961160,
+        "type": 1,
+        "name": "大剣幕",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961161,
+        "type": 1,
+        "name": "穢れを纏う",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961162,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961163,
+        "type": 2,
+        "name": "宿業・一切穿通",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961164,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961165,
+        "type": 1,
+        "name": "捲土重来",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961166,
+        "type": 2,
+        "name": "宿業・一切焼却",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961167,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961168,
+        "type": 1,
+        "name": "烽火連天",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961169,
+        "type": 2,
+        "name": "宿業・一切詛呪",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961170,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961171,
+        "type": 1,
+        "name": "蜿蜿長蛇",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961172,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961173,
+        "type": 2,
+        "name": "宿業・一切熔融",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961174,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961175,
+        "type": 1,
+        "name": "呑花臥酒",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961176,
+        "type": 2,
+        "name": "宿業・一切粛清",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961177,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961178,
+        "type": 1,
+        "name": "鉤縄規矩",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961179,
+        "type": 2,
+        "name": "宿業・一切嘲弄",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961180,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961181,
+        "type": 1,
+        "name": "慢業重畳",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961182,
+        "type": 2,
+        "name": "宿業・一切両断",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961183,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961184,
+        "type": 1,
+        "name": "心堅石穿",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961185,
+        "type": 1,
+        "name": "無念無想",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961186,
+        "type": 1,
+        "name": "神采英抜",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961187,
+        "type": 1,
+        "name": "神色自若",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961188,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961189,
+        "type": 2,
+        "name": "精神異常無効",
+        "maxLv": 1,
+        "iconId": 401
+    },
+    {
+        "id": 961200,
+        "type": 1,
+        "name": "ハイエナジー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961201,
+        "type": 1,
+        "name": "観賞",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961202,
+        "type": 1,
+        "name": "ケイパー",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961203,
+        "type": 1,
+        "name": "ぎこちない踊り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961204,
+        "type": 1,
+        "name": "ぎこちない踊り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961205,
+        "type": 1,
+        "name": "ぎこちない踊り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961206,
+        "type": 1,
+        "name": "メタルパレード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961207,
+        "type": 1,
+        "name": "メタルパレード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961208,
+        "type": 1,
+        "name": "メタルパレード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961209,
+        "type": 1,
+        "name": "ぶつ切りモード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961210,
+        "type": 1,
+        "name": "せん切りモード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961211,
+        "type": 1,
+        "name": "みじん切りモード",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961212,
+        "type": 1,
+        "name": "支援ミサイル",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961213,
+        "type": 1,
+        "name": "トリプル女帝ストリーム失敗",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961214,
+        "type": 1,
+        "name": "すべてがエリになる",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961215,
+        "type": 1,
+        "name": "ジェノサイドミサイル",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961216,
+        "type": 1,
+        "name": "エリザベートの応援歌",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961217,
+        "type": 2,
+        "name": "鮮血の貴婦人",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961218,
+        "type": 1,
+        "name": "有給休暇申請",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961219,
+        "type": 1,
+        "name": "オールレンジディテクター",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961220,
+        "type": 1,
+        "name": "アマゾネス・イノベーション",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961221,
+        "type": 1,
+        "name": "かつての主役の美",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961222,
+        "type": 1,
+        "name": "働きたくなーい！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961223,
+        "type": 1,
+        "name": "デストロイフォーム",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961224,
+        "type": 1,
+        "name": "ジェノサイドフォーム",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961225,
+        "type": 1,
+        "name": "クライマックスフォーム",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961226,
+        "type": 1,
+        "name": "夢見るメカエリチャン",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961227,
+        "type": 1,
+        "name": "2016年の栄光",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961228,
+        "type": 1,
+        "name": "悪の大量生産",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961229,
+        "type": 1,
+        "name": "犯罪的改造",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961230,
+        "type": 1,
+        "name": "悪魔的改修",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961240,
+        "type": 1,
+        "name": "滾れ、風魔の血",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961241,
+        "type": 1,
+        "name": "命題",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961242,
+        "type": 1,
+        "name": "鹿王拳",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961243,
+        "type": 1,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961244,
+        "type": 1,
+        "name": "「ケーキを分けてやろう」",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961245,
+        "type": 1,
+        "name": "「クリスマスのギフトだ」",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961246,
+        "type": 1,
+        "name": "「クリスマス・フォーメーション！」",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961247,
+        "type": 2,
+        "name": "「ケーキを分けてやろう」",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961248,
+        "type": 2,
+        "name": "異端の烙印",
+        "maxLv": 1,
+        "iconId": 205
+    },
+    {
+        "id": 961249,
+        "type": 1,
+        "name": "飢えた呻き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961250,
+        "type": 1,
+        "name": "不機嫌な呻き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961251,
+        "type": 1,
+        "name": "荒々しい呻き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961252,
+        "type": 1,
+        "name": "遠吠え",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961253,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 961254,
+        "type": 2,
+        "name": "師匠の護り",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961255,
+        "type": 2,
+        "name": "信者の護り",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961256,
+        "type": 2,
+        "name": "従者の護り",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961257,
+        "type": 1,
+        "name": "師匠の護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961258,
+        "type": 1,
+        "name": "信者の護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961259,
+        "type": 1,
+        "name": "従者の護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961260,
+        "type": 1,
+        "name": "レンガの護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961261,
+        "type": 1,
+        "name": "板きれの護り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961262,
+        "type": 1,
+        "name": "嘆き喘ぐ",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961263,
+        "type": 1,
+        "name": "レッテル張り",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961264,
+        "type": 1,
+        "name": "誹謗中傷",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961265,
+        "type": 1,
+        "name": "誇大広告",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961266,
+        "type": 1,
+        "name": "トライアル",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961267,
+        "type": 1,
+        "name": "悲痛な呻き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961268,
+        "type": 1,
+        "name": "狂乱の叫び",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961269,
+        "type": 1,
+        "name": "恐怖",
+        "maxLv": 10,
+        "iconId": 0
+    },
+    {
+        "id": 961270,
+        "type": 1,
+        "name": "縞瑪瑙の耀き",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961271,
+        "type": 1,
+        "name": "彗眼",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961272,
+        "type": 1,
+        "name": "烏目",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961273,
+        "type": 1,
+        "name": "流目",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961274,
+        "type": 1,
+        "name": "降臨の時来たれり",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961275,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 961276,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 961277,
+        "type": 2,
+        "name": "すいつけ！",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961278,
+        "type": 1,
+        "name": "ぼくが、まもる",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961279,
+        "type": 1,
+        "name": "頑張って！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961280,
+        "type": 1,
+        "name": "負けないで！",
+        "maxLv": 1,
+        "iconId": 0
+    },
+    {
+        "id": 961281,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961282,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
+        "id": 961283,
+        "type": 2,
+        "name": "",
+        "maxLv": 1,
+        "iconId": 600
+    },
+    {
         "id": 980001,
         "type": 1,
         "name": "応急手当",
@@ -11289,6 +13585,27 @@
         "name": "ダウン・スライド",
         "maxLv": 10,
         "iconId": 513
+    },
+    {
+        "id": 980028,
+        "type": 1,
+        "name": "コード:F",
+        "maxLv": 10,
+        "iconId": 302
+    },
+    {
+        "id": 980029,
+        "type": 1,
+        "name": "コード:U",
+        "maxLv": 10,
+        "iconId": 308
+    },
+    {
+        "id": 980030,
+        "type": 1,
+        "name": "コード:H",
+        "maxLv": 10,
+        "iconId": 602
     },
     {
         "id": 990001,
@@ -18242,27 +20559,528 @@
         "iconId": 316
     },
     {
-        "effectList": [],
-        "actIndividuality": [],
-        "script": {},
-        "id": 292452,
-        "type": 1,
-        "name": "キス魔 B++",
-        "ruby": "きすま",
-        "maxLv": 10,
-        "iconId": 601,
-        "motion": 101
-    },
-    {
-        "effectList": [],
-        "actIndividuality": [],
-        "script": {},
         "id": 991035,
         "type": 2,
         "name": "プリズマ☆イリヤ 雪下の誓い",
-        "ruby": "",
         "maxLv": 1,
-        "iconId": 202,
-        "motion": 101
+        "iconId": 202
+    },
+    {
+        "id": 991036,
+        "type": 2,
+        "name": "バトル・オリンピア",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 991037,
+        "type": 2,
+        "name": "バトル・オリンピア",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 991038,
+        "type": 2,
+        "name": "ネロメダル〔金〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991039,
+        "type": 2,
+        "name": "ネロメダル〔金〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991040,
+        "type": 2,
+        "name": "フード・コロシアム",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 991041,
+        "type": 2,
+        "name": "フード・コロシアム",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 991042,
+        "type": 2,
+        "name": "ネロメダル〔銀〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991043,
+        "type": 2,
+        "name": "ネロメダル〔銀〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991044,
+        "type": 2,
+        "name": "マッスル・キャバリエ",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991045,
+        "type": 2,
+        "name": "マッスル・キャバリエ",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991046,
+        "type": 2,
+        "name": "ネロメダル〔銅〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991047,
+        "type": 2,
+        "name": "ネロメダル〔銅〕のドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991048,
+        "type": 2,
+        "name": "二神三脚",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 991049,
+        "type": 2,
+        "name": "二神三脚",
+        "maxLv": 1,
+        "iconId": 404
+    },
+    {
+        "id": 991050,
+        "type": 2,
+        "name": "イベント攻撃威力アップ",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 991051,
+        "type": 2,
+        "name": "イベント攻撃威力アップ",
+        "maxLv": 1,
+        "iconId": 301
+    },
+    {
+        "id": 991052,
+        "type": 2,
+        "name": "チア・フォー・マスター",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 991053,
+        "type": 2,
+        "name": "チア・フォー・マスター",
+        "maxLv": 1,
+        "iconId": 317
+    },
+    {
+        "id": 991054,
+        "type": 2,
+        "name": "真紅の花びらのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991055,
+        "type": 2,
+        "name": "真紅の花びらのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991056,
+        "type": 2,
+        "name": "Replica; Agateram",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991057,
+        "type": 2,
+        "name": "願いの先",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 991058,
+        "type": 2,
+        "name": "願いの先",
+        "maxLv": 1,
+        "iconId": 311
+    },
+    {
+        "id": 991059,
+        "type": 2,
+        "name": "戦友",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 991060,
+        "type": 2,
+        "name": "戦友",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 991061,
+        "type": 2,
+        "name": "夢の跡",
+        "maxLv": 1,
+        "iconId": 500
+    },
+    {
+        "id": 991062,
+        "type": 2,
+        "name": "夢の跡",
+        "maxLv": 1,
+        "iconId": 500
+    },
+    {
+        "id": 991063,
+        "type": 2,
+        "name": "英霊装束：メドゥーサ",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991064,
+        "type": 2,
+        "name": "英霊装束：レオナルド・ダ・ヴィンチ",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991065,
+        "type": 2,
+        "name": "英霊装束：ジャンヌ・ダルク",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991066,
+        "type": 2,
+        "name": "英霊装束：ネロ・クラウディウス",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991067,
+        "type": 2,
+        "name": "豊穣たる牡牛",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 991068,
+        "type": 2,
+        "name": "神造兵装",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991069,
+        "type": 2,
+        "name": "神造兵装",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991070,
+        "type": 2,
+        "name": "二階笠",
+        "maxLv": 1,
+        "iconId": 305
+    },
+    {
+        "id": 991071,
+        "type": 2,
+        "name": "想い、三世にわたり",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991072,
+        "type": 2,
+        "name": "月輪九曜",
+        "maxLv": 1,
+        "iconId": 314
+    },
+    {
+        "id": 991073,
+        "type": 2,
+        "name": "段蔵の牛",
+        "maxLv": 1,
+        "iconId": 316
+    },
+    {
+        "id": 991074,
+        "type": 2,
+        "name": "十文字槍",
+        "maxLv": 1,
+        "iconId": 304
+    },
+    {
+        "id": 991075,
+        "type": 2,
+        "name": "トリック・オア・トリートメント",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 991076,
+        "type": 2,
+        "name": "トリック・オア・トリートメント",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 991077,
+        "type": 2,
+        "name": "ビームクッキーのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991078,
+        "type": 2,
+        "name": "ビームクッキーのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991079,
+        "type": 2,
+        "name": "ファントム・ナイト",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991080,
+        "type": 2,
+        "name": "ファントム・ナイト",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991081,
+        "type": 2,
+        "name": "ミサイルラムネのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991082,
+        "type": 2,
+        "name": "ミサイルラムネのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991083,
+        "type": 2,
+        "name": "不思議の国から",
+        "maxLv": 1,
+        "iconId": 316
+    },
+    {
+        "id": 991084,
+        "type": 2,
+        "name": "不思議の国から",
+        "maxLv": 1,
+        "iconId": 316
+    },
+    {
+        "id": 991085,
+        "type": 2,
+        "name": "ドリルグミのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991086,
+        "type": 2,
+        "name": "ドリルグミのドロップ獲得数アップ",
+        "maxLv": 1,
+        "iconId": 200
+    },
+    {
+        "id": 991087,
+        "type": 2,
+        "name": "エアリアル・ドライブ",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991088,
+        "type": 2,
+        "name": "エアリアル・ドライブ",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991089,
+        "type": 2,
+        "name": "〔ナイト系〕〔ゲイザー系〕〔量産型系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991090,
+        "type": 2,
+        "name": "〔ナイト系〕〔ゲイザー系〕〔量産型系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991091,
+        "type": 2,
+        "name": "黄金の翼",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991092,
+        "type": 2,
+        "name": "黄金の翼",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991093,
+        "type": 2,
+        "name": "〔ドローン系〕〔ホムンクルス系〕〔オートマタ系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991094,
+        "type": 2,
+        "name": "〔ドローン系〕〔ホムンクルス系〕〔オートマタ系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991095,
+        "type": 2,
+        "name": "ノスタルジック・フォーム",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 991096,
+        "type": 2,
+        "name": "ノスタルジック・フォーム",
+        "maxLv": 1,
+        "iconId": 400
+    },
+    {
+        "id": 991097,
+        "type": 2,
+        "name": "〔スケルトン系〕〔スケアクロウ系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991098,
+        "type": 2,
+        "name": "〔スケルトン系〕〔スケアクロウ系〕の追加出現率アップ",
+        "maxLv": 1,
+        "iconId": 207
+    },
+    {
+        "id": 991099,
+        "type": 2,
+        "name": "お姫様の折り紙",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 991100,
+        "type": 2,
+        "name": "エレクトロジカ ダイアグラム",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991101,
+        "type": 2,
+        "name": "ガーディアン ジャイガンティック",
+        "maxLv": 1,
+        "iconId": 306
+    },
+    {
+        "id": 991102,
+        "type": 2,
+        "name": "剣に祈りを命に願いを",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991103,
+        "type": 2,
+        "name": "FGO VR マシュ・キリエライト",
+        "maxLv": 1,
+        "iconId": 202
+    },
+    {
+        "id": 991104,
+        "type": 2,
+        "name": "魂喰い",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991105,
+        "type": 2,
+        "name": "魂喰い",
+        "maxLv": 1,
+        "iconId": 302
+    },
+    {
+        "id": 991106,
+        "type": 2,
+        "name": "銀鍵のロザリオ",
+        "maxLv": 1,
+        "iconId": 409
+    },
+    {
+        "id": 991107,
+        "type": 2,
+        "name": "鷹の魔女の宴",
+        "maxLv": 1,
+        "iconId": 602
+    },
+    {
+        "id": 991108,
+        "type": 2,
+        "name": "ソロモン王への貢物",
+        "maxLv": 1,
+        "iconId": 315
+    },
+    {
+        "id": 991109,
+        "type": 2,
+        "name": "乾坤圏",
+        "maxLv": 1,
+        "iconId": 304
     }
 ]

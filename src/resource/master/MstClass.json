@@ -8,7 +8,9 @@
         "iconImageId": 1,
         "frameId": 0,
         "priority": 10000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 1,
+        "supportGroup": 1
     },
     {
         "id": 2,
@@ -19,7 +21,9 @@
         "iconImageId": 2,
         "frameId": 0,
         "priority": 9000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 2,
+        "supportGroup": 2
     },
     {
         "id": 3,
@@ -30,7 +34,9 @@
         "iconImageId": 3,
         "frameId": 0,
         "priority": 8000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 3,
+        "supportGroup": 3
     },
     {
         "id": 4,
@@ -41,7 +47,9 @@
         "iconImageId": 4,
         "frameId": 0,
         "priority": 7000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 4,
+        "supportGroup": 4
     },
     {
         "id": 5,
@@ -52,7 +60,9 @@
         "iconImageId": 5,
         "frameId": 0,
         "priority": 6000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 5,
+        "supportGroup": 5
     },
     {
         "id": 6,
@@ -63,7 +73,9 @@
         "iconImageId": 6,
         "frameId": 0,
         "priority": 5000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 6,
+        "supportGroup": 6
     },
     {
         "id": 7,
@@ -74,18 +86,22 @@
         "iconImageId": 7,
         "frameId": 0,
         "priority": 4000,
-        "groupType": 1
+        "groupType": 1,
+        "relationId": 7,
+        "supportGroup": 7
     },
     {
         "id": 8,
         "attri": 8,
         "name": "Shielder",
         "attackRate": 1000,
-        "imageId": 9999,
+        "imageId": 13,
         "iconImageId": 8,
         "frameId": 0,
         "priority": 900,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 8,
+        "supportGroup": 8
     },
     {
         "id": 9,
@@ -96,7 +112,9 @@
         "iconImageId": 9,
         "frameId": 0,
         "priority": 3000,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 9,
+        "supportGroup": 8
     },
     {
         "id": 10,
@@ -107,7 +125,9 @@
         "iconImageId": 10,
         "frameId": 0,
         "priority": 1000,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 10,
+        "supportGroup": 8
     },
     {
         "id": 11,
@@ -118,7 +138,9 @@
         "iconImageId": 11,
         "frameId": 0,
         "priority": 2000,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 11,
+        "supportGroup": 8
     },
     {
         "id": 12,
@@ -129,7 +151,9 @@
         "iconImageId": 12,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 12,
+        "supportGroup": 999
     },
     {
         "id": 13,
@@ -140,7 +164,9 @@
         "iconImageId": 13,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 1,
+        "supportGroup": 999
     },
     {
         "id": 14,
@@ -151,7 +177,9 @@
         "iconImageId": 14,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 2,
+        "supportGroup": 999
     },
     {
         "id": 15,
@@ -162,7 +190,9 @@
         "iconImageId": 15,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 3,
+        "supportGroup": 999
     },
     {
         "id": 16,
@@ -173,7 +203,9 @@
         "iconImageId": 16,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 4,
+        "supportGroup": 999
     },
     {
         "id": 17,
@@ -184,7 +216,9 @@
         "iconImageId": 17,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 5,
+        "supportGroup": 999
     },
     {
         "id": 18,
@@ -195,7 +229,9 @@
         "iconImageId": 18,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 6,
+        "supportGroup": 999
     },
     {
         "id": 19,
@@ -206,7 +242,9 @@
         "iconImageId": 19,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 7,
+        "supportGroup": 999
     },
     {
         "id": 20,
@@ -217,7 +255,9 @@
         "iconImageId": 20,
         "frameId": 20,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 20,
+        "supportGroup": 999
     },
     {
         "id": 21,
@@ -228,7 +268,9 @@
         "iconImageId": 12,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 20,
+        "supportGroup": 999
     },
     {
         "id": 22,
@@ -239,18 +281,22 @@
         "iconImageId": 21,
         "frameId": 20,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 22,
+        "supportGroup": 999
     },
     {
         "id": 23,
         "attri": 23,
         "name": "MoonCancer",
         "attackRate": 1000,
-        "imageId": 23,
+        "imageId": 13,
         "iconImageId": 23,
         "frameId": 0,
         "priority": 950,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 23,
+        "supportGroup": 8
     },
     {
         "id": 24,
@@ -261,7 +307,22 @@
         "iconImageId": 24,
         "frameId": 20,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 24,
+        "supportGroup": 999
+    },
+    {
+        "id": 25,
+        "attri": 25,
+        "name": "Foreigner",
+        "attackRate": 1000,
+        "imageId": 25,
+        "iconImageId": 25,
+        "frameId": 0,
+        "priority": 925,
+        "groupType": 2,
+        "relationId": 25,
+        "supportGroup": 8
     },
     {
         "id": 97,
@@ -272,7 +333,9 @@
         "iconImageId": 12,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 0,
+        "supportGroup": 999
     },
     {
         "id": 98,
@@ -283,7 +346,9 @@
         "iconImageId": 98,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 0,
+        "supportGroup": 999
     },
     {
         "id": 99,
@@ -294,7 +359,9 @@
         "iconImageId": 99,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 0,
+        "supportGroup": 999
     },
     {
         "id": 100,
@@ -305,7 +372,22 @@
         "iconImageId": 100,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 0,
+        "supportGroup": 999
+    },
+    {
+        "id": 107,
+        "attri": 7,
+        "name": "Berserker",
+        "attackRate": 1100,
+        "imageId": 9999,
+        "iconImageId": 12,
+        "frameId": 0,
+        "priority": 4000,
+        "groupType": 1,
+        "relationId": 7,
+        "supportGroup": 999
     },
     {
         "id": 124,
@@ -316,7 +398,22 @@
         "iconImageId": 124,
         "frameId": 0,
         "priority": 50,
-        "groupType": 2
+        "groupType": 2,
+        "relationId": 24,
+        "supportGroup": 999
+    },
+    {
+        "id": 125,
+        "attri": 25,
+        "name": "？",
+        "attackRate": 1000,
+        "imageId": 9999,
+        "iconImageId": 12,
+        "frameId": 0,
+        "priority": 925,
+        "groupType": 2,
+        "relationId": 25,
+        "supportGroup": 999
     },
     {
         "id": 1000,
@@ -327,7 +424,9 @@
         "iconImageId": 1000,
         "frameId": 0,
         "priority": 50,
-        "groupType": 3
+        "groupType": 3,
+        "relationId": 1000,
+        "supportGroup": 999
     },
     {
         "id": 1001,
@@ -338,6 +437,21 @@
         "iconImageId": 1001,
         "frameId": 0,
         "priority": 50,
-        "groupType": 3
+        "groupType": 3,
+        "relationId": 1001,
+        "supportGroup": 999
+    },
+    {
+        "id": 1002,
+        "attri": 1002,
+        "name": "EXTRA",
+        "attackRate": 1002,
+        "imageId": 9999,
+        "iconImageId": 1002,
+        "frameId": 0,
+        "priority": 50,
+        "groupType": 3,
+        "relationId": 1002,
+        "supportGroup": 999
     }
 ]

@@ -723,6 +723,96 @@
         "funcId": [],
         "svals": [],
         "script": {},
+        "skillId": 5449,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 5449,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 5449
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
         "skillId": 5450,
         "lv": 1,
         "chargeTurn": 7,
@@ -6988,6 +7078,136 @@
         "lv": 10,
         "chargeTurn": 0,
         "skillDetailId": 34250
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 2,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 3,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 4,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 5,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 6,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 7,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 8,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 9,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
+    },
+    {
+        "funcId": [
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,130]"
+        ],
+        "script": {},
+        "skillId": 34251,
+        "lv": 10,
+        "chargeTurn": 0,
+        "skillDetailId": 34251
     },
     {
         "funcId": [
@@ -39773,6 +39993,96 @@
         "funcId": [],
         "svals": [],
         "script": {},
+        "skillId": 220450,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 220450,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 220450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
         "skillId": 220550,
         "lv": 1,
         "chargeTurn": 7,
@@ -40398,6 +40708,96 @@
         "lv": 10,
         "chargeTurn": 5,
         "skillDetailId": 226550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 227550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 227550,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 227550
     },
     {
         "funcId": [],
@@ -46733,6 +47133,96 @@
         "funcId": [],
         "svals": [],
         "script": {},
+        "skillId": 292452,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 292452,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 292452
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
         "skillId": 293550,
         "lv": 1,
         "chargeTurn": 7,
@@ -47783,12 +48273,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47800,12 +48292,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47817,12 +48311,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47834,12 +48330,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47851,12 +48349,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47868,12 +48368,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47885,12 +48387,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47902,12 +48406,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47919,12 +48425,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -47936,12 +48444,14 @@
         "funcId": [
             1168,
             489,
-            765
+            765,
+            1646
         ],
         "svals": [
             "[1000,-1,-1]",
             "[1000,-1,-1,1000]",
-            "[5000,-1,-1,960407,Value2:1,UseRate:50]"
+            "[5000,-1,-1,960407,Value2:1,UseRate:50]",
+            "[1000,-1,-1]"
         ],
         "script": {},
         "skillId": 304550,
@@ -57528,6 +58038,3266 @@
         "lv": 10,
         "chargeTurn": 5,
         "skillDetailId": 406650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 407650,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 407650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 408650,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 408650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {
+            "NP_HIGHER": 10
+        },
+        "skillId": 409551,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 409551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 1,
+        "chargeTurn": 6,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 2,
+        "chargeTurn": 6,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 3,
+        "chargeTurn": 6,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 4,
+        "chargeTurn": 6,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 5,
+        "chargeTurn": 6,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 6,
+        "chargeTurn": 5,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 7,
+        "chargeTurn": 5,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 8,
+        "chargeTurn": 5,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 9,
+        "chargeTurn": 5,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 410352,
+        "lv": 10,
+        "chargeTurn": 4,
+        "skillDetailId": 410352
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 411552,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 411552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 412450,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 412450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 413550,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 413550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 414450,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 414450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 1,
+        "chargeTurn": 9,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 2,
+        "chargeTurn": 9,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 3,
+        "chargeTurn": 9,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 4,
+        "chargeTurn": 9,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 5,
+        "chargeTurn": 9,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 6,
+        "chargeTurn": 8,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 7,
+        "chargeTurn": 8,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 8,
+        "chargeTurn": 8,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 9,
+        "chargeTurn": 8,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 415550,
+        "lv": 10,
+        "chargeTurn": 7,
+        "skillDetailId": 415550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 416450,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 416450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 417550,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 417550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 418552,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 418552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 419451,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 419451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 420450,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 420450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 421451,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 421451
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 422350,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 422350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 423650,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 423650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 424552,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 424552
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 425650,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 425650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 426350,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 426350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 427350,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 427350
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 2,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 3,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 4,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 5,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 6,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 7,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 8,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 9,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            295,
+            214,
+            412
+        ],
+        "svals": [
+            "[1000,-1,-1,80]",
+            "[1000,-1,-1,80]",
+            "[5000,-1,-1,100]"
+        ],
+        "script": {},
+        "skillId": 428450,
+        "lv": 10,
+        "chargeTurn": 0,
+        "skillDetailId": 428450
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 2,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 3,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 4,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 5,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 6,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 7,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 8,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 9,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [
+            333,
+            388
+        ],
+        "svals": [
+            "[1000,-1,-1,2]",
+            "[1000,-1,-1,120]"
+        ],
+        "script": {},
+        "skillId": 434650,
+        "lv": 10,
+        "chargeTurn": 0,
+        "skillDetailId": 434650
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 1,
+        "chargeTurn": 9,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 2,
+        "chargeTurn": 9,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 3,
+        "chargeTurn": 9,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 4,
+        "chargeTurn": 9,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 5,
+        "chargeTurn": 9,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 6,
+        "chargeTurn": 8,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 7,
+        "chargeTurn": 8,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 8,
+        "chargeTurn": 8,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 9,
+        "chargeTurn": 8,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 435350,
+        "lv": 10,
+        "chargeTurn": 7,
+        "skillDetailId": 435350
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 1,
+        "chargeTurn": 9,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 2,
+        "chargeTurn": 9,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 3,
+        "chargeTurn": 9,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 4,
+        "chargeTurn": 9,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 5,
+        "chargeTurn": 9,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 6,
+        "chargeTurn": 8,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 7,
+        "chargeTurn": 8,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 8,
+        "chargeTurn": 8,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 9,
+        "chargeTurn": 8,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 436450,
+        "lv": 10,
+        "chargeTurn": 7,
+        "skillDetailId": 436450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 1,
+        "chargeTurn": 9,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 2,
+        "chargeTurn": 9,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 3,
+        "chargeTurn": 9,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 4,
+        "chargeTurn": 9,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 5,
+        "chargeTurn": 9,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 6,
+        "chargeTurn": 8,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 7,
+        "chargeTurn": 8,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 8,
+        "chargeTurn": 8,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 9,
+        "chargeTurn": 8,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 437551,
+        "lv": 10,
+        "chargeTurn": 7,
+        "skillDetailId": 437551
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 438550,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 438550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 1,
+        "chargeTurn": 9,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 2,
+        "chargeTurn": 9,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 3,
+        "chargeTurn": 9,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 4,
+        "chargeTurn": 9,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 5,
+        "chargeTurn": 9,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 6,
+        "chargeTurn": 8,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 7,
+        "chargeTurn": 8,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 8,
+        "chargeTurn": 8,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 9,
+        "chargeTurn": 8,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 439550,
+        "lv": 10,
+        "chargeTurn": 7,
+        "skillDetailId": 439550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 440450,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 440450
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 441550,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 441550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 442550,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 442550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 1,
+        "chargeTurn": 7,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 2,
+        "chargeTurn": 7,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 3,
+        "chargeTurn": 7,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 4,
+        "chargeTurn": 7,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 5,
+        "chargeTurn": 7,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 6,
+        "chargeTurn": 6,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 7,
+        "chargeTurn": 6,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 8,
+        "chargeTurn": 6,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 9,
+        "chargeTurn": 6,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 443550,
+        "lv": 10,
+        "chargeTurn": 5,
+        "skillDetailId": 443550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 2,
+        "chargeTurn": 8,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 3,
+        "chargeTurn": 8,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 4,
+        "chargeTurn": 8,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 5,
+        "chargeTurn": 8,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 6,
+        "chargeTurn": 7,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 7,
+        "chargeTurn": 7,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 8,
+        "chargeTurn": 7,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 9,
+        "chargeTurn": 7,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 444550,
+        "lv": 10,
+        "chargeTurn": 6,
+        "skillDetailId": 444550
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 2,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 3,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 4,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 5,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 6,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 7,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 8,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 9,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
+    },
+    {
+        "funcId": [
+            118
+        ],
+        "svals": [
+            "[1000,-1,-1,80]"
+        ],
+        "script": {},
+        "skillId": 445450,
+        "lv": 10,
+        "chargeTurn": 0,
+        "skillDetailId": 445450
     },
     {
         "funcId": [],
@@ -58863,7 +62633,7 @@
             94
         ],
         "svals": [
-            "[10113,1,1,80035]"
+            "[10235,1,1,80075]"
         ],
         "script": {},
         "skillId": 940057,
@@ -58876,7 +62646,7 @@
             94
         ],
         "svals": [
-            "[10112,1,1,80035]"
+            "[10234,1,1,80075]"
         ],
         "script": {},
         "skillId": 940058,
@@ -58889,13 +62659,39 @@
             94
         ],
         "svals": [
-            "[10111,1,1,80035]"
+            "[10233,1,1,80075]"
         ],
         "script": {},
         "skillId": 940059,
         "lv": 1,
         "chargeTurn": 0,
         "skillDetailId": 940059
+    },
+    {
+        "funcId": [
+            1950
+        ],
+        "svals": [
+            "[1000,-1,-1,500]"
+        ],
+        "script": {},
+        "skillId": 940060,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 940060
+    },
+    {
+        "funcId": [
+            1950
+        ],
+        "svals": [
+            "[1000,-1,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 940061,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 940061
     },
     {
         "funcId": [
@@ -67350,7 +71146,6 @@
             1540,
             1539,
             1539,
-            1539,
             1539
         ],
         "svals": [
@@ -67362,7 +71157,6 @@
             "[1000,-1,1,0,ShowState:1]",
             "[1000,-1,1,0,ShowState:1]",
             "[1000,-1,1,0,ShowState:1]",
-            "[1000,-1,1,500,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
             "[1000,-1,1,500,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
             "[1000,-1,1,500,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
             "[1000,-1,1,500,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
@@ -68301,6 +72095,3076 @@
         "skillId": 960944,
         "lv": 1,
         "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            539
+        ],
+        "svals": [
+            "[1000,-1,-1,960946,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 960945,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960946,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            539
+        ],
+        "svals": [
+            "[1000,-1,-1,960948,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 960947,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960948,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            539
+        ],
+        "svals": [
+            "[1000,-1,-1,960950,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 960949,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960950,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            539
+        ],
+        "svals": [
+            "[1000,-1,-1,960382,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 960951,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960952,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1650,
+            1656,
+            1658
+        ],
+        "svals": [
+            "[1000,-1,-1,100000,ShowState:1]",
+            "[1000,-1,-1,1000]",
+            "[5000,-1,-1,960954,Value2:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 960953,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960954,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960955,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960956,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960957,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960958,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960959,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960960,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960961,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1651,
+            1652
+        ],
+        "svals": [
+            "[1000,-1,-1,0,ShowState:1]",
+            "[1000,-1,-1,450,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960962,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1653
+        ],
+        "svals": [
+            "[1000,-1,-1,450,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960963,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1654
+        ],
+        "svals": [
+            "[1000,-1,-1,450,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960964,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1655
+        ],
+        "svals": [
+            "[1000,-1,-1,450,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960965,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960966,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960967,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1685
+        ],
+        "svals": [
+            "[1000,-1,-1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 960968,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960969,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960970,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960971,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960972,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960973,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960974,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960975,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960976,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960977,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960978,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960979,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960980,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960981,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1680
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 960982,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960983,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1686,
+            1758,
+            1759,
+            1760,
+            1761
+        ],
+        "svals": [
+            "[1000,-1,-1,800,ShowState:1]",
+            "[1000,-1,-1,1000,ShowState:-1]",
+            "[5000,-1,-1,960985,Value2:1,ShowState:-1]",
+            "[5000,-1,-1,960986,Value2:1,ShowState:-1]",
+            "[5000,-1,-1,960987,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960984,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960985,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960986,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960987,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1687,
+            1758,
+            1691
+        ],
+        "svals": [
+            "[1000,-1,-1,ShowState:1]",
+            "[1000,-1,-1,1000,ShowState:-1]",
+            "[5000,-1,-1,960989,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960988,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960989,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960990,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960991,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960992,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960993,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960994,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960995,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1697
+        ],
+        "svals": [
+            "[5000,1,-1,2138,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960996,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1697
+        ],
+        "svals": [
+            "[5000,1,-1,2139,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 960997,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960998,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 960999,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961000,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961001,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961002,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961003,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961004,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961005,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961006,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961007,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961008,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961009,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961010,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961011,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961012,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1718
+        ],
+        "svals": [
+            "[1000,-1,-1,961028,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961015,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961016,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961017,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961018,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961019,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961020,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961021,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961022,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961023,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961024,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961025,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961028,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961003,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961029,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961004,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961030,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961005,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961031,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961006,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961032,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961007,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961033,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961008,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961034,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961009,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961035,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961010,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961036,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961011,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961037,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961012,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961038,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1717
+        ],
+        "svals": [
+            "[5000,-1,-1,961042,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961041,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961042,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961043,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961044,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961045,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1719,
+            1720,
+            1721,
+            1722,
+            1723,
+            1724,
+            1725,
+            1726,
+            1727,
+            1728,
+            1729,
+            1730,
+            1731,
+            1732,
+            1733,
+            1734,
+            1780,
+            1781,
+            1782
+        ],
+        "svals": [
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,50,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961046,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961047,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961048,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961049,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961050,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961051,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961052,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961053,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961054,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961055,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961056,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961057,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961058,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961059,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961060,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961061,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961062,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961063,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961064,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1754,
+            147,
+            470,
+            1697
+        ],
+        "svals": [
+            "[5000]",
+            "[1000,3,-1,500,ProcActive:1]",
+            "[1000,1]",
+            "[5000,1,-1,2158,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961065,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1754,
+            216,
+            1697
+        ],
+        "svals": [
+            "[5000]",
+            "[1000,3,-1,300,ProcActive:1]",
+            "[5000,1,-1,2158,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961066,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1754,
+            440,
+            1697
+        ],
+        "svals": [
+            "[5000]",
+            "[1000,10000]",
+            "[5000,1,-1,2158,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961067,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961071,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961072,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961073,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961074,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961075,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1765
+        ],
+        "svals": [
+            "[1000,-1,-1,5000,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961076,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961077,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961078,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961079,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961080,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961081,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961082,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961083,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961084,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961085,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961086,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961087,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961088,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961089,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961090,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1768
+        ],
+        "svals": [
+            "[5000,-1,-1,2163,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961091,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1769
+        ],
+        "svals": [
+            "[5000,-1,-1,2164,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961092,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1770
+        ],
+        "svals": [
+            "[5000,-1,-1,2165,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961093,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1771
+        ],
+        "svals": [
+            "[5000,-1,-1,2166,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961094,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1772
+        ],
+        "svals": [
+            "[5000,-1,-1,2167,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961095,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1773
+        ],
+        "svals": [
+            "[5000,-1,-1,2168,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961096,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961097,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961098,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961099,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1713,
+            1800
+        ],
+        "svals": [
+            "[1000,-1,-1,1000,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,0,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961100,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1798,
+            1801
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,0,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961101,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1711,
+            1802
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,0,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961102,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1712,
+            1803
+        ],
+        "svals": [
+            "[1000,-1,-1,300,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,0,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961103,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1799,
+            1804
+        ],
+        "svals": [
+            "[1000,-1,-1,300,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,0,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961104,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1714,
+            1805
+        ],
+        "svals": [
+            "[1000,-1,-1,ShowState:-1,OnField:1]",
+            "[1000,-1,-1,ShowState:1,OnField:1,SetPassiveFrame:1]"
+        ],
+        "script": {},
+        "skillId": 961105,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961106,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961103,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961107,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961104,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961108,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961105,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961109,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1715
+        ],
+        "svals": [
+            "[5000,-1,1,961106,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961110,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1806
+        ],
+        "svals": [
+            "[1000,3,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 961111,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1807
+        ],
+        "svals": [
+            "[1000,3,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 961112,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1808
+        ],
+        "svals": [
+            "[1000,3,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 961113,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1813
+        ],
+        "svals": [
+            "[1000,3,3]"
+        ],
+        "script": {},
+        "skillId": 961114,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1811
+        ],
+        "svals": [
+            "[1000,3,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 961115,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1812
+        ],
+        "svals": [
+            "[1000,3,-1,1000]"
+        ],
+        "script": {},
+        "skillId": 961116,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1755
+        ],
+        "svals": [
+            "[5000,-1,-1,961120,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 961117,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1756
+        ],
+        "svals": [
+            "[5000,-1,-1,961121,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 961118,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1757
+        ],
+        "svals": [
+            "[5000,-1,-1,961122,Value2:1]"
+        ],
+        "script": {},
+        "skillId": 961119,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961120,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961121,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961122,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961123,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961124,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961125,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961150,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1848,
+            1696
+        ],
+        "svals": [
+            "[5000,-1,-1,500,ProcActive:1,SetPassiveFrame:1,ShowState:1]",
+            "[1000,-1,-1,1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961151,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1849
+        ],
+        "svals": [
+            "[1000,-1,-1,800,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961152,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961153,
+        "lv": 1,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            97
+        ],
+        "svals": [
+            "[2,1000,0,Target:1,EventId:80072]"
+        ],
+        "script": {},
+        "skillId": 961154,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 961154
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961155,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961156,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961157,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961158,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961159,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961160,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961161,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961162,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1864
+        ],
+        "svals": [
+            "[1000,-1,-1,961164,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961163,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961164,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961165,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1865
+        ],
+        "svals": [
+            "[1000,-1,-1,961167,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961166,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961167,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961168,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1866
+        ],
+        "svals": [
+            "[1000,-1,-1,961170,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961169,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961170,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961171,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961172,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1867
+        ],
+        "svals": [
+            "[1000,-1,-1,961188,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961173,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961174,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961175,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1868
+        ],
+        "svals": [
+            "[1000,-1,-1,961177,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961176,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961177,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961178,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1869
+        ],
+        "svals": [
+            "[1000,-1,-1,961180,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961179,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961180,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961181,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1870
+        ],
+        "svals": [
+            "[1000,-1,-1,961183,Value2:1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961182,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961183,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961184,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961185,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961186,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961187,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961188,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1894
+        ],
+        "svals": [
+            "[1000,-1,-1,ProcActive:1,SetPassiveFrame:1,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961189,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961200,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961201,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961202,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961203,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961204,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961205,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961206,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961207,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961208,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961209,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961210,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961211,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961212,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961213,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961214,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961215,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961216,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            1954
+        ],
+        "svals": [
+            "[1000,-1,-1,1000,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961217,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961218,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961219,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961220,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961221,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961222,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961223,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961224,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961225,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961226,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961227,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961228,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961229,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961230,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961240,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961241,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961242,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961243,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961244,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961245,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961246,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            825
+        ],
+        "svals": [
+            "[1000,-1,-1,961244,Value2:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961247,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            97
+        ],
+        "svals": [
+            "[2,1000,0,Target:1,EventId:80077]"
+        ],
+        "script": {},
+        "skillId": 961248,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 961248
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961249,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961250,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961251,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961252,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2012
+        ],
+        "svals": [
+            "[5000,-1,-1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961253,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2015
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961254,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2017
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961255,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2019
+        ],
+        "svals": [
+            "[1000,-1,-1,500,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961256,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961257,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961258,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961259,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961260,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961261,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961262,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961263,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961264,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961265,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961266,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961267,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961268,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 1,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 2,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 3,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 4,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 5,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 6,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 7,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 8,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 9,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961269,
+        "lv": 10,
+        "chargeTurn": 1,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961270,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961271,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961272,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961273,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961274,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2050
+        ],
+        "svals": [
+            "[5000,-1,99,1000,ProcActive:1,SetPassiveFrame:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961275,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2051
+        ],
+        "svals": [
+            "[5000,-1,3,1000,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961276,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2023
+        ],
+        "svals": [
+            "[1000,-1,-1,5000,ShowState:1]"
+        ],
+        "script": {},
+        "skillId": 961277,
+        "lv": 1,
+        "chargeTurn": 8,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961278,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961279,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 961280,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2052
+        ],
+        "svals": [
+            "[5000,-1,-1,2181,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961281,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2053
+        ],
+        "svals": [
+            "[5000,-1,-1,2182,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961282,
+        "lv": 1,
+        "chargeTurn": 0,
+        "skillDetailId": 1
+    },
+    {
+        "funcId": [
+            2054
+        ],
+        "svals": [
+            "[5000,-1,-1,2183,ProcActive:1,ShowState:-1]"
+        ],
+        "script": {},
+        "skillId": 961283,
+        "lv": 1,
+        "chargeTurn": 0,
         "skillDetailId": 1
     },
     {
@@ -70734,10 +77598,273 @@
         "skillDetailId": 980027
     },
     {
-        "skillId": 292452,
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
         "lv": 1,
-        "chargeTurn": 8,
-        "skillDetailId": 292452,
-        "priority": 0
+        "chargeTurn": 12,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 2,
+        "chargeTurn": 12,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 3,
+        "chargeTurn": 12,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 4,
+        "chargeTurn": 12,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 5,
+        "chargeTurn": 12,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 6,
+        "chargeTurn": 11,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 7,
+        "chargeTurn": 11,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 8,
+        "chargeTurn": 11,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 9,
+        "chargeTurn": 11,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980028,
+        "lv": 10,
+        "chargeTurn": 10,
+        "skillDetailId": 980028
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 1,
+        "chargeTurn": 12,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 2,
+        "chargeTurn": 12,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 3,
+        "chargeTurn": 12,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 4,
+        "chargeTurn": 12,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 5,
+        "chargeTurn": 12,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 6,
+        "chargeTurn": 11,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 7,
+        "chargeTurn": 11,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 8,
+        "chargeTurn": 11,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 9,
+        "chargeTurn": 11,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980029,
+        "lv": 10,
+        "chargeTurn": 10,
+        "skillDetailId": 980029
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 1,
+        "chargeTurn": 12,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 2,
+        "chargeTurn": 12,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 3,
+        "chargeTurn": 12,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 4,
+        "chargeTurn": 12,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 5,
+        "chargeTurn": 12,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 6,
+        "chargeTurn": 11,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 7,
+        "chargeTurn": 11,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 8,
+        "chargeTurn": 11,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 9,
+        "chargeTurn": 11,
+        "skillDetailId": 980030
+    },
+    {
+        "funcId": [],
+        "svals": [],
+        "script": {},
+        "skillId": 980030,
+        "lv": 10,
+        "chargeTurn": 10,
+        "skillDetailId": 980030
     }
 ]

@@ -788,6 +788,41 @@
     },
     {
         "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 103200,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 103200,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 103200,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 103200,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
             16,
             33,
             51
@@ -1364,6 +1399,42 @@
             28
         ],
         "svtId": 202000,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 202100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 202100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 202100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 202100,
         "cardId": 4
     },
     {
@@ -2049,6 +2120,41 @@
             33,
             67
         ],
+        "svtId": 301400,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 301400,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 301400,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 301400,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
         "svtId": 301600,
         "cardId": 1
     },
@@ -2403,6 +2509,81 @@
             35
         ],
         "svtId": 302900,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 303000,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 303000,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 303000,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 303000,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 303100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 303100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 303100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 303100,
         "cardId": 4
     },
     {
@@ -4153,6 +4334,82 @@
     },
     {
         "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 503300,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 503300,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 503300,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 503300,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 503400,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 503400,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 503400,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 503400,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
             33,
             67
         ],
@@ -4176,9 +4433,10 @@
     },
     {
         "normalDamage": [
-            12,
-            25,
-            63
+            10,
+            20,
+            30,
+            40
         ],
         "svtId": 600100,
         "cardId": 4
@@ -4994,6 +5252,118 @@
             40
         ],
         "svtId": 602800,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 602900,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 602900,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 602900,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 602900,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 603000,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 603000,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 603000,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 603000,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 603100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 603100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 603100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 603100,
         "cardId": 4
     },
     {
@@ -6177,6 +6547,80 @@
     },
     {
         "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1000400,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 1000400,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000400,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000400,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 1000500,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 1000500,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000500,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 1000500,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
             33,
             67
         ],
@@ -6428,6 +6872,49 @@
             40
         ],
         "svtId": 2300100,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 2500100,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 2500100,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 2500100,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 2500100,
         "cardId": 4
     },
     {
@@ -12001,6 +12488,779 @@
     },
     {
         "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939580,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939580,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939580,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            33,
+            20,
+            28
+        ],
+        "svtId": 9939580,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939600,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939600,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939600,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939600,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939610,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939610,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939630,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939630,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939640,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939640,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939650,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939650,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939660,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939660,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939660,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9939660,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939670,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939670,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939670,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939670,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939680,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939680,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939680,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939680,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939690,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939690,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939690,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939690,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939700,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939700,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            9,
+            27,
+            27,
+            37
+        ],
+        "svtId": 9939700,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 9939700,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939710,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939710,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939710,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            20,
+            13,
+            6,
+            26,
+            35
+        ],
+        "svtId": 9939710,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939720,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939720,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939720,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            9,
+            18,
+            27,
+            9,
+            18,
+            27,
+            46
+        ],
+        "svtId": 9939720,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939730,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939730,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939730,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939730,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939740,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939740,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939750,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939750,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939800,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939800,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939800,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9939800,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939810,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939810,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939811,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939811,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939812,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939812,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939813,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939813,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939814,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939814,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939815,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939815,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939816,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9939816,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939820,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9939820,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939830,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939830,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939840,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939840,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939850,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939850,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939860,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939860,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            60,
+            40
+        ],
+        "svtId": 9939870,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939870,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939880,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9939880,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939890,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939890,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939900,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939900,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939910,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939910,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939920,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9939920,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
             100
         ],
         "svtId": 9940010,
@@ -12995,5 +14255,306 @@
         ],
         "svtId": 9940650,
         "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940700,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940700,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940710,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940710,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940720,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940720,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940730,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940730,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940740,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940740,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940750,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940750,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940760,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9940760,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            33,
+            67
+        ],
+        "svtId": 9940900,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9940900,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9940910,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9940910,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9940910,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9940910,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9941020,
+        "cardId": 10
+    },
+    {
+        "normalDamage": [
+            100
+        ],
+        "svtId": 9941020,
+        "cardId": 11
+    },
+    {
+        "normalDamage": [
+            16,
+            33,
+            51
+        ],
+        "svtId": 9941030,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941030,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941030,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9941030,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 9941040,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941040,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941040,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9941040,
+        "cardId": 4
+    },
+    {
+        "normalDamage": [
+            4,
+            9,
+            14,
+            19,
+            23,
+            31
+        ],
+        "svtId": 9941050,
+        "cardId": 1
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941050,
+        "cardId": 2
+    },
+    {
+        "normalDamage": [
+            10,
+            20,
+            30,
+            40
+        ],
+        "svtId": 9941050,
+        "cardId": 3
+    },
+    {
+        "normalDamage": [
+            6,
+            13,
+            20,
+            26,
+            35
+        ],
+        "svtId": 9941050,
+        "cardId": 4
     }
 ]
