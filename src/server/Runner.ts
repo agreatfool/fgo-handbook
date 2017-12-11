@@ -5,14 +5,20 @@ import ResourceDownloader from "./ResourceDownloader";
 import ResourceListBuilder from "./ResourceListBuilder";
 import VersionCheck from "./VersionCheck";
 
+/**
+ * 如果有需要手动更新某个已经存在的版本时，将这个变量标注为版本字符串，e.g "0.0.5"
+ * 否则将它置为 undefined
+ */
+const manuallyUpdateVer = undefined;
+
 async function run() {
     // 初始化版本文件等准备工作
     let verCheck = new VersionCheck();
-    let newVer: string = await verCheck.run();
+    let newVer: string = manuallyUpdateVer ? manuallyUpdateVer : await verCheck.run();
 
     // 下载站点数据文件，并进行基本解析
     let crawler = new Crawler(newVer);
-    let needUpgrade = await crawler.run();
+    let needUpgrade = manuallyUpdateVer ? true : await crawler.run();
 
     // 检查是否有更新，无更新则回滚之前的文件操作
     if (!needUpgrade) {
@@ -26,11 +32,14 @@ async function run() {
 
     // 将 Master 数据分解成子文件
     let dumper = new MasterDumper(newVer);
+
     await dumper.run();
 
     // 下载网络图片等资源
     let downloader = new ResourceDownloader(newVer);
-    await downloader.run();
+    if (!manuallyUpdateVer) {
+        await downloader.run();
+    }
 
     // 构建 resource 文件夹下资源
     let builder = new ResourceListBuilder(newVer);

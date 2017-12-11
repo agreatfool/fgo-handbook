@@ -36,6 +36,7 @@ export default class ResourceListBuilder {
     public async run(): Promise<any> {
         await this._clearResources();
         await this._copyPreparedResources();
+        await this._processMasterPool();
         await this._processImagePool();
     }
 
