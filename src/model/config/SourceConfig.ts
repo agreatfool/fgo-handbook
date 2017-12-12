@@ -12,6 +12,7 @@ interface SourceConfig {
     imageClassIconUri: string;      // 职阶icon images/icon/class/class_#CLASSID_5.png
     imageSvtCmdUri: string;         // 从者指令卡icon卡面 images/Servant/#SVTID_card_servant_#NO.png NO为1-3
     imageSvtCardUri: string;        // 从者立绘卡面 images/CharaGraph/#SVTID#NO.png NO为a-c
+    commentUri: string;             // 从者comment信息 svtcomment/jp/#SVTID 内容为base64encode的JSON字符串
 }
 
 export default SourceConfig;

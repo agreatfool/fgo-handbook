@@ -11,5 +11,6 @@
     "imageItemIconUri": "images/icon/items/#ITEMID.png",
     "imageClassIconUri": "images/icon/class/class_#CLASSID_5.png",
     "imageSvtCmdUri": "images/Servant/#SVTID_card_servant_#NO.png",
-    "imageSvtCardUri": "images/CharaGraph/#SVTID#NO.png"
+    "imageSvtCardUri": "images/CharaGraph/#SVTID#NO.png",
+    "commentUri": "svtcomment/jp/#SVTID"
 }

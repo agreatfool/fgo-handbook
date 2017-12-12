@@ -9,6 +9,7 @@ export default class Const {
         20, // 提亚马特
         22, // 魔神王盖提亚
         23, // Moon Cancer
+        25, // Foreigner
     ];
     public static readonly SERVANT_CLASS_NAMES: {[key: number]: string} = {
         1: "Saber",
@@ -23,6 +24,7 @@ export default class Const {
         10: "Alter Ego",
         11: "Revenger",
         23: "Moon Cancer",
+        25: "Foreigner",
     };
     public static readonly SERVANT_RARITY_MAPPING: {[key: number]: number} = {
         60: 1, // Lv60 一星

@@ -32,7 +32,6 @@ async function run() {
 
     // 将 Master 数据分解成子文件
     let dumper = new MasterDumper(newVer);
-
     await dumper.run();
 
     // 下载网络图片等资源
