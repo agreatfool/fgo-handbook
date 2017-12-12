@@ -106,10 +106,19 @@ export class ServantFilter extends Component<State.Props, any> {
             countInRow = 4;
         }
         MstUtil.divideArrayIntoParts(checkItems, countInRow).forEach((itemsInRow: Array<any>, index) => {
+            let cells = itemsInRow;
+
+            if (cells.length < countInRow) {
+                let appendCount = countInRow - cells.length;
+                for (let loop = 0; loop < appendCount; loop++) {
+                    cells.push(<Col key={`CheckItem_PH_${index}_${loop}`}/>);
+                }
+            }
+
             rows.push(
                 <Row key={`CheckRow_${propName}_${index}`}
                      style={[Styles.Common.Centering, {minHeight: 25, marginBottom: 5}]}>
-                    {itemsInRow}
+                    {cells}
                 </Row>
             );
         });
