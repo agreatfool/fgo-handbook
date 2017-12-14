@@ -134,9 +134,16 @@ interface GridCardWrapperProps extends Props {
 export class GridCardWrapper extends Component<GridCardWrapperProps, any> {
     render() {
         let props = this.props as GridCardWrapperProps;
+
+        let backgroundColor = "#FFF";
+        if (props.hasOwnProperty("backgroundColor")) {
+            backgroundColor = props.backgroundColor;
+            delete props["backgroundColor"];
+        }
+
         return (
             <Grid>
-                <ColCardWrapper {...props} backgroundColor="#FFF">
+                <ColCardWrapper {...props} backgroundColor={backgroundColor}>
                     {props.children}
                 </ColCardWrapper>
             </Grid>
