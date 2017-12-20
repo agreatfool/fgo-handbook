@@ -5,12 +5,12 @@ cd ${BASEDIR}/../
 
 pwd
 
-rm -rf ${BASEDIR}/ios/bundle
-mkdir ${BASEDIR}/ios/bundle
+rm -rf ./ios/bundle
+mkdir ./ios/bundle
 
 react-native bundle \
---entry-file ${BASEDIR}/index.ios.js \
---bundle-output ${BASEDIR}/ios/bundle/index.ios.jsbundle \
+--entry-file ./index.ios.js \
+--bundle-output ./ios/bundle/index.ios.jsbundle \
 --platform ios \
---assets-dest ${BASEDIR}/ios/bundle \
+--assets-dest ./ios/bundle \
 --dev false

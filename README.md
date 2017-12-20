@@ -52,4 +52,13 @@ tsc生成的代码在：
 
 这个操作会避免再运行一系列的图片下载行为，对脚本资源的下载和分析有加速作用
 
+## 4. Tips
+当前使用的RN版本是有致命BUG的，但我也不想更换了，每次一换都是一堆问题。
 
+在npm安装完成之后记得：
+```
+mkdir node_modules/react-native/packager
+cp node_modules/react-native/scripts/react-native-xcode.sh node_modules/react-native/packager/react-native-xcode.sh
+```
+
+自从某次更新版本之后发现了这个问题我就对RN完全失去了兴趣，连最基本的测试都没有做好就放出来的release，对得起FB大厂的脸面？
