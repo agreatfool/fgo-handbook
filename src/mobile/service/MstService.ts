@@ -389,6 +389,14 @@ export class Service {
                     // 阿福第三技能
                     embeddedDetail["effect4"] = ["30%", "32%", "34%", "36%", "38%", "40%", "42%", "44%", "46%", "50%"];
                     break;
+                case 433650:
+                    // 艾蕾第三技能
+                    embeddedDetail["effect4"] = ["2000", "2100", "2200", "2300", "2400", "2500", "2600", "2700", "2800", "2900", "3000"];
+                    break;
+                case 432650:
+                    // 阿提拉弓第三技能
+                    embeddedDetail["effect4"] = [];
+                    break;
                 default:
                     break;
             }
