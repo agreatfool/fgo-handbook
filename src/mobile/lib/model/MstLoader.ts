@@ -36,6 +36,8 @@ export default class MstLoader {
         this._service = new Service();
         this._basePath = "../../../..";
         this._resourcePath = "../../../resource";
+
+        console.log(RNFS.DocumentDirectoryPath);
     }
 
     private _modelCache: Map<string, BaseContainer<any>>;
