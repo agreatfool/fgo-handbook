@@ -6,7 +6,7 @@
         "servants": [
             {
                 "svtId": 103600,
-                "limit": 0,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 542550,
@@ -50,15 +50,15 @@
                 "skills": [
                     {
                         "skillId": 411552,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 412450,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 413550,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 187,
@@ -150,15 +150,15 @@
                 "skills": [
                     {
                         "skillId": 242650,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 5150,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 243650,
-                        "level": 1
+                        "level": 4
                     }
                 ],
                 "collectionNo": 123,
@@ -190,15 +190,15 @@
                 "skills": [
                     {
                         "skillId": 164350,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 163450,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 165550,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 91,
@@ -210,7 +210,7 @@
                 "skills": [
                     {
                         "skillId": 92550,
-                        "level": 6
+                        "level": 9
                     },
                     {
                         "skillId": 57450,
@@ -286,7 +286,7 @@
             },
             {
                 "svtId": 101300,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 77450,
@@ -370,15 +370,15 @@
                 "skills": [
                     {
                         "skillId": 504550,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 505551,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 506450,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 216,
@@ -410,15 +410,15 @@
                 "skills": [
                     {
                         "skillId": 430450,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 431450,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 432650,
-                        "level": 4
+                        "level": 8
                     }
                 ],
                 "collectionNo": 197,
@@ -450,15 +450,15 @@
                 "skills": [
                     {
                         "skillId": 384551,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 385450,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 386450,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 180,
@@ -466,7 +466,7 @@
             },
             {
                 "svtId": 201000,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 114552,
@@ -570,15 +570,15 @@
                 "skills": [
                     {
                         "skillId": 127010,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 495550,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 496450,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 214,
@@ -594,7 +594,7 @@
                     },
                     {
                         "skillId": 447551,
-                        "level": 6
+                        "level": 9
                     },
                     {
                         "skillId": 433650,
@@ -630,15 +630,15 @@
                 "skills": [
                     {
                         "skillId": 408650,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 407650,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 409551,
-                        "level": 4
+                        "level": 9
                     }
                 ],
                 "collectionNo": 183,
@@ -650,15 +650,15 @@
                 "skills": [
                     {
                         "skillId": 308550,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 309552,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 310550,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 143,
@@ -730,15 +730,15 @@
                 "skills": [
                     {
                         "skillId": 266650,
-                        "level": 6
+                        "level": 8
                     },
                     {
                         "skillId": 267550,
-                        "level": 6
+                        "level": 8
                     },
                     {
                         "skillId": 268450,
-                        "level": 6
+                        "level": 8
                     }
                 ],
                 "collectionNo": 128,
@@ -770,15 +770,15 @@
                 "skills": [
                     {
                         "skillId": 401452,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 156550,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 94450,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 87,
@@ -810,15 +810,15 @@
                 "skills": [
                     {
                         "skillId": 92551,
-                        "level": 7
+                        "level": 9
                     },
                     {
                         "skillId": 135550,
-                        "level": 7
+                        "level": 9
                     },
                     {
                         "skillId": 5150,
-                        "level": 4
+                        "level": 9
                     }
                 ],
                 "collectionNo": 78,
@@ -826,7 +826,7 @@
             },
             {
                 "svtId": 300200,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 37450,
@@ -846,7 +846,7 @@
             },
             {
                 "svtId": 301600,
-                "limit": 3,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 77351,
@@ -866,7 +866,7 @@
             },
             {
                 "svtId": 301000,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 26350,
@@ -906,7 +906,7 @@
             },
             {
                 "svtId": 300600,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 38550,
@@ -954,11 +954,11 @@
                     },
                     {
                         "skillId": 399450,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 400550,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 182,
@@ -1018,7 +1018,7 @@
                     },
                     {
                         "skillId": 168251,
-                        "level": 4
+                        "level": 9
                     }
                 ],
                 "collectionNo": 94,
@@ -1043,6 +1043,26 @@
                 ],
                 "collectionNo": 73,
                 "classId": 4
+            },
+            {
+                "svtId": 504000,
+                "limit": 4,
+                "skills": [
+                    {
+                        "skillId": 533551,
+                        "level": 4
+                    },
+                    {
+                        "skillId": 534450,
+                        "level": 4
+                    },
+                    {
+                        "skillId": 535550,
+                        "level": 4
+                    }
+                ],
+                "collectionNo": 225,
+                "classId": 5
             },
             {
                 "svtId": 503900,
@@ -1090,15 +1110,15 @@
                 "skills": [
                     {
                         "skillId": 5449,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 443550,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 444550,
-                        "level": 4
+                        "level": 8
                     }
                 ],
                 "collectionNo": 194,
@@ -1110,15 +1130,15 @@
                 "skills": [
                     {
                         "skillId": 89450,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 441550,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 442550,
-                        "level": 1
+                        "level": 4
                     }
                 ],
                 "collectionNo": 192,
@@ -1150,15 +1170,15 @@
                 "skills": [
                     {
                         "skillId": 313550,
-                        "level": 8
+                        "level": 9
                     },
                     {
                         "skillId": 5551,
-                        "level": 8
+                        "level": 9
                     },
                     {
                         "skillId": 314650,
-                        "level": 8
+                        "level": 9
                     }
                 ],
                 "collectionNo": 145,
@@ -1190,11 +1210,11 @@
                 "skills": [
                     {
                         "skillId": 145650,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 181450,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 112650,
@@ -1206,7 +1226,7 @@
             },
             {
                 "svtId": 501600,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 192450,
@@ -1250,11 +1270,11 @@
                 "skills": [
                     {
                         "skillId": 90550,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 143551,
-                        "level": 4
+                        "level": 8
                     },
                     {
                         "skillId": 144551,
@@ -1270,15 +1290,15 @@
                 "skills": [
                     {
                         "skillId": 71550,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 25551,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 129550,
-                        "level": 4
+                        "level": 8
                     }
                 ],
                 "collectionNo": 74,
@@ -1286,7 +1306,7 @@
             },
             {
                 "svtId": 502100,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 127250,
@@ -1326,7 +1346,7 @@
             },
             {
                 "svtId": 501400,
-                "limit": 3,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 23550,
@@ -1346,7 +1366,7 @@
             },
             {
                 "svtId": 500200,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 66550,
@@ -1366,19 +1386,19 @@
             },
             {
                 "svtId": 603500,
-                "limit": 0,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 548550,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 549550,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 22350,
-                        "level": 1
+                        "level": 4
                     }
                 ],
                 "collectionNo": 230,
@@ -1390,15 +1410,15 @@
                 "skills": [
                     {
                         "skillId": 17250,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 510650,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 511551,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 218,
@@ -1430,7 +1450,7 @@
                 "skills": [
                     {
                         "skillId": 25551,
-                        "level": 6
+                        "level": 8
                     },
                     {
                         "skillId": 423650,
@@ -1438,7 +1458,7 @@
                     },
                     {
                         "skillId": 424552,
-                        "level": 6
+                        "level": 8
                     }
                 ],
                 "collectionNo": 189,
@@ -1450,7 +1470,7 @@
                 "skills": [
                     {
                         "skillId": 418552,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 227550,
@@ -1518,7 +1538,7 @@
                     },
                     {
                         "skillId": 301350,
-                        "level": 6
+                        "level": 9
                     }
                 ],
                 "collectionNo": 139,
@@ -1590,7 +1610,7 @@
                 "skills": [
                     {
                         "skillId": 164550,
-                        "level": 4
+                        "level": 9
                     },
                     {
                         "skillId": 36550,
@@ -1598,7 +1618,7 @@
                     },
                     {
                         "skillId": 165450,
-                        "level": 5
+                        "level": 9
                     }
                 ],
                 "collectionNo": 92,
@@ -1606,7 +1626,7 @@
             },
             {
                 "svtId": 600700,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 39455,
@@ -1666,7 +1686,7 @@
             },
             {
                 "svtId": 601300,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 53250,
@@ -1686,7 +1706,7 @@
             },
             {
                 "svtId": 601200,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 14552,
@@ -1706,7 +1726,7 @@
             },
             {
                 "svtId": 601100,
-                "limit": 1,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 43550,
@@ -1726,7 +1746,7 @@
             },
             {
                 "svtId": 600200,
-                "limit": 1,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 503550,
@@ -1746,7 +1766,7 @@
             },
             {
                 "svtId": 600100,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 36550,
@@ -1766,19 +1786,19 @@
             },
             {
                 "svtId": 703200,
-                "limit": 0,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 539550,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 540450,
-                        "level": 1
+                        "level": 4
                     },
                     {
                         "skillId": 541550,
-                        "level": 1
+                        "level": 4
                     }
                 ],
                 "collectionNo": 226,
@@ -1790,15 +1810,15 @@
                 "skills": [
                     {
                         "skillId": 512450,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 513551,
-                        "level": 4
+                        "level": 6
                     },
                     {
                         "skillId": 514650,
-                        "level": 4
+                        "level": 6
                     }
                 ],
                 "collectionNo": 219,
@@ -1926,7 +1946,7 @@
             },
             {
                 "svtId": 701100,
-                "limit": 1,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 97450,
@@ -1946,7 +1966,7 @@
             },
             {
                 "svtId": 701000,
-                "limit": 1,
+                "limit": 2,
                 "skills": [
                     {
                         "skillId": 15550,
@@ -1966,7 +1986,7 @@
             },
             {
                 "svtId": 700300,
-                "limit": 2,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 16450,
@@ -2006,19 +2026,19 @@
             },
             {
                 "svtId": 900600,
-                "limit": 0,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 536550,
-                        "level": 1
+                        "level": 7
                     },
                     {
                         "skillId": 537550,
-                        "level": 1
+                        "level": 7
                     },
                     {
                         "skillId": 538550,
-                        "level": 1
+                        "level": 10
                     }
                 ],
                 "collectionNo": 229,
@@ -2070,15 +2090,15 @@
                 "skills": [
                     {
                         "skillId": 425650,
-                        "level": 7
+                        "level": 9
                     },
                     {
                         "skillId": 426350,
-                        "level": 7
+                        "level": 9
                     },
                     {
                         "skillId": 427350,
-                        "level": 7
+                        "level": 9
                     }
                 ],
                 "collectionNo": 190,
@@ -2098,7 +2118,7 @@
                     },
                     {
                         "skillId": 268650,
-                        "level": 6
+                        "level": 9
                     }
                 ],
                 "collectionNo": 167,
@@ -2138,7 +2158,7 @@
                     },
                     {
                         "skillId": 353655,
-                        "level": 6
+                        "level": 9
                     }
                 ],
                 "collectionNo": 163,
@@ -2146,7 +2166,7 @@
             },
             {
                 "svtId": 1100100,
-                "limit": 3,
+                "limit": 4,
                 "skills": [
                     {
                         "skillId": 197350,
@@ -2170,7 +2190,7 @@
                 "skills": [
                     {
                         "skillId": 172650,
-                        "level": 8
+                        "level": 9
                     },
                     {
                         "skillId": 97550,
@@ -2178,7 +2198,7 @@
                     },
                     {
                         "skillId": 173550,
-                        "level": 8
+                        "level": 9
                     }
                 ],
                 "collectionNo": 96,
@@ -2190,7 +2210,7 @@
                 "skills": [
                     {
                         "skillId": 71650,
-                        "level": 6
+                        "level": 9
                     },
                     {
                         "skillId": 515550,
@@ -2198,7 +2218,7 @@
                     },
                     {
                         "skillId": 516650,
-                        "level": 6
+                        "level": 9
                     }
                 ],
                 "collectionNo": 220,
@@ -2210,15 +2230,15 @@
                 "skills": [
                     {
                         "skillId": 357250,
-                        "level": 8
+                        "level": 9
                     },
                     {
                         "skillId": 358350,
-                        "level": 8
+                        "level": 9
                     },
                     {
                         "skillId": 71650,
-                        "level": 8
+                        "level": 9
                     }
                 ],
                 "collectionNo": 166,
@@ -2250,15 +2270,15 @@
                 "skills": [
                     {
                         "skillId": 435350,
-                        "level": 1
+                        "level": 6
                     },
                     {
                         "skillId": 436450,
-                        "level": 1
+                        "level": 6
                     },
                     {
                         "skillId": 437551,
-                        "level": 1
+                        "level": 6
                     }
                 ],
                 "collectionNo": 195,
@@ -3132,26 +3152,6 @@
                     "classId": 3
                 },
                 {
-                    "svtId": 300700,
-                    "limit": 2,
-                    "skills": [
-                        {
-                            "skillId": 9450,
-                            "level": 1
-                        },
-                        {
-                            "skillId": 59450,
-                            "level": 1
-                        },
-                        {
-                            "skillId": 55452,
-                            "level": 1
-                        }
-                    ],
-                    "collectionNo": 20,
-                    "classId": 3
-                },
-                {
                     "svtId": 300600,
                     "limit": 1,
                     "skills": [
@@ -3589,26 +3589,6 @@
                         }
                     ],
                     "collectionNo": 35,
-                    "classId": 5
-                },
-                {
-                    "svtId": 500700,
-                    "limit": 4,
-                    "skills": [
-                        {
-                            "skillId": 4550,
-                            "level": 1
-                        },
-                        {
-                            "skillId": 70450,
-                            "level": 1
-                        },
-                        {
-                            "skillId": 231350,
-                            "level": 1
-                        }
-                    ],
-                    "collectionNo": 34,
                     "classId": 5
                 },
                 {
