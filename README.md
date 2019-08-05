@@ -111,13 +111,13 @@ cp node_modules/react-native/scripts/react-native-xcode.sh node_modules/react-na
 
 自从某次更新版本之后发现了这个问题我就对RN完全失去了兴趣，连最基本的测试都没有做好就放出来的release，对得起FB大厂的脸面？
 
-**UPDATE 2019-08-05**
+**UPDATE 2019-08-05**    
 因Xcode版本更新的原因，又有部分问题，这里记录下。Clone及安装步骤：
 
-将代码库clone下来
-将本地node版本切换到`v6.10.3`，比较新的node版本会导致npm包安装失败，因为很多老版本的包在新的node版本中不支持
-`npm install .`
-`npm install -g react-native-cli@2.0.1`
+将代码库clone下来    
+将本地node版本切换到`v6.10.3`，比较新的node版本会导致npm包安装失败，因为很多老版本的包在新的node版本中不支持    
+`npm install .`    
+`npm install -g react-native-cli@2.0.1`    
 
 ```bash
 $ react-native --version
